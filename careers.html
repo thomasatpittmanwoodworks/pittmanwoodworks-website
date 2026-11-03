@@ -412,6 +412,10 @@ footer{margin-top:48px;border-top:1px solid var(--line);background:var(--sheet)}
 footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#26313B;background:var(--sheet);color:var(--ink);border-top:0;margin-top:72px}
 .tblock small{font-family:var(--body);font-weight:600;letter-spacing:.1em}
 .fbase{font-family:var(--body)}
+
+.fine{font-size:12.5px;color:var(--ink-2)}
+.fine a{color:var(--ink)}
+button[disabled]{opacity:.6;cursor:wait}
 </style>
 <style>
 body{margin:0}
@@ -591,16 +595,20 @@ select{appearance:auto}
         <p>Don't see your role listed? Choose "General application" and tell us what you do.</p>
       </div>
       <div class="box">
-        <form id="appForm" novalidate>
-          <label class="f full" for="aRole">Position<select id="aRole"><option>General application</option><option>Commercial Cabinet Installer</option><option>Cabinet Assembler</option><option>CNC & Machine Operator</option><option>Production Helper</option></select></label>
-          <label class="f" for="aName">Full name<input id="aName" autocomplete="name" required></label>
-          <label class="f" for="aPhone">Phone<input id="aPhone" type="tel" autocomplete="tel" required></label>
-          <label class="f" for="aEmail">Email<input id="aEmail" type="email" autocomplete="email"></label>
-          <label class="f" for="aYears">Years of experience<select id="aYears"><option>None, ready to learn</option><option>Less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option></select></label>
-          <label class="f full" for="aNote">Tell us about yourself<textarea id="aNote" placeholder="Past shops or crews, tools and machines you've run, when you can start"></textarea></label>
-          <div class="full"><label class="filebox" for="aFile"><input type="file" id="aFile" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"><b>Attach resume</b><span id="aFileName">PDF, Word or photo · optional</span></label></div>
+        <form id="appForm" name="application" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+          <input type="hidden" name="form-name" value="application">
+          <input type="hidden" name="subject" data-remove-prefix value="New job application from pittmanwoodworks.com">
+          <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <label class="f full" for="aRole">Position<select id="aRole" name="position"><option>General application</option><option>Commercial Cabinet Installer</option><option>Cabinet Assembler</option><option>CNC & Machine Operator</option><option>Production Helper</option></select></label>
+          <label class="f" for="aName">Full name<input id="aName" name="name" autocomplete="name" required></label>
+          <label class="f" for="aPhone">Phone<input id="aPhone" name="phone" type="tel" autocomplete="tel" required></label>
+          <label class="f" for="aEmail">Email<input id="aEmail" name="email" type="email" autocomplete="email"></label>
+          <label class="f" for="aYears">Years of experience<select id="aYears" name="experience"><option>None, ready to learn</option><option>Less than 1 year</option><option>1–3 years</option><option>3–5 years</option><option>5+ years</option></select></label>
+          <label class="f full" for="aNote">Tell us about yourself<textarea id="aNote" name="message" placeholder="Past shops or crews, tools and machines you've run, when you can start"></textarea></label>
+          <div class="full"><label class="filebox" for="aFile"><input type="file" id="aFile" name="resume" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"><b>Attach resume</b><span id="aFileName">PDF, Word or photo up to 8 MB · optional</span></label></div>
           <div class="full"><button class="btn" type="submit">Submit application</button></div>
           <div class="sent full" id="aSent" hidden></div>
+          <p class="fine full">By applying you agree to our <a href="privacy.html">privacy policy</a>.</p>
         </form>
       </div>
     </div>
@@ -618,7 +626,7 @@ select{appearance:auto}
       <div><small>Contact</small>(469) 375-0495<br>office@pittmanwoodworks.com</div>
     </div>
   </div>
-  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas</span></div>
+  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas · <a href="privacy.html" style="color:inherit">Privacy policy</a></span></div>
 </footer>
 
 <script>
@@ -629,12 +637,22 @@ select{appearance:auto}
   document.querySelectorAll('[data-role]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.dataset.role})});
   var f=document.getElementById('aFile');
   f.addEventListener('change',function(){document.getElementById('aFileName').textContent=f.files[0]?f.files[0].name:'PDF, Word or photo · optional'});
-  document.getElementById('appForm').addEventListener('submit',function(e){
-    e.preventDefault();var out=document.getElementById('aSent');out.hidden=false;
-    var n=document.getElementById('aName').value.trim(),p=document.getElementById('aPhone').value.trim();
-    if(!n||!p){out.style.borderColor=out.style.color='var(--layout)';out.textContent='Add your name and a phone number so we can reach you.';return}
-    out.style.borderColor=out.style.color='';
-    out.textContent='Preview only. On the live site this application for '+sel.value+' goes straight to the office.'});
+
+  /* send a form to Netlify; files require multipart, otherwise urlencoded */
+  function sendForm(form,hasFiles){
+    var fd=new FormData(form),opts={method:'POST'};
+    if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
+    return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
+  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  var FAIL='Something went wrong sending this. Please try again, or call us at (469) 375-0495.';
+  var app=document.getElementById('appForm');
+  app.addEventListener('submit',function(e){e.preventDefault();
+    var out=document.getElementById('aSent'),btn=app.querySelector('button[type=submit]'),file=f.files[0];
+    if(!document.getElementById('aName').value.trim()||!document.getElementById('aPhone').value.trim()){show(out,false,'Add your name and a phone number so we can reach you.');return}
+    if(file&&file.size>8*1048576){show(out,false,'That file is over 8 MB. Please attach a smaller file, or skip the resume and tell us about yourself instead.');return}
+    btn.disabled=true;btn.textContent='Sending…';
+    sendForm(app,true).then(function(){var role=sel.value;app.reset();document.getElementById('aFileName').textContent='PDF, Word or photo up to 8 MB · optional';show(out,true,'Thanks for applying for '+role+'. We review every application and will reach out if there\'s a fit.')})
+      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Submit application'})});
 })();
 </script>
 </body>

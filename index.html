@@ -442,6 +442,11 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
 .clients .lead{margin-bottom:22px}
 .logo{border-left:0;min-width:0;height:48px;padding-inline:clamp(28px,3.4vw,48px)}
 .logo span{font-size:18px;opacity:.6}
+
+#bidForm{grid-template-columns:minmax(0,1fr)}
+.fine{font-size:12.5px;color:var(--ink-2)}
+.fine a{color:var(--ink)}
+button[disabled]{opacity:.6;cursor:wait}
 </style>
 <style>body{margin:0}</style>
 </head>
@@ -726,18 +731,31 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
       <p>General contractors and architects can submit plans for pricing and request our prequalification documents.</p>
     </div>
     <div class="bidg">
-      <div class="box">
-        <span class="tag">Plans &amp; specs</span>
-        <label class="drop" id="drop" for="bidFiles"><input type="file" id="bidFiles" multiple accept=".pdf,.dwg,.dxf,.zip,.png,.jpg,.jpeg"><b>Upload plans &amp; specifications</b><span>PDF, DWG, DXF or ZIP · or click to choose files</span></label>
+      <form class="box" id="bidForm" name="bid" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="form-name" value="bid">
+        <input type="hidden" name="subject" data-remove-prefix value="New bid request from pittmanwoodworks.com">
+        <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <span class="tag">Plans &amp; specifications</span>
+        <label class="drop" id="drop" for="bidFiles"><input type="file" id="bidFiles" name="plans" accept=".pdf,.dwg,.dxf,.zip,.png,.jpg,.jpeg"><b>Upload plans &amp; specifications</b><span>One PDF, DWG, DXF or ZIP up to 8 MB · or click to choose a file</span></label>
         <ul class="flist" id="flist"></ul>
+        <label class="f" for="bidLink">Or share a link to the plans<input id="bidLink" name="plans_link" type="url" placeholder="Dropbox, Box, Procore or BuildingConnected link"></label>
         <div class="row2">
-          <label class="f" for="bidProj">Project name<input id="bidProj" placeholder="e.g. Eastside Clinic TI"></label>
-          <label class="f" for="bidDue">Bid due<input id="bidDue" type="date"></label>
+          <label class="f" for="bidProj">Project name<input id="bidProj" name="project" placeholder="e.g. Eastside Clinic TI"></label>
+          <label class="f" for="bidDue">Bid due<input id="bidDue" name="bid_due" type="date"></label>
         </div>
-        <label class="f" for="bidScope">Casework scope<input id="bidScope" placeholder="e.g. Sections 06 41 00, 12 36 00"></label>
-        <div><button class="btn" id="bidSend" type="button">Submit for bid</button></div>
+        <label class="f" for="bidScope">Casework scope<input id="bidScope" name="scope" placeholder="e.g. Sections 06 41 00, 12 36 00"></label>
+        <div class="row2">
+          <label class="f" for="bidCo">Company<input id="bidCo" name="company" autocomplete="organization"></label>
+          <label class="f" for="bidName">Your name<input id="bidName" name="name" autocomplete="name" required></label>
+        </div>
+        <div class="row2">
+          <label class="f" for="bidEmail">Email<input id="bidEmail" name="email" type="email" autocomplete="email" required></label>
+          <label class="f" for="bidPhone">Phone<input id="bidPhone" name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <div><button class="btn" id="bidSend" type="submit">Submit for bid</button></div>
         <p class="note" id="bidNote" hidden></p>
-      </div>
+        <p class="fine">Submissions are handled under our <a href="privacy.html">privacy policy</a>.</p>
+      </form>
       <div class="box">
         <span class="tag">Prequalification</span>
         <h3>Prequalification documents</h3>
@@ -787,14 +805,18 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
         </dl>
       </div>
       <div class="box">
-        <form id="lead" novalidate>
-          <label class="f" for="nm">Name<input id="nm" required autocomplete="name"></label>
-          <label class="f" for="co">Company (optional)<input id="co" autocomplete="organization"></label>
-          <label class="f" for="ph">Phone<input id="ph" type="tel" autocomplete="tel"></label>
-          <label class="f" for="em">Email<input id="em" type="email" required autocomplete="email"></label>
-          <label class="f full" for="ms">About the project<textarea id="ms" placeholder="Space, rough size, timeline, any plans you have"></textarea></label>
+        <form id="lead" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="subject" data-remove-prefix value="New message from pittmanwoodworks.com">
+          <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <label class="f" for="nm">Name<input id="nm" name="name" required autocomplete="name"></label>
+          <label class="f" for="co">Company (optional)<input id="co" name="company" autocomplete="organization"></label>
+          <label class="f" for="ph">Phone<input id="ph" name="phone" type="tel" autocomplete="tel"></label>
+          <label class="f" for="em">Email<input id="em" name="email" type="email" required autocomplete="email"></label>
+          <label class="f full" for="ms">About the project<textarea id="ms" name="message" placeholder="Space, rough size, timeline, any plans you have"></textarea></label>
           <div class="full"><button class="btn" type="submit">Send message</button></div>
           <div class="sent full" id="sent" hidden></div>
+          <p class="fine full">By sending this form you agree to our <a href="privacy.html">privacy policy</a>.</p>
         </form>
       </div>
     </div>
@@ -811,7 +833,7 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
       <div><small>Contact</small>(469) 375-0495<br>office@pittmanwoodworks.com</div>
     </div>
   </div>
-  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas</span></div>
+  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas · <a href="privacy.html" style="color:inherit">Privacy policy</a></span></div>
 </footer>
 
 <script>
@@ -930,26 +952,35 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
     pl.appendChild(li)});
   xRender();
 
+
+  /* send a form to Netlify; files require multipart, otherwise urlencoded */
+  function sendForm(form,hasFiles){
+    var fd=new FormData(form),opts={method:'POST'};
+    if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
+    return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
+  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  var FAIL='Something went wrong sending this. Please try again, or call us at (469) 375-0495.';
+
   /* bid room */
-  var drop=document.getElementById('drop'),bf=document.getElementById('bidFiles'),fl=document.getElementById('flist'),files=[];
+  var drop=document.getElementById('drop'),bf=document.getElementById('bidFiles'),fl=document.getElementById('flist'),bidForm=document.getElementById('bidForm');
   function kb(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
-  function showFiles(){fl.innerHTML='';files.forEach(function(f){var li=document.createElement('li');var ext=(f.name.split('.').pop()||'file').slice(0,4);
-    li.innerHTML='<span class="ext"></span><span class="nm"></span><span class="sz"></span>';li.children[0].textContent=ext;li.children[1].textContent=f.name;li.children[2].textContent=kb(f.size);fl.appendChild(li)})}
-  function add(list){[].forEach.call(list,function(f){if(!files.some(function(g){return g.name===f.name}))files.push(f)});showFiles()}
-  bf.addEventListener('change',function(){add(bf.files)});
+  function showFile(){fl.innerHTML='';var f=bf.files[0];if(!f)return;var li=document.createElement('li');var ext=(f.name.split('.').pop()||'file').slice(0,4);
+    li.innerHTML='<span class="ext"></span><span class="nm"></span><span class="sz"></span>';li.children[0].textContent=ext;li.children[1].textContent=f.name;li.children[2].textContent=kb(f.size);fl.appendChild(li)}
+  bf.addEventListener('change',showFile);
   ['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over')})});
   ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over')})});
-  drop.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files)add(e.dataTransfer.files)});
+  drop.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files.length){try{var dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);bf.files=dt.files}catch(x){}showFile()}});
+  bidForm.addEventListener('submit',function(e){e.preventDefault();
+    var note=document.getElementById('bidNote'),btn=document.getElementById('bidSend'),f=bf.files[0];
+    if(!document.getElementById('bidName').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('bidEmail').value)){show(note,false,'Add your name and a valid email so we can follow up.');return}
+    if(!f&&!document.getElementById('bidLink').value.trim()&&!document.getElementById('bidProj').value.trim()){show(note,false,'Add your plans, a link to them, or at least a project name.');return}
+    if(f&&f.size>8*1048576){show(note,false,'That file is over 8 MB. Share a link to the plans instead, or send a smaller file.');return}
+    btn.disabled=true;btn.textContent='Sending…';
+    sendForm(bidForm,true).then(function(){bidForm.reset();fl.innerHTML='';show(note,true,'Thanks. Your bid request was sent to our estimating team, and we\'ll confirm receipt within one business day.')})
+      .catch(function(){show(note,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Submit for bid'})});
   function toContact(msg){document.getElementById('ms').value=msg;document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
     setTimeout(function(){document.getElementById('nm').focus({preventScroll:true})},reduce?0:600)}
-  document.getElementById('bidSend').addEventListener('click',function(){
-    var pj=document.getElementById('bidProj').value.trim(),due=document.getElementById('bidDue').value,sc=document.getElementById('bidScope').value.trim(),note=document.getElementById('bidNote');
-    note.hidden=false;
-    if(!files.length&&!pj){note.style.borderColor=note.style.color='var(--layout)';note.textContent='Add your plans or a project name first.';return}
-    note.style.borderColor=note.style.color='';
-    note.textContent='Preview only. On the live site '+(files.length?files.length+' file'+(files.length>1?'s':'')+' would upload':'this request would go')+' straight to estimating.';
-    toContact('Bid request'+(pj?': '+pj:'')+(due?' · due '+due:'')+(sc?' · scope: '+sc:'')+(files.length?' · plans: '+files.map(function(f){return f.name}).join(', '):'')+'.')});
-  document.getElementById('pqReq').addEventListener('click',function(){toContact('Please send your prequalification packet (COI, W-9, capability statement, references, safety program, bonding letter).')});
+  document.getElementById('pqReq').addEventListener('click',function(){toContact('Please send your prequalification documents (COI, W-9, capability statement, references, safety program, bonding letter).')});
 
   /* copy */
   document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.copy).textContent;
@@ -957,11 +988,14 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
     try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied'},sel)}catch(e){sel()}
     setTimeout(function(){b.textContent='Copy'},1600)})});
 
-  /* form */
-  document.getElementById('lead').addEventListener('submit',function(e){e.preventDefault();
-    var nm=document.getElementById('nm'),em=document.getElementById('em'),out=document.getElementById('sent');out.hidden=false;
-    if(!nm.value.trim()||!/^\S+@\S+\.\S+$/.test(em.value)){out.style.borderColor=out.style.color='var(--layout)';out.textContent='Add your name and a valid email so we can reply.';return}
-    out.style.borderColor=out.style.color='';out.textContent='Preview only. On the live site this request goes straight to the office.'});
+  /* contact form */
+  var lead=document.getElementById('lead');
+  lead.addEventListener('submit',function(e){e.preventDefault();
+    var out=document.getElementById('sent'),btn=lead.querySelector('button[type=submit]');
+    if(!document.getElementById('nm').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('em').value)){show(out,false,'Add your name and a valid email so we can reply.');return}
+    btn.disabled=true;btn.textContent='Sending…';
+    sendForm(lead,false).then(function(){lead.reset();show(out,true,'Thanks. Your message was sent, and we\'ll reply within one business day.')})
+      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Send message'})});
 })();
 </script>
 </body>
