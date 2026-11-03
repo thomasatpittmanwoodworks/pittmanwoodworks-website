@@ -1,0 +1,968 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pittman Woodworks | Commercial Casework &amp; Countertops in DFW</title>
+<meta name="description" content="Pittman Woodworks engineers, fabricates and installs commercial casework and countertops for general contractors, owners and architects across North Texas.">
+<meta name="google-site-verification" content="nkmymCgo_RsDfw8X30TAkPf5ZuJh9bd-zLhAIIVhpBc">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: a cabinet shop drawing set, set quietly. Numbered sheets, thin rules, title blocks and dimension lines carry the identity; type and color stay restrained. */
+:root{
+  --paper:#F6F6F4; --sheet:#FFFFFF; --ink:#16191C; --ink-2:#5B6168; --rule:#DFE0DD; --line:#16191C;
+  --layout:#24438F; --layout-soft:#EEF1F8; --birch:#D9C7A3; --ok:#2E6E4C;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --wrap:1200px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#121417; --sheet:#181B1F; --ink:#E9E9E6; --ink-2:#A2A8AE; --rule:#2B3035; --line:#C9CCCF;
+  --layout:#8FA8E8; --layout-soft:#1C2539; --birch:#8C7A57; --ok:#6CBE91; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121417; --sheet:#181B1F; --ink:#E9E9E6; --ink-2:#A2A8AE; --rule:#2B3035; --line:#C9CCCF;
+  --layout:#8FA8E8; --layout-soft:#1C2539; --birch:#8C7A57; --ok:#6CBE91; color-scheme:dark}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-stretch:88%;font-weight:600;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--layout);outline-offset:3px}
+.tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:15px;font-weight:500;
+  padding:13px 22px;border:1px solid var(--ink);border-radius:2px;background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--layout);border-color:var(--layout);color:#FFFFFF}
+.btn.ghost{background:transparent;color:var(--ink);border-color:color-mix(in srgb,var(--ink) 35%,transparent)}
+.btn.ghost:hover{border-color:var(--ink);background:transparent;color:var(--ink)}
+.btn.sm{padding:8px 14px;font-size:13.5px}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:28px;padding-block:14px}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark b{width:36px;height:36px;border:1.5px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-stretch:85%;font-size:15px;font-weight:700;letter-spacing:.02em}
+.mark span{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase;line-height:1.1}
+nav.main{display:flex;gap:26px;margin-left:auto;font-size:14.5px;font-weight:500}
+nav.main a{text-decoration:none;padding-block:4px;border-bottom:1.5px solid transparent;color:var(--ink-2)}
+nav.main a:hover,nav.main a.cur{color:var(--ink);border-color:var(--ink)}
+.top .phone{font-family:var(--mono);font-size:13px;white-space:nowrap;padding-left:22px;border-left:1px solid var(--rule)}
+.menu-btn{display:none;font-family:var(--body);font-size:14px;border:1px solid var(--rule);background:transparent;color:var(--ink);padding:7px 12px;cursor:pointer;border-radius:2px}
+.mnav{border-top:1px solid var(--rule);display:grid}
+.mnav a{padding:14px clamp(16px,4vw,40px);font-family:var(--display);font-stretch:88%;font-size:22px;font-weight:600;text-decoration:none;border-bottom:1px solid var(--rule)}
+@media (max-width:960px){nav.main{display:none}.top .phone{margin-left:auto}.menu-btn{display:inline-block}}
+@media (max-width:420px){.top .phone{display:none}.menu-btn{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,96px) clamp(40px,5vw,72px)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.08fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:clamp(44px,5.8vw,78px);line-height:1;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:var(--layout);white-space:nowrap}
+.hero .lede{font-size:clamp(17px,1.5vw,19px);color:var(--ink-2);max-width:31em;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:34px;padding-top:20px;border-top:1px solid var(--rule)}
+.hero .meta span::before{content:"";display:inline-block;width:6px;height:6px;background:var(--layout);margin-right:9px;vertical-align:2px}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}}
+
+.drawing{background:var(--sheet);border:1px solid var(--line);position:relative;min-width:0}
+.drawing .bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.sw{display:flex;gap:6px}
+.sw button{width:24px;height:24px;border:1px solid var(--line);cursor:pointer;padding:0;position:relative;background:var(--c);border-radius:50%}
+.sw button[aria-pressed="true"]{outline:1.5px solid var(--layout);outline-offset:2px}
+.sw button.line{background:linear-gradient(135deg,transparent 46%,var(--ink) 47% 53%,transparent 54%),var(--sheet)}
+.svgbox{position:relative;cursor:crosshair;background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);background-size:24px 24px;background-position:-1px -1px}
+.svgbox::before{content:"";position:absolute;inset:0;background:var(--sheet);opacity:.55;pointer-events:none}
+.svgbox svg{position:relative;display:block;width:100%;height:auto;touch-action:pan-y}
+.readout{position:absolute;right:10px;bottom:10px;font-family:var(--mono);font-size:11px;background:var(--sheet);color:var(--ink-2);border:1px solid var(--rule);padding:3px 8px;pointer-events:none;font-variant-numeric:tabular-nums}
+.drawing .tb{display:grid;grid-template-columns:1.6fr 1fr .8fr .8fr;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;text-transform:uppercase}
+.drawing .tb div{padding:8px 10px;border-right:1px solid var(--line);min-width:0}
+.drawing .tb div:last-child{border-right:0}
+.drawing .tb small{display:block;color:var(--ink-2);font-size:9.5px;letter-spacing:.06em}
+.drawing .tb strong{font-size:11.5px;font-weight:500;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:520px){.drawing .tb{grid-template-columns:1fr 1fr}.drawing .tb div:nth-child(2){border-right:0}.drawing .tb div:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+.ln{stroke:var(--ink);fill:none;stroke-width:1.4}
+.ln.thin{stroke-width:.9}
+.pnl{fill:transparent;transition:fill .5s ease,stroke .5s ease}
+.top-slab{fill:transparent;transition:fill .5s ease}
+.pull{stroke:var(--ink);stroke-width:2;stroke-linecap:round;transition:stroke .5s}
+.dim{stroke:var(--layout);fill:none;stroke-width:.9}
+.arw{fill:var(--layout)}
+.dimtxt{fill:var(--layout);font-family:var(--mono);font-size:11.5px}
+.lbl{fill:var(--ink-2);font-family:var(--mono);font-size:9.5px;letter-spacing:.05em}
+.cross{stroke:var(--layout);stroke-width:.7;stroke-dasharray:3 3;opacity:0;transition:opacity .15s}
+.svgbox:hover .cross{opacity:.6}
+.bgfill{fill:var(--sheet)}
+svg.f-oak .pnl{fill:#C9A774;stroke:#8A6A3C}
+svg.f-oak .pnl.grain{fill:url(#oak)}
+svg.f-navy .pnl{fill:#26385A;stroke:#506690}
+svg.f-black .pnl{fill:#222326;stroke:#5A5C61}
+svg.f-oak .pull{stroke:#2A2A2A}
+svg.f-navy .pull{stroke:#C7A35A}
+svg.f-black .pull{stroke:#B9BCC1}
+svg.f-oak .top-slab,svg.f-navy .top-slab,svg.f-black .top-slab{fill:#E7E5E0}
+@media (prefers-reduced-motion:no-preference){
+  .draw{stroke-dasharray:var(--len,900);stroke-dashoffset:var(--len,900);animation:draw 1.3s cubic-bezier(.6,0,.3,1) forwards;animation-delay:var(--d,0s)}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .fadein{opacity:0;animation:fi .6s ease forwards;animation-delay:var(--d,1.2s)}
+  @keyframes fi{to{opacity:1}}
+}
+
+/* hero views */
+.vt{display:flex;margin-right:auto;gap:2px;background:var(--paper);padding:2px;border:1px solid var(--rule);border-radius:2px}
+.vt button{all:unset;cursor:pointer;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:5px 10px;color:var(--ink-2);border-radius:1px}
+.vt button[aria-selected="true"]{background:var(--sheet);color:var(--ink);box-shadow:0 0 0 1px var(--rule)}
+.vt button:focus-visible{outline:2px solid var(--layout);outline-offset:2px}
+.hatchln{stroke:var(--ink-2);stroke-width:.8}
+.cutm{fill:var(--ink-2)}
+.sidefill{fill:var(--birch);fill-opacity:.3}
+.swing{stroke:var(--ink-2);stroke-width:.7;fill:none;stroke-dasharray:4 3}
+.hid{stroke:var(--ink-2);stroke-width:.9;fill:none;stroke-dasharray:6 4}
+.ldr{stroke:var(--ink-2);stroke-width:.6;fill:none}
+.vtitle{fill:var(--ink);font-family:var(--display);font-stretch:88%;font-weight:600;font-size:20px}
+
+/* clients */
+.clients{border-block:1px solid var(--rule);background:var(--sheet)}
+.clients .wrap{display:flex;align-items:center;gap:16px 40px;padding-block:22px;flex-wrap:wrap}
+.clients .lead{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);flex:none}
+.clients .row{display:flex;flex-wrap:wrap;gap:10px 30px;flex:1;min-width:0}
+.clients span{font-family:var(--display);font-stretch:88%;font-weight:500;font-size:16px;color:var(--ink-2);white-space:nowrap}
+
+section.sheet{padding-block:clamp(64px,8vw,112px)}
+.sheet-head{display:grid;grid-template-columns:140px 1fr;gap:10px 32px;align-items:baseline;margin-bottom:44px;padding-top:20px;border-top:1px solid var(--line)}
+.sheet-head .no{font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);white-space:nowrap}
+.sheet-head h2{font-size:clamp(32px,4.2vw,52px)}
+.sheet-head p{grid-column:2;color:var(--ink-2);max-width:40em;font-size:17px}
+@media (max-width:700px){.sheet-head{grid-template-columns:1fr}.sheet-head p{grid-column:1}}
+
+/* panels & boxes */
+.panel,.box,.ind,.cut,.steps,.xp-fig{background:var(--sheet);border:1px solid var(--rule)}
+
+/* industries */
+.ind{display:grid;grid-template-columns:250px 1fr}
+@media (max-width:820px){.ind{grid-template-columns:1fr}}
+.ind [role=tablist]{display:grid;border-right:1px solid var(--rule);align-content:start;padding-block:8px}
+@media (max-width:820px){.ind [role=tablist]{grid-auto-flow:column;grid-auto-columns:max-content;overflow-x:auto;border-right:0;border-bottom:1px solid var(--rule);padding:0}}
+.ind [role=tab]{all:unset;cursor:pointer;padding:13px 20px;display:flex;justify-content:space-between;gap:12px;font-family:var(--display);font-stretch:88%;font-weight:500;font-size:17px;color:var(--ink-2);border-left:2px solid transparent}
+.ind [role=tab] small{font-family:var(--mono);font-size:10.5px;font-weight:400;align-self:center;opacity:.7}
+.ind [role=tab]:hover{color:var(--ink)}
+.ind [role=tab][aria-selected=true]{color:var(--ink);border-left-color:var(--layout);background:var(--layout-soft)}
+@media (max-width:820px){.ind [role=tab]{border-left:0;border-bottom:2px solid transparent}.ind [role=tab][aria-selected=true]{border-bottom-color:var(--layout)}}
+.ind [role=tab]:focus-visible{outline:2px solid var(--layout);outline-offset:-4px}
+.ind-body{padding:clamp(22px,3.5vw,44px);display:grid;grid-template-columns:1.2fr 1fr;gap:32px;min-width:0}
+@media (max-width:1000px){.ind-body{grid-template-columns:1fr}}
+.ind-body h3{font-size:clamp(26px,3vw,36px)}
+.ind-body .sub{color:var(--ink-2);margin-top:14px;max-width:34em}
+.spec{border:1px solid var(--rule)}
+.spec .row{display:grid;grid-template-columns:110px 1fr;border-bottom:1px solid var(--rule);font-size:14px}
+.spec .row:last-child{border-bottom:0}
+.spec .row span:first-child{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);padding:10px 12px;border-right:1px solid var(--rule);background:var(--paper)}
+.spec .row span:last-child{padding:10px 12px;min-width:0}
+.builds{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;list-style:none;padding:0}
+.builds li{font-size:13.5px;border:1px solid var(--rule);padding:4px 11px;border-radius:2px}
+
+/* exploded box */
+.xp{display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:start}
+@media (max-width:900px){.xp{grid-template-columns:1fr}}
+.xp-fig{margin:0;min-width:0}
+.xbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;padding:10px 14px;border-bottom:1px solid var(--rule)}
+.xp-fig svg{display:block;width:100%;height:auto}
+.xpart{transition:transform .9s cubic-bezier(.65,0,.25,1)}
+.xpart.hl polygon{stroke:var(--layout);stroke-width:2}
+.xl{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;fill:var(--ink);paint-order:stroke;stroke:var(--sheet);stroke-width:4px;stroke-linejoin:round;transition:opacity .35s}
+.assembled .xl{opacity:0}
+@media (prefers-reduced-motion:reduce){.xpart{transition:none}}
+.plist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.plist li{display:grid;grid-template-columns:34px 1fr;gap:2px 12px;padding:13px 8px;border-bottom:1px solid var(--rule);cursor:default;transition:background .15s}
+.plist li:hover,.plist li:focus{background:var(--layout-soft);outline:0}
+.plist li .k{font-family:var(--mono);font-size:11px;color:var(--layout);grid-row:span 2;padding-top:3px}
+.plist li b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:17px;line-height:1.3}
+.plist li span:last-child{font-size:14px;color:var(--ink-2)}
+
+/* traveler */
+.trav{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:start}
+@media (max-width:960px){.trav{grid-template-columns:1fr}}
+.panel{min-width:0}
+.panel-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--rule)}
+.panel-h h3{font-size:19px}
+.sample{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);border:1px solid var(--rule);padding:3px 8px}
+.stations{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:1px solid var(--rule)}
+.st{padding:14px 6px 12px;text-align:center;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-2);border-right:1px solid var(--rule);min-width:0;transition:background .25s,color .25s}
+.st:last-child{border-right:0}
+.st b{display:block;font-family:var(--display);font-stretch:88%;font-weight:600;font-size:26px;line-height:1.1;color:var(--ink);font-variant-numeric:tabular-nums}
+.st.on{background:var(--layout-soft);color:var(--layout)}
+.st.on b{color:var(--layout)}
+.st.done b{color:var(--ok)}
+@media (max-width:560px){.stations{grid-template-columns:repeat(3,1fr)}.st:nth-child(3){border-right:0}.st:nth-child(-n+3){border-bottom:1px solid var(--rule)}}
+.meter{height:3px;background:var(--rule)}
+.meter i{display:block;height:100%;background:var(--layout);width:0;transition:width .4s ease}
+.parts{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+th{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;text-align:left;color:var(--ink-2);font-weight:400;padding:10px 18px;border-bottom:1px solid var(--rule)}
+td{padding:11px 18px;border-bottom:1px solid var(--rule);white-space:nowrap}
+td.code{font-family:var(--mono);font-size:12.5px}
+.pill{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;padding:2px 8px;border-radius:2px;display:inline-block;background:var(--paper);color:var(--ink-2)}
+.pill.here{color:var(--layout);background:var(--layout-soft)}
+.pill.fin{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+tr.cur td{background:var(--layout-soft)}
+.panel-f{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:14px 18px}
+.printer{padding:0}
+.slot{display:none}
+.feed{padding:0}
+.label{background:#FFFFFF;color:#111111;aspect-ratio:2/1;max-width:100%;padding:16px 18px;display:grid;grid-template-rows:auto 1fr auto;gap:6px;font-family:var(--mono);border:1px solid #D5D6D3;box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.06)}
+.label.out{animation:feed .4s ease}
+@keyframes feed{from{opacity:.25;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.label.out{animation:none}}
+.label .r1{display:flex;justify-content:space-between;font-size:10.5px;font-weight:600;gap:8px;letter-spacing:.03em}
+.label .pn{font-size:clamp(18px,2.2vw,24px);font-weight:600;line-height:1.1}
+.label .r3{display:flex;justify-content:space-between;align-items:end;gap:12px;font-size:10.5px}
+.label canvas{width:62%;height:44px;display:block}
+.label-cap{margin-top:16px;font-size:14px;color:var(--ink-2)}
+
+/* services cut list */
+.cut{overflow-x:auto}
+.cut table td{white-space:normal;vertical-align:top;padding-block:22px}
+.cut td:first-child{width:80px;color:var(--ink-2)}
+.cut h3{font-size:24px}
+.cut ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.cut li{font-size:13.5px;border:1px solid var(--rule);padding:3px 10px;border-radius:2px}
+.cut .mat{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);margin-top:8px}
+.cut tbody tr:last-child td{border-bottom:0}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(5,1fr)}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.step{padding:26px 22px 28px;border-right:1px solid var(--rule);display:grid;gap:10px;align-content:start;min-width:0}
+.step:last-child{border-right:0}
+@media (max-width:1000px){.step{border-bottom:1px solid var(--rule)}}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--layout);letter-spacing:.06em}
+.step .n::before{content:"Step 0"}
+.step h3{font-size:20px}
+.step p{font-size:15px;color:var(--ink-2)}
+.step .who{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2);border-top:1px solid var(--rule);padding-top:10px;margin-top:6px}
+
+/* projects */
+.proj{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:260px;gap:12px}
+.ph{border:1px solid var(--rule);background:linear-gradient(160deg,var(--sheet),var(--paper));display:flex;flex-direction:column;justify-content:flex-end;padding:18px;gap:4px;min-width:0;position:relative;overflow:hidden}
+.ph.wide{grid-column:span 2}
+.ph.tall{grid-row:span 2}
+.ph b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:20px;line-height:1.2}
+.ph .corner{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:10px;color:var(--ink-2);opacity:.7}
+@media (max-width:800px){.proj{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}.ph.tall{grid-row:span 1}}
+
+/* contractors + promise */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:820px){.split{grid-template-columns:1fr}}
+.box{padding:clamp(24px,3vw,40px);display:grid;gap:18px;align-content:start;min-width:0}
+.box.inv{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.box.inv .tag{color:color-mix(in srgb,var(--paper) 65%,transparent)}
+.box h3{font-size:clamp(26px,3vw,36px)}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+.checks li{display:grid;grid-template-columns:18px 1fr;gap:10px;font-size:15.5px}
+.checks li::before{content:"";width:8px;height:8px;background:var(--layout);margin-top:9px}
+.box.inv .checks li::before{background:var(--birch)}
+.seth{display:flex;gap:16px;align-items:center;border-top:1px solid var(--rule);padding-top:20px}
+.seth .av{width:52px;height:52px;border:1px solid var(--rule);background:var(--paper);display:grid;place-items:center;font-family:var(--display);font-stretch:88%;font-size:17px;font-weight:600;flex:none}
+
+/* bid room */
+.bidg{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:start}
+@media (max-width:900px){.bidg{grid-template-columns:1fr}}
+.drop{display:grid;place-items:center;gap:6px;text-align:center;border:1px dashed color-mix(in srgb,var(--ink) 40%,transparent);padding:38px 20px;cursor:pointer;background:var(--paper);transition:background .2s,border-color .2s}
+.drop:hover,.drop.over{background:var(--layout-soft);border-color:var(--layout)}
+.drop b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:21px}
+.drop span{font-size:13.5px;color:var(--ink-2)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
+.drop:focus-within{outline:2px solid var(--layout);outline-offset:3px}
+.flist{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.flist:empty{display:none}
+.flist li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;border:1px solid var(--rule);padding:8px 10px;font-size:14px;min-width:0}
+.flist li .ext{font-family:var(--mono);font-size:10px;text-transform:uppercase;border:1px solid var(--rule);padding:1px 6px}
+.flist li .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.flist li .sz{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:520px){.row2{grid-template-columns:1fr}}
+.pq{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.pq li{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.pq li span{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-2)}
+.note{border-left:2px solid var(--ok);color:var(--ok);padding:8px 12px;font-size:14px;background:color-mix(in srgb,var(--ok) 8%,transparent)}
+
+/* faq */
+.faq{border-top:1px solid var(--rule)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:60px 1fr 28px;gap:12px;align-items:center;padding:20px 0;font-family:var(--display);font-stretch:88%;font-size:clamp(18px,2vw,22px);font-weight:500;line-height:1.3}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .k{font-family:var(--mono);font-size:11px;color:var(--ink-2);font-weight:400}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:20px;font-weight:300;text-align:center;color:var(--ink-2);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 40px 24px 72px;color:var(--ink-2);max-width:48em}
+@media (max-width:520px){.faq summary{grid-template-columns:40px 1fr 24px}.faq details p{padding-left:52px;padding-right:0}}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.4fr;gap:24px}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form .full{grid-column:1/-1}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+label.f{display:grid;gap:6px;font-size:13.5px;font-weight:500;color:var(--ink-2);min-width:0}
+input:not([type=range]):not([type=radio]):not([type=file]),select,textarea{font:inherit;font-family:var(--body);font-size:15px;font-weight:400;padding:11px 12px;border:1px solid var(--rule);background:var(--paper);color:var(--ink);border-radius:2px;width:100%;transition:border-color .15s}
+input:focus,textarea:focus{outline:none;border-color:var(--layout);box-shadow:0 0 0 3px var(--layout-soft)}
+textarea{min-height:130px;resize:vertical}
+.sent{border-left:2px solid var(--ok);color:var(--ok);padding:10px 14px;font-size:14px;background:color-mix(in srgb,var(--ok) 8%,transparent)}
+.info dl{margin:0;display:grid;gap:20px}
+.info dt{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2)}
+.info dd{margin:3px 0 0;font-size:18px;font-weight:500;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.copy{font-family:var(--mono);font-size:10px;text-transform:uppercase;border:1px solid var(--rule);background:transparent;color:var(--ink-2);padding:2px 7px;cursor:pointer;border-radius:2px}
+
+/* footer title block */
+footer{margin-top:48px;border-top:1px solid var(--line);background:var(--sheet)}
+.tblock{display:grid;grid-template-columns:2fr 1.4fr 1fr 1fr;font-size:13.5px}
+.tblock > div{padding:22px 20px;border-right:1px solid var(--rule);min-width:0;color:var(--ink-2)}
+.tblock > div:first-child{color:var(--ink)}
+.tblock > div:last-child{border-right:0}
+.tblock small{display:block;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-2);margin-bottom:8px}
+.tblock a{display:block;text-decoration:none;padding-block:2px}
+.tblock a:hover{color:var(--ink)}
+.rev{width:100%;font-size:12.5px}
+.rev td,.rev th{padding:3px 8px 3px 0;border:0;white-space:normal}
+.fbase{border-top:1px solid var(--rule);font-family:var(--mono);font-size:11px;color:var(--ink-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 24px;padding-block:14px}
+@media (max-width:820px){.tblock{grid-template-columns:1fr 1fr}.tblock > div:nth-child(2){border-right:0}.tblock > div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
+@media (max-width:460px){.tblock{grid-template-columns:1fr}.tblock > div{border-right:0;border-bottom:1px solid var(--rule)}}
+
+.hdr-cta{margin-left:4px}
+@media (max-width:640px){.hdr-cta{display:none}}
+.caps{border-bottom:1px solid var(--rule);background:var(--sheet)}
+.caps-g{display:grid;grid-template-columns:repeat(4,1fr)}
+.caps-g > div{padding:26px 24px 28px;border-left:1px solid var(--rule);display:grid;gap:6px;min-width:0}
+.caps-g > div:first-child{border-left:0;padding-left:0}
+.caps-g b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:17px}
+.caps-g span{font-size:14px;color:var(--ink-2)}
+@media (max-width:900px){.caps-g{grid-template-columns:1fr 1fr}.caps-g > div:nth-child(3){border-left:0;padding-left:0}.caps-g > div:nth-child(-n+2){border-bottom:1px solid var(--rule)}}
+@media (max-width:520px){.caps-g{grid-template-columns:1fr}.caps-g > div{border-left:0;padding-left:0;border-bottom:1px solid var(--rule)}}
+.clients{border-bottom:0}
+.sheet-head .no{color:var(--layout)}
+.hero h1{font-size:clamp(40px,5vw,66px);line-height:1.04}
+.hero h1 em{white-space:normal}
+.svgbox{cursor:default}
+
+/* ===== professional pass ===== */
+.tag,.sheet-head .no{font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.sheet-head .no{color:var(--layout)}
+.sheet-head{border-top:0;padding-top:0;grid-template-columns:1fr;gap:12px;max-width:820px}
+.sheet-head p{grid-column:1}
+.sheet-head h2{font-size:clamp(32px,3.8vw,48px)}
+
+/* dark hero */
+.hero{--paper:#0F1419;--sheet:#141B22;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#3B4754;--layout:#A9BDF2;--layout-soft:#1B2638;--birch:#6E5D3F;
+  background:var(--paper);color:var(--ink);padding-block:clamp(64px,8vw,120px)}
+.hero h1{color:var(--ink)}
+.hero .meta{border-top-color:var(--rule)}
+.hero .meta span{color:var(--ink-2)}
+.hero .meta span::before{background:var(--layout)}
+.hero .btn:hover{background:var(--layout);border-color:var(--layout);color:#0F1419}
+.hero .drawing{border-color:var(--line);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.hero .svgbox::before{opacity:.75}
+.hero .vt{background:var(--paper)}
+.clients{border-top:0}
+
+/* capability band tightening */
+.caps-g b{font-size:16px}
+
+/* industries tabs: calmer */
+.ind [role=tab] small{display:none}
+
+/* quality control (static) */
+.qc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.qc > *{min-width:0}
+@media (max-width:900px){.qc{grid-template-columns:minmax(0,1fr)}}
+.qc-list{list-style:none;margin:0;padding:0;counter-reset:q;border-top:1px solid var(--rule)}
+.qc-list li{counter-increment:q;display:grid;grid-template-columns:48px 1fr;gap:4px 16px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.qc-list li::before{content:"0" counter(q);grid-row:span 2;font-family:var(--display);font-stretch:88%;font-weight:600;font-size:20px;color:var(--layout)}
+.qc-list b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:19px}
+.qc-list span{color:var(--ink-2);font-size:15px}
+.qc-fig{margin:0;background:var(--sheet);border:1px solid var(--rule);padding:clamp(24px,4vw,48px);display:grid;gap:24px}
+.qc-fig .label{max-width:440px;width:100%;justify-self:center}
+.qc-stations{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--rule);padding-top:16px;text-align:center;font-size:12px;font-weight:500;color:var(--ink-2);position:relative}
+.qc-stations span{position:relative;padding-top:14px}
+.qc-stations span::before{content:"";position:absolute;top:0;left:50%;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--layout)}
+@media (max-width:480px){.qc-stations{grid-template-columns:repeat(3,1fr);row-gap:12px}}
+
+/* project tiles as photo placeholders */
+.ph{background:linear-gradient(180deg,rgba(15,20,25,0) 35%,rgba(15,20,25,.85)),linear-gradient(135deg,#3A4450,#1A2129);border:0;color:#FFFFFF}
+.ph .tag{color:rgba(255,255,255,.7)}
+.ph b{color:#FFFFFF;font-size:21px}
+.ph::after{content:"Photo";position:absolute;top:16px;right:16px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+
+/* steps: calmer numbering */
+.step .n{font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.1em}
+.step .who{font-family:var(--body);font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:none}
+
+/* forms & labels */
+.faq summary .k{display:none}
+.faq summary{grid-template-columns:1fr 28px}
+.faq details p{padding-left:0}
+.info dt,.spec .row span:first-child,th{font-family:var(--body);font-weight:600;letter-spacing:.08em}
+
+/* dark footer */
+footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#26313B;background:var(--sheet);color:var(--ink);border-top:0;margin-top:72px}
+.tblock small{font-family:var(--body);font-weight:600;letter-spacing:.1em}
+.fbase{font-family:var(--body)}
+
+/* trusted-by marquee */
+.clients{background:var(--sheet);border-bottom:1px solid var(--rule);padding-block:26px 30px;overflow:hidden}
+.clients .lead{display:block;text-align:center;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin:0 auto 18px}
+.marquee{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;width:max-content;animation:marq 55s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.set{display:flex;flex:none}
+.logo{flex:none;height:64px;min-width:200px;padding-inline:36px;display:grid;place-items:center;border-left:1px solid var(--rule)}
+.logo img{max-height:40px;max-width:150px;width:auto;height:auto;filter:grayscale(1);opacity:.7;transition:filter .2s,opacity .2s}
+.logo:hover img{filter:none;opacity:1}
+.logo span{font-family:var(--display);font-stretch:85%;font-weight:600;font-size:17px;letter-spacing:.02em;color:var(--ink-2);white-space:nowrap;opacity:.85}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.track{animation:none;width:auto;flex-wrap:wrap;justify-content:center}.set{flex-wrap:wrap;justify-content:center}.marquee{-webkit-mask-image:none;mask-image:none}}
+
+/* capabilities inside hero */
+.hero .wrap.caps-row{display:block}
+.hero-caps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:clamp(48px,6vw,80px);padding-top:32px;border-top:1px solid var(--rule)}
+.hero-caps > div{display:grid;gap:8px;align-content:start;min-width:0}
+.hero-caps b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:16px;color:var(--ink)}
+.hero-caps span{font-size:14px;line-height:1.55;color:var(--ink-2)}
+@media (max-width:900px){.hero-caps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.hero-caps{grid-template-columns:1fr;gap:20px}}
+/* trusted-by: one quiet strip */
+.clients{background:var(--paper);border-bottom:1px solid var(--rule);padding-block:44px 48px}
+.clients .lead{margin-bottom:22px}
+.logo{border-left:0;min-width:0;height:48px;padding-inline:clamp(28px,3.4vw,48px)}
+.logo span{font-size:18px;opacity:.6}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top" aria-label="Pittman Woodworks home"><b>PW</b><span>Pittman<br>Woodworks</span></a>
+    <nav class="main" aria-label="Main">
+      <a href="#industries">Industries</a><a href="#construction">Construction</a><a href="#bid">Bidding</a><a href="about.html">About</a><a href="careers.html">Careers</a><a href="#contact">Contact</a>
+    </nav>
+    <span class="phone">(469) 375-0495</span><a class="btn sm hdr-cta" href="#bid">Request a bid</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Mobile">
+    <a href="#industries">Industries</a><a href="#construction">Construction</a><a href="#bid">Bidding</a><a href="about.html">About</a><a href="careers.html">Careers</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="tag">Commercial casework &amp; countertops · Dallas–Fort Worth</p>
+      <h1 style="margin-top:18px">Commercial casework, built to spec and <em>installed on schedule.</em></h1>
+      <p class="lede">Pittman Woodworks engineers, fabricates and installs commercial casework and countertops for general contractors, owners and architects across North Texas, from shop drawings to final punch list.</p>
+      <div class="ctas">
+        <a class="btn" href="#bid">Request a bid</a>
+        <a class="btn ghost" href="#contact">Contact our team</a>
+      </div>
+      <div class="meta"><span class="tag">Licensed, bonded, insured</span><span class="tag">Family owned</span><span class="tag">In-house fabrication &amp; install</span></div>
+    </div>
+
+    <figure class="drawing" style="margin:0">
+      <div class="bar">
+        <div class="vt" role="tablist" aria-label="Drawing view">
+          <button role="tab" aria-selected="true" data-v="elev">Elevation</button>
+          <button role="tab" aria-selected="false" data-v="plan">Plan</button>
+          <button role="tab" aria-selected="false" data-v="sect">Section</button>
+        </div>
+      </div>
+      <div class="svgbox" id="svgbox">
+        <svg id="elev" viewBox="0 0 520 420" role="img" aria-label="Shop drawing of a 108-inch cabinet run with uppers, quartz top and base cabinets">
+          <defs>
+            <pattern id="oak" width="60" height="120" patternUnits="userSpaceOnUse">
+              <rect width="60" height="120" fill="#C9A774"/>
+              <path d="M8 0 C14 30 4 60 10 120 M22 0 C26 40 18 80 24 120 M38 0 C42 30 34 70 40 120 M52 0 C48 40 56 80 50 120" stroke="#B08A55" stroke-width="1" fill="none" opacity=".7"/>
+            </pattern>
+            <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatchln" x1="0" y1="0" x2="0" y2="6"/></pattern>
+          </defs>
+          <g id="vElev">
+          <rect class="ln draw" style="--len:880" x="70" y="40" width="340" height="100"/>
+          <rect class="ln thin pnl grain draw" style="--len:340;--d:.3s" x="78" y="48" width="97" height="84"/>
+          <rect class="ln thin pnl grain draw" style="--len:340;--d:.35s" x="191" y="48" width="98" height="84"/>
+          <rect class="ln thin pnl grain draw" style="--len:340;--d:.4s" x="305" y="48" width="97" height="84"/>
+          <line class="ln thin draw" style="--len:100;--d:.2s" x1="183" y1="40" x2="183" y2="140"/>
+          <line class="ln thin draw" style="--len:100;--d:.25s" x1="297" y1="40" x2="297" y2="140"/>
+          <rect class="ln top-slab draw" style="--len:740;--d:.5s" x="62" y="222" width="356" height="12"/>
+          <rect class="ln draw" style="--len:820;--d:.6s" x="70" y="234" width="340" height="134"/>
+          <line class="ln thin draw" style="--len:120;--d:.75s" x1="183" y1="234" x2="183" y2="368"/>
+          <line class="ln thin draw" style="--len:120;--d:.8s" x1="297" y1="234" x2="297" y2="368"/>
+          <rect class="ln thin pnl grain draw" style="--len:330;--d:.85s" x="78" y="242" width="97" height="120"/>
+          <rect class="ln thin pnl draw" style="--len:330;--d:.9s" x="191" y="242" width="98" height="34"/>
+          <rect class="ln thin pnl draw" style="--len:330;--d:.92s" x="191" y="280" width="98" height="40"/>
+          <rect class="ln thin pnl draw" style="--len:330;--d:.94s" x="191" y="324" width="98" height="38"/>
+          <rect class="ln thin pnl grain draw" style="--len:330;--d:.96s" x="305" y="242" width="97" height="120"/>
+          <rect class="ln thin" x="74" y="368" width="332" height="16"/>
+          <line class="ln" x1="40" y1="384" x2="440" y2="384"/>
+          <g class="fadein">
+            <line class="pull" x1="166" y1="262" x2="166" y2="290"/><line class="pull" x1="314" y1="262" x2="314" y2="290"/>
+            <line class="pull" x1="226" y1="259" x2="254" y2="259"/><line class="pull" x1="226" y1="300" x2="254" y2="300"/><line class="pull" x1="226" y1="343" x2="254" y2="343"/>
+            <line class="pull" x1="166" y1="104" x2="166" y2="126"/><line class="pull" x1="200" y1="104" x2="200" y2="126"/><line class="pull" x1="314" y1="104" x2="314" y2="126"/>
+          </g>
+          <g class="fadein" style="--d:1.6s">
+            <g class="dim"><line x1="70" y1="20" x2="410" y2="20"/><line x1="70" y1="12" x2="70" y2="36"/><line x1="410" y1="12" x2="410" y2="36"/></g>
+            <path class="arw" d="M70 20 l9 -4 v8z M410 20 l-9 -4 v8z"/>
+            <rect class="bgfill" x="210" y="10" width="60" height="18"/><text class="dimtxt" x="240" y="24" text-anchor="middle">108"</text>
+            <g class="dim"><line x1="460" y1="234" x2="460" y2="384"/><line x1="440" y1="234" x2="468" y2="234"/><line x1="440" y1="384" x2="468" y2="384"/></g>
+            <path class="arw" d="M460 234 l-4 9 h8z M460 384 l-4 -9 h8z"/>
+            <text class="dimtxt" x="472" y="314">34½"</text>
+            <g class="dim"><line x1="460" y1="140" x2="460" y2="222"/><line x1="440" y1="140" x2="468" y2="140"/></g>
+            <path class="arw" d="M460 140 l-4 9 h8z M460 222 l-4 -9 h8z"/>
+            <text class="dimtxt" x="472" y="186">18"</text>
+            <text class="lbl" x="70" y="160">UPPERS · ¾" MAPLE PLY · 12" DEEP</text>
+            <text class="lbl" x="240" y="214" text-anchor="middle">QUARTZ TOP 1½" · 1" OVERHANG</text>
+            <text class="lbl" x="70" y="404">BASES · 24" DEEP · SOFT-CLOSE</text>
+            <text class="lbl" x="440" y="404">4" TOE</text>
+          </g>
+          </g>
+          <g id="vPlan" style="display:none">
+            <rect class="ln thin" x="50" y="96" width="380" height="24" fill="url(#hatch)"/>
+            <text class="lbl" x="50" y="88">EXISTING WALL</text>
+            <rect class="ln top-slab draw" style="--len:960" x="67" y="120" width="346" height="78.7"/>
+            <rect class="ln thin draw" style="--len:840;--d:.2s" x="70" y="120" width="340" height="75.6"/>
+            <line class="ln thin draw" style="--len:80;--d:.3s" x1="183" y1="120" x2="183" y2="195.6"/>
+            <line class="ln thin draw" style="--len:80;--d:.35s" x1="297" y1="120" x2="297" y2="195.6"/>
+            <rect class="hid" x="70" y="120" width="340" height="37.8"/>
+            <path class="swing" d="M70 198.7 L70 255.4 M126.7 198.7 A56.7 56.7 0 0 1 70 255.4 M183 198.7 L183 255.4 M126.3 198.7 A56.7 56.7 0 0 0 183 255.4"/>
+            <path class="swing" d="M297 198.7 L297 255.4 M353.7 198.7 A56.7 56.7 0 0 1 297 255.4 M410 198.7 L410 255.4 M353.3 198.7 A56.7 56.7 0 0 0 410 255.4"/>
+            <rect class="swing" x="191" y="198.7" width="98" height="40"/>
+            <text class="dimtxt" x="126.5" y="182" text-anchor="middle">B1</text>
+            <text class="dimtxt" x="240" y="182" text-anchor="middle">B2 · DRW</text>
+            <text class="dimtxt" x="353.5" y="182" text-anchor="middle">B3</text>
+            <text class="lbl" x="240" y="254" text-anchor="middle">DRAWER EXTENDED</text>
+            <g class="dim"><line x1="70" y1="296" x2="410" y2="296"/><line x1="70" y1="286" x2="70" y2="306"/><line x1="410" y1="286" x2="410" y2="306"/><line x1="183" y1="290" x2="183" y2="302"/><line x1="297" y1="290" x2="297" y2="302"/></g>
+            <path class="arw" d="M70 296 l9 -4 v8z M410 296 l-9 -4 v8z"/>
+            <text class="dimtxt" x="126.5" y="290" text-anchor="middle">36"</text><text class="dimtxt" x="240" y="290" text-anchor="middle">36"</text><text class="dimtxt" x="353.5" y="290" text-anchor="middle">36"</text>
+            <rect class="bgfill" x="215" y="303" width="50" height="16"/><text class="dimtxt" x="240" y="316" text-anchor="middle">108"</text>
+            <g class="dim"><line x1="450" y1="120" x2="450" y2="195.6"/><line x1="430" y1="195.6" x2="458" y2="195.6"/><line x1="430" y1="120" x2="458" y2="120"/></g>
+            <path class="arw" d="M450 120 l-4 9 h8z M450 195.6 l-4 -9 h8z"/>
+            <text class="dimtxt" x="462" y="162">24"</text>
+            <line class="hid" x1="70" y1="352" x2="100" y2="352"/><text class="lbl" x="108" y="355">UPPERS ABOVE · 12" DEEP</text>
+            <line class="swing" x1="70" y1="372" x2="100" y2="372"/><text class="lbl" x="108" y="375">DOOR SWING · 18" LEAVES</text>
+            <text class="lbl" x="70" y="395">QUARTZ TOP · 1" OVERHANG FRONT AND ENDS</text>
+          </g>
+          <g id="vSect" style="display:none">
+            <text class="vtitle" x="300" y="60">Section A-A</text>
+            <text class="lbl" x="300" y="76">THROUGH BASE B1 + UPPER</text>
+            <rect class="ln thin" x="96" y="40" width="24" height="360" fill="url(#hatch)"/>
+            <text class="lbl" x="96" y="34">WALL</text>
+            <rect x="60" y="400" width="240" height="10" fill="url(#hatch)"/>
+            <line class="ln" x1="60" y1="400" x2="300" y2="400"/>
+            <path class="ln sidefill draw" style="--len:520" d="M120 400 V262 H216 V384 H204 V400 Z"/>
+            <rect class="cutm" x="120" y="381" width="84" height="3"/>
+            <rect class="cutm" x="122" y="326" width="90" height="3"/>
+            <rect class="cutm" x="200" y="262" width="16" height="3"/>
+            <rect class="cutm" x="120" y="262" width="16" height="3"/>
+            <rect class="cutm" x="201" y="384" width="3" height="16"/>
+            <rect class="ln thin pnl" x="216" y="262" width="3.2" height="120"/>
+            <line class="pull" x1="219" y1="270" x2="224" y2="270"/>
+            <rect class="ln top-slab" x="120" y="256" width="100" height="6"/>
+            <path class="ln sidefill draw" style="--len:340;--d:.3s" d="M120 64 H168 V184 H120 Z"/>
+            <rect class="cutm" x="120" y="181" width="48" height="3"/>
+            <rect class="cutm" x="122" y="124" width="44" height="3"/>
+            <rect class="ln thin pnl" x="168" y="65" width="3.2" height="118"/>
+            <line class="pull" x1="171" y1="176" x2="176" y2="176"/>
+            <g class="dim">
+              <line x1="258" y1="400" x2="258" y2="256"/><line x1="250" y1="400" x2="266" y2="400"/><line x1="250" y1="256" x2="266" y2="256"/>
+              <line x1="258" y1="256" x2="258" y2="184"/><line x1="250" y1="184" x2="266" y2="184"/>
+              <line x1="258" y1="184" x2="258" y2="64"/><line x1="250" y1="64" x2="266" y2="64"/>
+              <line x1="120" y1="236" x2="216" y2="236"/><line x1="120" y1="230" x2="120" y2="242"/><line x1="216" y1="230" x2="216" y2="242"/>
+              <line x1="120" y1="52" x2="168" y2="52"/><line x1="120" y1="46" x2="120" y2="58"/><line x1="168" y1="46" x2="168" y2="58"/>
+            </g>
+            <text class="dimtxt" x="244" y="332" text-anchor="end">36"</text>
+            <text class="dimtxt" x="244" y="224" text-anchor="end">18"</text>
+            <text class="dimtxt" x="244" y="128" text-anchor="end">30"</text>
+            <rect class="bgfill" x="152" y="228" width="30" height="15"/><text class="dimtxt" x="168" y="240" text-anchor="middle">24"</text>
+            <rect class="bgfill" x="130" y="44" width="28" height="15"/><text class="dimtxt" x="144" y="56" text-anchor="middle">12"</text>
+            <path class="ldr" d="M222 259 H296"/><text class="lbl" x="300" y="262">QUARTZ TOP 1½" · 1" OVERHANG</text>
+            <path class="ldr" d="M190 300 H296"/><text class="lbl" x="300" y="303">¾" PLY BOX · ¼" BACK</text>
+            <path class="ldr" d="M212 327 H296"/><text class="lbl" x="300" y="330">ADJUSTABLE SHELF</text>
+            <path class="ldr" d="M222 290 L240 280 H296"/><text class="lbl" x="300" y="283">DOOR · EDGEBANDED</text>
+            <path class="ldr" d="M206 392 H296"/><text class="lbl" x="300" y="395">TOE KICK 4" × 3" RECESS</text>
+            <path class="ldr" d="M171 140 H296"/><text class="lbl" x="300" y="143">UPPER · HUNG ON WALL RAIL</text>
+          </g>
+        </svg>
+      </div>
+      <div class="tb">
+        <div><small>Project</small><strong id="tbProj">Breakroom run · Elev. A</strong></div>
+        <div><small>Finish</small><strong id="tbFinish">P-lam · Quartz top</strong></div>
+        <div><small>Sheet</small><strong id="tbSheet">A-201</strong></div>
+        <div><small>Scale</small><strong id="tbScale">½" = 1'</strong></div>
+      </div>
+    </figure>
+  </div>
+  <div class="wrap caps-row"><div class="hero-caps">
+    <div><b>Shop drawings &amp; submittals</b><span>Every elevation drawn and approved before fabrication.</span></div>
+    <div><b>In-house CNC fabrication</b><span>Cut, edgebanded and assembled in our North Richland Hills shop.</span></div>
+    <div><b>Countertop fabrication</b><span>Plastic laminate, solid surface and quartz, templated and set.</span></div>
+    <div><b>Self-performed installation</b><span>Our own crews install, punch and close out every job.</span></div>
+  </div></div>
+</section>
+
+<div class="clients" aria-label="Organizations we've built for">
+  <p class="lead wrap">Trusted by</p>
+  <div class="marquee"><div class="track" id="clientRow"></div></div>
+</div>
+
+
+
+<section class="sheet" id="industries">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">02 — Industries</span>
+      <h2>Casework specified for each environment</h2>
+      <p>Healthcare, education, food service and retail spaces each carry different material, hardware and durability requirements. We build to the specification for each.</p>
+    </div>
+    <div class="ind">
+      <div role="tablist" aria-label="Industries" id="indTabs"></div>
+      <div class="ind-body" role="tabpanel" id="indPanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="construction" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">03 — Construction</span>
+      <h2>Construction standards</h2>
+      <p>A typical commercial base cabinet, shown exploded. Select Assemble to see how the components fit together.</p>
+    </div>
+    <div class="xp">
+      <figure class="xp-fig" id="xfig">
+        <div class="xbar"><span class="tag">Base cabinet · 30" W × 34½" H × 24" D</span><button class="btn ghost sm" id="xbtn" type="button">Assemble</button></div>
+        <svg id="xsvg" viewBox="0 0 640 520" role="img" aria-label="Exploded view of a base cabinet showing sides, back, bottom, stretchers, shelf, toe kick and doors"></svg>
+      </figure>
+      <div>
+        <ul class="plist" id="plist"></ul>
+        <p class="label-cap">Point at a part to find it in the drawing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">04 — Process</span>
+      <h2>Project delivery</h2>
+      <p>A defined process from bid through closeout.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">1</span><h3>Bid</h3><p>We review plans and specifications and submit a detailed proposal.</p><span class="who">Estimating</span></div>
+      <div class="step"><span class="n">2</span><h3>Field verify</h3><p>We take site measurements and confirm conditions before drawings.</p><span class="who">Project management</span></div>
+      <div class="step"><span class="n">3</span><h3>Submittals</h3><p>Shop drawings and samples are issued for approval before fabrication.</p><span class="who">Drafting</span></div>
+      <div class="step"><span class="n">4</span><h3>Fabricate</h3><p>CNC machined, edgebanded and assembled in our shop.</p><span class="who">Production</span></div>
+      <div class="step"><span class="n">5</span><h3>Install &amp; close out</h3><p>Our crews install, complete the punch list and turn over the work.</p><span class="who">Field</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">05 — Projects</span>
+      <h2>Selected projects</h2>
+      <p>A selection of recent commercial work across North Texas.</p>
+    </div>
+    <div class="proj">
+      <div class="ph wide tall"><span class="tag">Healthcare</span><b>Clinic nurse station</b></div>
+      <div class="ph"><span class="tag">Education</span><b>ISD science lab</b></div>
+      <div class="ph"><span class="tag">Restaurant</span><b>Front counter</b></div>
+      <div class="ph"><span class="tag">Automotive</span><b>Service center counter</b></div>
+      <div class="ph"><span class="tag">Office</span><b>Reception desk</b></div>
+      <div class="ph wide"><span class="tag">Multifamily</span><b>Apartment kitchens</b></div>
+      <div class="ph wide"><span class="tag">Retail</span><b>Display casework</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="contractors" style="padding-top:0">
+  <div class="wrap split">
+    <div class="box inv">
+      <span class="tag">For general contractors</span>
+      <h3>A subcontractor you can schedule around.</h3>
+      <ul class="checks">
+        <li>Complete, itemized bids built from your plans and specifications</li>
+        <li>Shop drawings and submittals before fabrication</li>
+        <li>Proactive schedule coordination and early notice of any changes</li>
+        <li>Self-performed installation by our own crews</li>
+      </ul>
+      <a class="btn ghost" style="border-color:var(--paper);color:var(--paper);justify-self:start" href="#bid">Submit plans for bid</a>
+    </div>
+    <div class="box">
+      <span class="tag">Our commitments</span>
+      <h3>Straightforward to work with.</h3>
+      <ul class="checks">
+        <li>Licensed, bonded and insured</li>
+        <li>Local and family owned in North Richland Hills</li>
+        <li>Transparent pricing with no hidden costs</li>
+        <li>Workmanship backed by warranty</li>
+      </ul>
+      <div class="seth"><span class="av">SP</span><div><strong>Seth Pittman, Owner</strong><p style="font-size:14px;color:var(--ink-2)">Single point of contact from bid through closeout.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="bid">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">06 — Bidding</span>
+      <h2>Bidding &amp; prequalification</h2>
+      <p>General contractors and architects can submit plans for pricing and request our prequalification documents.</p>
+    </div>
+    <div class="bidg">
+      <div class="box">
+        <span class="tag">Plans &amp; specs</span>
+        <label class="drop" id="drop" for="bidFiles"><input type="file" id="bidFiles" multiple accept=".pdf,.dwg,.dxf,.zip,.png,.jpg,.jpeg"><b>Upload plans &amp; specifications</b><span>PDF, DWG, DXF or ZIP · or click to choose files</span></label>
+        <ul class="flist" id="flist"></ul>
+        <div class="row2">
+          <label class="f" for="bidProj">Project name<input id="bidProj" placeholder="e.g. Eastside Clinic TI"></label>
+          <label class="f" for="bidDue">Bid due<input id="bidDue" type="date"></label>
+        </div>
+        <label class="f" for="bidScope">Casework scope<input id="bidScope" placeholder="e.g. Sections 06 41 00, 12 36 00"></label>
+        <div><button class="btn" id="bidSend" type="button">Submit for bid</button></div>
+        <p class="note" id="bidNote" hidden></p>
+      </div>
+      <div class="box">
+        <span class="tag">Prequalification</span>
+        <h3>Prequalification documents</h3>
+        <ul class="pq">
+          <li>Certificate of insurance<span>On request</span></li>
+          <li>W-9<span>On request</span></li>
+          <li>Capability statement<span>On request</span></li>
+          <li>Project references<span>On request</span></li>
+          <li>Safety program<span>On request</span></li>
+          <li>Bonding letter<span>On request</span></li>
+        </ul>
+        <button class="btn ghost" id="pqReq" type="button" style="justify-self:start">Request documents</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">07 — FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details open><summary><span class="k">Q.01</span>Do you charge for estimates?</summary><p>No. Estimates and site visits are provided at no cost, with an itemized breakdown of the proposed scope.</p></details>
+      <details><summary><span class="k">Q.02</span>Can you bid from architect's plans?</summary><p>Yes. General contractors send us drawings and specs every week. We bid from the plans, then produce shop drawings and submittals for approval before anything is cut.</p></details>
+      <details><summary><span class="k">Q.03</span>Do you install, or just build?</summary><p>Both. Our own crew installs everything we build, including countertops, and handles the punch list with you at the end.</p></details>
+      <details><summary><span class="k">Q.04</span>Do you do residential work?</summary><p>Commercial is our focus. We do take on multifamily projects for builders and general contractors. For a single-family home, give us a call and we'll tell you straight whether we're the right fit.</p></details>
+      <details><summary><span class="k">Q.05</span>What area do you serve?</summary><p>The Dallas–Fort Worth area and surrounding North Texas. Our shop is in North Richland Hills. If you're farther out, call us and ask.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sheet" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">08 — Contact</span>
+      <h2>Contact us</h2>
+      <p>Tell us about your project. We respond within one business day.</p>
+    </div>
+    <div class="contact">
+      <div class="box info">
+        <dl>
+          <div><dt>Phone</dt><dd><span id="cPhone">(469) 375-0495</span><button class="copy" data-copy="cPhone" type="button">Copy</button></dd></div>
+          <div><dt>Email</dt><dd><span id="cEmail">office@pittmanwoodworks.com</span><button class="copy" data-copy="cEmail" type="button">Copy</button></dd></div>
+          <div><dt>Shop</dt><dd>8212 Northeast Pkwy, Ste 100<br>North Richland Hills, TX 76182</dd></div>
+        </dl>
+      </div>
+      <div class="box">
+        <form id="lead" novalidate>
+          <label class="f" for="nm">Name<input id="nm" required autocomplete="name"></label>
+          <label class="f" for="co">Company (optional)<input id="co" autocomplete="organization"></label>
+          <label class="f" for="ph">Phone<input id="ph" type="tel" autocomplete="tel"></label>
+          <label class="f" for="em">Email<input id="em" type="email" required autocomplete="email"></label>
+          <label class="f full" for="ms">About the project<textarea id="ms" placeholder="Space, rough size, timeline, any plans you have"></textarea></label>
+          <div class="full"><button class="btn" type="submit">Send message</button></div>
+          <div class="sent full" id="sent" hidden></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap" style="padding-inline:0;max-width:none">
+    <div class="tblock">
+      <div><small>Pittman Woodworks LLC</small>Commercial casework &amp; countertops<br>8212 Northeast Pkwy, Ste 100<br>North Richland Hills, TX 76182</div>
+      <div><small>Navigate</small><a href="#industries">Industries</a><a href="#construction">Construction</a><a href="#bid">Bidding</a><a href="about.html">About</a><a href="careers.html">Careers</a></div>
+      <div><small>Credentials</small>Licensed, bonded &amp; insured<br>Family owned<br>Serving DFW &amp; North Texas</div>
+      <div><small>Contact</small>(469) 375-0495<br>office@pittmanwoodworks.com</div>
+    </div>
+  </div>
+  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas</span></div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* mobile menu */
+  var mb=document.getElementById('menuBtn'),mn=document.getElementById('mnav');
+  mb.addEventListener('click',function(){var o=mn.hidden;mn.hidden=!o;mb.setAttribute('aria-expanded',String(o));mb.textContent=o?'Close':'Menu'});
+  mn.addEventListener('click',function(e){if(e.target.tagName==='A'){mn.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent='Menu'}});
+
+  /* inches with eighths */
+  function frac(n){var w=Math.floor(n),f=Math.round((n-w)*8);if(f===8){w++;f=0}var m={0:'',1:'⅛',2:'¼',3:'⅜',4:'½',5:'⅝',6:'¾',7:'⅞'};return w+m[f]+'"'}
+
+  /* nav highlight */
+  var links=[].slice.call(document.querySelectorAll('nav.main a'));
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('cur',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+    ['industries','construction','bid','contact'].forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)})}
+
+  /* drawing views */
+  var view='elev',VIEWS={elev:['Breakroom run · Elev. A','A-201','½" = 1\''],plan:['Breakroom run · Plan','A-101','½" = 1\''],sect:['Section A-A','A-501','1" = 1\'']};
+  document.querySelectorAll('.vt button').forEach(function(b){b.addEventListener('click',function(){
+    view=b.dataset.v;box.dataset.view=view;document.querySelectorAll('.vt button').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});
+    ['elev','plan','sect'].forEach(function(v){document.getElementById('v'+v[0].toUpperCase()+v.slice(1)).style.display=v===view?'':'none'});
+    document.getElementById('tbProj').textContent=VIEWS[view][0];document.getElementById('tbSheet').textContent=VIEWS[view][1];document.getElementById('tbScale').textContent=VIEWS[view][2]})});
+
+  var box=document.getElementById('svgbox');
+
+  /* clients */
+  var clients=["Fort Worth ISD","Texas Health Resources","Golden Chick","Mister Car Wash","Valvoline","PopStroke","McCoy's","Graham Regional Medical Center","Millsap ISD","Seminole ISD","Glen Rose ISD","Success Space"];
+  var row=document.getElementById('clientRow');
+  /* add a logo by setting logo:'logos/file.svg' on a client; until then the name shows */
+  var CL=clients.map(function(n){return {n:n,logo:null}});
+  function tile(c,dup){var d=document.createElement('div');d.className='logo';if(dup)d.setAttribute('aria-hidden','true');
+    if(c.logo){var im=document.createElement('img');im.src=c.logo;im.alt=dup?'':c.n;im.loading='lazy';d.appendChild(im)}
+    else{var t=document.createElement('span');t.textContent=c.n;d.appendChild(t)}
+    return d}
+  var set=document.createElement('div');set.className='set';CL.forEach(function(c){set.appendChild(tile(c,false))});row.appendChild(set);
+  if(!reduce){var set2=document.createElement('div');set2.className='set';set2.setAttribute('aria-hidden','true');CL.forEach(function(c){set2.appendChild(tile(c,true))});row.appendChild(set2)}
+
+  /* industries */
+  var IND=[
+    {k:"Healthcare",n:"Hospitals, clinics and medical offices",h:"Nurse stations, med rooms, exam rooms",s:"Casework that cleans easily and holds up to daily disinfecting, laid out around how staff actually move.",
+      spec:[["Boxes","Plastic laminate over ¾\" substrate"],["Tops","Solid surface, seamless and cleanable"],["Hardware","Heavy-duty pulls, locking drawers"],["Edges","Durable edgebanding throughout"]],b:["Nurse stations","Med rooms","Exam room casework","Waiting room millwork","Lab counters"]},
+    {k:"Education",n:"Schools and universities",h:"Classrooms, labs, libraries, admin",s:"Storage that survives a few thousand students a year, with layouts built around the curriculum.",
+      spec:[["Boxes","Plastic laminate, reinforced shelving"],["Tops","Plastic laminate or solid surface"],["Hardware","Locks, heavy-duty hinges"],["Clients","Fort Worth, Millsap, Seminole and Glen Rose ISDs"]],b:["Classroom storage","Science labs","Teacher walls","Library desks","Front office"]},
+    {k:"Restaurant",n:"Restaurants and bars",h:"Front counters, bars, back-bar",s:"Counters and bars built for speed, spills and the lunch rush, matched to your brand's look.",
+      spec:[["Boxes","Plastic laminate, moisture-resistant"],["Tops","Quartz or solid surface"],["Hardware","Commercial-grade, easy service access"],["Clients","Golden Chick and more"]],b:["Ordering counters","Bars & back-bars","Drink stations","Host stands","Condiment stations"]},
+    {k:"Office",n:"Offices and commercial spaces",h:"Reception, break rooms, conference",s:"Reception desks and break rooms that set the tone the moment someone walks in.",
+      spec:[["Boxes","Plastic laminate or wood veneer"],["Tops","Quartz, solid surface or P-lam"],["Hardware","Soft-close throughout"],["Extras","Display cases, built-in storage"]],b:["Reception desks","Break rooms","Conference credenzas","Display cases","Copy rooms"]},
+    {k:"Multifamily",n:"Apartments and multifamily",h:"Unit kitchens, baths, amenity spaces",s:"Repeatable unit packages built consistently on the CNC, delivered on the builder's schedule.",
+      spec:[["Boxes","CNC-cut, repeatable by unit type"],["Tops","Plastic laminate or quartz"],["Hardware","Soft-close"],["Delivery","Phased by building or floor"]],b:["Unit kitchens","Bath vanities","Amenity kitchens","Leasing offices","Mail rooms"]},
+    {k:"Retail & Auto",n:"Retail, automotive and service",h:"Service counters, lobbies, display",s:"Counters and casework for high-traffic customer spaces, rolled out the same way location after location.",
+      spec:[["Boxes","Plastic laminate, heavy-use rated"],["Tops","Solid surface or plastic laminate"],["Hardware","Commercial-grade, locking where needed"],["Clients","Valvoline, Mister Car Wash, McCoy's"]],b:["Service counters","Customer lobbies","Display casework","Break rooms","Multi-site rollouts"]}
+  ];
+  var tabs=document.getElementById('indTabs'),panel=document.getElementById('indPanel');
+  function showInd(i,focus){[].forEach.call(tabs.children,function(t,k){t.setAttribute('aria-selected',String(k===i));t.tabIndex=k===i?0:-1});
+    var d=IND[i];if(focus)tabs.children[i].focus();
+    panel.innerHTML='<div><span class="tag">'+d.n+'</span><h3 style="margin-top:12px">'+d.h+'</h3><p class="sub">'+d.s+'</p><ul class="builds">'+d.b.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul></div>'+
+      '<div class="spec">'+d.spec.map(function(r){return '<div class="row"><span>'+r[0]+'</span><span>'+r[1]+'</span></div>'}).join('')+'</div>'}
+  IND.forEach(function(d,i){var b=document.createElement('button');b.setAttribute('role','tab');b.innerHTML=d.k+'<small>0'+(i+1)+'</small>';
+    b.addEventListener('click',function(){showInd(i)});
+    b.addEventListener('keydown',function(e){if(e.key==='ArrowDown'||e.key==='ArrowRight'){e.preventDefault();showInd((i+1)%IND.length,true)}if(e.key==='ArrowUp'||e.key==='ArrowLeft'){e.preventDefault();showInd((i+IND.length-1)%IND.length,true)}});
+    tabs.appendChild(b)});
+  showInd(0);
+
+  /* door finish for the exploded view follows the hero swatches */
+  var FIN={plam:['Gray laminate','#8F9AA3','#5E6870','#E2E4E6'],oak:['Oak veneer','#C9A774','#8A6A3C','#2A2A2A'],navy:['Navy laminate','#26385A','#506690','#C7A35A'],black:['Black laminate','#222326','#5A5C61','#B9BCC1']};
+  var B={door:'slab',fin:'plam',hw:'bar'};
+
+  /* exploded base cabinet (isometric) */
+  var xsvg=document.getElementById('xsvg'),xfig=document.getElementById('xfig'),K=6.2,OX=280,OY=262,C=.866,SN=.5,xAsm=false;
+  function P(x,y,z){return [OX+(x-z)*C*K,OY+(x+z)*SN*K-y*K]}
+  function shade(h,a){var n=parseInt(h.slice(1),16);function f(v){return Math.max(0,Math.min(255,Math.round(v+a*255)))}return 'rgb('+f(n>>16)+','+f(n>>8&255)+','+f(n&255)+')'}
+  var XP=[
+    {k:'back',n:'Back panel',m:'¼" panel, set into the box',b:[.75,4.75,0,28.5,29.75,.25],o:[0,0,-12]},
+    {k:'ls',n:'Sides',m:'¾" plywood, left and right',b:[0,0,0,.75,34.5,24],o:[-12,0,0]},
+    {k:'bot',n:'Bottom',m:'¾" plywood',b:[.75,4,0,28.5,.75,24],o:[0,-9,0]},
+    {k:'toe',n:'Toe kick',m:'Recessed 3" so you can stand close',b:[.75,0,20.25,28.5,4,.75],o:[0,-7,12]},
+    {k:'shelf',n:'Adjustable shelf',m:'¾" plywood on shelf pins',b:[.85,18,1,28.3,.75,22],o:[0,2,6]},
+    {k:'rs1',n:'Stretchers',m:'Front and rear, tie the sides together',b:[.75,33.75,.25,28.5,.75,4],o:[0,12,-4]},
+    {k:'rs2',b:[.75,33.75,20,28.5,.75,4],o:[0,12,5]},
+    {k:'rsd',grp:'ls',b:[29.25,0,0,.75,34.5,24],o:[13,0,0]},
+    {k:'dl',n:'Doors',m:'Laminate or veneer faces, edgebanded, heavy-duty hinges',b:[0,4.5,24,14.94,30,.75],o:[0,0,24]},
+    {k:'dr',grp:'dl',b:[15.06,4.5,24,14.94,30,.75],o:[0,0,24]}
+  ];
+  XP.forEach(function(p){if(p.k==='rs2')p.grp='rs1';p.sx=(p.o[0]-p.o[2])*C*K;p.sy=(p.o[0]+p.o[2])*SN*K-p.o[1]*K});
+  function xRender(){
+    var F=FIN[B.fin],g=[],lb=[];
+    function poly(pts,c,st){return '<polygon points="'+pts.map(function(q){return q[0].toFixed(1)+','+q[1].toFixed(1)}).join(' ')+'" fill="'+c+'" stroke="'+(st||'#5C4A2C')+'" stroke-width=".8" stroke-linejoin="round"/>'}
+    XP.forEach(function(p){
+      var b=p.b,x0=b[0],y0=b[1],z0=b[2],x1=x0+b[3],y1=y0+b[4],z1=z0+b[5],door=p.k==='dl'||p.k==='dr',base=door?F[1]:'#D8C497',st=door?F[2]:null;
+      var t='<g class="xpart" data-g="'+(p.grp||p.k)+'" style="transform:translate('+(xAsm?0:p.sx)+'px,'+(xAsm?0:p.sy)+'px)">';
+      t+=poly([P(x1,y0,z0),P(x1,y1,z0),P(x1,y1,z1),P(x1,y0,z1)],shade(base,-.13),st);
+      t+=poly([P(x0,y0,z1),P(x1,y0,z1),P(x1,y1,z1),P(x0,y1,z1)],shade(base,-.03),st);
+      t+=poly([P(x0,y1,z0),P(x1,y1,z0),P(x1,y1,z1),P(x0,y1,z1)],shade(base,.09),st);
+      if(door&&B.door==='shaker'){var i=2.25;t+=poly([P(x0+i,y0+i,z1),P(x1-i,y0+i,z1),P(x1-i,y1-i,z1),P(x0+i,y1-i,z1)],'none',shade(F[2],-.05))}
+      if(door){var hx=p.k==='dl'?x1-2:x0+2;
+        if(B.hw==='knob'){var q=P(hx,y1-3,z1);t+='<circle cx="'+q[0]+'" cy="'+q[1]+'" r="4" fill="'+F[3]+'"/>'}
+        else if(B.hw==='bar'){var a=P(hx,y1-2.5,z1),c2=P(hx,y1-8.5,z1);t+='<line x1="'+a[0]+'" y1="'+a[1]+'" x2="'+c2[0]+'" y2="'+c2[1]+'" stroke="'+F[3]+'" stroke-width="3" stroke-linecap="round"/>'}
+        else{var e1=P(p.k==='dl'?x1-5:x0+1,y1,z1),e2=P(p.k==='dl'?x1-1:x0+5,y1,z1);t+='<line x1="'+e1[0]+'" y1="'+e1[1]+'" x2="'+e2[0]+'" y2="'+e2[1]+'" stroke="'+F[3]+'" stroke-width="4"/>'}}
+      g.push(t+'</g>');
+      if(p.n){var c=P((x0+x1)/2,(y0+y1)/2,(z0+z1)/2);lb.push('<text class="xl" x="'+(c[0]+p.sx).toFixed(1)+'" y="'+(c[1]+p.sy+4).toFixed(1)+'" text-anchor="middle">'+p.n+'</text>')}
+    });
+    xsvg.innerHTML=g.join('')+lb.join('');
+    xfig.classList.toggle('assembled',xAsm)}
+  var xbtn=document.getElementById('xbtn');
+  xbtn.addEventListener('click',function(){xAsm=!xAsm;xbtn.textContent=xAsm?'Take it apart':'Assemble';xfig.classList.toggle('assembled',xAsm);
+    var parts=xsvg.querySelectorAll('.xpart');XP.forEach(function(p,i){parts[i].style.transform='translate('+(xAsm?0:p.sx)+'px,'+(xAsm?0:p.sy)+'px)'})});
+  var pl=document.getElementById('plist'),cnt=0;
+  XP.forEach(function(p){if(!p.n)return;cnt++;var li=document.createElement('li');li.tabIndex=0;
+    li.innerHTML='<span class="k">P'+(cnt<10?'0':'')+cnt+'</span><b>'+p.n+'</b><span>'+p.m+'</span>';
+    function hl(on){xsvg.querySelectorAll('.xpart[data-g="'+p.k+'"]').forEach(function(el){el.classList.toggle('hl',on)})}
+    li.addEventListener('mouseenter',function(){hl(true)});li.addEventListener('mouseleave',function(){hl(false)});
+    li.addEventListener('focus',function(){hl(true)});li.addEventListener('blur',function(){hl(false)});
+    pl.appendChild(li)});
+  xRender();
+
+  /* bid room */
+  var drop=document.getElementById('drop'),bf=document.getElementById('bidFiles'),fl=document.getElementById('flist'),files=[];
+  function kb(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+  function showFiles(){fl.innerHTML='';files.forEach(function(f){var li=document.createElement('li');var ext=(f.name.split('.').pop()||'file').slice(0,4);
+    li.innerHTML='<span class="ext"></span><span class="nm"></span><span class="sz"></span>';li.children[0].textContent=ext;li.children[1].textContent=f.name;li.children[2].textContent=kb(f.size);fl.appendChild(li)})}
+  function add(list){[].forEach.call(list,function(f){if(!files.some(function(g){return g.name===f.name}))files.push(f)});showFiles()}
+  bf.addEventListener('change',function(){add(bf.files)});
+  ['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over')})});
+  ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over')})});
+  drop.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files)add(e.dataTransfer.files)});
+  function toContact(msg){document.getElementById('ms').value=msg;document.getElementById('contact').scrollIntoView({behavior:reduce?'auto':'smooth'});
+    setTimeout(function(){document.getElementById('nm').focus({preventScroll:true})},reduce?0:600)}
+  document.getElementById('bidSend').addEventListener('click',function(){
+    var pj=document.getElementById('bidProj').value.trim(),due=document.getElementById('bidDue').value,sc=document.getElementById('bidScope').value.trim(),note=document.getElementById('bidNote');
+    note.hidden=false;
+    if(!files.length&&!pj){note.style.borderColor=note.style.color='var(--layout)';note.textContent='Add your plans or a project name first.';return}
+    note.style.borderColor=note.style.color='';
+    note.textContent='Preview only. On the live site '+(files.length?files.length+' file'+(files.length>1?'s':'')+' would upload':'this request would go')+' straight to estimating.';
+    toContact('Bid request'+(pj?': '+pj:'')+(due?' · due '+due:'')+(sc?' · scope: '+sc:'')+(files.length?' · plans: '+files.map(function(f){return f.name}).join(', '):'')+'.')});
+  document.getElementById('pqReq').addEventListener('click',function(){toContact('Please send your prequalification packet (COI, W-9, capability statement, references, safety program, bonding letter).')});
+
+  /* copy */
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.copy).textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.copy));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+    try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied'},sel)}catch(e){sel()}
+    setTimeout(function(){b.textContent='Copy'},1600)})});
+
+  /* form */
+  document.getElementById('lead').addEventListener('submit',function(e){e.preventDefault();
+    var nm=document.getElementById('nm'),em=document.getElementById('em'),out=document.getElementById('sent');out.hidden=false;
+    if(!nm.value.trim()||!/^\S+@\S+\.\S+$/.test(em.value)){out.style.borderColor=out.style.color='var(--layout)';out.textContent='Add your name and a valid email so we can reply.';return}
+    out.style.borderColor=out.style.color='';out.textContent='Preview only. On the live site this request goes straight to the office.'});
+})();
+</script>
+</body>
+</html>

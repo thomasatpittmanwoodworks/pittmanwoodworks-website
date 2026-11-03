@@ -1,0 +1,41 @@
+# Netlify settings for pittmanwoodworks.com
+[build]
+  publish = "."
+
+# Keep old Wix links working (301 = permanent, keeps Google ranking)
+[[redirects]]
+  from = "/our-company"
+  to = "/about"
+  status = 301
+[[redirects]]
+  from = "/our-services"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/commercial-cabinets"
+  to = "/#industries"
+  status = 301
+[[redirects]]
+  from = "/residential-cabinets"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/contractors"
+  to = "/#bid"
+  status = 301
+[[redirects]]
+  from = "/schedule-consultation"
+  to = "/#contact"
+  status = 301
+[[redirects]]
+  from = "/blank"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/blog/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/blog"
+  to = "/"
+  status = 301
