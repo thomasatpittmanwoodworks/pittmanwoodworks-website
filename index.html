@@ -959,6 +959,9 @@ button[disabled]{opacity:.6;cursor:wait}
     if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
     return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
   function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  function setSubject(form,text){var el=form.querySelector('input[name=subject]');if(el)el.value=text.replace(/\s+/g,' ').trim().slice(0,150)}
+  function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
+  function niceDate(v){if(!v)return '';var p=v.split('-');if(p.length!==3)return v;var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1];return m+' '+(+p[2])+', '+p[0]}
   var FAIL='Something went wrong sending this. Please try again, or call us at (469) 375-0495.';
 
   /* bid room */
@@ -975,6 +978,8 @@ button[disabled]{opacity:.6;cursor:wait}
     if(!document.getElementById('bidName').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('bidEmail').value)){show(note,false,'Add your name and a valid email so we can follow up.');return}
     if(!f&&!document.getElementById('bidLink').value.trim()&&!document.getElementById('bidProj').value.trim()){show(note,false,'Add your plans, a link to them, or at least a project name.');return}
     if(f&&f.size>8*1048576){show(note,false,'That file is over 8 MB. Share a link to the plans instead, or send a smaller file.');return}
+    var subj='Bid request: '+(val('bidProj')||'New project')+(val('bidDue')?' · Due '+niceDate(val('bidDue')):'')+' · '+(val('bidCo')||val('bidName'));
+    setSubject(bidForm,subj);
     btn.disabled=true;btn.textContent='Sending…';
     sendForm(bidForm,true).then(function(){bidForm.reset();fl.innerHTML='';show(note,true,'Thanks. Your bid request was sent to our estimating team, and we\'ll confirm receipt within one business day.')})
       .catch(function(){show(note,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Submit for bid'})});
@@ -993,6 +998,7 @@ button[disabled]{opacity:.6;cursor:wait}
   lead.addEventListener('submit',function(e){e.preventDefault();
     var out=document.getElementById('sent'),btn=lead.querySelector('button[type=submit]');
     if(!document.getElementById('nm').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('em').value)){show(out,false,'Add your name and a valid email so we can reply.');return}
+    setSubject(lead,'Website inquiry: '+val('nm')+(val('co')?' · '+val('co'):''));
     btn.disabled=true;btn.textContent='Sending…';
     sendForm(lead,false).then(function(){lead.reset();show(out,true,'Thanks. Your message was sent, and we\'ll reply within one business day.')})
       .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Send message'})});
