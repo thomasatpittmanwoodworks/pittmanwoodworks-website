@@ -239,17 +239,17 @@
 
   var box=document.getElementById('svgbox');
 
-  /* clients */
-  var clients=["Fort Worth ISD","Texas Health Resources","Golden Chick","Mister Car Wash","Valvoline","PopStroke","McCoy's","Graham Regional Medical Center","Millsap ISD","Seminole ISD","Glen Rose ISD","Success Space"];
+  /* clients: edited in the admin at /admin (data/clients.json) */
   var row=document.getElementById('clientRow');
-  /* add a logo by setting logo:'logos/file.svg' on a client; until then the name shows */
-  var CL=clients.map(function(n){return {n:n,logo:null}});
   function tile(c,dup){var d=document.createElement('div');d.className='logo';if(dup)d.setAttribute('aria-hidden','true');
-    if(c.logo){var im=document.createElement('img');im.src=c.logo;im.alt=dup?'':c.n;im.loading='lazy';d.appendChild(im)}
-    else{var t=document.createElement('span');t.textContent=c.n;d.appendChild(t)}
+    if(c.logo){var im=document.createElement('img');im.src=c.logo;im.alt=dup?'':c.name;im.loading='lazy';d.appendChild(im)}
+    else{var t=document.createElement('span');t.textContent=c.name;d.appendChild(t)}
     return d}
-  var set=document.createElement('div');set.className='set';CL.forEach(function(c){set.appendChild(tile(c,false))});row.appendChild(set);
-  if(!reduce){var set2=document.createElement('div');set2.className='set';set2.setAttribute('aria-hidden','true');CL.forEach(function(c){set2.appendChild(tile(c,true))});row.appendChild(set2)}
+  fetch('/data/clients.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
+    var CL=(d.clients||[]).filter(function(c){return c.name});if(!CL.length){row.closest('.clients').hidden=true;return}
+    var set=document.createElement('div');set.className='set';CL.forEach(function(c){set.appendChild(tile(c,false))});row.appendChild(set);
+    if(!reduce){var set2=document.createElement('div');set2.className='set';set2.setAttribute('aria-hidden','true');CL.forEach(function(c){set2.appendChild(tile(c,true))});row.appendChild(set2)}
+  }).catch(function(){});
 
 })();
 </script>

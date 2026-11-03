@@ -57,6 +57,8 @@ select{appearance:auto}
 .filebox:focus-within{outline:2px solid var(--layout);outline-offset:3px}
 .filebox b{color:var(--ink);font-weight:600}
 .eeo{font-size:13px;color:var(--ink-2);margin-top:28px;max-width:60em}
+
+.job-pay{font-size:15px;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -102,68 +104,7 @@ select{appearance:auto}
       <h2>We're always hiring for these positions</h2>
       <p>These roles stay open year-round. Apply anytime, and we'll reach out when there's a fit.</p>
     </div>
-    <div class="jobs">
-      <details class="job" id="installer">
-        <summary>
-          <span class="job-t">Commercial Cabinet Installer</span>
-          <span class="job-m"><span>Field</span><span>Full-time</span><span>DFW job sites</span></span>
-          <span class="job-x" aria-hidden="true"></span>
-        </summary>
-        <div class="job-b">
-          <p class="job-sum">Install commercial casework and countertops on schools, healthcare, restaurant and office projects across North Texas.</p>
-          <div class="job-cols">
-            <div><h3>What you'll do</h3><ul><li>Set, level, scribe and fasten cabinets to shop drawings</li><li>Install countertops, hardware and trim</li><li>Work punch lists and walk finished work with the general contractor</li><li>Keep job sites clean, safe and on schedule</li></ul></div>
-            <div><h3>What you bring</h3><ul><li>Experience installing cabinets or finish carpentry</li><li>Own hand tools and reliable transportation</li><li>Valid driver’s license</li><li>Able to read shop drawings and lift 75 lbs</li></ul></div>
-          </div>
-          <a class="btn sm" href="#apply" data-role="Commercial Cabinet Installer">Apply for this role</a>
-        </div>
-      </details>
-      <details class="job" id="assembler">
-        <summary>
-          <span class="job-t">Cabinet Assembler</span>
-          <span class="job-m"><span>Shop</span><span>Full-time</span><span>North Richland Hills shop</span></span>
-          <span class="job-x" aria-hidden="true"></span>
-        </summary>
-        <div class="job-b">
-          <p class="job-sum">Build commercial cabinet boxes, drawers and doors from CNC-cut parts in our North Richland Hills shop.</p>
-          <div class="job-cols">
-            <div><h3>What you'll do</h3><ul><li>Assemble cabinets to shop drawings and cut lists</li><li>Install hinges, slides and hardware</li><li>Scan parts and log progress at your station</li><li>Check work for square, fit and finish</li></ul></div>
-            <div><h3>What you bring</h3><ul><li>Cabinet or millwork shop experience preferred</li><li>Comfortable with pneumatic and power tools</li><li>Attention to detail and accurate measuring</li><li>Able to stand and lift through a full shift</li></ul></div>
-          </div>
-          <a class="btn sm" href="#apply" data-role="Cabinet Assembler">Apply for this role</a>
-        </div>
-      </details>
-      <details class="job" id="cnc">
-        <summary>
-          <span class="job-t">CNC & Machine Operator</span>
-          <span class="job-m"><span>Shop</span><span>Full-time</span><span>North Richland Hills shop</span></span>
-          <span class="job-x" aria-hidden="true"></span>
-        </summary>
-        <div class="job-b">
-          <p class="job-sum">Run our CNC router and edgebander, keeping parts moving accurately to assembly.</p>
-          <div class="job-cols">
-            <div><h3>What you'll do</h3><ul><li>Load programs and sheet goods and run the CNC</li><li>Label parts and sort them for assembly</li><li>Run the edgebander and keep machines maintained</li><li>Verify part sizes against cut lists</li></ul></div>
-            <div><h3>What you bring</h3><ul><li>CNC router or panel-processing experience preferred</li><li>Basic computer skills</li><li>Mechanical aptitude and a careful, safe approach</li><li>Willing to be trained on our equipment</li></ul></div>
-          </div>
-          <a class="btn sm" href="#apply" data-role="CNC & Machine Operator">Apply for this role</a>
-        </div>
-      </details>
-      <details class="job" id="helper">
-        <summary>
-          <span class="job-t">Production Helper</span>
-          <span class="job-m"><span>Shop</span><span>Full-time</span><span>North Richland Hills shop</span></span>
-          <span class="job-x" aria-hidden="true"></span>
-        </summary>
-        <div class="job-b">
-          <p class="job-sum">Entry-level role supporting every station in the shop. No experience required, and a clear path into assembly, machining or installation.</p>
-          <div class="job-cols">
-            <div><h3>What you'll do</h3><ul><li>Stage materials and move parts between stations</li><li>Help with assembly, edgebanding and packing</li><li>Load trucks for delivery</li><li>Keep the shop clean and organized</li></ul></div>
-            <div><h3>What you bring</h3><ul><li>Reliable, on time and ready to learn</li><li>Able to lift 50 lbs and stand for a full shift</li><li>Basic tape-measure skills</li><li>Interest in learning a trade</li></ul></div>
-          </div>
-          <a class="btn sm" href="#apply" data-role="Production Helper">Apply for this role</a>
-        </div>
-      </details>
-    </div>
+    <div class="jobs" id="jobList"><p class="fine">Loading open roles…</p></div>
   </div>
 </section>
 
@@ -186,7 +127,7 @@ select{appearance:auto}
           <input type="hidden" name="form-name" value="application">
           <input type="hidden" name="subject" data-remove-prefix value="New job application from pittmanwoodworks.com">
           <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
-          <label class="f full" for="aRole">Position<select id="aRole" name="position"><option>General application</option><option>Commercial Cabinet Installer</option><option>Cabinet Assembler</option><option>CNC & Machine Operator</option><option>Production Helper</option></select></label>
+          <label class="f full" for="aRole">Position<select id="aRole" name="position"><option>General application</option></select></label>
           <label class="f" for="aName">Full name<input id="aName" name="name" autocomplete="name" required></label>
           <label class="f" for="aPhone">Phone<input id="aPhone" name="phone" type="tel" autocomplete="tel" required></label>
           <label class="f" for="aEmail">Email<input id="aEmail" name="email" type="email" autocomplete="email"></label>
@@ -220,7 +161,20 @@ select{appearance:auto}
 <script>
 (function(){
   var sel=document.getElementById('aRole');
-  document.querySelectorAll('[data-role]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.dataset.role})});
+  /* Job listings live in /data/jobs.json and are edited in the admin at /admin */
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
+  function slug(t){return String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}
+  fetch('/data/jobs.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
+    var list=(d.jobs||[]).filter(function(j){return j.title&&j.open!==false}),box=document.getElementById('jobList'),sel=document.getElementById('aRole');
+    if(!list.length){box.innerHTML='<p class="job-sum" style="padding:24px 0">No roles are listed right now, but we always want to hear from skilled people. Send a general application below.</p>';return}
+    var li=function(xs){return (xs||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('')};
+    box.innerHTML=list.map(function(j){return '<details class="job" id="'+slug(j.title)+'"><summary><span class="job-t">'+esc(j.title)+'</span><span class="job-m">'+[j.team,j.type,j.location].filter(Boolean).map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</span><span class="job-x" aria-hidden="true"></span></summary>'+
+      '<div class="job-b"><p class="job-sum">'+esc(j.summary)+'</p>'+(j.pay?'<p class="job-pay"><b>Pay:</b> '+esc(j.pay)+'</p>':'')+'<div class="job-cols"><div><h3>What you\'ll do</h3><ul>'+li(j.duties)+'</ul></div><div><h3>What you bring</h3><ul>'+li(j.requirements)+'</ul></div></div>'+
+      '<a class="btn sm" href="#apply" data-role="'+esc(j.title)+'">Apply for this role</a></div></details>'}).join('');
+    list.forEach(function(j){var o=document.createElement('option');o.textContent=j.title;sel.appendChild(o)});
+    box.querySelectorAll('[data-role]').forEach(function(a){a.addEventListener('click',function(){sel.value=a.dataset.role})});
+    if(location.hash){var t=document.getElementById(location.hash.slice(1));if(t&&t.tagName==='DETAILS'){t.open=true;t.scrollIntoView()}}
+  }).catch(function(){document.getElementById('jobList').innerHTML='<p class="job-sum">Open roles couldn\'t load. Call (469) 375-0495 or send a general application below.</p>'});
   var f=document.getElementById('aFile');
   f.addEventListener('change',function(){document.getElementById('aFileName').textContent=f.files[0]?f.files[0].name:'PDF, Word or photo · optional'});
 

@@ -28,6 +28,10 @@ Hosted on Netlify. Every change saved to the `main` branch publishes automatical
 - `privacy-request` (privacy page) → thomas@
 
 ## Editing
-- Team members: edit the `TEAM` list near the bottom of `about.html`.
-- Job listings: edit the role sections in `careers.html`.
-- Client names/logos: edit the `clients` list near the bottom of `index.html`.
+Use the website admin at `/admin` (sign in with a GitHub account that has access to this repository):
+- **Team** → `data/team.json` (About page)
+- **Job listings** → `data/jobs.json` (Careers page)
+- **Trusted by** → `data/clients.json` (homepage banner)
+
+Uploaded photos and logos are saved to `images/uploads/`. Every save publishes automatically.
+The admin is not linked from the site and is excluded from search engines.

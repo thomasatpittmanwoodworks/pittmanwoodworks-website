@@ -216,18 +216,11 @@ body{margin:0}
      dept: Leadership | Office | Shop | Field
      photo: optional image path, e.g. 'team/seth.jpg' (initials show until then)
      optional: email, phone, since (year started), focus, bio, q (quote) */
-  var TEAM=[
-    {n:'Seth Pittman',email:'seth@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Co-Owner & Founder',dept:'Leadership',bio:'Seth founded Pittman Woodworks and works directly with clients, guiding projects from the first conversation through the final walkthrough.',q:'We treat every customer like part of the Pittman Woodworks family.'},
-    {n:'Eric Jorgenson',email:'eric@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Co-Owner & Project Manager',dept:'Leadership'},
-    {n:'Thomas Kincaid',email:'thomas@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Chief Operating Officer',dept:'Leadership'},
-    {n:'Sydnee Kincaid',email:'sydnee@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Lead Estimator',dept:'Office'},
-    {n:'Elizabeth Pittman',email:'elizabeth@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Director of Design',dept:'Office'},
-    {n:'Jeri Edwards',r:'Lead Assembler',dept:'Shop'},
-    {n:'Tucker Candies',r:'Cabinet & Countertop I',dept:'Shop'},
-    {n:'Colin Brown',r:'Machine I',dept:'Shop'},
-    {n:'Dariel Alvarez',r:'Lead Installer',dept:'Field'},
-    {n:'Ryan Contreras',r:'Install Apprentice I',dept:'Field'}
-  ];
+  /* Team data lives in /data/team.json and is edited in the admin at /admin */
+  function mapPerson(p){return {n:p.name||'',r:p.role||'',dept:p.department||'Shop',photo:p.photo||'',email:p.email||'',phone:p.phone||'',since:p.since||'',focus:p.focus||'',bio:p.bio||'',q:p.quote||''}}
+  fetch('/data/team.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){boot((d.people||[]).filter(function(p){return p.name}).map(mapPerson))}).catch(function(){boot([])});
+  function boot(TEAM){
+
   var ORG=[
     {k:'Leadership',t:'Leadership',p:'Sets direction, owns client relationships and is accountable for every project.'},
     {k:'Office',t:'Estimating & project management',p:'Bids, drafting, submittals, scheduling and coordination with general contractors.'},
@@ -243,7 +236,8 @@ body{margin:0}
   document.getElementById('org').innerHTML=ORG.map(function(o,i){var c=cnt(o.k);return '<div><span class="k">0'+(i+1)+'</span><b>'+esc(o.t)+'</b><p>'+esc(o.p)+'</p><span class="cnt">'+c+' team member'+(c===1?'':'s')+'</span></div>'}).join('');
 
   var SIL='<svg viewBox="0 0 100 90" aria-hidden="true"><circle cx="50" cy="30" r="20"/><path d="M8 90c0-24 19-38 42-38s42 14 42 38z"/></svg>';
-  function pic(m){return m.photo?'<img src="'+esc(m.photo)+'" alt="">':SIL}
+  function img(p,w){return /^\//.test(p)?'/.netlify/images?url='+encodeURIComponent(p)+'&w='+w+'&q=80':p}
+  function pic(m,w){return m.photo?'<img src="'+esc(img(m.photo,w||640))+'" alt="" loading="lazy" onerror="this.onerror=null;this.src=\''+esc(m.photo)+'\'">':SIL}
   var ORDER=['Leadership','Office','Shop','Field'],TITLES={Leadership:'Leadership',Office:'Estimating & project management',Shop:'Production',Field:'Installation'};
   var shown=[];ORDER.forEach(function(d){TEAM.forEach(function(m,i){if(m.dept===d)shown.push(i)})});
   function open1(i){open(shown.indexOf(i))}
@@ -273,6 +267,7 @@ body{margin:0}
   document.getElementById('pPrev').addEventListener('click',function(){pos=(pos-1+shown.length)%shown.length;fill()});
   document.getElementById('pNext').addEventListener('click',function(){pos=(pos+1)%shown.length;fill()});
   document.addEventListener('keydown',function(e){if(!panel.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowRight'){pos=(pos+1)%shown.length;fill()}if(e.key==='ArrowLeft'){pos=(pos-1+shown.length)%shown.length;fill()}});
+  }
 })();
 </script>
 </body>

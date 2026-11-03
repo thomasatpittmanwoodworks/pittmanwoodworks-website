@@ -1,0 +1,52 @@
+{
+  "clients": [
+    {
+      "name": "Fort Worth ISD",
+      "logo": ""
+    },
+    {
+      "name": "Texas Health Resources",
+      "logo": ""
+    },
+    {
+      "name": "Golden Chick",
+      "logo": ""
+    },
+    {
+      "name": "Mister Car Wash",
+      "logo": ""
+    },
+    {
+      "name": "Valvoline",
+      "logo": ""
+    },
+    {
+      "name": "PopStroke",
+      "logo": ""
+    },
+    {
+      "name": "McCoy's",
+      "logo": ""
+    },
+    {
+      "name": "Graham Regional Medical Center",
+      "logo": ""
+    },
+    {
+      "name": "Millsap ISD",
+      "logo": ""
+    },
+    {
+      "name": "Seminole ISD",
+      "logo": ""
+    },
+    {
+      "name": "Glen Rose ISD",
+      "logo": ""
+    },
+    {
+      "name": "Success Space",
+      "logo": ""
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "jobs": [
+    {
+      "title": "Commercial Cabinet Installer",
+      "team": "Field",
+      "type": "Full-time",
+      "location": "DFW job sites",
+      "summary": "Install commercial casework and countertops on schools, healthcare, restaurant and office projects across North Texas.",
+      "duties": [
+        "Set, level, scribe and fasten cabinets to shop drawings",
+        "Install countertops, hardware and trim",
+        "Work punch lists and walk finished work with the general contractor",
+        "Keep job sites clean, safe and on schedule"
+      ],
+      "requirements": [
+        "Experience installing cabinets or finish carpentry",
+        "Own hand tools and reliable transportation",
+        "Valid driver’s license",
+        "Able to read shop drawings and lift 75 lbs"
+      ],
+      "pay": "",
+      "open": true
+    },
+    {
+      "title": "Cabinet Assembler",
+      "team": "Shop",
+      "type": "Full-time",
+      "location": "North Richland Hills shop",
+      "summary": "Build commercial cabinet boxes, drawers and doors from CNC-cut parts in our North Richland Hills shop.",
+      "duties": [
+        "Assemble cabinets to shop drawings and cut lists",
+        "Install hinges, slides and hardware",
+        "Scan parts and log progress at your station",
+        "Check work for square, fit and finish"
+      ],
+      "requirements": [
+        "Cabinet or millwork shop experience preferred",
+        "Comfortable with pneumatic and power tools",
+        "Attention to detail and accurate measuring",
+        "Able to stand and lift through a full shift"
+      ],
+      "pay": "",
+      "open": true
+    },
+    {
+      "title": "CNC & Machine Operator",
+      "team": "Shop",
+      "type": "Full-time",
+      "location": "North Richland Hills shop",
+      "summary": "Run our CNC router and edgebander, keeping parts moving accurately to assembly.",
+      "duties": [
+        "Load programs and sheet goods and run the CNC",
+        "Label parts and sort them for assembly",
+        "Run the edgebander and keep machines maintained",
+        "Verify part sizes against cut lists"
+      ],
+      "requirements": [
+        "CNC router or panel-processing experience preferred",
+        "Basic computer skills",
+        "Mechanical aptitude and a careful, safe approach",
+        "Willing to be trained on our equipment"
+      ],
+      "pay": "",
+      "open": true
+    },
+    {
+      "title": "Production Helper",
+      "team": "Shop",
+      "type": "Full-time",
+      "location": "North Richland Hills shop",
+      "summary": "Entry-level role supporting every station in the shop. No experience required, and a clear path into assembly, machining or installation.",
+      "duties": [
+        "Stage materials and move parts between stations",
+        "Help with assembly, edgebanding and packing",
+        "Load trucks for delivery",
+        "Keep the shop clean and organized"
+      ],
+      "requirements": [
+        "Reliable, on time and ready to learn",
+        "Able to lift 50 lbs and stand for a full shift",
+        "Basic tape-measure skills",
+        "Interest in learning a trade"
+      ],
+      "pay": "",
+      "open": true
+    }
+  ]
+}

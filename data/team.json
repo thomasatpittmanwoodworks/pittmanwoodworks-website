@@ -1,0 +1,124 @@
+{
+  "people": [
+    {
+      "name": "Seth Pittman",
+      "role": "Co-Owner & Founder",
+      "department": "Leadership",
+      "email": "seth@pittmanwoodworks.com",
+      "phone": "(469) 375-0495",
+      "since": "",
+      "focus": "",
+      "bio": "Seth founded Pittman Woodworks and works directly with clients, guiding projects from the first conversation through the final walkthrough.",
+      "quote": "We treat every customer like part of the Pittman Woodworks family.",
+      "photo": ""
+    },
+    {
+      "name": "Eric Jorgenson",
+      "role": "Co-Owner & Project Manager",
+      "department": "Leadership",
+      "email": "eric@pittmanwoodworks.com",
+      "phone": "(469) 375-0495",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Thomas Kincaid",
+      "role": "Chief Operating Officer",
+      "department": "Leadership",
+      "email": "thomas@pittmanwoodworks.com",
+      "phone": "(469) 375-0495",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Sydnee Kincaid",
+      "role": "Lead Estimator",
+      "department": "Office",
+      "email": "sydnee@pittmanwoodworks.com",
+      "phone": "(469) 375-0495",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Elizabeth Pittman",
+      "role": "Director of Design",
+      "department": "Office",
+      "email": "elizabeth@pittmanwoodworks.com",
+      "phone": "(469) 375-0495",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Jeri Edwards",
+      "role": "Lead Assembler",
+      "department": "Shop",
+      "email": "",
+      "phone": "",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Tucker Candies",
+      "role": "Cabinet & Countertop I",
+      "department": "Shop",
+      "email": "",
+      "phone": "",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Colin Brown",
+      "role": "Machine I",
+      "department": "Shop",
+      "email": "",
+      "phone": "",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Dariel Alvarez",
+      "role": "Lead Installer",
+      "department": "Field",
+      "email": "",
+      "phone": "",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    },
+    {
+      "name": "Ryan Contreras",
+      "role": "Install Apprentice I",
+      "department": "Field",
+      "email": "",
+      "phone": "",
+      "since": "",
+      "focus": "",
+      "bio": "",
+      "quote": "",
+      "photo": ""
+    }
+  ]
+}

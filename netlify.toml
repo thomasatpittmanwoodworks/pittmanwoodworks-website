@@ -39,3 +39,9 @@
   from = "/blog"
   to = "/"
   status = 301
+
+# Keep the admin out of search results
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

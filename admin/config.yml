@@ -1,0 +1,89 @@
+# Website editor for pittmanwoodworks.com (Decap CMS)
+# Sign in at /admin with a GitHub account that has access to this repository.
+backend:
+  name: github
+  repo: thomasatpittmanwoodworks/pittmanwoodworks-website
+  branch: main
+  commit_messages:
+    update: "Update {{collection}}: {{slug}} (website admin)"
+    uploadMedia: "Upload {{path}} (website admin)"
+
+site_url: https://www.pittmanwoodworks.com
+display_url: https://www.pittmanwoodworks.com
+media_folder: images/uploads
+public_folder: /images/uploads
+
+collections:
+  - name: team
+    label: Team
+    description: People shown on the About page.
+    files:
+      - name: team
+        label: Team members
+        file: data/team.json
+        fields:
+          - label: People
+            name: people
+            label_singular: Person
+            widget: list
+            summary: "{{fields.name}} · {{fields.role}}"
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Title, name: role, widget: string}
+              - label: Team
+                name: department
+                widget: select
+                default: Shop
+                options:
+                  - {label: Leadership, value: Leadership}
+                  - {label: Estimating & project management, value: Office}
+                  - {label: Production, value: Shop}
+                  - {label: Installation, value: Field}
+              - {label: Photo, name: photo, widget: image, required: false, hint: "Vertical photo, chest up, plain background."}
+              - {label: Email, name: email, widget: string, required: false}
+              - {label: Phone, name: phone, widget: string, required: false}
+              - {label: With us since, name: since, widget: string, required: false, hint: "Year, e.g. 2021"}
+              - {label: Focus, name: focus, widget: string, required: false, hint: "One line on what they mostly do"}
+              - {label: Bio, name: bio, widget: text, required: false, hint: "2-3 sentences"}
+              - {label: Quote, name: quote, widget: string, required: false}
+
+  - name: jobs
+    label: Job listings
+    description: Roles shown on the Careers page.
+    files:
+      - name: jobs
+        label: Open roles
+        file: data/jobs.json
+        fields:
+          - label: Jobs
+            name: jobs
+            label_singular: Job
+            widget: list
+            summary: "{{fields.title}} · {{fields.team}}"
+            fields:
+              - {label: Job title, name: title, widget: string}
+              - {label: Show on website, name: open, widget: boolean, default: true, hint: "Turn off to hide this role without deleting it"}
+              - {label: Team, name: team, widget: select, options: [Shop, Field, Office], default: Shop}
+              - {label: Type, name: type, widget: select, options: [Full-time, Part-time, Contract, Seasonal], default: Full-time}
+              - {label: Location, name: location, widget: string, default: North Richland Hills shop}
+              - {label: Pay (optional), name: pay, widget: string, required: false, hint: "e.g. $18–$24/hr, based on experience"}
+              - {label: Summary, name: summary, widget: text}
+              - {label: What you'll do, name: duties, widget: list, field: {label: Duty, name: duty, widget: string}}
+              - {label: What you bring, name: requirements, widget: list, field: {label: Requirement, name: requirement, widget: string}}
+
+  - name: clients
+    label: Trusted by
+    description: Client names and logos in the homepage banner. Only add logos you have permission to use.
+    files:
+      - name: clients
+        label: Clients
+        file: data/clients.json
+        fields:
+          - label: Clients
+            name: clients
+            label_singular: Client
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - {label: Name, name: name, widget: string}
+              - {label: Logo (optional), name: logo, widget: image, required: false, hint: "SVG or transparent PNG. The name shows until a logo is added."}
