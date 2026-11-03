@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contact · Pittman Woodworks</title>
+<meta name="description" content="Contact Pittman Woodworks in North Richland Hills, Texas: (469) 375-0495, office@pittmanwoodworks.com.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="Pittman Woodworks home"><b>PW</b><span>Pittman<br>Woodworks</span></a>
+    <nav class="main" aria-label="Main"><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/contact" class="cur" aria-current="page">Contact</a></nav>
+    <span class="phone">(469) 375-0495</span><a class="btn sm hdr-cta" href="/bidding#bid">Request a bid</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Mobile"><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/contact">Contact</a></nav>
+</header>
+
+<main>
+<section class="pg-hero"><div class="wrap"><p class="tag">Contact</p><h1>Contact us</h1><p class="sub">Tell us about your project. We respond within one business day.</p></div></section>
+<section class="sheet" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="box info">
+        <dl>
+          <div><dt>Phone</dt><dd><span id="cPhone">(469) 375-0495</span><button class="copy" data-copy="cPhone" type="button">Copy</button></dd></div>
+          <div><dt>Email</dt><dd><span id="cEmail">office@pittmanwoodworks.com</span><button class="copy" data-copy="cEmail" type="button">Copy</button></dd></div>
+          <div><dt>Shop</dt><dd>8212 Northeast Pkwy, Ste 100<br>North Richland Hills, TX 76182</dd></div>
+        </dl>
+      </div>
+      <div class="box">
+        <form id="lead" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <input type="hidden" name="subject" data-remove-prefix value="New message from pittmanwoodworks.com">
+          <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <label class="f" for="nm">Name<input id="nm" name="name" required autocomplete="name"></label>
+          <label class="f" for="co">Company (optional)<input id="co" name="company" autocomplete="organization"></label>
+          <label class="f" for="ph">Phone<input id="ph" name="phone" type="tel" autocomplete="tel"></label>
+          <label class="f" for="em">Email<input id="em" name="email" type="email" required autocomplete="email"></label>
+          <label class="f full" for="ms">About the project<textarea id="ms" name="message" placeholder="Space, rough size, timeline, any plans you have"></textarea></label>
+          <div class="full"><button class="btn" type="submit">Send message</button></div>
+          <div class="sent full" id="sent" hidden></div>
+          <p class="fine full">By sending this form you agree to our <a href="/privacy">privacy policy</a>.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="tblock">
+      <div><small>Pittman Woodworks LLC</small>Commercial casework &amp; countertops<br>8212 Northeast Pkwy, Ste 100<br>North Richland Hills, TX 76182</div>
+      <div><small>Company</small><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a></div>
+      <div><small>Credentials</small>Licensed, bonded &amp; insured<br>Family owned<br>Serving DFW &amp; North Texas</div>
+      <div><small>Contact</small><a href="tel:+14693750495">(469) 375-0495</a><a href="mailto:office@pittmanwoodworks.com">office@pittmanwoodworks.com</a><a href="/contact">Contact form</a></div>
+    </div>
+  </div>
+  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas</span><span class="legal-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/accessibility">Accessibility</a></span></div>
+</footer>
+<script src="/site.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* send a form to Netlify; files require multipart, otherwise urlencoded */
+  function sendForm(form,hasFiles){
+    var fd=new FormData(form),opts={method:'POST'};
+    if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
+    return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
+  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  function setSubject(form,text){var el=form.querySelector('input[name=subject]');if(el)el.value=text.replace(/\s+/g,' ').trim().slice(0,150)}
+  function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
+  function niceDate(v){if(!v)return '';var p=v.split('-');if(p.length!==3)return v;var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1];return m+' '+(+p[2])+', '+p[0]}
+  var FAIL='Something went wrong sending this. Please try again, or call us at (469) 375-0495.';
+
+  /* copy */
+  document.querySelectorAll('.copy').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.copy).textContent;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.copy));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected'}
+    try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copied'},sel)}catch(e){sel()}
+    setTimeout(function(){b.textContent='Copy'},1600)})});
+
+  /* contact form */
+  var lead=document.getElementById('lead');
+  lead.addEventListener('submit',function(e){e.preventDefault();
+    var out=document.getElementById('sent'),btn=lead.querySelector('button[type=submit]');
+    if(!document.getElementById('nm').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('em').value)){show(out,false,'Add your name and a valid email so we can reply.');return}
+    setSubject(lead,'Website inquiry: '+val('nm')+(val('co')?' · '+val('co'):''));
+    btn.disabled=true;btn.textContent='Sending…';
+    sendForm(lead,false).then(function(){lead.reset();show(out,true,'Thanks. Your message was sent, and we\'ll reply within one business day.')})
+      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Send message'})});
+  if(/[?&]r=prequal/.test(location.search)){document.getElementById('ms').value='Please send your prequalification documents (certificate of insurance, W-9, capability statement, project references, safety program and bonding letter).'}
+})();
+</script>
+</body>
+</html>

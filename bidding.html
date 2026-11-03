@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bidding &amp; Prequalification · Pittman Woodworks</title>
+<meta name="description" content="Submit plans for a casework bid or request Pittman Woodworks prequalification documents.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="/" aria-label="Pittman Woodworks home"><b>PW</b><span>Pittman<br>Woodworks</span></a>
+    <nav class="main" aria-label="Main"><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding" class="cur" aria-current="page">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/contact">Contact</a></nav>
+    <span class="phone">(469) 375-0495</span><a class="btn sm hdr-cta" href="/bidding#bid">Request a bid</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav">Menu</button>
+  </div>
+  <nav class="mnav" id="mnav" hidden aria-label="Mobile"><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/contact">Contact</a></nav>
+</header>
+
+<main>
+<section class="pg-hero"><div class="wrap"><p class="tag">For general contractors</p><h1>Bidding &amp; prequalification</h1><p class="sub">Send plans and specifications for pricing, or request our prequalification documents. We respond within one business day.</p><div class="ctas"><a class="btn" href="#bid">Submit plans</a><a class="btn ghost" href="/contact?r=prequal">Request prequal documents</a></div></div></section>
+<section class="sheet" id="contractors">
+  <div class="wrap split">
+    <div class="box inv">
+      <span class="tag">For general contractors</span>
+      <h3>A subcontractor you can schedule around.</h3>
+      <ul class="checks">
+        <li>Complete, itemized bids built from your plans and specifications</li>
+        <li>Shop drawings and submittals before fabrication</li>
+        <li>Proactive schedule coordination and early notice of any changes</li>
+        <li>Self-performed installation by our own crews</li>
+      </ul>
+      <a class="btn ghost" style="border-color:var(--paper);color:var(--paper);justify-self:start" href="#bid">Submit plans for bid</a>
+    </div>
+    <div class="box">
+      <span class="tag">Our commitments</span>
+      <h3>Straightforward to work with.</h3>
+      <ul class="checks">
+        <li>Licensed, bonded and insured</li>
+        <li>Local and family owned in North Richland Hills</li>
+        <li>Transparent pricing with no hidden costs</li>
+        <li>Workmanship backed by warranty</li>
+      </ul>
+      <div class="seth"><span class="av">SP</span><div><strong>Seth Pittman, Co-Owner &amp; Founder</strong><p style="font-size:14px;color:var(--ink-2)">Single point of contact from bid through closeout.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="bid" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">Bidding</span>
+      <h2>Bidding &amp; prequalification</h2>
+      <p>General contractors and architects can submit plans for pricing and request our prequalification documents.</p>
+    </div>
+    <div class="bidg">
+      <form class="box" id="bidForm" name="bid" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
+        <input type="hidden" name="form-name" value="bid">
+        <input type="hidden" name="subject" data-remove-prefix value="New bid request from pittmanwoodworks.com">
+        <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <span class="tag">Plans &amp; specifications</span>
+        <label class="drop" id="drop" for="bidFiles"><input type="file" id="bidFiles" name="plans" accept=".pdf,.dwg,.dxf,.zip,.png,.jpg,.jpeg"><b>Upload plans &amp; specifications</b><span>One PDF, DWG, DXF or ZIP up to 8 MB · or click to choose a file</span></label>
+        <ul class="flist" id="flist"></ul>
+        <label class="f" for="bidLink">Or share a link to the plans<input id="bidLink" name="plans_link" type="url" placeholder="Dropbox, Box, Procore or BuildingConnected link"></label>
+        <div class="row2">
+          <label class="f" for="bidProj">Project name<input id="bidProj" name="project" placeholder="e.g. Eastside Clinic TI"></label>
+          <label class="f" for="bidDue">Bid due<input id="bidDue" name="bid_due" type="date"></label>
+        </div>
+        <label class="f" for="bidScope">Casework scope<input id="bidScope" name="scope" placeholder="e.g. Sections 06 41 00, 12 36 00"></label>
+        <div class="row2">
+          <label class="f" for="bidCo">Company<input id="bidCo" name="company" autocomplete="organization"></label>
+          <label class="f" for="bidName">Your name<input id="bidName" name="name" autocomplete="name" required></label>
+        </div>
+        <div class="row2">
+          <label class="f" for="bidEmail">Email<input id="bidEmail" name="email" type="email" autocomplete="email" required></label>
+          <label class="f" for="bidPhone">Phone<input id="bidPhone" name="phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <div><button class="btn" id="bidSend" type="submit">Submit for bid</button></div>
+        <p class="note" id="bidNote" hidden></p>
+        <p class="fine">Plans you send are kept confidential. See our <a href="/privacy">privacy policy</a> and <a href="/terms">terms</a>.</p>
+      </form>
+      <div class="box">
+        <span class="tag">Prequalification</span>
+        <h3>Prequalification documents</h3>
+        <ul class="pq">
+          <li>Certificate of insurance<span>On request</span></li>
+          <li>W-9<span>On request</span></li>
+          <li>Capability statement<span>On request</span></li>
+          <li>Project references<span>On request</span></li>
+          <li>Safety program<span>On request</span></li>
+          <li>Bonding letter<span>On request</span></li>
+        </ul>
+        <button class="btn ghost" id="pqReq" type="button" style="justify-self:start">Request documents</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sheet" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head">
+      <span class="no">FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq">
+      <details open><summary><span class="k">Q.01</span>Do you charge for estimates?</summary><p>No. Estimates and site visits are provided at no cost, with an itemized breakdown of the proposed scope.</p></details>
+      <details><summary><span class="k">Q.02</span>Can you bid from architect's plans?</summary><p>Yes. General contractors send us drawings and specs every week. We bid from the plans, then produce shop drawings and submittals for approval before anything is cut.</p></details>
+      <details><summary><span class="k">Q.03</span>Do you install, or just build?</summary><p>Both. Our own crew installs everything we build, including countertops, and handles the punch list with you at the end.</p></details>
+      <details><summary><span class="k">Q.04</span>Do you do residential work?</summary><p>Commercial is our focus. We do take on multifamily projects for builders and general contractors. For a single-family home, give us a call and we'll tell you straight whether we're the right fit.</p></details>
+      <details><summary><span class="k">Q.05</span>What area do you serve?</summary><p>The Dallas–Fort Worth area and surrounding North Texas. Our shop is in North Richland Hills. If you're farther out, call us and ask.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="tblock">
+      <div><small>Pittman Woodworks LLC</small>Commercial casework &amp; countertops<br>8212 Northeast Pkwy, Ste 100<br>North Richland Hills, TX 76182</div>
+      <div><small>Company</small><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a></div>
+      <div><small>Credentials</small>Licensed, bonded &amp; insured<br>Family owned<br>Serving DFW &amp; North Texas</div>
+      <div><small>Contact</small><a href="tel:+14693750495">(469) 375-0495</a><a href="mailto:office@pittmanwoodworks.com">office@pittmanwoodworks.com</a><a href="/contact">Contact form</a></div>
+    </div>
+  </div>
+  <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas</span><span class="legal-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/accessibility">Accessibility</a></span></div>
+</footer>
+<script src="/site.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* send a form to Netlify; files require multipart, otherwise urlencoded */
+  function sendForm(form,hasFiles){
+    var fd=new FormData(form),opts={method:'POST'};
+    if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
+    return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
+  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  function setSubject(form,text){var el=form.querySelector('input[name=subject]');if(el)el.value=text.replace(/\s+/g,' ').trim().slice(0,150)}
+  function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
+  function niceDate(v){if(!v)return '';var p=v.split('-');if(p.length!==3)return v;var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1];return m+' '+(+p[2])+', '+p[0]}
+  var FAIL='Something went wrong sending this. Please try again, or call us at (469) 375-0495.';
+
+  /* bid room */
+  var drop=document.getElementById('drop'),bf=document.getElementById('bidFiles'),fl=document.getElementById('flist'),bidForm=document.getElementById('bidForm');
+  function kb(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+  function showFile(){fl.innerHTML='';var f=bf.files[0];if(!f)return;var li=document.createElement('li');var ext=(f.name.split('.').pop()||'file').slice(0,4);
+    li.innerHTML='<span class="ext"></span><span class="nm"></span><span class="sz"></span>';li.children[0].textContent=ext;li.children[1].textContent=f.name;li.children[2].textContent=kb(f.size);fl.appendChild(li)}
+  bf.addEventListener('change',showFile);
+  ['dragenter','dragover'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.add('over')})});
+  ['dragleave','drop'].forEach(function(ev){drop.addEventListener(ev,function(e){e.preventDefault();drop.classList.remove('over')})});
+  drop.addEventListener('drop',function(e){if(e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files.length){try{var dt=new DataTransfer();dt.items.add(e.dataTransfer.files[0]);bf.files=dt.files}catch(x){}showFile()}});
+  bidForm.addEventListener('submit',function(e){e.preventDefault();
+    var note=document.getElementById('bidNote'),btn=document.getElementById('bidSend'),f=bf.files[0];
+    if(!document.getElementById('bidName').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('bidEmail').value)){show(note,false,'Add your name and a valid email so we can follow up.');return}
+    if(!f&&!document.getElementById('bidLink').value.trim()&&!document.getElementById('bidProj').value.trim()){show(note,false,'Add your plans, a link to them, or at least a project name.');return}
+    if(f&&f.size>8*1048576){show(note,false,'That file is over 8 MB. Share a link to the plans instead, or send a smaller file.');return}
+    var subj='Bid request: '+(val('bidProj')||'New project')+(val('bidDue')?' · Due '+niceDate(val('bidDue')):'')+' · '+(val('bidCo')||val('bidName'));
+    setSubject(bidForm,subj);
+    btn.disabled=true;btn.textContent='Sending…';
+    sendForm(bidForm,true).then(function(){bidForm.reset();fl.innerHTML='';show(note,true,'Thanks. Your bid request was sent to our estimating team, and we\'ll confirm receipt within one business day.')})
+      .catch(function(){show(note,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Submit for bid'})});
+  document.getElementById('pqReq').addEventListener('click',function(){location.href='/contact?r=prequal'});
+
+})();
+</script>
+</body>
+</html>

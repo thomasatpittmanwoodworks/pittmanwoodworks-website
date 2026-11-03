@@ -2,34 +2,34 @@
 [build]
   publish = "."
 
-# Keep old Wix links working (301 = permanent, keeps Google ranking)
+# Old Wix page addresses (301 = permanent, keeps Google ranking)
 [[redirects]]
   from = "/our-company"
   to = "/about"
   status = 301
 [[redirects]]
   from = "/our-services"
-  to = "/"
+  to = "/industries/"
   status = 301
 [[redirects]]
   from = "/commercial-cabinets"
-  to = "/#industries"
+  to = "/industries/"
   status = 301
 [[redirects]]
   from = "/residential-cabinets"
-  to = "/"
+  to = "/industries/multifamily"
   status = 301
 [[redirects]]
   from = "/contractors"
-  to = "/#bid"
+  to = "/bidding"
   status = 301
 [[redirects]]
   from = "/schedule-consultation"
-  to = "/#contact"
+  to = "/contact"
   status = 301
 [[redirects]]
   from = "/blank"
-  to = "/"
+  to = "/industries/"
   status = 301
 [[redirects]]
   from = "/blog/*"
