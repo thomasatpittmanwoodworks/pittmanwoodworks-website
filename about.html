@@ -511,7 +511,9 @@ body{margin:0}
 .person b{display:block;font-family:var(--display);font-stretch:88%;font-weight:600;font-size:17px;line-height:1.3}
 .person span.r{display:block;font-size:14px;color:var(--ink-2);margin-top:2px}
 .person.sample b{color:var(--ink-2);font-weight:500}
-.sample-note{font-size:13px;color:var(--ink-2);margin-top:28px}
+.lead-g .people{grid-template-columns:repeat(3,1fr)}
+@media (max-width:620px){.lead-g .people{grid-template-columns:repeat(2,1fr)}}
+.lead-g .person b{font-size:19px}
 /* profile panel */
 .scrim{position:fixed;inset:0;background:rgba(10,13,16,.45);backdrop-filter:blur(2px);z-index:50;opacity:0;transition:opacity .25s}
 .scrim.on{opacity:1}
@@ -585,7 +587,7 @@ body{margin:0}
     <div class="story">
       <div class="story-text">
         <p>Pittman Woodworks started with a simple idea: commercial clients deserve a cabinet shop that communicates clearly, prices honestly and delivers on schedule.</p>
-        <p>Led by owner Seth Pittman, we've grown into a full-service casework company serving schools, healthcare facilities, restaurants, retailers and offices across North Texas. We combine the personal attention of a family business with the systems and equipment of a much larger operation.</p>
+        <p>Led by co-owners Seth Pittman and Eric Jorgenson, we've grown into a full-service casework company serving schools, healthcare facilities, restaurants, retailers and offices across North Texas. We combine the personal attention of a family business with the systems and equipment of a much larger operation.</p>
         <p>Most of our projects come from repeat customers and referrals. We think that says more about our work than anything we could write here.</p>
       </div>
       <div class="values">
@@ -615,9 +617,7 @@ body{margin:0}
       <h2>Meet the people who build it</h2>
       <p>Select anyone to read more about them.</p>
     </div>
-    <div id="leaders"></div>
     <div id="groups"></div>
-    <p class="sample-note">Gray profiles are placeholders. Replace them with real names, roles and photos before launch.</p>
   </div>
 </section>
 
@@ -655,16 +655,18 @@ body{margin:0}
   /* ===== TEAM DATA: edit this list to update the page =====
      dept: Leadership | Office | Shop | Field
      photo: optional image path, e.g. 'team/seth.jpg' (initials show until then)
-     sample: true marks a placeholder card */
+     optional: since (year started), focus, bio, q (quote) */
   var TEAM=[
-    {n:'Seth Pittman',r:'Owner',dept:'Leadership',since:'Founder',focus:'Client relationships, estimating, project oversight',bio:'Seth founded Pittman Woodworks and is the point of contact for every client, guiding each project from the first conversation through final walkthrough.',q:'We treat every customer like part of the Pittman Woodworks family.'},
-    {n:'Team member',r:'Estimator',dept:'Office',since:'Year',focus:'Plan takeoffs, bid proposals',bio:'Add a short bio here: background, how long they have been in the trade, and what they enjoy about the work.',q:'Add a favorite quote or what they love about the job.',sample:true},
-    {n:'Team member',r:'Project Manager',dept:'Office',since:'Year',focus:'Scheduling, GC coordination',bio:'Add a short bio here.',q:'',sample:true},
-    {n:'Team member',r:'Drafter',dept:'Office',since:'Year',focus:'Shop drawings, submittals',bio:'Add a short bio here.',q:'',sample:true},
-    {n:'Team member',r:'Shop Foreman',dept:'Shop',since:'Year',focus:'Production planning, quality checks',bio:'Add a short bio here.',q:'',sample:true},
-    {n:'Team member',r:'CNC Operator',dept:'Shop',since:'Year',focus:'CNC machining, edgebanding',bio:'Add a short bio here.',q:'',sample:true},
-    {n:'Team member',r:'Cabinet Assembler',dept:'Shop',since:'Year',focus:'Casework assembly, hardware',bio:'Add a short bio here.',q:'',sample:true},
-    {n:'Team member',r:'Lead Installer',dept:'Field',since:'Year',focus:'Installation, punch lists',bio:'Add a short bio here.',q:'',sample:true}
+    {n:'Seth Pittman',r:'Co-Owner & Founder',dept:'Leadership',bio:'Seth founded Pittman Woodworks and works directly with clients, guiding projects from the first conversation through the final walkthrough.',q:'We treat every customer like part of the Pittman Woodworks family.'},
+    {n:'Eric Jorgenson',r:'Co-Owner & Project Manager',dept:'Leadership'},
+    {n:'Thomas Kincaid',r:'Chief Operating Officer',dept:'Leadership'},
+    {n:'Sydnee Kincaid',r:'Lead Estimator',dept:'Office'},
+    {n:'Elizabeth Pittman',r:'Director of Design',dept:'Office'},
+    {n:'Jeri Edwards',r:'Lead Assembler',dept:'Shop'},
+    {n:'Tucker Candies',r:'Cabinet & Countertop I',dept:'Shop'},
+    {n:'Colin Brown',r:'Machine I',dept:'Shop'},
+    {n:'Dariel Alvarez',r:'Lead Installer',dept:'Field'},
+    {n:'Ryan Contreras',r:'Install Apprentice I',dept:'Field'}
   ];
   var ORG=[
     {k:'Leadership',t:'Leadership',p:'Sets direction, owns client relationships and is accountable for every project.'},
@@ -684,35 +686,28 @@ body{margin:0}
 
   var SIL='<svg viewBox="0 0 100 90" aria-hidden="true"><circle cx="50" cy="30" r="20"/><path d="M8 90c0-24 19-38 42-38s42 14 42 38z"/></svg>';
   function pic(m){return m.photo?'<img src="'+esc(m.photo)+'" alt="">':SIL}
-  var shown=TEAM.map(function(m,i){return i});
+  var ORDER=['Leadership','Office','Shop','Field'],TITLES={Leadership:'Leadership',Office:'Estimating & project management',Shop:'Production',Field:'Installation'};
+  var shown=[];ORDER.forEach(function(d){TEAM.forEach(function(m,i){if(m.dept===d)shown.push(i)})});
   function open1(i){open(shown.indexOf(i))}
-  /* featured leadership */
-  var L=document.getElementById('leaders');
-  TEAM.forEach(function(m,i){if(m.dept!=='Leadership')return;
-    var d=document.createElement('div');d.className='lead-f';
-    d.innerHTML='<div class="pic">'+pic(m)+'</div><div><span class="tag">Leadership</span><h3>'+esc(m.n)+'</h3><div class="role">'+esc(m.r)+'</div><p class="bio">'+esc(m.bio)+'</p>'+(m.q?'<blockquote>'+esc(m.q)+'</blockquote>':'')+'</div>';
-    L.appendChild(d)});
-  /* everyone else, grouped by department */
-  var G=document.getElementById('groups'),NAMES={Office:'Office',Shop:'Shop',Field:'Field'};
-  ['Office','Shop','Field'].forEach(function(dep){var ids=TEAM.map(function(m,i){return i}).filter(function(i){return TEAM[i].dept===dep});if(!ids.length)return;
-    var g=document.createElement('div');g.className='dept-g';
-    var title={Office:'Estimating & project management',Shop:'Production',Field:'Installation'}[dep];
-    g.innerHTML='<div class="dept-h"><h3>'+title+'</h3><span>'+ids.length+' '+(ids.length===1?'person':'people')+'</span></div><div class="people"></div>';
+  var G=document.getElementById('groups');
+  ORDER.forEach(function(dep){var ids=shown.filter(function(i){return TEAM[i].dept===dep});if(!ids.length)return;
+    var g=document.createElement('div');g.className='dept-g'+(dep==='Leadership'?' lead-g':'');
+    g.innerHTML='<div class="dept-h"><h3>'+TITLES[dep]+'</h3><span>'+ids.length+' '+(ids.length===1?'person':'people')+'</span></div><div class="people"></div>';
     var row=g.querySelector('.people');
-    ids.forEach(function(i){var m=TEAM[i],b=document.createElement('button');b.type='button';b.className='person'+(m.sample?' sample':'');
-      b.innerHTML='<span class="pic">'+pic(m)+'</span><span><b>'+esc(m.sample?'Team member':m.n)+'</b><span class="r">'+esc(m.r)+'</span></span>';
-      b.setAttribute('aria-label',(m.sample?'Team member':m.n)+', '+m.r+'. View profile');
+    ids.forEach(function(i){var m=TEAM[i],b=document.createElement('button');b.type='button';b.className='person';
+      b.innerHTML='<span class="pic">'+pic(m)+'</span><span><b>'+esc(m.n)+'</b><span class="r">'+esc(m.r)+'</span></span>';
+      b.setAttribute('aria-label',m.n+', '+m.r+'. View profile');
       b.addEventListener('click',function(){open1(i)});row.appendChild(b)});
     G.appendChild(g)});
 
   /* panel */
   var panel=document.getElementById('panel'),scrim=document.getElementById('scrim'),pos=0,lastFocus=null;
   function fill(){var m=TEAM[shown[pos]];
-    document.getElementById('pDept').textContent=m.dept;
+    document.getElementById('pDept').textContent=TITLES[m.dept];
     document.getElementById('pBody').innerHTML='<div class="p-photo pic">'+pic(m)+'</div>'+
       '<div><div class="p-name" id="pName">'+esc(m.n)+'</div><div class="p-role">'+esc(m.r)+'</div></div>'+
-      '<dl class="p-facts"><div><dt>Department</dt><dd>'+esc(m.dept)+'</dd></div><div><dt>With us since</dt><dd>'+esc(m.since)+'</dd></div><div><dt>Focus</dt><dd>'+esc(m.focus)+'</dd></div></dl>'+
-      '<p class="p-bio">'+esc(m.bio)+'</p>'+(m.q?'<blockquote class="p-q" style="margin:0">'+esc(m.q)+'</blockquote>':'');
+      '<dl class="p-facts"><div><dt>Team</dt><dd>'+esc(TITLES[m.dept])+'</dd></div>'+(m.since?'<div><dt>With us since</dt><dd>'+esc(m.since)+'</dd></div>':'')+(m.focus?'<div><dt>Focus</dt><dd>'+esc(m.focus)+'</dd></div>':'')+'</dl>'+
+      (m.bio?'<p class="p-bio">'+esc(m.bio)+'</p>':'')+(m.q?'<blockquote class="p-q" style="margin:0">'+esc(m.q)+'</blockquote>':'');
     document.getElementById('pPrev').disabled=shown.length<2;document.getElementById('pNext').disabled=shown.length<2}
   function open(k){pos=k;fill();lastFocus=document.activeElement;scrim.hidden=false;requestAnimationFrame(function(){scrim.classList.add('on');panel.classList.add('on')});panel.setAttribute('aria-hidden','false');document.getElementById('pClose').focus()}
   function close(){scrim.classList.remove('on');panel.classList.remove('on');panel.setAttribute('aria-hidden','true');setTimeout(function(){scrim.hidden=true},reduce?0:250);if(lastFocus)lastFocus.focus()}
