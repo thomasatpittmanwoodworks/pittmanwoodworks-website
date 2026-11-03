@@ -94,6 +94,7 @@
     btn.disabled=true;btn.textContent='Sending…';
     sendForm(lead,false).then(function(){lead.reset();show(out,true,'Thanks. Your message was sent, and we\'ll reply within one business day.')})
       .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Send message'})});
+  if(/[?&]r=submittal/.test(location.search)){document.getElementById('ms').value='Please send a sample submittal package (shop drawings, material samples and hardware cut sheets) for our review.'}
   if(/[?&]r=prequal/.test(location.search)){document.getElementById('ms').value='Please send your prequalification documents (certificate of insurance, W-9, capability statement, project references, safety program and bonding letter).'}
 })();
 </script>

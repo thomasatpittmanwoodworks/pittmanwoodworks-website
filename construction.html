@@ -4,11 +4,79 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Construction Standards · Pittman Woodworks</title>
-<meta name="description" content="How Pittman Woodworks builds commercial casework: construction standards, materials and our project delivery process.">
+<meta name="description" content="How Pittman Woodworks builds commercial casework: construction methods, materials, hardware, standard and ADA dimensions, quality checkpoints and submittals.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/styles.css">
+<style>
+.pg-hero .jump{display:flex;flex-wrap:wrap;gap:6px;margin-top:40px;padding-top:24px;border-top:1px solid #26313B}
+.pg-hero .jump a{font-size:13.5px;font-weight:500;color:#C9D3DD;text-decoration:none;border:1px solid #26313B;padding:6px 12px;border-radius:2px}
+.pg-hero .jump a:hover{border-color:#9AA4AE;color:#FFFFFF}
+.sheet{scroll-margin-top:70px}
+#method,#materials,#hardware,#dimensions,#quality,#submittals,#delivery{padding-top:0}
+.meth{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:960px){.meth{grid-template-columns:1fr}}
+.meth-c{background:var(--sheet);border:1px solid var(--rule);padding:26px;display:grid;gap:12px;align-content:start;min-width:0}
+.meth-c.std{border-color:var(--line)}
+.meth-c h3{font-size:22px}
+.meth-c p{color:var(--ink-2);font-size:15px}
+.meth-c svg{width:100%;max-width:260px;height:auto;justify-self:center;margin-block:6px}
+.meth-c ul{margin:0;padding:0;list-style:none;display:grid;gap:7px}
+.meth-c li{display:grid;grid-template-columns:14px 1fr;gap:8px;font-size:14.5px}
+.meth-c li::before{content:"";width:6px;height:6px;background:var(--layout);margin-top:8px}
+.pfill{fill:var(--layout-soft)}
+.badge{justify-self:start;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:4px 9px;border-radius:2px}
+.badge.alt{background:transparent;color:var(--ink-2);border:1px solid var(--rule)}
+.grades{margin:6px 0 0;border-top:1px solid var(--rule)}
+.grades div{display:grid;grid-template-columns:90px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.grades dt{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:16px}
+.grades dd{margin:0;color:var(--ink-2);font-size:14.5px}
+.mat{background:var(--sheet);border:1px solid var(--rule)}
+.mat-tabs{display:flex;border-bottom:1px solid var(--rule);overflow-x:auto}
+.mat-tabs button{all:unset;cursor:pointer;padding:16px 22px;font-family:var(--display);font-stretch:88%;font-weight:500;font-size:17px;color:var(--ink-2);border-bottom:2px solid transparent;white-space:nowrap}
+.mat-tabs button:hover{color:var(--ink)}
+.mat-tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--layout)}
+.mat-tabs button:focus-visible{outline:2px solid var(--layout);outline-offset:-4px}
+.mat-p{padding:clamp(20px,3vw,32px)}
+.mat-d{color:var(--ink-2);margin-bottom:20px}
+.mat-list{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
+@media (max-width:700px){.mat-list{grid-template-columns:1fr}}
+.mat-i{background:var(--sheet);padding:20px 22px;display:grid;gap:6px;align-content:start;min-width:0}
+.mat-i b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:18px}
+.mat-i span{font-size:15px;color:var(--ink-2)}
+.mat-i em{font-style:normal;font-size:12.5px;font-weight:500;color:var(--layout);margin-top:4px}
+.spec-t{background:var(--sheet);border:1px solid var(--rule)}
+.spec-t th{background:var(--paper)}
+.spec-t td{white-space:normal;vertical-align:top}
+.spec-t td:first-child{font-weight:600;color:var(--ink)}
+.tw{overflow-x:auto}
+.dimg{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:start}
+@media (max-width:960px){.dimg{grid-template-columns:minmax(0,1fr)}}
+.dim-fig{margin:0;background:var(--sheet);border:1px solid var(--line);min-width:0}
+.dim-fig svg{display:block;width:100%;height:auto}
+.dims-t tr.hl td{background:var(--layout-soft)}
+.dimtxt.big{font-size:13px;font-weight:600}
+.hatchln{stroke:var(--ink-2);stroke-width:.8}
+.knee{fill:var(--layout-soft);stroke:var(--layout);stroke-width:.8;stroke-dasharray:4 3}
+.qline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:0;border-top:1px solid var(--line);position:relative}
+.qline li{padding:22px 16px 10px 0;display:grid;gap:12px;align-content:start;position:relative;min-width:0}
+.qline li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--layout)}
+.qline .qn{font-family:var(--mono);font-size:11.5px;color:var(--layout)}
+.qline b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:17px;line-height:1.25;display:block}
+.qline p{font-size:14px;color:var(--ink-2);margin-top:6px}
+@media (max-width:1100px){.qline{grid-template-columns:repeat(4,1fr);row-gap:20px}}
+@media (max-width:700px){.qline{grid-template-columns:1fr;border-top:0;border-left:1px solid var(--line);padding-left:22px}.qline li{padding:0 0 18px}.qline li::before{top:4px;left:-27px}}
+.sub-g{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(28px,5vw,72px);align-items:start;background:var(--sheet);border:1px solid var(--rule);padding:clamp(24px,4vw,48px)}
+@media (max-width:860px){.sub-g{grid-template-columns:1fr}}
+.sub-g .sheet-head{margin-bottom:24px}
+.sub-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--rule)}
+.sub-list li{display:grid;grid-template-columns:180px 1fr;gap:6px 20px;padding:16px 0;border-bottom:1px solid var(--rule)}
+@media (max-width:520px){.sub-list li{grid-template-columns:1fr}}
+.sub-list b{font-family:var(--display);font-stretch:88%;font-weight:600;font-size:17px}
+.sub-list span{color:var(--ink-2);font-size:15px}
+.fine{font-size:12.5px;color:var(--ink-2)}
+</style>
 </head>
 <body>
 <header class="top">
@@ -22,11 +90,14 @@
 </header>
 
 <main>
-<section class="pg-hero"><div class="wrap"><p class="tag">Construction</p><h1>Built to spec, every time</h1><p class="sub">Every cabinet is drawn, machined and assembled in our North Richland Hills shop, then installed by our own crews.</p><div class="ctas"><a class="btn" href="/bidding#bid">Request a bid</a></div></div></section>
-<section class="sheet" id="construction">
+<section class="pg-hero"><div class="wrap"><p class="tag">Construction</p><h1>Built to spec, every time</h1><p class="sub">How we engineer, machine, assemble and install commercial casework: the methods, materials, hardware and checks behind every cabinet we build.</p>
+<div class="ctas"><a class="btn" href="/bidding#bid">Request a bid</a><a class="btn ghost" href="/contact?r=submittal">Request a sample submittal</a></div>
+<nav class="jump" aria-label="On this page"><a href="#anatomy">Anatomy</a><a href="#method">Method</a><a href="#materials">Materials</a><a href="#hardware">Hardware</a><a href="#dimensions">Dimensions</a><a href="#quality">Quality</a><a href="#submittals">Submittals</a><a href="#delivery">Delivery</a></nav>
+</div></section>
+<section class="sheet" id="anatomy">
   <div class="wrap">
     <div class="sheet-head">
-      <span class="no">Construction</span>
+      <span class="no">Anatomy of a cabinet</span>
       <h2>Construction standards</h2>
       <p>A typical commercial base cabinet, shown exploded. Select Assemble to see how the components fit together.</p>
     </div>
@@ -42,7 +113,84 @@
     </div>
   </div>
 </section>
-<section class="sheet" style="padding-top:0">
+<section class="sheet" id="method">
+  <div class="wrap">
+    <div class="sheet-head"><span class="no">Construction method</span><h2>Built to your specification</h2><p>We build to the construction type, grade and materials in your project documents, including Architectural Woodwork Standards (AWS) grades when specified.</p></div>
+    <div class="meth">
+      <div class="meth-c std">
+        <span class="badge">Our standard</span>
+        <h3>Frameless construction</h3>
+        <p>European-style, 32 mm system casework with full-overlay doors and drawer fronts. Clean lines, maximum interior space and consistent, CNC-bored hardware locations.</p>
+        <svg viewBox="0 0 220 150" aria-hidden="true"><rect class="ln" x="30" y="16" width="160" height="118"/><rect class="ln thin pfill" x="32" y="18" width="77" height="114"/><rect class="ln thin pfill" x="111" y="18" width="77" height="114"/><line class="pull" x1="100" y1="64" x2="100" y2="86"/><line class="pull" x1="120" y1="64" x2="120" y2="86"/><text class="lbl" x="110" y="148" text-anchor="middle">FULL OVERLAY · NO FACE FRAME</text></svg>
+        <ul><li>Doors cover the cabinet box edges</li><li>32 mm line boring for shelves and hardware</li><li>Ideal for healthcare, education and office work</li></ul>
+      </div>
+      <div class="meth-c">
+        <span class="badge alt">Available</span>
+        <h3>Face-frame construction</h3>
+        <p>A solid frame across the front of the cabinet box, for projects that specify a traditional look or added front rigidity.</p>
+        <svg viewBox="0 0 220 150" aria-hidden="true"><rect class="ln" x="30" y="16" width="160" height="118"/><rect class="ln thin" x="40" y="26" width="140" height="98"/><rect class="ln thin pfill" x="46" y="32" width="62" height="86"/><rect class="ln thin pfill" x="112" y="32" width="62" height="86"/><line class="pull" x1="100" y1="64" x2="100" y2="86"/><line class="pull" x1="120" y1="64" x2="120" y2="86"/><text class="lbl" x="110" y="148" text-anchor="middle">FACE FRAME · INSET OR OVERLAY</text></svg>
+        <ul><li>Hardwood frame on the cabinet front</li><li>Overlay or inset doors</li><li>Common in hospitality and feature millwork</li></ul>
+      </div>
+      <div class="meth-c grade">
+        <span class="badge alt">Quality grades</span>
+        <h3>AWS grades</h3>
+        <p>When your specifications call for an Architectural Woodwork Standards grade, we build and document to it.</p>
+        <dl class="grades"><div><dt>Economy</dt><dd>Basic quality for utility spaces</dd></div><div><dt>Custom</dt><dd>The typical commercial specification</dd></div><div><dt>Premium</dt><dd>Highest level of materials and workmanship</dd></div></dl>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="materials">
+  <div class="wrap">
+    <div class="sheet-head"><span class="no">Materials</span><h2>Materials library</h2><p>Standard options we build with every day. Final selections always follow the project specifications and approved samples.</p></div>
+    <div class="mat">
+      <div class="mat-tabs" role="tablist" aria-label="Material categories"><button role="tab" type="button" id="mt-core" aria-controls="mp-core" aria-selected="true" tabindex="0">Cabinet box</button><button role="tab" type="button" id="mt-surf" aria-controls="mp-surf" aria-selected="false" tabindex="-1">Surfaces & finishes</button><button role="tab" type="button" id="mt-edge" aria-controls="mp-edge" aria-selected="false" tabindex="-1">Edgebanding</button><button role="tab" type="button" id="mt-tops" aria-controls="mp-tops" aria-selected="false" tabindex="-1">Countertops</button></div>
+      <div class="mat-p" role="tabpanel" id="mp-core" aria-labelledby="mt-core"><p class="mat-d">The structure of every cabinet: sides, bottoms, tops, backs and shelves.</p><div class="mat-list"><div class="mat-i"><b>Industrial particleboard</b><span>Standard commercial core for laminate casework. Flat, stable and dense.</span><em>Most interiors and boxes</em></div><div class="mat-i"><b>Hardwood plywood</b><span>Lighter and stronger at joints and fasteners.</span><em>Uppers, heavy-use or as specified</em></div><div class="mat-i"><b>Moisture-resistant core</b><span>Resists swelling in wet areas.</span><em>Sinks, labs, food service</em></div><div class="mat-i"><b>Medium-density fiberboard (MDF)</b><span>Smooth, machinable surface.</span><em>Painted and specialty parts</em></div></div></div><div class="mat-p" role="tabpanel" id="mp-surf" aria-labelledby="mt-surf" hidden><p class="mat-d">The faces you see and touch, chosen for durability and appearance.</p><div class="mat-list"><div class="mat-i"><b>High-pressure laminate (HPL)</b><span>Tough, cleanable and available in hundreds of colors and patterns.</span><em>Doors, drawer fronts, exposed ends</em></div><div class="mat-i"><b>Thermally fused melamine</b><span>Durable, easy-clean finish fused to the core.</span><em>Cabinet interiors and shelves</em></div><div class="mat-i"><b>Wood veneer</b><span>Real wood face, stained or clear finished.</span><em>Reception, offices, feature walls</em></div><div class="mat-i"><b>Painted finish</b><span>Factory-applied paint on MDF.</span><em>Feature millwork, as specified</em></div></div></div><div class="mat-p" role="tabpanel" id="mp-edge" aria-labelledby="mt-edge" hidden><p class="mat-d">Every exposed panel edge is sealed to protect the core and finish the look.</p><div class="mat-list"><div class="mat-i"><b>3 mm PVC</b><span>Impact-resistant edge for doors and drawer fronts.</span><em>High-traffic exposed edges</em></div><div class="mat-i"><b>1 mm PVC</b><span>Durable edge for cabinet box parts.</span><em>Box edges and shelves</em></div><div class="mat-i"><b>Matching or contrasting colors</b><span>Matched to the laminate or set as an accent.</span><em>Per design intent</em></div></div></div><div class="mat-p" role="tabpanel" id="mp-tops" aria-labelledby="mt-tops" hidden><p class="mat-d">Templated, fabricated and installed by our own crews.</p><div class="mat-list"><div class="mat-i"><b>Plastic laminate</b><span>Cost-effective, durable and fully customizable.</span><em>Offices, classrooms, break rooms</em></div><div class="mat-i"><b>Solid surface</b><span>Seamless and non-porous, with integral sink options.</span><em>Healthcare, labs, restrooms</em></div><div class="mat-i"><b>Quartz</b><span>Hard, stain-resistant engineered stone.</span><em>Reception, hospitality, food service</em></div></div></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="hardware">
+  <div class="wrap">
+    <div class="sheet-head"><span class="no">Hardware</span><h2>Commercial-grade hardware</h2><p>Hardware sized for daily institutional use. We supply and install the hardware in your specifications, or recommend options to fit the space.</p></div>
+    <div class="tw"><table class="spec-t"><thead><tr><th>Component</th><th>Typical specification</th><th>Options</th></tr></thead><tbody><tr><td>Hinges</td><td>Concealed, self-closing, 110°–170° opening</td><td>Soft-close, institutional 5-knuckle</td></tr><tr><td>Drawer slides</td><td>Full-extension, ball-bearing, 100 lb rated</td><td>150 lb file drawers, soft-close</td></tr><tr><td>Pulls</td><td>Wire pulls, 4" centers</td><td>Bar pulls, edge pulls, ADA-compliant</td></tr><tr><td>Locks</td><td>Cam locks, keyed alike or keyed different</td><td>Master keyed, electronic</td></tr><tr><td>Shelf supports</td><td>5 mm metal pins in 32 mm line bore</td><td>Fixed shelves where specified</td></tr><tr><td>Shelves</td><td>¾" thick, adjustable</td><td>1" for spans over 36" or heavy loads</td></tr><tr><td>Grommets & accessories</td><td>Wire grommets at work surfaces</td><td>Keyboard trays, CPU holders, file rails</td></tr></tbody></table></div>
+  </div>
+</section>
+<section class="sheet" id="dimensions">
+  <div class="wrap">
+    <div class="sheet-head"><span class="no">Dimensions</span><h2>Standard and accessible dimensions</h2><p>Our standard dimensions, and the accessible (ADA) layout we build where required. Switch between them to compare.</p></div>
+    <div class="dimg">
+      <figure class="dim-fig">
+        <div class="xbar"><div class="vt" role="tablist" aria-label="Dimension set"><button role="tab" aria-selected="true" data-d="std" type="button">Standard</button><button role="tab" aria-selected="false" data-d="ada" type="button">Accessible (ADA)</button></div><span class="tag" id="dimCap">Section · 1" = 1'-0"</span></div>
+        <svg id="dimSvg" viewBox="0 0 560 440" role="img" aria-label="Section drawing of base and upper cabinets with dimensions"></svg>
+      </figure>
+      <div><div class="tw"><table class="spec-t dims-t"><thead><tr><th>Dimension</th><th>Standard</th><th>Accessible (ADA)</th></tr></thead><tbody><tr><td>Counter height</td><td>36"</td><td>34" max</td></tr><tr><td>Base cabinet depth</td><td>24"</td><td>24"</td></tr><tr><td>Countertop overhang</td><td>1"</td><td>1"</td></tr><tr><td>Toe kick</td><td>4" high × 3" deep</td><td>9" min. toe clearance</td></tr><tr><td>Knee clearance</td><td>—</td><td>27" high min., 30" wide</td></tr><tr><td>Upper cabinet depth</td><td>12"–14"</td><td>12"–14"</td></tr><tr><td>Counter to upper cabinets</td><td>18"</td><td>18"</td></tr><tr><td>Upper cabinet height</td><td>30", 36" or 42"</td><td>Lowest shelf 48" max reach</td></tr></tbody></table></div><p class="fine" style="margin-top:12px">Accessible dimensions follow the 2010 ADA Standards and the Texas Accessibility Standards. Final dimensions follow the approved shop drawings.</p></div>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="quality">
+  <div class="wrap">
+    <div class="sheet-head"><span class="no">Quality</span><h2>Seven checkpoints on every job</h2><p>Quality isn't a final inspection. It's built into each step, from the first site visit to the last punch item.</p></div>
+    <ol class="qline"><li><span class="qn">01</span><div><b>Field verification</b><p>We measure the site and confirm walls, openings, utilities and blocking before drawings are finalized.</p></div></li><li><span class="qn">02</span><div><b>Engineered shop drawings</b><p>Every cabinet is drawn in Cabinet Vision, with plans, elevations and sections, and approved before fabrication.</p></div></li><li><span class="qn">03</span><div><b>CNC machining</b><p>Parts are cut and bored on the CNC directly from the approved drawings, so every part matches the design.</p></div></li><li><span class="qn">04</span><div><b>Part tracking</b><p>Each part is labeled and scanned as it moves through edgebanding, assembly and finishing.</p></div></li><li><span class="qn">05</span><div><b>Assembly checks</b><p>Cabinets are checked for square, fit, hardware function and finish before they leave the bench.</p></div></li><li><span class="qn">06</span><div><b>Pre-delivery inspection</b><p>Each order is verified complete against the job before it is loaded, so nothing is missing on install day.</p></div></li><li><span class="qn">07</span><div><b>Installation & punch list</b><p>Our crews install, adjust and clean, then walk the work with you and close out every punch item.</p></div></li></ol>
+  </div>
+</section>
+<section class="sheet" id="submittals">
+  <div class="wrap">
+    <div class="sub-g">
+      <div>
+        <div class="sheet-head"><span class="no">Submittals</span><h2>A complete submittal package</h2><p>Before anything is cut, you receive a full package for review and approval.</p></div>
+        <a class="btn" href="/contact?r=submittal">Request a sample submittal</a>
+      </div>
+      <ul class="sub-list">
+        <li><b>Shop drawings</b><span>Plans, elevations and sections for every cabinet run, with dimensions and hardware locations.</span></li>
+        <li><b>Material samples</b><span>Laminate, veneer, edgebanding and countertop samples for selection and approval.</span></li>
+        <li><b>Hardware cut sheets</b><span>Manufacturer data for hinges, slides, pulls, locks and accessories.</span></li>
+        <li><b>Product data</b><span>Core materials, finishes and countertop specifications.</span></li>
+        <li><b>Schedule</b><span>Fabrication and installation timeline coordinated with your project schedule.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="sheet" id="delivery">
   <div class="wrap">
     <div class="sheet-head">
       <span class="no">Process</span>
@@ -129,6 +277,49 @@
   xRender();
 
 
+
+  /* materials tabs */
+  var mtabs=[].slice.call(document.querySelectorAll('.mat-tabs [role=tab]'));
+  function selMat(t,focus){mtabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',String(on));x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});if(focus)t.focus()}
+  mtabs.forEach(function(t,i){t.addEventListener('click',function(){selMat(t)});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();selMat(mtabs[(i+1)%mtabs.length],true)}if(e.key==='ArrowLeft'){e.preventDefault();selMat(mtabs[(i-1+mtabs.length)%mtabs.length],true)}})});
+
+  /* dimensions drawing: 4 units per inch, floor at y=390 */
+  var dsvg=document.getElementById('dimSvg'),dmode='std';
+  function drawDims(){
+    var S=4,F=390,W=80,ada=dmode==='ada',H=ada?34:36,top=F-H*S,o=[];
+    function y(i){return F-i*S}
+    function vdim(x,a,b,t,side){var y1=y(a),y2=y(b);o.push('<g class="dim"><line x1="'+x+'" y1="'+y1+'" x2="'+x+'" y2="'+y2+'"/><line x1="'+(x-6)+'" y1="'+y1+'" x2="'+(x+6)+'" y2="'+y1+'"/><line x1="'+(x-6)+'" y1="'+y2+'" x2="'+(x+6)+'" y2="'+y2+'"/></g><path class="arw" d="M'+x+' '+y2+' l-3.5 8 h7z M'+x+' '+y1+' l-3.5 -8 h7z"/><text class="dimtxt big" x="'+(x+(side==='l'?-10:10))+'" y="'+((y1+y2)/2+4)+'" text-anchor="'+(side==='l'?'end':'start')+'">'+t+'</text>')}
+    function hdim(yy,x1,x2,t){o.push('<g class="dim"><line x1="'+x1+'" y1="'+yy+'" x2="'+x2+'" y2="'+yy+'"/><line x1="'+x1+'" y1="'+(yy-6)+'" x2="'+x1+'" y2="'+(yy+6)+'"/><line x1="'+x2+'" y1="'+(yy-6)+'" x2="'+x2+'" y2="'+(yy+6)+'"/></g><rect class="bgfill" x="'+((x1+x2)/2-18)+'" y="'+(yy-9)+'" width="36" height="16"/><text class="dimtxt big" x="'+(x1+x2)/2+'" y="'+(yy+4)+'" text-anchor="middle">'+t+'</text>')}
+    o.push('<defs><pattern id="dh" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatchln" x1="0" y1="0" x2="0" y2="6"/></pattern></defs>');
+    o.push('<rect x="'+(W-14)+'" y="20" width="14" height="'+(F-20)+'" fill="url(#dh)" class="ln thin"/>');
+    o.push('<rect x="40" y="'+F+'" width="420" height="10" fill="url(#dh)"/><line class="ln" x1="40" y1="'+F+'" x2="460" y2="'+F+'"/>');
+    var bx=W,bd=24*S,topT=1.5*S;
+    if(!ada){
+      o.push('<path class="ln sidefill" d="M'+bx+' '+F+' V'+(top+topT)+' H'+(bx+bd)+' V'+(F-4*S)+' H'+(bx+bd-3*S)+' V'+F+' Z"/>');
+      o.push('<rect class="ln thin" x="'+(bx+bd)+'" y="'+(top+topT+2)+'" width="3" height="'+(30.5*S-4)+'"/>');
+      vdim(bx+bd+100,0,4,'4"');
+    }else{
+      var kh=27*S;
+      o.push('<rect class="knee" x="'+bx+'" y="'+(F-kh)+'" width="'+bd+'" height="'+kh+'"/><text class="lbl" x="'+(bx+bd/2)+'" y="'+(F-kh/2)+'" text-anchor="middle">KNEE SPACE</text>');
+      o.push('<rect class="ln sidefill" x="'+bx+'" y="'+(top+topT)+'" width="'+bd+'" height="'+(F-kh-top-topT)+'"/>');
+      vdim(bx+bd+100,0,27,'27" min');
+    }
+    o.push('<rect class="ln top-slab" x="'+bx+'" y="'+top+'" width="'+(bd+S)+'" height="'+topT+'" style="fill:var(--layout-soft)"/>');
+    vdim(bx+bd+40,0,H,(ada?'34" max':'36"'));
+    var ub=H+18,uh=30;
+    o.push('<rect class="ln sidefill" x="'+bx+'" y="'+y(ub+uh)+'" width="'+(12*S)+'" height="'+(uh*S)+'"/>');
+    o.push('<rect class="ln thin" x="'+(bx+12*S)+'" y="'+(y(ub+uh)+2)+'" width="3" height="'+(uh*S-4)+'"/>');
+    vdim(bx+bd+40,H,ub,'18"');vdim(bx+bd+40,ub,ub+uh,'30"');
+    hdim(y(ub+uh)-16,bx,bx+12*S,'12"');hdim(F+28,bx,bx+bd,'24"');
+    if(ada){o.push('<line class="dim" x1="'+(bx+12*S+6)+'" y1="'+y(48)+'" x2="'+(bx+bd+30)+'" y2="'+y(48)+'" stroke-dasharray="4 3"/><text class="dimtxt" x="'+(bx+12*S+8)+'" y="'+(y(48)-6)+'">48" REACH</text>')}
+    o.push('<text class="lbl" x="'+(bx+bd+120)+'" y="'+(top+4)+'">'+(ada?'ACCESSIBLE WORK SURFACE':'STANDARD BASE CABINET')+'</text>');
+    o.push('<text class="lbl" x="'+(bx+bd+120)+'" y="'+(top+20)+'">'+(ada?'NO BASE CABINET BELOW':'1½" TOP · 1" OVERHANG')+'</text>');
+    dsvg.innerHTML=o.join('');
+    document.querySelectorAll('.dims-t tbody tr').forEach(function(r,i){r.classList.toggle('hl',ada&&(i===0||i===3||i===4||i===7))});
+  }
+  document.querySelectorAll('#dimensions .vt button').forEach(function(b){b.addEventListener('click',function(){dmode=b.dataset.d;document.querySelectorAll('#dimensions .vt button').forEach(function(x){x.setAttribute('aria-selected',String(x===b))});drawDims()})});
+  drawDims();
 })();
 </script>
 </body>
