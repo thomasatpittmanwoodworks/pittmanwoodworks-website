@@ -444,6 +444,10 @@ footer{--sheet:#0F1419;--ink:#EEF0F2;--ink-2:#9AA4AE;--rule:#26313B;--line:#2631
 .legal-links{display:flex;gap:18px}
 .legal-links a{color:inherit;text-decoration:none}
 .legal-links a:hover{color:var(--ink);text-decoration:underline}
+
+.person .em{display:block;font-size:13px;color:var(--layout);margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.p-facts a{color:var(--layout);text-decoration:none}
+.p-facts a:hover{text-decoration:underline}
 </style>
 <style>
 body{margin:0}
@@ -655,13 +659,13 @@ body{margin:0}
   /* ===== TEAM DATA: edit this list to update the page =====
      dept: Leadership | Office | Shop | Field
      photo: optional image path, e.g. 'team/seth.jpg' (initials show until then)
-     optional: since (year started), focus, bio, q (quote) */
+     optional: email, phone, since (year started), focus, bio, q (quote) */
   var TEAM=[
-    {n:'Seth Pittman',r:'Co-Owner & Founder',dept:'Leadership',bio:'Seth founded Pittman Woodworks and works directly with clients, guiding projects from the first conversation through the final walkthrough.',q:'We treat every customer like part of the Pittman Woodworks family.'},
-    {n:'Eric Jorgenson',r:'Co-Owner & Project Manager',dept:'Leadership'},
-    {n:'Thomas Kincaid',r:'Chief Operating Officer',dept:'Leadership'},
-    {n:'Sydnee Kincaid',r:'Lead Estimator',dept:'Office'},
-    {n:'Elizabeth Pittman',r:'Director of Design',dept:'Office'},
+    {n:'Seth Pittman',email:'seth@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Co-Owner & Founder',dept:'Leadership',bio:'Seth founded Pittman Woodworks and works directly with clients, guiding projects from the first conversation through the final walkthrough.',q:'We treat every customer like part of the Pittman Woodworks family.'},
+    {n:'Eric Jorgenson',email:'eric@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Co-Owner & Project Manager',dept:'Leadership'},
+    {n:'Thomas Kincaid',email:'thomas@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Chief Operating Officer',dept:'Leadership'},
+    {n:'Sydnee Kincaid',email:'sydnee@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Lead Estimator',dept:'Office'},
+    {n:'Elizabeth Pittman',email:'elizabeth@pittmanwoodworks.com',phone:'(469) 375-0495',r:'Director of Design',dept:'Office'},
     {n:'Jeri Edwards',r:'Lead Assembler',dept:'Shop'},
     {n:'Tucker Candies',r:'Cabinet & Countertop I',dept:'Shop'},
     {n:'Colin Brown',r:'Machine I',dept:'Shop'},
@@ -695,7 +699,7 @@ body{margin:0}
     g.innerHTML='<div class="dept-h"><h3>'+TITLES[dep]+'</h3><span>'+ids.length+' '+(ids.length===1?'person':'people')+'</span></div><div class="people"></div>';
     var row=g.querySelector('.people');
     ids.forEach(function(i){var m=TEAM[i],b=document.createElement('button');b.type='button';b.className='person';
-      b.innerHTML='<span class="pic">'+pic(m)+'</span><span><b>'+esc(m.n)+'</b><span class="r">'+esc(m.r)+'</span></span>';
+      b.innerHTML='<span class="pic">'+pic(m)+'</span><span><b>'+esc(m.n)+'</b><span class="r">'+esc(m.r)+'</span>'+(m.email?'<span class="em">'+esc(m.email)+'</span>':'')+'</span>';
       b.setAttribute('aria-label',m.n+', '+m.r+'. View profile');
       b.addEventListener('click',function(){open1(i)});row.appendChild(b)});
     G.appendChild(g)});
@@ -706,7 +710,7 @@ body{margin:0}
     document.getElementById('pDept').textContent=TITLES[m.dept];
     document.getElementById('pBody').innerHTML='<div class="p-photo pic">'+pic(m)+'</div>'+
       '<div><div class="p-name" id="pName">'+esc(m.n)+'</div><div class="p-role">'+esc(m.r)+'</div></div>'+
-      '<dl class="p-facts"><div><dt>Team</dt><dd>'+esc(TITLES[m.dept])+'</dd></div>'+(m.since?'<div><dt>With us since</dt><dd>'+esc(m.since)+'</dd></div>':'')+(m.focus?'<div><dt>Focus</dt><dd>'+esc(m.focus)+'</dd></div>':'')+'</dl>'+
+      '<dl class="p-facts"><div><dt>Team</dt><dd>'+esc(TITLES[m.dept])+'</dd></div>'+(m.since?'<div><dt>With us since</dt><dd>'+esc(m.since)+'</dd></div>':'')+(m.focus?'<div><dt>Focus</dt><dd>'+esc(m.focus)+'</dd></div>':'')+(m.email?'<div><dt>Email</dt><dd><a href="mailto:'+esc(m.email)+'">'+esc(m.email)+'</a></dd></div>':'')+(m.phone?'<div><dt>Phone</dt><dd><a href="tel:+1'+m.phone.replace(/\D/g,'')+'">'+esc(m.phone)+'</a></dd></div>':'')+'</dl>'+
       (m.bio?'<p class="p-bio">'+esc(m.bio)+'</p>':'')+(m.q?'<blockquote class="p-q" style="margin:0">'+esc(m.q)+'</blockquote>':'');
     document.getElementById('pPrev').disabled=shown.length<2;document.getElementById('pNext').disabled=shown.length<2}
   function open(k){pos=k;fill();lastFocus=document.activeElement;scrim.hidden=false;requestAnimationFrame(function(){scrim.classList.add('on');panel.classList.add('on')});panel.setAttribute('aria-hidden','false');document.getElementById('pClose').focus()}
