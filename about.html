@@ -699,7 +699,7 @@ body{margin:0}
     g.innerHTML='<div class="dept-h"><h3>'+TITLES[dep]+'</h3><span>'+ids.length+' '+(ids.length===1?'person':'people')+'</span></div><div class="people"></div>';
     var row=g.querySelector('.people');
     ids.forEach(function(i){var m=TEAM[i],b=document.createElement('button');b.type='button';b.className='person';
-      b.innerHTML='<span class="pic">'+pic(m)+'</span><span><b>'+esc(m.n)+'</b><span class="r">'+esc(m.r)+'</span>'+(m.email?'<span class="em">'+esc(m.email)+'</span>':'')+'</span>';
+      b.innerHTML='<span class="pic">'+pic(m)+'</span><span><b>'+esc(m.n)+'</b><span class="r">'+esc(m.r)+'</span>'+'</span>';
       b.setAttribute('aria-label',m.n+', '+m.r+'. View profile');
       b.addEventListener('click',function(){open1(i)});row.appendChild(b)});
     G.appendChild(g)});
