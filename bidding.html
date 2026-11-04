@@ -135,7 +135,7 @@
     var fd=new FormData(form),opts={method:'POST'};
     if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
     return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
-  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  function show(el,ok,msg){if(window.PW)PW.show(el,ok,msg);else{el.hidden=false;el.textContent=msg}}
   function setSubject(form,text){var el=form.querySelector('input[name=subject]');if(el)el.value=text.replace(/\s+/g,' ').trim().slice(0,150)}
   function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
   function niceDate(v){if(!v)return '';var p=v.split('-');if(p.length!==3)return v;var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1];return m+' '+(+p[2])+', '+p[0]}
@@ -157,9 +157,9 @@
     if(f&&f.size>8*1048576){show(note,false,'That file is over 8 MB. Share a link to the plans instead, or send a smaller file.');return}
     var subj='Bid request: '+(val('bidProj')||'New project')+(val('bidDue')?' · Due '+niceDate(val('bidDue')):'')+' · '+(val('bidCo')||val('bidName'));
     setSubject(bidForm,subj);
-    btn.disabled=true;btn.textContent='Sending…';
+    btn.disabled=true;if(window.PW)PW.busy(btn,true);btn.textContent='Sending…';
     sendForm(bidForm,true).then(function(){bidForm.reset();fl.innerHTML='';show(note,true,'Thanks. Your bid request was sent to our estimating team, and we\'ll confirm receipt within one business day.')})
-      .catch(function(){show(note,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Submit for bid'})});
+      .catch(function(){show(note,false,FAIL)}).then(function(){btn.disabled=false;if(window.PW)PW.busy(btn,false);btn.textContent='Submit for bid'})});
   document.getElementById('pqReq').addEventListener('click',function(){location.href='/contact?r=prequal'});
 
 })();

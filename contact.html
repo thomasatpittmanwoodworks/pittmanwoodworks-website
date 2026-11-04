@@ -73,7 +73,7 @@
     var fd=new FormData(form),opts={method:'POST'};
     if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
     return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
-  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  function show(el,ok,msg){if(window.PW)PW.show(el,ok,msg);else{el.hidden=false;el.textContent=msg}}
   function setSubject(form,text){var el=form.querySelector('input[name=subject]');if(el)el.value=text.replace(/\s+/g,' ').trim().slice(0,150)}
   function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
   function niceDate(v){if(!v)return '';var p=v.split('-');if(p.length!==3)return v;var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1];return m+' '+(+p[2])+', '+p[0]}
@@ -91,9 +91,9 @@
     var out=document.getElementById('sent'),btn=lead.querySelector('button[type=submit]');
     if(!document.getElementById('nm').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('em').value)){show(out,false,'Add your name and a valid email so we can reply.');return}
     setSubject(lead,'Website inquiry: '+val('nm')+(val('co')?' · '+val('co'):''));
-    btn.disabled=true;btn.textContent='Sending…';
+    btn.disabled=true;if(window.PW)PW.busy(btn,true);btn.textContent='Sending…';
     sendForm(lead,false).then(function(){lead.reset();show(out,true,'Thanks. Your message was sent, and we\'ll reply within one business day.')})
-      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Send message'})});
+      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;if(window.PW)PW.busy(btn,false);btn.textContent='Send message'})});
   if(/[?&]r=submittal/.test(location.search)){document.getElementById('ms').value='Please send a sample submittal package (shop drawings, material samples and hardware cut sheets) for our review.'}
   if(/[?&]r=prequal/.test(location.search)){document.getElementById('ms').value='Please send your prequalification documents (certificate of insurance, W-9, capability statement, project references, safety program and bonding letter).'}
 })();

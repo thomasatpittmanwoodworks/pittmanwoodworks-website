@@ -107,14 +107,14 @@ button[disabled]{opacity:.6;cursor:wait}
   if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-30% 0px -60% 0px'});
     document.querySelectorAll('.legal section[id]').forEach(function(s){io.observe(s)})}
   var pr=document.getElementById('prForm');
-  pr.addEventListener('submit',function(e){e.preventDefault();var out=document.getElementById('prSent'),btn=pr.querySelector('button[type=submit]');out.hidden=false;
-    if(!document.getElementById('prName').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('prEmail').value)){out.style.borderColor=out.style.color='var(--layout)';out.textContent='Add your name and a valid email so we can respond.';return}
+  pr.addEventListener('submit',function(e){e.preventDefault();var out=document.getElementById('prSent'),btn=pr.querySelector('button[type=submit]');
+    if(!document.getElementById('prName').value.trim()||!/^\S+@\S+\.\S+$/.test(document.getElementById('prEmail').value)){PW.show(out,false,'Add your name and a valid email so we can respond.');return}
     pr.querySelector('input[name=subject]').value='Privacy request: '+document.getElementById('prType').value+' · '+document.getElementById('prName').value.trim();
-    btn.disabled=true;btn.textContent='Sending…';
+    btn.disabled=true;PW.busy(btn,true);btn.textContent='Sending…';
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(pr)).toString()})
-      .then(function(r){if(!r.ok)throw 0;pr.reset();out.style.borderColor=out.style.color='';out.textContent='Thanks. We received your request and will respond within 45 days, usually much sooner.'})
-      .catch(function(){out.style.borderColor=out.style.color='var(--layout)';out.textContent='Something went wrong. Please email office@pittmanwoodworks.com or call (469) 375-0495.'})
-      .then(function(){btn.disabled=false;btn.textContent='Submit request'})});
+      .then(function(r){if(!r.ok)throw 0;pr.reset();PW.show(out,true,'Thanks. We received your request and will respond within 45 days, usually much sooner.')})
+      .catch(function(){PW.show(out,false,'Something went wrong. Please email office@pittmanwoodworks.com or call (469) 375-0495.')})
+      .then(function(){btn.disabled=false;PW.busy(btn,false);btn.textContent='Submit request'})});
 })();
 </script>
 </body>

@@ -183,7 +183,7 @@ select{appearance:auto}
     var fd=new FormData(form),opts={method:'POST'};
     if(hasFiles){opts.body=fd}else{opts.headers={'Content-Type':'application/x-www-form-urlencoded'};opts.body=new URLSearchParams(fd).toString()}
     return fetch('/',opts).then(function(r){if(!r.ok)throw new Error(r.status);return r})}
-  function show(el,ok,msg){el.hidden=false;el.style.borderColor=el.style.color=ok?'':'var(--layout)';el.textContent=msg}
+  function show(el,ok,msg){if(window.PW)PW.show(el,ok,msg);else{el.hidden=false;el.textContent=msg}}
   function setSubject(form,text){var el=form.querySelector('input[name=subject]');if(el)el.value=text.replace(/\s+/g,' ').trim().slice(0,150)}
   function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
   function niceDate(v){if(!v)return '';var p=v.split('-');if(p.length!==3)return v;var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+p[1]-1];return m+' '+(+p[2])+', '+p[0]}
@@ -194,9 +194,9 @@ select{appearance:auto}
     if(!document.getElementById('aName').value.trim()||!document.getElementById('aPhone').value.trim()){show(out,false,'Add your name and a phone number so we can reach you.');return}
     if(file&&file.size>8*1048576){show(out,false,'That file is over 8 MB. Please attach a smaller file, or skip the resume and tell us about yourself instead.');return}
     setSubject(app,'Job application: '+sel.value+' · '+val('aName')+(/^None/.test(val('aYears'))?' · New to the trade':' · '+val('aYears')+' experience'));
-    btn.disabled=true;btn.textContent='Sending…';
+    btn.disabled=true;if(window.PW)PW.busy(btn,true);btn.textContent='Sending…';
     sendForm(app,true).then(function(){var role=sel.value;app.reset();document.getElementById('aFileName').textContent='PDF, Word or photo up to 8 MB · optional';show(out,true,'Thanks for applying for '+role+'. We review every application and will reach out if there\'s a fit.')})
-      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;btn.textContent='Submit application'})});
+      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;if(window.PW)PW.busy(btn,false);btn.textContent='Submit application'})});
 })();
 </script>
 </body>
