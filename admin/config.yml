@@ -4,6 +4,8 @@ backend:
   name: github
   repo: thomasatpittmanwoodworks/pittmanwoodworks-website
   branch: main
+  # Sign-in always goes through the site's Netlify address, whatever domain the admin is opened on
+  site_domain: pittmanwoodworkscom.netlify.app
   commit_messages:
     update: "Update {{collection}}: {{slug}} (website admin)"
     uploadMedia: "Upload {{path}} (website admin)"
