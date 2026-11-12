@@ -1,12 +1,11 @@
 {
   "jobs": [
     {
-      "summary": "Install commercial casework and countertops on schools, healthcare, restaurant and office projects across North Texas.",
+      "summary": "Install commercial casework and countertops on schools, healthcare, restaurant and office projects across the entire state of Texas.",
       "pay": "",
       "open": true,
       "requirements": [
         "Experience installing cabinets or finish carpentry",
-        "Own hand tools and reliable transportation",
         "Valid driver’s license",
         "Able to read shop drawings and lift 75 lbs"
       ],
@@ -16,17 +15,17 @@
         "Work punch lists and walk finished work with the general contractor",
         "Keep job sites clean, safe and on schedule"
       ],
-      "location": "DFW job sites",
+      "location": "Texas",
       "title": "Commercial Cabinet Installer",
       "type": "Full-time",
       "team": "Field"
     },
     {
       "summary": "Build commercial cabinet boxes, drawers and doors from CNC-cut parts in our North Richland Hills shop.",
-      "pay": "",
+      "pay": "Starting at $21hr",
       "open": true,
       "requirements": [
-        "Cabinet or millwork shop experience preferred",
+        "Cabinet or millwork shop experience required",
         "Comfortable with pneumatic and power tools",
         "Attention to detail and accurate measuring",
         "Able to stand and lift through a full shift"
@@ -37,41 +36,21 @@
         "Scan parts and log progress at your station",
         "Check work for square, fit and finish"
       ],
-      "location": "North Richland Hills shop",
+      "location": "North Richland Hills, TX",
       "title": "Cabinet Assembler",
       "type": "Full-time",
       "team": "Shop"
     },
     {
-      "summary": "Run our CNC router and edgebander, keeping parts moving accurately to assembly.",
-      "pay": "",
-      "open": true,
-      "requirements": [
-        "CNC router or panel-processing experience preferred",
-        "Basic computer skills",
-        "Mechanical aptitude and a careful, safe approach",
-        "Willing to be trained on our equipment"
-      ],
-      "duties": [
-        "Load programs and sheet goods and run the CNC",
-        "Label parts and sort them for assembly",
-        "Run the edgebander and keep machines maintained",
-        "Verify part sizes against cut lists"
-      ],
-      "location": "North Richland Hills shop",
-      "title": "CNC & Machine Operator",
-      "type": "Full-time",
-      "team": "Shop"
-    },
-    {
       "summary": "Entry-level role supporting every station in the shop. No experience required, and a clear path into assembly, machining or installation.",
-      "pay": "",
+      "pay": "Starting at $15hr",
       "open": true,
       "requirements": [
         "Reliable, on time and ready to learn",
         "Able to lift 50 lbs and stand for a full shift",
         "Basic tape-measure skills",
-        "Interest in learning a trade"
+        "Interest in learning a trade",
+        "Valid drivers license"
       ],
       "duties": [
         "Stage materials and move parts between stations",
