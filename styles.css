@@ -545,7 +545,7 @@ main:has(> .cta-band:last-child) + footer{margin-top:0;border-top:1px solid #263
 @media (prefers-reduced-motion:reduce){.btn.busy::after{animation-duration:2s}.chk circle,.chk path{animation:none;stroke-dashoffset:0}.sent.ok,.note.ok,.sent.err,.note.err,.drop.got,.filebox.got,.flist li{animation:none}}
 
 /* ===== admin-driven content ===== */
-.mark.has-logo img{height:40px;width:auto;max-width:220px;display:block}
+.mark.has-logo img{height:40px;width:auto;max-width:160px;display:block;flex:none}
 .notice{background:var(--layout);color:#FFFFFF;font-size:14px;font-weight:500;text-align:center}
 .notice .wrap{padding-block:8px}
 .f-hours{display:inline}

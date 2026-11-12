@@ -49,7 +49,7 @@
     if(S.hours){document.querySelectorAll('[data-site-hours]').forEach(function(el){el.hidden=false;el.innerHTML='<br>'+esc(S.hours)});document.querySelectorAll('[data-site-hours-row]').forEach(function(el){el.hidden=false})}
     var soc=[['linkedin','LinkedIn'],['facebook','Facebook'],['instagram','Instagram']].filter(function(x){return S[x[0]]});
     if(soc.length)document.querySelectorAll('[data-site-social]').forEach(function(el){el.innerHTML=soc.map(function(x){return '<a href="'+esc(S[x[0]])+'" target="_blank" rel="noopener">'+x[1]+'</a>'}).join('')});
-    if(S.logo)document.querySelectorAll('[data-site-logo]').forEach(function(a){a.classList.add('has-logo');a.innerHTML='<img src="'+esc(img(S.logo,480))+'" alt="Pittman Woodworks" onerror="this.onerror=null;this.src=\''+esc(S.logo)+'\'">'});
+    if(S.logo)document.querySelectorAll('[data-site-logo]').forEach(function(a){a.classList.add('has-logo');a.innerHTML='<img src="'+esc(img(S.logo,240))+'" alt="" onerror="this.onerror=null;this.src=\''+esc(S.logo)+'\'"><span>Pittman<br>Woodworks</span>'});
     if(S.favicon){var l=document.querySelector('link[rel=icon]')||document.createElement('link');l.rel='icon';l.href=S.favicon;document.head.appendChild(l)}
     if(S.notice){var hd=document.querySelector('header.top');if(hd){var n=document.createElement('div');n.className='notice';n.innerHTML='<div class="wrap">'+esc(S.notice)+'</div>';hd.appendChild(n)}}
   }).catch(function(){});
