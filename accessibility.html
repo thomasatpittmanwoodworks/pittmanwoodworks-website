@@ -46,9 +46,9 @@ button[disabled]{opacity:.6;cursor:wait}
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="mark" href="/" aria-label="Pittman Woodworks home"><b>PW</b><span>Pittman<br>Woodworks</span></a>
+    <a class="mark" href="/" aria-label="Pittman Woodworks home" data-site-logo><b>PW</b><span>Pittman<br>Woodworks</span></a>
     <nav class="main" aria-label="Main"><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/contact">Contact</a></nav>
-    <span class="phone">(469) 375-0495</span><a class="btn sm hdr-cta" href="/bidding#bid">Request a bid</a>
+    <span class="phone" data-site="phone">(469) 375-0495</span><a class="btn sm hdr-cta" href="/bidding#bid">Request a bid</a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav">Menu</button>
   </div>
   <nav class="mnav" id="mnav" hidden aria-label="Mobile"><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/contact">Contact</a></nav>
@@ -68,10 +68,10 @@ button[disabled]{opacity:.6;cursor:wait}
 <footer>
   <div class="wrap">
     <div class="tblock">
-      <div><small>Pittman Woodworks LLC</small>Commercial casework &amp; countertops<br>8212 Northeast Pkwy, Ste 100<br>North Richland Hills, TX 76182</div>
+      <div><small>Pittman Woodworks LLC</small>Commercial casework &amp; countertops<br><span data-site="address1">8212 Northeast Pkwy, Ste 100</span><br><span data-site="address2">North Richland Hills, TX 76182</span><span class="f-hours" data-site-hours hidden></span></div>
       <div><small>Company</small><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a></div>
-      <div><small>Credentials</small>Licensed, bonded &amp; insured<br>Family owned<br>Serving DFW &amp; North Texas</div>
-      <div><small>Contact</small><a href="tel:+14693750495">(469) 375-0495</a><a href="mailto:office@pittmanwoodworks.com">office@pittmanwoodworks.com</a><a href="/contact">Contact form</a></div>
+      <div><small>Credentials</small><span data-site-list="credentials">Licensed, bonded &amp; insured<br>Family owned<br>Serving DFW &amp; North Texas</span></div>
+      <div><small>Contact</small><a href="tel:+14693750495" data-site-tel>(469) 375-0495</a><a href="mailto:office@pittmanwoodworks.com" data-site-mail>office@pittmanwoodworks.com</a><a href="/contact">Contact form</a><span class="social" data-site-social></span></div>
     </div>
   </div>
   <div class="wrap fbase"><span>© 2026 Pittman Woodworks LLC</span><span>Commercial casework &amp; countertops · North Richland Hills, Texas</span><span class="legal-links"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/accessibility">Accessibility</a></span></div>

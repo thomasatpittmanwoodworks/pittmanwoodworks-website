@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "q": "Do you charge for estimates?",
+      "a": "No. Estimates and site visits are provided at no cost, with an itemized breakdown of the proposed scope."
+    },
+    {
+      "q": "Can you bid from architect's plans?",
+      "a": "Yes. General contractors send us drawings and specs every week. We bid from the plans, then produce shop drawings and submittals for approval before anything is cut."
+    },
+    {
+      "q": "Do you install, or just build?",
+      "a": "Both. Our own crew installs everything we build, including countertops, and handles the punch list with you at the end."
+    },
+    {
+      "q": "Do you do residential work?",
+      "a": "Commercial is our focus. We do take on multifamily projects for builders and general contractors. For a single-family home, give us a call and we'll tell you straight whether we're the right fit."
+    },
+    {
+      "q": "What area do you serve?",
+      "a": "The Dallas–Fort Worth area and surrounding North Texas. Our shop is in North Richland Hills. If you're farther out, call us and ask."
+    }
+  ]
+}

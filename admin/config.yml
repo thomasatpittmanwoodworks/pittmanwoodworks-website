@@ -16,6 +16,76 @@ media_folder: images/uploads
 public_folder: /images/uploads
 
 collections:
+  - name: settings
+    label: Site settings
+    description: Logo, contact details and other information used across every page.
+    files:
+      - name: site
+        label: Company info & branding
+        file: data/site.json
+        fields:
+          - {label: Logo, name: logo, widget: image, required: false, hint: "Wide logo (SVG or transparent PNG). Replaces the PW mark in the header. Leave blank to keep the text mark."}
+          - {label: Browser icon (favicon), name: favicon, widget: image, required: false, hint: "Square PNG, at least 512 x 512."}
+          - {label: Phone, name: phone, widget: string}
+          - {label: Email, name: email, widget: string}
+          - {label: Address line 1, name: address1, widget: string}
+          - {label: Address line 2, name: address2, widget: string}
+          - {label: Business hours, name: hours, widget: string, required: false, hint: "e.g. Mon–Fri 7:00 am – 4:30 pm"}
+          - {label: Credentials (footer), name: credentials, widget: list, field: {label: Line, name: line, widget: string}}
+          - {label: Notice bar, name: notice, widget: string, required: false, hint: "Optional line shown under the menu on every page, e.g. Now scheduling installs for March 2027. Leave blank to hide."}
+          - {label: LinkedIn URL, name: linkedin, widget: string, required: false}
+          - {label: Facebook URL, name: facebook, widget: string, required: false}
+          - {label: Instagram URL, name: instagram, widget: string, required: false}
+
+  - name: projects
+    label: Projects
+    description: Job photos. Projects with photos appear on the homepage (if featured) and on their industry page.
+    files:
+      - name: projects
+        label: Project gallery
+        file: data/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            label_singular: Project
+            widget: list
+            summary: "{{fields.title}} · {{fields.industry}}"
+            fields:
+              - {label: Project name, name: title, widget: string, hint: "e.g. Eastside Clinic nurse station"}
+              - label: Industry
+                name: industry
+                widget: select
+                options:
+                  - {label: Healthcare, value: healthcare}
+                  - {label: Education, value: education}
+                  - {label: Restaurants, value: restaurants}
+                  - {label: Offices, value: offices}
+                  - {label: Multifamily, value: multifamily}
+                  - {label: Retail & automotive, value: retail-automotive}
+              - {label: Feature on homepage, name: featured, widget: boolean, default: false}
+              - {label: Photos, name: photos, widget: list, field: {label: Photo, name: photo, widget: image}, hint: "First photo is the cover."}
+              - {label: Location, name: location, widget: string, required: false, hint: "e.g. Fort Worth, TX"}
+              - {label: Client or general contractor, name: client, widget: string, required: false}
+              - {label: Year, name: year, widget: string, required: false}
+              - {label: Scope, name: scope, widget: string, required: false, hint: "e.g. 84 LF casework, solid surface tops"}
+
+  - name: faq
+    label: FAQ
+    description: Questions shown on the Bidding page.
+    files:
+      - name: faq
+        label: Frequently asked questions
+        file: data/faq.json
+        fields:
+          - label: Questions
+            name: questions
+            label_singular: Question
+            widget: list
+            summary: "{{fields.q}}"
+            fields:
+              - {label: Question, name: q, widget: string}
+              - {label: Answer, name: a, widget: text}
+
   - name: team
     label: Team
     description: People shown on the About page.

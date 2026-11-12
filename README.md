@@ -29,6 +29,9 @@ Hosted on Netlify. Every change saved to the `main` branch publishes automatical
 
 ## Editing
 Use the website admin at `/admin` (sign in with a GitHub account that has access to this repository):
+- **Site settings** → `data/site.json` (logo, favicon, phone, email, address, hours, credentials, notice bar, social links)
+- **Projects** → `data/projects.json` (photo gallery on home and industry pages)
+- **FAQ** → `data/faq.json` (Bidding page)
 - **Team** → `data/team.json` (About page)
 - **Job listings** → `data/jobs.json` (Careers page)
 - **Trusted by** → `data/clients.json` (homepage banner)
