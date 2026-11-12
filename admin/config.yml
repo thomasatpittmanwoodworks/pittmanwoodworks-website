@@ -37,6 +37,100 @@ collections:
           - {label: Facebook URL, name: facebook, widget: string, required: false}
           - {label: Instagram URL, name: instagram, widget: string, required: false}
 
+  - name: pages
+    label: Page text
+    description: Headlines and copy on the main pages.
+    files:
+      - name: home
+        label: Homepage
+        file: data/home.json
+        fields:
+          - {label: Small line above headline, name: eyebrow, widget: string}
+          - {label: Headline, name: title, widget: string}
+          - {label: Headline highlight (shown in blue), name: highlight, widget: string, required: false}
+          - {label: Intro paragraph, name: intro, widget: text}
+          - {label: Badges under buttons, name: badges, widget: list, field: {label: Badge, name: badge, widget: string}}
+          - label: Capabilities (bottom of hero)
+            name: capabilities
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Title, name: title, widget: string}, {label: Text, name: text, widget: text}]
+          - {label: Industries heading, name: industriesTitle, widget: string}
+          - {label: Industries intro, name: industriesIntro, widget: text}
+          - {label: Process heading, name: processTitle, widget: string}
+          - {label: Process intro, name: processIntro, widget: string}
+          - label: Process steps
+            name: steps
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Step, name: title, widget: string}, {label: Description, name: text, widget: text}, {label: Owner, name: owner, widget: string}]
+          - {label: Bottom banner heading, name: ctaTitle, widget: string}
+          - {label: Bottom banner text, name: ctaText, widget: text}
+      - name: about
+        label: About page
+        file: data/about.json
+        fields:
+          - {label: Headline start, name: title, widget: string}
+          - {label: Headline highlight (shown in blue), name: highlight, widget: string, required: false}
+          - {label: Headline end, name: titleEnd, widget: string, required: false}
+          - {label: Intro paragraph, name: intro, widget: text}
+          - label: Highlights (under intro)
+            name: highlights
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Title, name: title, widget: string}, {label: Text, name: text, widget: text}]
+          - {label: Story heading, name: storyTitle, widget: string}
+          - {label: Story paragraphs, name: story, widget: list, field: {label: Paragraph, name: paragraph, widget: text}}
+          - label: Values
+            name: values
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Value, name: title, widget: string}, {label: Description, name: text, widget: text}]
+          - {label: Team section heading, name: teamTitle, widget: string}
+          - {label: Hiring banner heading, name: joinTitle, widget: string}
+          - {label: Hiring banner text, name: joinText, widget: text}
+      - name: careers
+        label: Careers page
+        file: data/careers.json
+        fields:
+          - {label: Headline, name: title, widget: string}
+          - {label: Intro paragraph, name: intro, widget: text}
+          - {label: Why-work-here heading, name: whyTitle, widget: string}
+          - label: Reasons to work here
+            name: why
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Title, name: title, widget: string}, {label: Text, name: text, widget: text}]
+          - {label: Open roles heading, name: openingsTitle, widget: string}
+          - {label: Open roles intro, name: openingsIntro, widget: text}
+
+  - name: industries
+    label: Industries
+    description: The six industry pages and the industry cards on the homepage.
+    files:
+      - name: industries
+        label: Industry pages
+        file: data/industries.json
+        fields:
+          - label: Industries
+            name: industries
+            widget: list
+            allow_add: false
+            summary: "{{fields.name}}"
+            fields:
+              - {label: Page address, name: slug, widget: hidden}
+              - {label: Short name (cards and breadcrumb), name: name, widget: string}
+              - {label: Who it's for (small line), name: audience, widget: string}
+              - {label: Page headline, name: title, widget: string}
+              - {label: Summary, name: summary, widget: text}
+              - {label: What we build heading, name: heading, widget: string}
+              - {label: What we build, name: builds, widget: list, field: {label: Item, name: item, widget: string}}
+              - label: Typical specifications
+                name: specs
+                widget: list
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields: [{label: Label, name: label, widget: string}, {label: Value, name: value, widget: string}]
+
   - name: projects
     label: Projects
     description: Job photos. Projects with photos appear on the homepage (if featured) and on their industry page.

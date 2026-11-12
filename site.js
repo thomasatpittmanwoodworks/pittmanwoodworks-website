@@ -85,4 +85,36 @@
   var fq=document.querySelector('[data-faq]');
   if(fq)get('/data/faq.json').then(function(D){var q=(D.questions||[]).filter(function(x){return x.q});if(!q.length)return;
     fq.innerHTML=q.map(function(x,i){return '<details'+(i===0?' open':'')+'><summary>'+esc(x.q)+'</summary><p>'+esc(x.a)+'</p></details>'}).join('')}).catch(function(){});
+
+  /* page text (data/home.json, about.json, careers.json) */
+  var files={};document.querySelectorAll('[data-c],[data-c-h],[data-c-pairs],[data-c-steps],[data-c-badges],[data-c-paras]').forEach(function(el){
+    ['data-c','data-c-h','data-c-pairs','data-c-steps','data-c-badges','data-c-paras'].forEach(function(a){var v=el.getAttribute(a);if(v)files[v.split('.')[0]]=1})});
+  Object.keys(files).forEach(function(f){get('/data/'+f+'.json').then(function(D){
+    function val(path){return D[path.split('.')[1]]}
+    document.querySelectorAll('[data-c^="'+f+'."]').forEach(function(el){var v=val(el.getAttribute('data-c'));if(v)el.textContent=v});
+    document.querySelectorAll('[data-c-h="'+f+'"]').forEach(function(el){if(D.title)el.innerHTML=esc(D.title)+(D.highlight?' <em>'+esc(D.highlight)+'</em>':'')+esc(D.titleEnd||'')});
+    document.querySelectorAll('[data-c-pairs^="'+f+'."]').forEach(function(el){var v=val(el.getAttribute('data-c-pairs'));if(v&&v.length)el.innerHTML=v.map(function(x){return '<div><b>'+esc(x.title)+'</b><span>'+esc(x.text)+'</span></div>'}).join('')});
+    document.querySelectorAll('[data-c-steps^="'+f+'."]').forEach(function(el){var v=val(el.getAttribute('data-c-steps'));if(v&&v.length)el.innerHTML=v.map(function(x,i){return '<div class="step"><span class="n">'+(i+1)+'</span><h3>'+esc(x.title)+'</h3><p>'+esc(x.text)+'</p><span class="who">'+esc(x.owner)+'</span></div>'}).join('')});
+    document.querySelectorAll('[data-c-badges^="'+f+'."]').forEach(function(el){var v=val(el.getAttribute('data-c-badges'));if(v&&v.length)el.innerHTML=v.map(function(x){return '<span class="tag">'+esc(x)+'</span>'}).join('')});
+    document.querySelectorAll('[data-c-paras^="'+f+'."]').forEach(function(el){var v=val(el.getAttribute('data-c-paras'));if(v&&v.length)el.innerHTML=v.map(function(x){return '<p>'+esc(x)+'</p>'}).join('')});
+  }).catch(function(){})});
+
+  /* industries (data/industries.json): industry pages, cards and links */
+  if(document.querySelector('[data-ind],.ind-card,.other-ind'))get('/data/industries.json').then(function(D){
+    var by={};(D.industries||[]).forEach(function(x){by[x.slug]=x});
+    var hero=document.querySelector('[data-ind]');
+    if(hero){var x=by[hero.getAttribute('data-ind')];if(x){
+      var set=function(sel,v,root){var el=(root||document).querySelector(sel);if(el&&v)el.textContent=v};
+      var crumb=hero.querySelectorAll('.crumb span');if(crumb.length&&x.name)crumb[crumb.length-1].textContent=x.name;
+      set('.tag',x.audience,hero);set('h1',x.title,hero);set('.sub',x.summary,hero);
+      document.querySelectorAll('.sheet-head').forEach(function(sh){var no=sh.querySelector('.no');if(no&&/What we build/.test(no.textContent)&&x.heading)sh.querySelector('h2').textContent=x.heading});
+      var bl=document.querySelector('.build-list');if(bl&&x.builds&&x.builds.length)bl.innerHTML=x.builds.map(function(b,i){return '<li>'+esc(b)+'<span>'+(i<9?'0':'')+(i+1)+'</span></li>'}).join('');
+      var sp=document.querySelector('.spec');if(sp&&x.specs&&x.specs.length)sp.innerHTML=x.specs.map(function(r){return '<div class="row"><span>'+esc(r.label)+'</span><span>'+esc(r.value)+'</span></div>'}).join('');
+      if(x.title)document.title=x.title+' · Pittman Woodworks'}}
+    document.querySelectorAll('.ind-card').forEach(function(c){var x=by[(c.getAttribute('href')||'').split('/').pop()];if(!x)return;
+      var k=c.querySelector('.k'),b=c.querySelector('b'),p=c.querySelector('p'),ul=c.querySelector('ul');
+      if(x.name&&k)k.textContent=x.name;if(x.heading&&b)b.textContent=x.heading;if(x.summary&&p)p.textContent=x.summary;
+      if(ul&&x.builds&&x.builds.length)ul.innerHTML=x.builds.slice(0,3).map(function(t){return '<li>'+esc(t)+'</li>'}).join('')});
+    document.querySelectorAll('.other-ind a').forEach(function(a){var x=by[(a.getAttribute('href')||'').split('/').pop()];if(x&&x.title)a.textContent=x.title});
+  }).catch(function(){});
 })();

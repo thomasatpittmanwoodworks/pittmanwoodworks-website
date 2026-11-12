@@ -1,0 +1,62 @@
+{
+  "eyebrow": "Commercial casework & countertops · Dallas–Fort Worth",
+  "title": "Commercial casework, built to spec and",
+  "highlight": "installed on schedule.",
+  "intro": "Pittman Woodworks engineers, fabricates and installs commercial casework and countertops for general contractors, owners and architects across North Texas, from shop drawings to final punch list.",
+  "badges": [
+    "Licensed, bonded, insured",
+    "Family owned",
+    "In-house fabrication & install"
+  ],
+  "capabilities": [
+    {
+      "title": "Shop drawings & submittals",
+      "text": "Every elevation drawn and approved before fabrication."
+    },
+    {
+      "title": "In-house CNC fabrication",
+      "text": "Cut, edgebanded and assembled in our North Richland Hills shop."
+    },
+    {
+      "title": "Countertop fabrication",
+      "text": "Plastic laminate, solid surface and quartz, templated and set."
+    },
+    {
+      "title": "Self-performed installation",
+      "text": "Our own crews install, punch and close out every job."
+    }
+  ],
+  "industriesTitle": "Casework specified for each environment",
+  "industriesIntro": "Healthcare, education, food service and retail spaces each carry different material, hardware and durability requirements. We build to the specification for each.",
+  "processTitle": "Project delivery",
+  "processIntro": "A defined process from bid through closeout.",
+  "steps": [
+    {
+      "title": "Bid",
+      "text": "We review plans and specifications and submit a detailed proposal.",
+      "owner": "Estimating"
+    },
+    {
+      "title": "Field verify",
+      "text": "We take site measurements and confirm conditions before drawings.",
+      "owner": "Project management"
+    },
+    {
+      "title": "Submittals",
+      "text": "Shop drawings and samples are issued for approval before fabrication.",
+      "owner": "Drafting"
+    },
+    {
+      "title": "Fabricate",
+      "text": "CNC machined, edgebanded and assembled in our shop.",
+      "owner": "Production"
+    },
+    {
+      "title": "Install & close out",
+      "text": "Our crews install, complete the punch list and turn over the work.",
+      "owner": "Field"
+    }
+  ],
+  "ctaTitle": "Have a project out to bid?",
+  "ctaText": "Send us your plans and specifications. We respond to every bid request within one business day."
+}

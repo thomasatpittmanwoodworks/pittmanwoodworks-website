@@ -1,0 +1,202 @@
+{
+  "industries": [
+    {
+      "slug": "healthcare",
+      "name": "Healthcare",
+      "audience": "Hospitals, clinics and medical offices",
+      "title": "Healthcare casework",
+      "heading": "Nurse stations, med rooms, exam rooms",
+      "summary": "Casework that cleans easily and holds up to daily disinfecting, laid out around how staff actually move.",
+      "builds": [
+        "Nurse stations",
+        "Med rooms",
+        "Exam room casework",
+        "Waiting room millwork",
+        "Lab counters"
+      ],
+      "specs": [
+        {
+          "label": "Boxes",
+          "value": "Plastic laminate over ¾\" substrate"
+        },
+        {
+          "label": "Tops",
+          "value": "Solid surface, seamless and cleanable"
+        },
+        {
+          "label": "Hardware",
+          "value": "Heavy-duty pulls, locking drawers"
+        },
+        {
+          "label": "Edges",
+          "value": "Durable edgebanding throughout"
+        }
+      ]
+    },
+    {
+      "slug": "education",
+      "name": "Education",
+      "audience": "Schools and universities",
+      "title": "Education casework",
+      "heading": "Classrooms, labs, libraries, admin",
+      "summary": "Storage that survives a few thousand students a year, with layouts built around the curriculum.",
+      "builds": [
+        "Classroom storage",
+        "Science labs",
+        "Teacher walls",
+        "Library desks",
+        "Front office"
+      ],
+      "specs": [
+        {
+          "label": "Boxes",
+          "value": "Plastic laminate, reinforced shelving"
+        },
+        {
+          "label": "Tops",
+          "value": "Plastic laminate or solid surface"
+        },
+        {
+          "label": "Hardware",
+          "value": "Locks, heavy-duty hinges"
+        },
+        {
+          "label": "Clients",
+          "value": "Fort Worth, Millsap, Seminole and Glen Rose ISDs"
+        }
+      ]
+    },
+    {
+      "slug": "restaurants",
+      "name": "Restaurant",
+      "audience": "Restaurants and bars",
+      "title": "Restaurant & bar casework",
+      "heading": "Front counters, bars, back-bar",
+      "summary": "Counters and bars built for speed, spills and the lunch rush, matched to your brand's look.",
+      "builds": [
+        "Ordering counters",
+        "Bars & back-bars",
+        "Drink stations",
+        "Host stands",
+        "Condiment stations"
+      ],
+      "specs": [
+        {
+          "label": "Boxes",
+          "value": "Plastic laminate, moisture-resistant"
+        },
+        {
+          "label": "Tops",
+          "value": "Quartz or solid surface"
+        },
+        {
+          "label": "Hardware",
+          "value": "Commercial-grade, easy service access"
+        },
+        {
+          "label": "Clients",
+          "value": "Golden Chick and more"
+        }
+      ]
+    },
+    {
+      "slug": "offices",
+      "name": "Office",
+      "audience": "Offices and commercial spaces",
+      "title": "Office & commercial casework",
+      "heading": "Reception, break rooms, conference",
+      "summary": "Reception desks and break rooms that set the tone the moment someone walks in.",
+      "builds": [
+        "Reception desks",
+        "Break rooms",
+        "Conference credenzas",
+        "Display cases",
+        "Copy rooms"
+      ],
+      "specs": [
+        {
+          "label": "Boxes",
+          "value": "Plastic laminate or wood veneer"
+        },
+        {
+          "label": "Tops",
+          "value": "Quartz, solid surface or P-lam"
+        },
+        {
+          "label": "Hardware",
+          "value": "Soft-close throughout"
+        },
+        {
+          "label": "Extras",
+          "value": "Display cases, built-in storage"
+        }
+      ]
+    },
+    {
+      "slug": "multifamily",
+      "name": "Multifamily",
+      "audience": "Apartments and multifamily",
+      "title": "Multifamily casework",
+      "heading": "Unit kitchens, baths, amenity spaces",
+      "summary": "Repeatable unit packages built consistently on the CNC, delivered on the builder's schedule.",
+      "builds": [
+        "Unit kitchens",
+        "Bath vanities",
+        "Amenity kitchens",
+        "Leasing offices",
+        "Mail rooms"
+      ],
+      "specs": [
+        {
+          "label": "Boxes",
+          "value": "CNC-cut, repeatable by unit type"
+        },
+        {
+          "label": "Tops",
+          "value": "Plastic laminate or quartz"
+        },
+        {
+          "label": "Hardware",
+          "value": "Soft-close"
+        },
+        {
+          "label": "Delivery",
+          "value": "Phased by building or floor"
+        }
+      ]
+    },
+    {
+      "slug": "retail-automotive",
+      "name": "Retail & Auto",
+      "audience": "Retail, automotive and service",
+      "title": "Retail & automotive casework",
+      "heading": "Service counters, lobbies, display",
+      "summary": "Counters and casework for high-traffic customer spaces, rolled out the same way location after location.",
+      "builds": [
+        "Service counters",
+        "Customer lobbies",
+        "Display casework",
+        "Break rooms",
+        "Multi-site rollouts"
+      ],
+      "specs": [
+        {
+          "label": "Boxes",
+          "value": "Plastic laminate, heavy-use rated"
+        },
+        {
+          "label": "Tops",
+          "value": "Solid surface or plastic laminate"
+        },
+        {
+          "label": "Hardware",
+          "value": "Commercial-grade, locking where needed"
+        },
+        {
+          "label": "Clients",
+          "value": "Valvoline, Mister Car Wash, McCoy's"
+        }
+      ]
+    }
+  ]
+}

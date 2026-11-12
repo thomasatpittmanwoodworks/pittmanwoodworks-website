@@ -1,0 +1,47 @@
+{
+  "title": "The people behind",
+  "highlight": "every cabinet",
+  "titleEnd": " we build.",
+  "intro": "Pittman Woodworks is a family-owned commercial casework shop in North Richland Hills, Texas. Our estimators, drafters, shop crew and installers work as one team, from the first drawing to the final punch list.",
+  "highlights": [
+    {
+      "title": "Family owned",
+      "text": "Owner-led, with a single point of contact on every project."
+    },
+    {
+      "title": "One roof",
+      "text": "Drafting, fabrication and installation all in-house."
+    },
+    {
+      "title": "Built on referrals",
+      "text": "Most of our work comes from returning customers and their recommendations."
+    },
+    {
+      "title": "North Texas",
+      "text": "Based in North Richland Hills, serving DFW and beyond."
+    }
+  ],
+  "storyTitle": "A shop built on doing what we say",
+  "story": [
+    "Pittman Woodworks started with a simple idea: commercial clients deserve a cabinet shop that communicates clearly, prices honestly and delivers on schedule.",
+    "Led by co-owners Seth Pittman and Eric Jorgenson, we've grown into a full-service casework company serving schools, healthcare facilities, restaurants, retailers and offices across North Texas. We combine the personal attention of a family business with the systems and equipment of a much larger operation.",
+    "Most of our projects come from repeat customers and referrals. We think that says more about our work than anything we could write here."
+  ],
+  "values": [
+    {
+      "title": "Honesty",
+      "text": "Clear, truthful communication with every client, at every stage of the job."
+    },
+    {
+      "title": "Transparency",
+      "text": "Detailed pricing, material specifications and realistic timelines, so there are no surprises."
+    },
+    {
+      "title": "Excellence",
+      "text": "Quality materials, careful craftsmanship and service that earns the next project."
+    }
+  ],
+  "teamTitle": "Meet the people who build it",
+  "joinTitle": "Want to be on this page?",
+  "joinText": "We're always looking for installers, assemblers, machine operators and people ready to learn the trade."
+}
