@@ -1,18 +1,18 @@
 {
-  "logo": "",
-  "favicon": "",
+  "facebook": "",
+  "logo": "/images/uploads/pw-final_pw-icon-variation2-navy.png",
   "phone": "(469) 375-0495",
-  "email": "office@pittmanwoodworks.com",
-  "address1": "8212 Northeast Pkwy, Ste 100",
-  "address2": "North Richland Hills, TX 76182",
   "hours": "",
+  "instagram": "",
+  "favicon": "/images/uploads/pw-final_pw-icon-variation2-navy.png",
+  "notice": "",
   "credentials": [
     "Licensed, bonded & insured",
     "Family owned",
     "Serving DFW & North Texas"
   ],
-  "notice": "",
+  "email": "office@pittmanwoodworks.com",
+  "address1": "8212 Northeast Pkwy, Ste 100",
   "linkedin": "",
-  "facebook": "",
-  "instagram": ""
+  "address2": "North Richland Hills, TX 76182"
 }
