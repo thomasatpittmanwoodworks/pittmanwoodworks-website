@@ -37,6 +37,36 @@ collections:
           - {label: Facebook URL, name: facebook, widget: string, required: false}
           - {label: Instagram URL, name: instagram, widget: string, required: false}
 
+  - name: blog
+    label: Blog
+    label_singular: Blog post
+    description: Weekly posts. Posts publish on their date; turn on Draft to keep one hidden.
+    folder: content/blog
+    create: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{title}} · {{date}}"
+    sortable_fields: [date, title]
+    fields:
+      - {label: Title, name: title, widget: string}
+      - {label: Publish date, name: date, widget: datetime, date_format: "MMM D, YYYY", time_format: false, format: "YYYY-MM-DD", hint: "Set a future date to schedule a post. It goes live on the first site update on or after that date."}
+      - {label: Draft (hidden from the site), name: draft, widget: boolean, default: false}
+      - label: Category
+        name: category
+        widget: select
+        default: guide
+        options:
+          - {label: Project spotlight, value: spotlight}
+          - {label: Guides, value: guide}
+          - {label: Company news, value: news}
+          - {label: Industry insights, value: industry}
+      - {label: Author, name: author, widget: string, default: Pittman Woodworks}
+      - {label: Cover photo, name: image, widget: image, required: false, hint: "Wide photo, at least 1600 px across."}
+      - {label: Cover photo description, name: imageAlt, widget: string, required: false, hint: "Describe the photo for screen readers and Google."}
+      - {label: Summary, name: summary, widget: text, hint: "One or two sentences. Shown on the blog page and in Google results."}
+      - {label: Article, name: body, widget: markdown}
+
   - name: pages
     label: Page text
     description: Headlines and copy on the main pages.

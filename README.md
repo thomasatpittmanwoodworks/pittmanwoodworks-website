@@ -19,6 +19,7 @@ Shared styles live in `styles.css`; the mobile menu script is `site.js`.
 
 ## Hosting
 Hosted on Netlify. Every change saved to the `main` branch publishes automatically.
+Netlify runs `node build.mjs`, which copies the site into `dist/` and builds the blog (`/blog`) from `content/blog/*.json`.
 `netlify.toml` holds redirects from the old Wix page addresses.
 
 ## Forms (Netlify Forms)
@@ -30,6 +31,7 @@ Hosted on Netlify. Every change saved to the `main` branch publishes automatical
 ## Editing
 Use the website admin at `/admin` (sign in with a GitHub account that has access to this repository):
 - **Site settings** → `data/site.json` (logo, favicon, phone, email, address, hours, credentials, notice bar, social links)
+- **Blog** → `content/blog/*.json` (posts at /blog, linked from the footer only)
 - **Page text** → `data/home.json`, `data/about.json`, `data/careers.json` (headlines and copy)
 - **Industries** → `data/industries.json` (six industry pages and homepage cards)
 - **Projects** → `data/projects.json` (photo gallery on home and industry pages)

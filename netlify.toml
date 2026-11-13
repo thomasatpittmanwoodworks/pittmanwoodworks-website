@@ -1,6 +1,16 @@
 # Netlify settings for pittmanwoodworks.com
 [build]
-  publish = "."
+  command = "node build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Old Wix blog posts went to /post/...
+[[redirects]]
+  from = "/post/*"
+  to = "/blog/"
+  status = 301
 
 # Old Wix page addresses (301 = permanent, keeps Google ranking)
 [[redirects]]
@@ -30,14 +40,6 @@
 [[redirects]]
   from = "/blank"
   to = "/industries/"
-  status = 301
-[[redirects]]
-  from = "/blog/*"
-  to = "/"
-  status = 301
-[[redirects]]
-  from = "/blog"
-  to = "/"
   status = 301
 
 # Keep the admin out of search results
