@@ -2,58 +2,73 @@
   "clients": [
     {
       "name": "Fort Worth ISD",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.fwisd.org"
     },
     {
       "name": "Texas Health Resources",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.texashealth.org"
     },
     {
       "name": "Golden Chick",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.goldenchick.com"
     },
     {
       "name": "Mister Car Wash",
-      "logo": ""
+      "logo": "",
+      "website": "https://mistercarwash.com"
     },
     {
       "name": "Valvoline",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.vioc.com"
     },
     {
       "name": "PopStroke",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.popstroke.com"
     },
     {
       "name": "McCoy's",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.mccoys.com"
     },
     {
       "name": "Graham Regional Medical Center",
-      "logo": ""
+      "logo": "",
+      "website": ""
     },
     {
       "name": "Millsap ISD",
-      "logo": ""
+      "logo": "",
+      "website": ""
     },
     {
       "name": "Seminole ISD",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.seminoleisd.net"
     },
     {
       "name": "Glen Rose ISD",
-      "logo": ""
+      "logo": "",
+      "website": "https://www.grisd.net"
     },
     {
       "name": "Success Space",
-      "logo": ""
+      "logo": "",
+      "website": ""
     },
     {
       "name": "Teinert Construction",
-      "logo": "/images/uploads/images.png"
+      "logo": "/images/uploads/images.png",
+      "website": ""
     },
     {
-      "name": "Reeder General Construction"
+      "name": "Reeder General Construction",
+      "logo": "",
+      "website": ""
     }
   ]
 }

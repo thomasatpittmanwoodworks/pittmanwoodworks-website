@@ -241,7 +241,10 @@
 
   /* clients: edited in the admin at /admin (data/clients.json) */
   var row=document.getElementById('clientRow');
-  function tile(c,dup){var d=document.createElement('div');d.className='logo';if(dup)d.setAttribute('aria-hidden','true');
+  function tile(c,dup){var d;
+    if(c.website&&/^https?:\/\//.test(c.website)){d=document.createElement('a');d.href=c.website;d.target='_blank';d.rel='noopener';d.title=c.name;if(dup)d.tabIndex=-1}
+    else d=document.createElement('div');
+    d.className='logo';if(dup)d.setAttribute('aria-hidden','true');
     if(c.logo){var im=document.createElement('img');im.src=c.logo;im.alt=dup?'':c.name;im.loading='lazy';d.appendChild(im)}
     else{var t=document.createElement('span');t.textContent=c.name;d.appendChild(t)}
     return d}

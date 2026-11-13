@@ -283,3 +283,4 @@ collections:
             fields:
               - {label: Name, name: name, widget: string}
               - {label: Logo (optional), name: logo, widget: image, required: false, hint: "SVG or transparent PNG. The name shows until a logo is added."}
+              - {label: Website (optional), name: website, widget: string, required: false, hint: "Full address starting with https://. Makes the name or logo clickable (opens in a new tab)."}

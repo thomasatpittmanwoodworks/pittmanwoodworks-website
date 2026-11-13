@@ -624,3 +624,8 @@ button.ph b{color:#FFFFFF;font-family:var(--display);font-stretch:88%;font-weigh
 .prose pre code{border:0;padding:0;background:none}
 .post-end{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:clamp(40px,5vw,56px);padding-top:24px;border-top:1px solid var(--rule)}
 .post-end .sec-link{margin-top:0}
+
+a.logo{text-decoration:none;color:inherit;cursor:pointer}
+a.logo span{transition:color .2s,opacity .2s}
+a.logo:hover span{color:var(--ink);opacity:1}
+a.logo:focus-visible{outline:2px solid var(--layout);outline-offset:-4px}
