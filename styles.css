@@ -629,3 +629,6 @@ a.logo{text-decoration:none;color:inherit;cursor:pointer}
 a.logo span{transition:color .2s,opacity .2s}
 a.logo:hover span{color:var(--ink);opacity:1}
 a.logo:focus-visible{outline:2px solid var(--layout);outline-offset:-4px}
+
+.logo.with-logo{height:auto;min-height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.logo.with-logo span{font-size:13.5px;letter-spacing:.01em}

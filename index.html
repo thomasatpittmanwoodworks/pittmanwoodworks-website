@@ -245,8 +245,8 @@
     if(c.website&&/^https?:\/\//.test(c.website)){d=document.createElement('a');d.href=c.website;d.target='_blank';d.rel='noopener';d.title=c.name;if(dup)d.tabIndex=-1}
     else d=document.createElement('div');
     d.className='logo';if(dup)d.setAttribute('aria-hidden','true');
-    if(c.logo){var im=document.createElement('img');im.src=c.logo;im.alt=dup?'':c.name;im.loading='lazy';d.appendChild(im)}
-    else{var t=document.createElement('span');t.textContent=c.name;d.appendChild(t)}
+    if(c.logo){var im=document.createElement('img');im.src=c.logo;im.alt='';im.loading='lazy';d.appendChild(im);d.classList.add('with-logo')}
+    var t=document.createElement('span');t.textContent=c.name;d.appendChild(t);
     return d}
   fetch('/data/clients.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
     var CL=(d.clients||[]).filter(function(c){return c.name});if(!CL.length){row.closest('.clients').hidden=true;return}
