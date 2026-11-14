@@ -200,14 +200,58 @@ ${CTA}
   try{navigator.clipboard.writeText(location.href).then(done,function(){prompt('Copy this link:',location.href)})}catch(e){}})})();
 </script>`;
   fs.writeFileSync(path.join(OUT, 'blog', `${p.slug}.html`), page({
-    title: `${p.title} · Pittman Woodworks`,
-    description: p.summary || `${p.title}, from the Pittman Woodworks blog.`,
+    title: p.seoTitle || `${p.title} | Pittman Woodworks`,
+    description: p.seoDescription || p.summary || `${p.title}, from the Pittman Woodworks blog.`,
     canonical: `${SITE}/blog/${p.slug}`, image: p.image, type: 'article', main,
     jsonld: { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: p.title, description: p.summary || '',
       datePublished: p.date.toISOString(), author: { '@type': 'Person', name: author },
       publisher: { '@type': 'Organization', name: 'Pittman Woodworks' }, mainEntityOfPage: `${SITE}/blog/${p.slug}`,
       ...(p.image ? { image: abs(p.image) } : {}) },
   }));
+}
+
+/* ---------- SEO: titles, descriptions and share images from data/seo.json ---------- */
+const seoPath = path.join(ROOT, 'data', 'seo.json');
+if (fs.existsSync(seoPath)) {
+  const SEO = JSON.parse(fs.readFileSync(seoPath, 'utf8'));
+  const fileFor = (p) => (p === '/' ? 'index.html' : p.endsWith('/') ? p.slice(1) + 'index.html' : p.slice(1) + '.html');
+  const setMeta = (html, attr, key, value) => {
+    const tag = `<meta ${attr}="${key}" content="${esc(value)}">`;
+    const re = new RegExp(`<meta ${attr}="${key.replace(/[:.]/g, '\\$&')}" content="[^"]*">`);
+    return re.test(html) ? html.replace(re, tag) : html.replace('</head>', `${tag}\n</head>`);
+  };
+  const apply = (html, { title, description, image, url }) => {
+    if (title) {
+      html = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`);
+      html = setMeta(html, 'property', 'og:title', title);
+    }
+    if (description) {
+      html = setMeta(html, 'name', 'description', description);
+      html = setMeta(html, 'property', 'og:description', description);
+    }
+    if (url) {
+      html = setMeta(html, 'property', 'og:url', url);
+      if (!/<link rel="canonical"/.test(html)) html = html.replace('</head>', `<link rel="canonical" href="${url}">\n</head>`);
+      if (!/property="og:type"/.test(html)) html = setMeta(html, 'property', 'og:type', 'website');
+    }
+    const hasImg = /property="og:image"/.test(html);
+    const pick = image || (hasImg ? '' : SEO.defaultImage);
+    if (pick) {
+      html = setMeta(html, 'property', 'og:image', abs(pick));
+      html = setMeta(html, 'name', 'twitter:card', 'summary_large_image');
+    }
+    return html;
+  };
+  for (const p of SEO.pages || []) {
+    const f = path.join(OUT, fileFor(p.path || ''));
+    if (!p.path || !fs.existsSync(f)) continue;
+    fs.writeFileSync(f, apply(fs.readFileSync(f, 'utf8'), { title: p.title, description: p.description, image: p.image, url: SITE + p.path }));
+  }
+  if (SEO.defaultImage) for (const p of posts) { // posts without a cover photo use the default share image
+    if (p.image) continue;
+    const f = path.join(OUT, 'blog', `${p.slug}.html`);
+    fs.writeFileSync(f, apply(fs.readFileSync(f, 'utf8'), {}));
+  }
 }
 
 /* ---------- RSS feed + sitemap ---------- */

@@ -31,6 +31,7 @@ Netlify runs `node build.mjs`, which copies the site into `dist/` and builds the
 ## Editing
 Use the website admin at `/admin` (sign in with a GitHub account that has access to this repository):
 - **Site settings** → `data/site.json` (logo, favicon, phone, email, address, hours, credentials, notice bar, social links)
+- **SEO** → `data/seo.json` (page titles, descriptions, share images; applied at build time)
 - **Blog** → `content/blog/*.json` (posts at /blog, linked from the footer only)
 - **Page text** → `data/home.json`, `data/about.json`, `data/careers.json` (headlines and copy)
 - **Industries** → `data/industries.json` (six industry pages and homepage cards)

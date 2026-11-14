@@ -37,6 +37,27 @@ collections:
           - {label: Facebook URL, name: facebook, widget: string, required: false}
           - {label: Instagram URL, name: instagram, widget: string, required: false}
 
+  - name: seo
+    label: SEO
+    description: Google titles, descriptions and link-preview images for each page.
+    files:
+      - name: seo
+        label: Page titles & descriptions
+        file: data/seo.json
+        fields:
+          - {label: Default share image, name: defaultImage, widget: image, required: false, hint: "Shown when a page is shared on LinkedIn, Facebook or in a text. 1200 x 630 px works best."}
+          - label: Pages
+            name: pages
+            widget: list
+            allow_add: false
+            summary: "{{fields.page}}"
+            fields:
+              - {label: Page address, name: path, widget: hidden}
+              - {label: Page, name: page, widget: string, hint: "Label for this list only; not shown on the site."}
+              - {label: Title (shown in Google and browser tabs), name: title, widget: string, hint: "Aim for 50–60 characters. Put the most important words first."}
+              - {label: Description (shown under the title in Google), name: description, widget: text, hint: "Aim for 120–155 characters. Say what the page offers and who it's for."}
+              - {label: Share image (optional), name: image, widget: image, required: false, hint: "Overrides the default share image for this page."}
+
   - name: blog
     label: Blog
     label_singular: Blog post
@@ -66,6 +87,8 @@ collections:
       - {label: Cover photo description, name: imageAlt, widget: string, required: false, hint: "Describe the photo for screen readers and Google."}
       - {label: Summary, name: summary, widget: text, hint: "One or two sentences. Shown on the blog page and in Google results."}
       - {label: Article, name: body, widget: markdown}
+      - {label: SEO title (optional), name: seoTitle, widget: string, required: false, hint: "Overrides the Google title. Leave blank to use the post title."}
+      - {label: SEO description (optional), name: seoDescription, widget: text, required: false, hint: "Overrides the Google description. Leave blank to use the summary."}
 
   - name: pages
     label: Page text

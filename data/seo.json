@@ -1,0 +1,124 @@
+{
+  "defaultImage": "",
+  "pages": [
+    {
+      "path": "/",
+      "page": "Home",
+      "title": "Commercial Casework & Countertops in DFW | Pittman Woodworks",
+      "description": "Pittman Woodworks engineers, fabricates and installs commercial casework and countertops for general contractors, owners and architects across DFW.",
+      "image": ""
+    },
+    {
+      "path": "/industries/",
+      "page": "Industries",
+      "title": "Commercial Casework by Industry | Pittman Woodworks",
+      "description": "Commercial casework for healthcare, education, restaurants, offices, multifamily and retail projects across Dallas–Fort Worth and North Texas.",
+      "image": ""
+    },
+    {
+      "path": "/industries/healthcare",
+      "page": "Industry: Healthcare",
+      "title": "Healthcare Casework in DFW | Pittman Woodworks",
+      "description": "Nurse stations, med rooms and exam room casework for hospitals and clinics across Dallas–Fort Worth, built to clean easily and hold up to daily use.",
+      "image": ""
+    },
+    {
+      "path": "/industries/education",
+      "page": "Industry: Education",
+      "title": "School & University Casework in DFW | Pittman Woodworks",
+      "description": "Classroom storage, science labs and library casework for school districts and universities across North Texas, built for years of heavy use.",
+      "image": ""
+    },
+    {
+      "path": "/industries/restaurants",
+      "page": "Industry: Restaurants",
+      "title": "Restaurant & Bar Casework in DFW | Pittman Woodworks",
+      "description": "Ordering counters, bars and back-bar casework for restaurants across Dallas–Fort Worth, built for speed, spills and the lunch rush.",
+      "image": ""
+    },
+    {
+      "path": "/industries/offices",
+      "page": "Industry: Offices",
+      "title": "Office & Reception Casework in DFW | Pittman Woodworks",
+      "description": "Reception desks, break rooms and office casework across Dallas–Fort Worth that make a strong first impression and stand up to daily use.",
+      "image": ""
+    },
+    {
+      "path": "/industries/multifamily",
+      "page": "Industry: Multifamily",
+      "title": "Multifamily Cabinets & Casework in DFW | Pittman Woodworks",
+      "description": "Repeatable unit kitchens, bath vanities and amenity casework for apartment builders and general contractors across Dallas–Fort Worth.",
+      "image": ""
+    },
+    {
+      "path": "/industries/retail-automotive",
+      "page": "Industry: Retail & automotive",
+      "title": "Retail & Automotive Casework in DFW | Pittman Woodworks",
+      "description": "Service counters, customer lobbies and display casework for retail and automotive locations across North Texas, including multi-site rollouts.",
+      "image": ""
+    },
+    {
+      "path": "/construction",
+      "page": "Construction",
+      "title": "Commercial Casework Construction Standards | Pittman Woodworks",
+      "description": "How we build commercial casework: construction methods, materials, hardware, standard and ADA dimensions, quality checkpoints and submittals.",
+      "image": ""
+    },
+    {
+      "path": "/bidding",
+      "page": "Bidding",
+      "title": "Submit Plans for a Casework Bid | Pittman Woodworks",
+      "description": "General contractors: send plans and specifications for a commercial casework and countertop bid, or request our prequalification documents.",
+      "image": ""
+    },
+    {
+      "path": "/contact",
+      "page": "Contact",
+      "title": "Contact Us | Pittman Woodworks, North Richland Hills, TX",
+      "description": "Contact Pittman Woodworks in North Richland Hills, Texas. Call (469) 375-0495 or send us a message. We respond within one business day.",
+      "image": ""
+    },
+    {
+      "path": "/about",
+      "page": "About",
+      "title": "About Our Team | Pittman Woodworks",
+      "description": "Meet the family-owned team behind Pittman Woodworks, a commercial casework and countertop company in North Richland Hills, Texas.",
+      "image": ""
+    },
+    {
+      "path": "/careers",
+      "page": "Careers",
+      "title": "Cabinet Shop & Installer Jobs in DFW | Pittman Woodworks",
+      "description": "Join Pittman Woodworks in North Richland Hills, TX. We're hiring cabinet installers, assemblers, CNC operators and production helpers.",
+      "image": ""
+    },
+    {
+      "path": "/blog/",
+      "page": "Blog",
+      "title": "Casework Guides & Project News | Pittman Woodworks Blog",
+      "description": "Project spotlights, commercial casework guides and news from the Pittman Woodworks shop in North Richland Hills, Texas.",
+      "image": ""
+    },
+    {
+      "path": "/privacy",
+      "page": "Privacy policy",
+      "title": "Privacy Policy | Pittman Woodworks",
+      "description": "How Pittman Woodworks collects, uses and protects information submitted through pittmanwoodworks.com.",
+      "image": ""
+    },
+    {
+      "path": "/terms",
+      "page": "Terms of use",
+      "title": "Terms of Use | Pittman Woodworks",
+      "description": "Terms of use for the Pittman Woodworks website.",
+      "image": ""
+    },
+    {
+      "path": "/accessibility",
+      "page": "Accessibility",
+      "title": "Accessibility | Pittman Woodworks",
+      "description": "Our commitment to a website everyone can use, and how to get help if you have trouble with any part of it.",
+      "image": ""
+    }
+  ]
+}

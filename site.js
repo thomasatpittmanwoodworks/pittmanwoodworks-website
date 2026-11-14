@@ -109,8 +109,7 @@
       set('.tag',x.audience,hero);set('h1',x.title,hero);set('.sub',x.summary,hero);
       document.querySelectorAll('.sheet-head').forEach(function(sh){var no=sh.querySelector('.no');if(no&&/What we build/.test(no.textContent)&&x.heading)sh.querySelector('h2').textContent=x.heading});
       var bl=document.querySelector('.build-list');if(bl&&x.builds&&x.builds.length)bl.innerHTML=x.builds.map(function(b,i){return '<li>'+esc(b)+'<span>'+(i<9?'0':'')+(i+1)+'</span></li>'}).join('');
-      var sp=document.querySelector('.spec');if(sp&&x.specs&&x.specs.length)sp.innerHTML=x.specs.map(function(r){return '<div class="row"><span>'+esc(r.label)+'</span><span>'+esc(r.value)+'</span></div>'}).join('');
-      if(x.title)document.title=x.title+' · Pittman Woodworks'}}
+      var sp=document.querySelector('.spec');if(sp&&x.specs&&x.specs.length)sp.innerHTML=x.specs.map(function(r){return '<div class="row"><span>'+esc(r.label)+'</span><span>'+esc(r.value)+'</span></div>'}).join('');}}
     document.querySelectorAll('.ind-card').forEach(function(c){var x=by[(c.getAttribute('href')||'').split('/').pop()];if(!x)return;
       var k=c.querySelector('.k'),b=c.querySelector('b'),p=c.querySelector('p'),ul=c.querySelector('ul');
       if(x.name&&k)k.textContent=x.name;if(x.heading&&b)b.textContent=x.heading;if(x.summary&&p)p.textContent=x.summary;
