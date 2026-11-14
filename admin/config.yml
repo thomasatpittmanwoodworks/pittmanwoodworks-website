@@ -33,6 +33,7 @@ collections:
           - {label: Business hours, name: hours, widget: string, required: false, hint: "e.g. Mon–Fri 7:00 am – 4:30 pm"}
           - {label: Credentials (footer), name: credentials, widget: list, field: {label: Line, name: line, widget: string}}
           - {label: Notice bar, name: notice, widget: string, required: false, hint: "Optional line shown under the menu on every page, e.g. Now scheduling installs for March 2027. Leave blank to hide."}
+          - {label: Visitor analytics token (Cloudflare), name: analyticsToken, widget: string, required: false, hint: "From Cloudflare Web Analytics (free, no cookies). Paste only the token. Leave blank to turn analytics off."}
           - {label: LinkedIn URL, name: linkedin, widget: string, required: false}
           - {label: Facebook URL, name: facebook, widget: string, required: false}
           - {label: Instagram URL, name: instagram, widget: string, required: false}
@@ -183,6 +184,34 @@ collections:
                 widget: list
                 summary: "{{fields.label}}: {{fields.value}}"
                 fields: [{label: Label, name: label, widget: string}, {label: Value, name: value, widget: string}]
+
+  - name: testimonials
+    label: Testimonials
+    description: Quotes from GCs and clients. Only use real quotes with permission.
+    files:
+      - name: testimonials
+        label: Testimonials
+        file: data/testimonials.json
+        fields:
+          - label: Testimonials
+            name: testimonials
+            label_singular: Testimonial
+            widget: list
+            summary: "{{fields.name}} · {{fields.company}}"
+            fields:
+              - {label: Quote, name: quote, widget: text, hint: "One to three sentences works best."}
+              - {label: Name, name: name, widget: string}
+              - {label: Title, name: title, widget: string, required: false, hint: "e.g. Project Superintendent"}
+              - {label: Company, name: company, widget: string, required: false}
+              - label: Show on
+                name: showOn
+                widget: select
+                multiple: true
+                required: false
+                default: [home, bidding]
+                options:
+                  - {label: Homepage, value: home}
+                  - {label: Bidding page, value: bidding}
 
   - name: projects
     label: Projects

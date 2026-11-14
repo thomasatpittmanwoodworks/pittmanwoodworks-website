@@ -6,7 +6,7 @@ import path from 'node:path';
 const ROOT = path.dirname(new URL(import.meta.url).pathname);
 const OUT = path.join(ROOT, 'dist');
 const SITE = 'https://www.pittmanwoodworks.com';
-const SKIP = new Set(['dist', 'content', 'node_modules', '.git', '.github', 'build.mjs', 'netlify.toml', 'README.md', 'package.json', 'package-lock.json']);
+const SKIP = new Set(['dist', 'content', 'node_modules', '.git', '.github', 'build.mjs', 'netlify.toml', 'README.md', 'package.json', 'package-lock.json', 'netlify']);
 
 /* ---------- copy the static site ---------- */
 fs.rmSync(OUT, { recursive: true, force: true });
@@ -82,14 +82,16 @@ function markdown(md) {
 
 /* ---------- load posts ---------- */
 const DIR = path.join(ROOT, 'content', 'blog');
-const posts = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json')).map((f) => {
+const allPosts = fs.existsSync(DIR) ? fs.readdirSync(DIR).filter((f) => f.endsWith('.json')).map((f) => {
   const p = JSON.parse(fs.readFileSync(path.join(DIR, f), 'utf8'));
   const slug = slugify(p.slug || f.replace(/\.json$/, ''));
   const date = new Date(p.date || Date.now());
   const words = String(p.body || '').split(/\s+/).filter(Boolean).length;
   return { ...p, slug, date, minutes: Math.max(1, Math.round(words / 225)) };
-}).filter((p) => p.title && !p.draft && p.date <= new Date())
-  .sort((a, b) => b.date - a.date) : [];
+}).filter((p) => p.title && !p.draft) : [];
+const NOW = new Date();
+const upcoming = [...new Set(allPosts.filter((p) => p.date > NOW).map((p) => p.date.toISOString().slice(0, 10)))].sort();
+const posts = allPosts.filter((p) => p.date <= NOW).sort((a, b) => b.date - a.date);
 
 /* ---------- shared page chrome (taken from the homepage so it always matches) ---------- */
 const home = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
@@ -252,6 +254,61 @@ if (fs.existsSync(seoPath)) {
     const f = path.join(OUT, 'blog', `${p.slug}.html`);
     fs.writeFileSync(f, apply(fs.readFileSync(f, 'utf8'), {}));
   }
+}
+
+/* ---------- scheduled posts: dates the daily publisher should watch for ---------- */
+fs.writeFileSync(path.join(OUT, 'blog', 'schedule.json'), JSON.stringify({ upcoming }));
+
+/* ---------- site-wide settings used at build time ---------- */
+const SITE_SET = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'site.json'), 'utf8')); } catch { return {}; } })();
+const builtPages = [];
+(function walk(d) { for (const n of fs.readdirSync(d)) { const f = path.join(d, n); if (fs.statSync(f).isDirectory()) { if (n !== 'admin') walk(f); } else if (n.endsWith('.html')) builtPages.push(f); } })(OUT);
+
+/* ---------- Google business data (structured data) on Home and Contact ---------- */
+{
+  const m = String(SITE_SET.address2 || '').match(/^(.*?),\s*([A-Z]{2})\s+(\d{5})/);
+  const sameAs = ['linkedin', 'facebook', 'instagram'].map((k) => SITE_SET[k]).filter(Boolean);
+  const biz = {
+    '@context': 'https://schema.org', '@type': 'GeneralContractor', '@id': `${SITE}/#business`,
+    name: 'Pittman Woodworks', url: `${SITE}/`,
+    description: 'Commercial casework and countertops: shop drawings, CNC fabrication and installation for general contractors, owners and architects.',
+    telephone: SITE_SET.phone || '(469) 375-0495', email: SITE_SET.email || 'office@pittmanwoodworks.com',
+    address: { '@type': 'PostalAddress', streetAddress: SITE_SET.address1 || '8212 Northeast Pkwy, Ste 100',
+      addressLocality: m ? m[1] : 'North Richland Hills', addressRegion: m ? m[2] : 'TX', postalCode: m ? m[3] : '76182', addressCountry: 'US' },
+    areaServed: [{ '@type': 'State', name: 'Texas' }, { '@type': 'Place', name: 'Dallas–Fort Worth' }],
+    knowsAbout: ['Commercial casework', 'Architectural millwork', 'Plastic laminate cabinets', 'Solid surface countertops', 'Quartz countertops'],
+    ...(SITE_SET.logo ? { logo: abs(SITE_SET.logo), image: abs(SITE_SET.logo) } : {}),
+    ...(sameAs.length ? { sameAs } : {}),
+  };
+  const tag = `<script type="application/ld+json">${JSON.stringify(biz)}</script>\n</head>`;
+  for (const f of ['index.html', 'contact.html']) {
+    const p = path.join(OUT, f);
+    if (fs.existsSync(p)) fs.writeFileSync(p, fs.readFileSync(p, 'utf8').replace('</head>', tag));
+  }
+}
+
+/* ---------- custom "page not found" ---------- */
+fs.writeFileSync(path.join(OUT, '404.html'), page({
+  title: 'Page not found · Pittman Woodworks', description: 'This page could not be found.', canonical: `${SITE}/404`,
+  main: `<section class="pg-hero nf"><div class="wrap">
+  <p class="tag">Error 404</p><h1>Measure twice. This page isn't here.</h1>
+  <p class="sub">The page you're looking for may have moved or no longer exists. Try one of these instead.</p>
+  <div class="ctas"><a class="btn" href="/">Go to the homepage</a><a class="btn ghost" href="/bidding#bid">Request a bid</a></div>
+</div></section>
+<section class="sheet"><div class="wrap"><div class="nf-links">
+  <a href="/industries/"><b>Industries</b><span>Casework for healthcare, education, restaurants and more</span></a>
+  <a href="/construction"><b>Construction</b><span>Materials, hardware and our quality standards</span></a>
+  <a href="/about"><b>About</b><span>Meet the team behind every cabinet</span></a>
+  <a href="/contact"><b>Contact</b><span>(469) 375-0495 · office@pittmanwoodworks.com</span></a>
+</div></div></section>`,
+}).replace('</head>', '<meta name="robots" content="noindex">\n</head>'));
+builtPages.push(path.join(OUT, '404.html'));
+
+/* ---------- visitor analytics (Cloudflare Web Analytics, no cookies) ---------- */
+const cfToken = String(SITE_SET.analyticsToken || '').trim();
+if (/^[a-f0-9]{20,64}$/i.test(cfToken)) {
+  const beacon = `<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "${cfToken}"}'></script>\n</body>`;
+  for (const f of builtPages) fs.writeFileSync(f, fs.readFileSync(f, 'utf8').replace('</body>', beacon));
 }
 
 /* ---------- RSS feed + sitemap ---------- */
