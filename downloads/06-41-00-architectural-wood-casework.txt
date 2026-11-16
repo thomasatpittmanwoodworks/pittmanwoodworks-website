@@ -1,0 +1,81 @@
+SECTION 06 41 00
+ARCHITECTURAL WOOD CASEWORK
+
+[Specifier note: This guide specification is provided by Pittman Woodworks LLC for editing by the design professional. Text in [brackets] is an option or a value to confirm; delete what does not apply. Coordinate with the project's Division 01 requirements and with Section 12 36 00 for solid surface and quartz countertops.]
+
+PART 1 – GENERAL
+
+1.1 SUMMARY
+  A. Section includes: Plastic laminate faced architectural wood casework, cabinet hardware, and [plastic laminate countertops].
+  B. Related requirements: Section 06 10 00 Rough Carpentry for in-wall blocking; Section 12 36 00 Countertops for [solid surface] [quartz] countertops; Division 22 for sinks and faucets.
+
+1.2 REFERENCES
+  A. Architectural Woodwork Standards (AWS), current edition, published by AWI, AWMAC and WI.
+  B. ANSI A208.1 Particleboard; ANSI A208.2 Medium Density Fiberboard (MDF).
+  C. NEMA LD 3 High-Pressure Decorative Laminates.
+  D. ANSI/BHMA A156.9 Cabinet Hardware.
+  E. 2010 ADA Standards for Accessible Design and the Texas Accessibility Standards (TAS).
+
+1.3 SUBMITTALS
+  A. Shop drawings: Plans, elevations and sections for each casework run, showing dimensions, materials, hardware locations, blocking requirements and connections to adjacent work.
+  B. Samples: Plastic laminate, edgebanding and countertop samples for color selection and approval.
+  C. Product data: Manufacturer data for core materials, laminates, hardware and countertop materials.
+
+1.4 QUALITY ASSURANCE
+  A. Fabricator qualifications: A firm that produces and installs commercial casework of the type specified, with in-house shop drawings, CNC fabrication and installation by its own crews.
+  B. Quality standard: Comply with AWS for the grade specified. Where no grade is indicated, provide [Custom] grade.
+
+1.5 DELIVERY, STORAGE AND HANDLING
+  A. Do not deliver casework until the building is enclosed, wet work is complete and HVAC is operating to maintain conditions within AWS recommendations.
+  B. Protect finished surfaces from damage until Substantial Completion.
+
+1.6 FIELD CONDITIONS
+  A. Field measurements: Verify dimensions by field measurement before fabrication and indicate them on shop drawings.
+
+PART 2 – PRODUCTS
+
+2.1 FABRICATORS
+  A. Basis of design: Pittman Woodworks LLC, 8212 Northeast Pkwy, Ste 100, North Richland Hills, TX 76182. (469) 375-0495. www.pittmanwoodworks.com.
+  B. Substitutions: [Not permitted] [Comparable fabricators meeting the requirements of this Section, subject to approval].
+
+2.2 CASEWORK CONSTRUCTION
+  A. AWS grade: [Custom] [Premium] [Economy].
+  B. Construction style: [Frameless, 32 mm system, full overlay] [Face frame, overlay].
+  C. Door and drawer front interface: [Full overlay].
+
+2.3 MATERIALS
+  A. Core for cabinet components: Industrial particleboard complying with ANSI A208.1 [Grade M-2]. Use moisture-resistant core at sink cabinets and other wet locations.
+  B. Exposed exterior surfaces, doors and drawer fronts: High-pressure decorative laminate complying with NEMA LD 3, [Grade VGS] for vertical surfaces. Colors and patterns as selected by the Architect.
+  C. Semi-exposed and interior surfaces: Thermally fused melamine, [white] [color as selected].
+  D. Edgebanding: PVC, [3 mm] on doors and drawer fronts and [1 mm] on cabinet box edges and shelves, [matching laminate] [contrasting as selected].
+  E. Shelves: 3/4 inch thick, adjustable. Provide 1 inch thick shelves for spans over 36 inches or for heavy loads.
+
+2.4 CABINET HARDWARE
+  A. Hinges: Concealed, self-closing, 110 to 170 degree opening, complying with ANSI/BHMA A156.9. [Soft-close.] [Institutional 5-knuckle hinges where indicated.]
+  B. Drawer slides: Full-extension, ball-bearing, 100 lb rated. 150 lb rated for file drawers. [Soft-close.]
+  C. Pulls: [Wire pulls, 4 inch centers] [Bar pulls] [Edge pulls]. Provide ADA-compliant pulls at accessible locations.
+  D. Locks: Cam locks where indicated, [keyed alike] [keyed different] [master keyed].
+  E. Shelf supports: 5 mm metal pins in 32 mm line-bored holes.
+  F. Accessories: Wire grommets at work surfaces where indicated; [keyboard trays] [CPU holders] [file rails] as indicated.
+
+2.5 COUNTERTOPS
+  A. Plastic laminate countertops: High-pressure laminate, [Grade HGS], on [moisture-resistant] core, with [square] [post-formed] edge and backsplash as indicated.
+  B. [Solid surface] [Quartz] countertops: As specified in Section 12 36 00.
+
+2.6 FABRICATION
+  A. Fabricate casework to dimensions, profiles and details indicated on the approved shop drawings, using CNC machining for parts, line boring and hardware locations.
+  B. Accessible casework: Provide counter heights, knee clearances and reach ranges complying with the 2010 ADA Standards and TAS where indicated.
+
+PART 3 – EXECUTION
+
+3.1 EXAMINATION
+  A. Examine walls, floors and in-wall blocking for conditions affecting installation. Proceed only after unsatisfactory conditions have been corrected.
+
+3.2 INSTALLATION
+  A. Install casework level, plumb and true, shimmed as required, and scribed to adjacent surfaces.
+  B. Fasten cabinets to in-wall blocking and to adjacent units. Install countertops with concealed fasteners.
+  C. Adjust doors, drawers and hardware to operate smoothly.
+
+3.3 CLEANING AND PROTECTION
+  A. Clean casework, countertops and hardware. Protect installed work until Substantial Completion, and complete punch list items before turnover.
+END OF SECTION 06 41 00

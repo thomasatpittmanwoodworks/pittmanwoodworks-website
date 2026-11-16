@@ -1,0 +1,37 @@
+{
+  "published": false,
+  "title": "Safety on every jobsite and in the shop",
+  "intro": "Our crews work on occupied schools, hospitals and businesses. Safe work protects our people, your site and your schedule.",
+  "stats": [],
+  "practices": [
+    {
+      "title": "Jobsite orientation",
+      "text": "Crews complete the general contractor's site orientation and follow site-specific safety rules before work begins."
+    },
+    {
+      "title": "Personal protective equipment",
+      "text": "Safety glasses, hearing protection, gloves and proper footwear in the shop and on site, with additional PPE as the site requires."
+    },
+    {
+      "title": "Machine safety in the shop",
+      "text": "Guarded equipment, trained operators and lockout/tagout before machine maintenance."
+    },
+    {
+      "title": "Toolbox talks",
+      "text": "Regular safety talks with shop and field crews on the hazards of the work ahead."
+    },
+    {
+      "title": "Clean, protected work areas",
+      "text": "Debris is removed as we work, and finished surfaces are protected until turnover."
+    },
+    {
+      "title": "Occupied-space awareness",
+      "text": "Work areas are kept clear and secured in schools, clinics and other occupied buildings."
+    }
+  ],
+  "insurance": "Certificates of insurance naming the general contractor and owner as additional insured are available on request.",
+  "documents": [
+    "Safety program",
+    "Certificate of insurance"
+  ]
+}

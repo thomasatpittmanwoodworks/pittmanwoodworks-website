@@ -33,6 +33,11 @@ collections:
           - {label: Business hours, name: hours, widget: string, required: false, hint: "e.g. Mon–Fri 7:00 am – 4:30 pm"}
           - {label: Credentials (footer), name: credentials, widget: list, field: {label: Line, name: line, widget: string}}
           - {label: Notice bar, name: notice, widget: string, required: false, hint: "Optional line shown under the menu on every page, e.g. Now scheduling installs for March 2027. Leave blank to hide."}
+          - {label: Current shop lead time, name: leadTime, widget: string, required: false, hint: "Shown on the homepage and Bidding page, e.g. 8–10 weeks from approved shop drawings. Leave blank to hide."}
+          - {label: Google rating, name: googleRating, widget: string, required: false, hint: "Your star rating from Google, e.g. 4.9. Shown in the footer with the review count. Leave blank to hide."}
+          - {label: Google review count, name: googleReviewCount, widget: string, required: false, hint: "e.g. 23"}
+          - {label: Google Business Profile link, name: googleProfileUrl, widget: string, required: false, hint: "Link to your listing on Google Maps. The footer rating links here."}
+          - {label: Google 'leave a review' link, name: googleReviewUrl, widget: string, required: false, hint: "From Google Business Profile → Ask for reviews. Adds a review button on the Contact page."}
           - {label: Visitor analytics token (Cloudflare), name: analyticsToken, widget: string, required: false, hint: "From Cloudflare Web Analytics (free, no cookies). Paste only the token. Leave blank to turn analytics off."}
           - {label: LinkedIn URL, name: linkedin, widget: string, required: false}
           - {label: Facebook URL, name: facebook, widget: string, required: false}
@@ -158,6 +163,21 @@ collections:
           - {label: Open roles heading, name: openingsTitle, widget: string}
           - {label: Open roles intro, name: openingsIntro, widget: text}
 
+      - name: careers_es
+        label: Careers page (Spanish)
+        file: data/careers_es.json
+        fields:
+          - {label: Titular, name: title, widget: string}
+          - {label: Introducción, name: intro, widget: text}
+          - {label: Título de razones, name: whyTitle, widget: string}
+          - label: Razones para trabajar aquí
+            name: why
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Título, name: title, widget: string}, {label: Texto, name: text, widget: text}]
+          - {label: Título de puestos, name: openingsTitle, widget: string}
+          - {label: Introducción de puestos, name: openingsIntro, widget: text}
+
   - name: industries
     label: Industries
     description: The six industry pages and the industry cards on the homepage.
@@ -212,6 +232,153 @@ collections:
                 options:
                   - {label: Homepage, value: home}
                   - {label: Bidding page, value: bidding}
+
+  - name: service-area
+    label: Service area map
+    description: The Texas map on the Contact page.
+    files:
+      - name: service-area
+        label: Service area
+        file: data/service-area.json
+        fields:
+          - {label: Heading, name: title, widget: string}
+          - {label: Intro, name: intro, widget: text}
+          - label: Cities on the map
+            name: cities
+            widget: select
+            multiple: true
+            hint: "Cities where you've installed. Need a city that isn't listed? Ask Claude to add it."
+            options:
+                  - "Abilene"
+                  - "Allen"
+                  - "Alpine"
+                  - "Amarillo"
+                  - "Andrews"
+                  - "Arlington"
+                  - "Athens"
+                  - "Austin"
+                  - "Azle"
+                  - "Beaumont"
+                  - "Big Spring"
+                  - "Bowie"
+                  - "Breckenridge"
+                  - "Brownsville"
+                  - "Brownwood"
+                  - "Bryan–College Station"
+                  - "Burleson"
+                  - "Carrollton"
+                  - "Childress"
+                  - "Cleburne"
+                  - "Comanche"
+                  - "Conroe"
+                  - "Corpus Christi"
+                  - "Corsicana"
+                  - "Dallas"
+                  - "Decatur"
+                  - "Del Rio"
+                  - "Denton"
+                  - "Eagle Pass"
+                  - "Eastland"
+                  - "El Paso"
+                  - "Ennis"
+                  - "Fort Stockton"
+                  - "Fort Worth"
+                  - "Frisco"
+                  - "Gainesville"
+                  - "Galveston"
+                  - "Garland"
+                  - "Georgetown"
+                  - "Glen Rose"
+                  - "Graham"
+                  - "Granbury"
+                  - "Grapevine"
+                  - "Greenville"
+                  - "Hamilton"
+                  - "Hillsboro"
+                  - "Houston"
+                  - "Huntsville"
+                  - "Irving"
+                  - "Jacksboro"
+                  - "Katy"
+                  - "Keller"
+                  - "Kerrville"
+                  - "Killeen"
+                  - "Lamesa"
+                  - "Lampasas"
+                  - "Laredo"
+                  - "Levelland"
+                  - "Longview"
+                  - "Lubbock"
+                  - "Lufkin"
+                  - "Mansfield"
+                  - "Marshall"
+                  - "McAllen"
+                  - "McKinney"
+                  - "Midland"
+                  - "Millsap"
+                  - "Mineral Wells"
+                  - "Mount Pleasant"
+                  - "Nacogdoches"
+                  - "New Braunfels"
+                  - "North Richland Hills"
+                  - "Odessa"
+                  - "Palestine"
+                  - "Pampa"
+                  - "Paris"
+                  - "Pecos"
+                  - "Plainview"
+                  - "Plano"
+                  - "Prosper"
+                  - "Rockwall"
+                  - "Round Rock"
+                  - "San Angelo"
+                  - "San Antonio"
+                  - "San Marcos"
+                  - "Seminole"
+                  - "Sherman"
+                  - "Snyder"
+                  - "Southlake"
+                  - "Stephenville"
+                  - "Sugar Land"
+                  - "Sulphur Springs"
+                  - "Sweetwater"
+                  - "Temple"
+                  - "Texarkana"
+                  - "The Woodlands"
+                  - "Tyler"
+                  - "Vernon"
+                  - "Victoria"
+                  - "Waco"
+                  - "Waxahachie"
+                  - "Weatherford"
+                  - "Wichita Falls"
+
+  - name: safety
+    label: Safety page
+    description: The Safety page at /safety. Stays hidden from the site until you turn on Publish.
+    files:
+      - name: safety
+        label: Safety
+        file: data/safety.json
+        fields:
+          - {label: Publish the Safety page, name: published, widget: boolean, default: false, hint: "Turn on once the details below are accurate. Adds Safety to the footer and Bidding page, and lets Google find it."}
+          - {label: Headline, name: title, widget: string}
+          - {label: Intro, name: intro, widget: text}
+          - label: Safety record
+            name: stats
+            label_singular: Figure
+            widget: list
+            required: false
+            summary: "{{fields.label}}: {{fields.value}}"
+            hint: "e.g. Experience modification rate (EMR): 0.82 · Lost-time incidents in 2026: 0 · OSHA 10/30 trained: 100% of field crews"
+            fields: [{label: Label, name: label, widget: string}, {label: Value, name: value, widget: string}]
+          - label: Safety practices
+            name: practices
+            label_singular: Practice
+            widget: list
+            summary: "{{fields.title}}"
+            fields: [{label: Title, name: title, widget: string}, {label: Text, name: text, widget: text}]
+          - {label: Insurance note, name: insurance, widget: text, required: false}
 
   - name: projects
     label: Projects
@@ -318,6 +485,11 @@ collections:
               - {label: Summary, name: summary, widget: text}
               - {label: What you'll do, name: duties, widget: list, field: {label: Duty, name: duty, widget: string}}
               - {label: What you bring, name: requirements, widget: list, field: {label: Requirement, name: requirement, widget: string}}
+              - {label: "Spanish: job title", name: titleEs, widget: string, required: false, hint: "For the Spanish careers page. Leave blank to show the English text."}
+              - {label: "Spanish: pay", name: payEs, widget: string, required: false}
+              - {label: "Spanish: summary", name: summaryEs, widget: text, required: false}
+              - {label: "Spanish: what you'll do", name: dutiesEs, widget: list, required: false, field: {label: Tarea, name: duty, widget: string}}
+              - {label: "Spanish: what you bring", name: requirementsEs, widget: list, required: false, field: {label: Requisito, name: requirement, widget: string}}
 
   - name: clients
     label: Trusted by

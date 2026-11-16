@@ -18,7 +18,21 @@
       "location": "Texas",
       "title": "Commercial Cabinet Installer",
       "type": "Full-time",
-      "team": "Field"
+      "team": "Field",
+      "titleEs": "Instalador de gabinetes comerciales",
+      "summaryEs": "Instala gabinetes y cubiertas comerciales en proyectos de escuelas, hospitales, restaurantes y oficinas en todo el estado de Texas.",
+      "payEs": "Desde $25 por hora",
+      "requirementsEs": [
+        "Experiencia instalando gabinetes o carpintería de acabados",
+        "Licencia de conducir vigente",
+        "Capacidad para leer planos de taller y levantar 75 lb"
+      ],
+      "dutiesEs": [
+        "Colocar, nivelar, ajustar y fijar gabinetes según los planos de taller",
+        "Instalar cubiertas, herrajes y molduras",
+        "Completar listas de pendientes y revisar el trabajo terminado con el contratista general",
+        "Mantener las obras limpias, seguras y a tiempo"
+      ]
     },
     {
       "summary": "Build commercial cabinet boxes, drawers and doors from CNC-cut parts in our North Richland Hills shop.",
@@ -39,7 +53,22 @@
       "location": "North Richland Hills, TX",
       "title": "Cabinet Assembler",
       "type": "Full-time",
-      "team": "Shop"
+      "team": "Shop",
+      "titleEs": "Ensamblador de gabinetes",
+      "summaryEs": "Arma cajas, cajones y puertas de gabinetes comerciales con piezas cortadas en CNC en nuestro taller de North Richland Hills.",
+      "payEs": "Desde $21 por hora",
+      "requirementsEs": [
+        "Experiencia en taller de gabinetes o carpintería (requerida)",
+        "Manejo de herramientas neumáticas y eléctricas",
+        "Atención al detalle y medidas precisas",
+        "Capacidad para estar de pie y levantar peso durante todo el turno"
+      ],
+      "dutiesEs": [
+        "Ensamblar gabinetes según los planos de taller y las listas de corte",
+        "Instalar bisagras, correderas y herrajes",
+        "Escanear piezas y registrar el avance en tu estación",
+        "Revisar escuadra, ajuste y acabado"
+      ]
     },
     {
       "summary": "Entry-level role supporting every station in the shop. No experience required, and a clear path into assembly, machining or installation.",
@@ -61,7 +90,23 @@
       "location": "North Richland Hill, TX",
       "title": "Shop Apprentice",
       "type": "Full-time",
-      "team": "Shop"
+      "team": "Shop",
+      "titleEs": "Aprendiz de taller",
+      "summaryEs": "Puesto de nivel inicial que apoya todas las estaciones del taller. No se requiere experiencia, y hay un camino claro hacia ensamble, maquinado o instalación.",
+      "payEs": "Desde $15 por hora",
+      "requirementsEs": [
+        "Responsable, puntual y con ganas de aprender",
+        "Capacidad para levantar 50 lb y estar de pie todo el turno",
+        "Saber usar una cinta métrica",
+        "Interés en aprender un oficio",
+        "Licencia de conducir vigente"
+      ],
+      "dutiesEs": [
+        "Preparar materiales y mover piezas entre estaciones",
+        "Ayudar con ensamble, enchapado de cantos y empaque",
+        "Cargar camiones para entregas",
+        "Mantener el taller limpio y organizado"
+      ]
     }
   ]
 }

@@ -119,6 +119,34 @@
       "title": "Accessibility | Pittman Woodworks",
       "description": "Our commitment to a website everyone can use, and how to get help if you have trouble with any part of it.",
       "image": ""
+    },
+    {
+      "path": "/capabilities",
+      "page": "Capability statement",
+      "title": "Capability Statement | Pittman Woodworks Commercial Casework",
+      "description": "Pittman Woodworks capability statement: commercial casework and countertops, construction standards, markets served, credentials and key contacts.",
+      "image": ""
+    },
+    {
+      "path": "/specs",
+      "page": "Guide specifications",
+      "title": "Casework Guide Specifications (06 41 00) | Pittman Woodworks",
+      "description": "Editable guide specification for architectural wood casework, Section 06 41 00, written for architects specifying commercial plastic laminate casework.",
+      "image": ""
+    },
+    {
+      "path": "/safety",
+      "page": "Safety",
+      "title": "Safety Program | Pittman Woodworks",
+      "description": "How Pittman Woodworks keeps shop and field crews safe on commercial jobsites across Texas, with our safety record and insurance information.",
+      "image": ""
+    },
+    {
+      "path": "/es/empleos",
+      "page": "Careers (Spanish)",
+      "title": "Empleos en gabinetes comerciales | Pittman Woodworks",
+      "description": "Trabaja en Pittman Woodworks: puestos de instalador, ensamblador y aprendiz de taller en North Richland Hills, Texas. Aplica en dos minutos.",
+      "image": ""
     }
   ]
 }

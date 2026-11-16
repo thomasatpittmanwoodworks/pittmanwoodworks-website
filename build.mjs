@@ -304,6 +304,16 @@ fs.writeFileSync(path.join(OUT, '404.html'), page({
 }).replace('</head>', '<meta name="robots" content="noindex">\n</head>'));
 builtPages.push(path.join(OUT, '404.html'));
 
+/* ---------- Safety page: hidden until published in Admin → Safety page ---------- */
+const SAFETY = (() => { try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'safety.json'), 'utf8')); } catch { return {}; } })();
+if (SAFETY.published) {
+  for (const f of builtPages) {
+    const h = fs.readFileSync(f, 'utf8');
+    const n = h.replaceAll(' data-safety-link hidden', ' data-safety-link').replace('<meta name="robots" content="noindex" data-unpublished>\n', '');
+    if (n !== h) fs.writeFileSync(f, n);
+  }
+}
+
 /* ---------- always light: stop browsers from auto-darkening the site ---------- */
 for (const f of builtPages) {
   const h = fs.readFileSync(f, 'utf8');
@@ -326,7 +336,7 @@ ${posts.slice(0, 30).map((p) => `<item><title>${esc(p.title)}</title><link>${SIT
 `);
 const smPath = path.join(OUT, 'sitemap.xml');
 let sm = fs.readFileSync(smPath, 'utf8');
-const blogUrls = [`${SITE}/blog/`, ...posts.map((p) => `${SITE}/blog/${p.slug}`)];
+const blogUrls = [...(SAFETY.published ? [`${SITE}/safety`] : []), `${SITE}/blog/`, ...posts.map((p) => `${SITE}/blog/${p.slug}`)];
 sm = sm.replace('</urlset>', blogUrls.map((u) => `  <url><loc>${u}</loc></url>\n`).join('') + '</urlset>');
 fs.writeFileSync(smPath, sm);
 

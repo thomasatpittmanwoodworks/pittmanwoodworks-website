@@ -51,6 +51,11 @@
     if(soc.length)document.querySelectorAll('[data-site-social]').forEach(function(el){el.innerHTML=soc.map(function(x){return '<a href="'+esc(S[x[0]])+'" target="_blank" rel="noopener">'+x[1]+'</a>'}).join('')});
     if(S.logo)document.querySelectorAll('[data-site-logo]').forEach(function(a){a.classList.add('has-logo');a.innerHTML='<img src="'+esc(img(S.logo,240))+'" alt="" onerror="this.onerror=null;this.src=\''+esc(S.logo)+'\'"><span>Pittman<br>Woodworks</span>'});
     if(S.favicon){var l=document.querySelector('link[rel=icon]')||document.createElement('link');l.rel='icon';l.href=S.favicon;document.head.appendChild(l)}
+    if(S.leadTime)document.querySelectorAll('[data-site-lead]').forEach(function(el){el.innerHTML='<i aria-hidden="true"></i>Current shop lead time: <b>'+esc(S.leadTime)+'</b>';el.hidden=false});
+    var gr=parseFloat(S.googleRating);
+    if(gr&&S.googleProfileUrl)document.querySelectorAll('[data-site-social]').forEach(function(el){var a=document.createElement('a');a.className='g-rev';a.href=S.googleProfileUrl;a.target='_blank';a.rel='noopener';
+      a.innerHTML='<span class="stars" style="--r:'+Math.min(5,gr)+'" aria-hidden="true">★★★★★</span> '+esc(gr.toFixed(1))+(S.googleReviewCount?' · '+esc(S.googleReviewCount)+' Google reviews':' on Google');a.setAttribute('aria-label','Rated '+gr.toFixed(1)+' out of 5 on Google');el.parentNode.insertBefore(a,el)});
+    if(S.googleReviewUrl)document.querySelectorAll('[data-site-review]').forEach(function(el){var b=el.querySelector('a');if(b)b.href=S.googleReviewUrl;el.hidden=false});
     if(S.notice){var hd=document.querySelector('header.top');if(hd){var n=document.createElement('div');n.className='notice';n.innerHTML='<div class="wrap">'+esc(S.notice)+'</div>';hd.appendChild(n)}}
   }).catch(function(){});
 

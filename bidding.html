@@ -22,7 +22,7 @@
 </header>
 
 <main>
-<section class="pg-hero"><div class="wrap"><p class="tag">For general contractors</p><h1>Bidding &amp; prequalification</h1><p class="sub">Send plans and specifications for pricing, or request our prequalification documents. We respond within one business day.</p><div class="ctas"><a class="btn" href="#bid">Submit plans</a><a class="btn ghost" href="/contact?r=prequal">Request prequal documents</a></div></div></section>
+<section class="pg-hero"><div class="wrap"><p class="tag">For general contractors</p><h1>Bidding &amp; prequalification</h1><p class="sub">Send plans and specifications for pricing, or request our prequalification documents. We respond within one business day.</p><div class="ctas"><a class="btn" href="#bid">Submit plans</a><a class="btn ghost" href="#prequal">Request prequal documents</a></div><p class="lead-time" data-site-lead hidden></p></div></section>
 <section class="sheet" id="contractors">
   <div class="wrap split">
     <div class="box inv">
@@ -88,18 +88,35 @@
         <p class="note" id="bidNote" hidden></p>
         <p class="fine">Plans you send are kept confidential. See our <a href="/privacy">privacy policy</a> and <a href="/terms">terms</a>.</p>
       </form>
-      <div class="box">
+      <div class="box" id="prequal">
         <span class="tag">Prequalification</span>
-        <h3>Prequalification documents</h3>
-        <ul class="pq">
-          <li>Certificate of insurance<span>On request</span></li>
-          <li>W-9<span>On request</span></li>
-          <li>Capability statement<span>On request</span></li>
-          <li>Project references<span>On request</span></li>
-          <li>Safety program<span>On request</span></li>
-          <li>Bonding letter<span>On request</span></li>
-        </ul>
-        <button class="btn ghost" id="pqReq" type="button" style="justify-self:start">Request documents</button>
+        <h3>Request prequalification documents</h3>
+        <p style="color:var(--ink-2);font-size:15px">Check what you need and we'll email it, usually within one business day.</p>
+        <form class="pqf" id="pqForm" name="documents" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="documents">
+          <input type="hidden" name="subject" data-remove-prefix value="New prequal document request from pittmanwoodworks.com">
+          <input type="hidden" name="requested" id="pqRequested">
+          <p hidden><label>Leave this empty<input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+          <ul class="pq-pick">
+            <li><label><input type="checkbox" value="Certificate of insurance" checked><span>Certificate of insurance</span></label></li>
+            <li><label><input type="checkbox" value="W-9" checked><span>W-9</span></label></li>
+            <li><label><input type="checkbox" value="Bonding letter"><span>Bonding letter</span></label></li>
+            <li><label><input type="checkbox" value="Safety program"><span>Safety program</span><a href="/safety" data-safety-link hidden>View</a></label></li>
+            <li><label><input type="checkbox" value="Project references"><span>Project references</span></label></li>
+            <li><label><input type="checkbox" value="Capability statement"><span>Capability statement</span><a href="/capabilities">View now</a></label></li>
+          </ul>
+          <div class="row2">
+            <label class="f" for="pqCo">Company<input id="pqCo" name="company" autocomplete="organization" required></label>
+            <label class="f" for="pqName">Your name<input id="pqName" name="name" autocomplete="name" required></label>
+          </div>
+          <div class="row2">
+            <label class="f" for="pqEmail">Email<input id="pqEmail" name="email" type="email" autocomplete="email" required></label>
+            <label class="f" for="pqProj">Project (optional)<input id="pqProj" name="project" placeholder="For COI holder or project name"></label>
+          </div>
+          <label class="f" for="pqNote">Notes (optional)<textarea id="pqNote" name="message" rows="3" placeholder="Certificate holder details, additional insured wording, vendor portal link"></textarea></label>
+          <div><button class="btn" type="submit">Request documents</button></div>
+          <div class="sent" id="pqSent" hidden></div>
+        </form>
       </div>
     </div>
   </div>
@@ -125,7 +142,7 @@
   <div class="wrap">
     <div class="tblock">
       <div><small>Pittman Woodworks LLC</small>Commercial casework &amp; countertops<br><span data-site="address1">8212 Northeast Pkwy, Ste 100</span><br><span data-site="address2">North Richland Hills, TX 76182</span><span class="f-hours" data-site-hours hidden></span></div>
-      <div><small>Company</small><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/blog">Blog</a></div>
+      <div><small>Company</small><a href="/industries/">Industries</a><a href="/construction">Construction</a><a href="/bidding">Bidding</a><a href="/about">About</a><a href="/careers">Careers</a><a href="/blog">Blog</a><a href="/capabilities">Capability statement</a><a href="/specs">Guide specs</a><a href="/safety" data-safety-link hidden>Safety</a></div>
       <div><small>Credentials</small><span data-site-list="credentials">Licensed, bonded &amp; insured<br>Family owned<br>Serving DFW &amp; North Texas</span></div>
       <div><small>Contact</small><a href="tel:+14693750495" data-site-tel>(469) 375-0495</a><a href="mailto:office@pittmanwoodworks.com" data-site-mail>office@pittmanwoodworks.com</a><a href="/contact">Contact form</a><span class="social" data-site-social></span></div>
     </div>
@@ -166,7 +183,18 @@
     btn.disabled=true;if(window.PW)PW.busy(btn,true);btn.textContent='Sending…';
     sendForm(bidForm,true).then(function(){bidForm.reset();fl.innerHTML='';show(note,true,'Thanks. Your bid request was sent to our estimating team, and we\'ll confirm receipt within one business day.')})
       .catch(function(){show(note,false,FAIL)}).then(function(){btn.disabled=false;if(window.PW)PW.busy(btn,false);btn.textContent='Submit for bid'})});
-  document.getElementById('pqReq').addEventListener('click',function(){location.href='/contact?r=prequal'});
+  var pq=document.getElementById('pqForm');
+  pq.querySelectorAll('.pq-pick a').forEach(function(a){a.addEventListener('click',function(e){e.stopPropagation()})});
+  pq.addEventListener('submit',function(e){e.preventDefault();
+    var out=document.getElementById('pqSent'),btn=pq.querySelector('button[type=submit]');
+    var docs=[].map.call(pq.querySelectorAll('.pq-pick input:checked'),function(i){return i.value});
+    if(!docs.length){show(out,false,'Check at least one document.');return}
+    if(!val('pqCo')||!val('pqName')||!/\S+@\S+\.\S+/.test(val('pqEmail'))){show(out,false,'Add your company, name and a valid email so we know where to send them.');return}
+    document.getElementById('pqRequested').value=docs.join(', ');
+    setSubject(pq,'Prequal request: '+docs.join(', ')+' · '+val('pqCo'));
+    btn.disabled=true;if(window.PW)PW.busy(btn,true);btn.textContent='Sending…';
+    sendForm(pq,false).then(function(){pq.reset();show(out,true,'Thanks. We\'ll email your documents to the address you gave, usually within one business day.')})
+      .catch(function(){show(out,false,FAIL)}).then(function(){btn.disabled=false;if(window.PW)PW.busy(btn,false);btn.textContent='Request documents'})});
 
 })();
 </script>
