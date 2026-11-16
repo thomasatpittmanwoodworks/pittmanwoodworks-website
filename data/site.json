@@ -1,10 +1,12 @@
 {
   "facebook": "https://www.facebook.com/pittmanwoodworks/",
+  "leadTime": "10-12 weeks ",
   "logo": "/images/uploads/pw-final_pw-icon-variation2-navy.png",
   "phone": "(469) 375-0495",
   "hours": "",
   "instagram": "https://www.instagram.com/pittmanwoodworks/",
   "favicon": "/images/uploads/pw-final_pw-icon-variation2-navy.png",
+  "googleRating": "4.9 ",
   "notice": "Now scheduling installs for Summer 2027",
   "credentials": [
     "Licensed, bonded & insured",
@@ -13,11 +15,9 @@
   ],
   "email": "office@pittmanwoodworks.com",
   "address1": "8212 Northeast Pkwy, Ste 100",
+  "googleReviewCount": "",
+  "googleReviewUrl": "",
   "linkedin": "https://www.linkedin.com/company/pittman-woodworks/",
   "address2": "North Richland Hills, TX 76182",
-  "leadTime": "",
-  "googleRating": "",
-  "googleReviewCount": "",
-  "googleProfileUrl": "",
-  "googleReviewUrl": ""
+  "googleProfileUrl": ""
 }
