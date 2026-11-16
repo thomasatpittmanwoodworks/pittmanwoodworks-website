@@ -304,6 +304,12 @@ fs.writeFileSync(path.join(OUT, '404.html'), page({
 }).replace('</head>', '<meta name="robots" content="noindex">\n</head>'));
 builtPages.push(path.join(OUT, '404.html'));
 
+/* ---------- always light: stop browsers from auto-darkening the site ---------- */
+for (const f of builtPages) {
+  const h = fs.readFileSync(f, 'utf8');
+  if (!h.includes('name="color-scheme"')) fs.writeFileSync(f, h.replace('</head>', '<meta name="color-scheme" content="only light">\n</head>'));
+}
+
 /* ---------- visitor analytics (Cloudflare Web Analytics, no cookies) ---------- */
 const cfToken = String(SITE_SET.analyticsToken || '').trim();
 if (/^[a-f0-9]{20,64}$/i.test(cfToken)) {
