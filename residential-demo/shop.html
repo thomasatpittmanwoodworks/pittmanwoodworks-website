@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shop All Cabinets · The Home Collection (Demo)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<link rel="icon" href="/images/uploads/pw-final_pw-icon-variation2-navy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/residential-demo/store.css">
+<style>
+.plp-h{padding:18px 0 26px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.plp-h h1{font-size:clamp(44px,6vw,80px)}
+.plp-h p{margin:10px 0 0;color:var(--ink-2);max-width:34em}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none;margin-bottom:26px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;border:1px solid var(--rule-2);background:var(--paper);border-radius:999px;padding:9px 16px;font-size:14px;white-space:nowrap}
+.tabs button:hover{border-color:var(--ink)}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tabs button span{color:var(--ink-3);margin-left:6px;font-size:12.5px}
+.tabs button[aria-pressed="true"] span{color:#bdbdb6}
+.plp{display:grid;grid-template-columns:260px 1fr;gap:clamp(24px,3.5vw,48px);align-items:start;padding-bottom:clamp(64px,8vw,104px)}
+@media (max-width:960px){.plp{grid-template-columns:1fr}}
+/* filters */
+.filters{position:sticky;top:96px;display:grid;gap:0;max-height:calc(100vh - 110px);overflow-y:auto;padding-right:6px}
+.fg{border-top:1px solid var(--rule);padding:18px 0;display:grid;gap:12px}
+.fg:first-child{border-top:0;padding-top:0}
+.fg h4{margin:0;font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
+.ck{display:flex;align-items:center;gap:10px;font-size:14.5px;cursor:pointer}
+.ck input{width:17px;height:17px;margin:0;accent-color:var(--ink)}
+.ck span{color:var(--ink-3);margin-left:auto;font-size:12.5px}
+.fchips{display:flex;flex-wrap:wrap;gap:6px}
+.fchips button{border:1px solid var(--rule-2);background:var(--paper);border-radius:var(--r);padding:7px 10px;font-size:13px}
+.fchips button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fhead{display:none}
+@media (max-width:960px){
+  .filters{position:fixed;z-index:70;top:0;bottom:0;left:0;width:min(380px,100%);max-height:none;background:var(--paper);padding:0 22px 110px;transform:translateX(-105%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+  .filters.on{transform:none}
+  .fhead{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:var(--paper);padding:18px 0;border-bottom:1px solid var(--rule);z-index:1;margin-bottom:12px}
+  .fhead h3{font-size:24px}
+  .fapply{position:fixed;left:0;bottom:0;width:min(380px,100%);padding:14px 22px calc(14px + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--rule)}
+}
+@media (min-width:961px){.fapply,.fbtn{display:none!important}}
+/* toolbar */
+.bar2{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.bar2 .count{font-size:14.5px;color:var(--ink-2)}
+.bar2 .count b{color:var(--ink)}
+.bar2 .r{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.sel{position:relative}
+.sel select{appearance:none;-webkit-appearance:none;font:inherit;font-size:14px;border:1px solid var(--rule-2);background:var(--paper);border-radius:var(--r);padding:9px 34px 9px 12px;color:var(--ink)}
+.sel::after{content:"";position:absolute;right:13px;top:50%;width:7px;height:7px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.fbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--paper);border-radius:var(--r);padding:9px 14px;font-size:14px}
+.fbtn i{font-style:normal;background:var(--ink);color:#fff;border-radius:9px;font-size:11px;min-width:18px;height:18px;display:inline-grid;place-items:center;padding:0 5px}
+.active{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;min-height:0}
+.active button{border:0;background:var(--stone);border-radius:999px;padding:6px 12px;font-size:13px;display:inline-flex;gap:8px;align-items:center}
+.active button::after{content:"×";font-size:15px;line-height:1}
+.active .clear{background:none;text-decoration:underline;padding:6px 4px}
+.active .clear::after{content:none}
+.preview{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);padding:10px 12px;margin-bottom:22px}
+.preview .lab{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-right:auto}
+.none{padding:60px 20px;text-align:center;background:var(--paper);border:1px dashed var(--rule-2);border-radius:var(--r);display:grid;gap:12px;justify-items:center}
+.help{margin-top:clamp(40px,5vw,64px);background:var(--forest);color:#E2E9E3;border-radius:10px;padding:clamp(24px,3.5vw,40px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.help h3{font-size:clamp(26px,2.6vw,34px);color:#fff}
+.help p{margin:6px 0 0;color:#B5C3B8}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/residential-demo/">Home</a><span>/</span><span id="crumb">Shop all</span></nav>
+  <div class="plp-h"><div><h1 id="title">Shop all</h1><p id="intro">Every cabinet, panel and sample we make, in every style and finish.</p></div></div>
+  <div class="tabs" id="tabs" role="group" aria-label="Category"></div>
+  <div class="plp">
+    <aside class="filters" id="filters" aria-label="Filters">
+      <div class="fhead"><h3>Filters</h3><button class="x" type="button" id="fClose" aria-label="Close filters">×</button></div>
+      <div class="fg"><h4>Room</h4><div id="fRoom" style="display:grid;gap:10px"></div></div>
+      <div class="fg"><h4>Width</h4><div class="fchips" id="fWidth"></div></div>
+      <div class="fg"><h4>Price</h4><div id="fPrice" style="display:grid;gap:10px"></div></div>
+      <div class="fg"><h4>Features</h4><div id="fFeat" style="display:grid;gap:10px"></div></div>
+      <div class="fg"><h4>Can arrive assembled</h4><label class="ck"><input type="checkbox" id="fAsm"> Show only cabinets we can assemble</label></div>
+      <div class="fapply"><button class="btn block" type="button" id="fApply">Show results</button></div>
+    </aside>
+    <div>
+      <div class="preview"><span class="lab">Show products in</span><div class="seg" id="pStyle" role="group" aria-label="Door style"></div><div class="sw" id="pFin" role="group" aria-label="Finish"></div></div>
+      <div class="bar2">
+        <span class="count" id="count"></span>
+        <div class="r">
+          <button class="fbtn" type="button" id="fOpen">Filters <i id="fN">0</i></button>
+          <div class="seg" id="view" role="group" aria-label="View"></div>
+          <label class="sel"><span class="sr" style="position:absolute;left:-9999px">Sort by</span><select id="sort"><option value="pop">Featured</option><option value="lo">Price: low to high</option><option value="hi">Price: high to low</option><option value="w">Width: narrow to wide</option><option value="az">Name: A–Z</option></select></label>
+        </div>
+      </div>
+      <div class="active" id="active"></div>
+      <div class="pgrid" id="results"></div>
+      <div class="help"><div><h3>Not sure what you need?</h3><p>Send us your measurements and we'll put together a free design and an exact cabinet list.</p></div><a class="btn light" href="/residential-demo/#design">Get a free design</a></div>
+    </div>
+  </div>
+</main>
+<script src="/residential-demo/store.js"></script>
+<script>
+(function(){var H=HC,$=function(id){return document.getElementById(id)};
+var q=new URLSearchParams(location.search),p=H.pref();
+var S={cat:q.get('cat')||'all',rooms:q.get('room')?[q.get('room')]:[],widths:[],price:'',feat:[],asm:false,view:q.get('view')||'fam',sort:'pop',s:q.get('style')||p.s,f:p.f};
+H.shell(S.rooms[0]==='kitchen'?'kitchen':S.rooms[0]==='bath'?'bath':S.cat==='sample'?'samples':'shop');
+var WB=[{id:'xs',n:'Under 12″',t:function(w){return w<12}},{id:'s',n:'12–18″',t:function(w){return w>=12&&w<=18}},{id:'m',n:'21–27″',t:function(w){return w>=21&&w<=27}},{id:'l',n:'30–36″',t:function(w){return w>=30&&w<=36}},{id:'xl',n:'Over 36″',t:function(w){return w>36}}];
+var PB=[{id:'',n:'Any price',t:function(){return true}},{id:'a',n:'Under $250',t:function(p){return p<250}},{id:'b',n:'$250–$500',t:function(p){return p>=250&&p<500}},{id:'c',n:'$500–$800',t:function(p){return p>=500&&p<800}},{id:'d',n:'$800 and up',t:function(p){return p>=800}}];
+var FE=[{id:'drawers',n:'Drawers'},{id:'corner',n:'Corner solutions'},{id:'appliance',n:'Sink & appliance'}];
+var TITLES={all:['Shop all','Every cabinet, panel and sample we make, in every style and finish.'],base:['Base cabinets','The foundation of the kitchen: doors, drawers, sinks and corners, all 34½″ tall.'],wall:['Wall cabinets','Upper cabinets in 30″, 36″ and 42″ heights to suit your ceiling.'],tall:['Tall cabinets','Pantries and oven cabinets from 84″ to 96″ tall.'],vanity:['Bath & vanity','Vanities, drawer bases and linen towers sized for the bathroom.'],trim:['Panels & trim','End panels, fillers, toe kicks and crown molding to finish the job.'],sample:['Door samples','Full-size doors in any style and finish, credited back when you order.']};
+/* every SKU */
+function rows(){var out=[];H.CAT.forEach(function(it){if(S.view==='fam'){out.push({it:it,w:null,h:null,price:H.from(it,S.s,S.f),ws:it.ws})}else{it.ws.forEach(function(w){it.hs.forEach(function(h){out.push({it:it,w:w,h:h,price:H.price(it,w,h,S.s,S.f),ws:[w]})})})}});return out}
+function match(r,skip){var it=r.it;
+  if(skip!=='cat'&&S.cat!=='all'&&it.cat!==S.cat)return false;
+  if(skip!=='room'&&S.rooms.length&&!S.rooms.some(function(x){return it.rooms.indexOf(x)>-1}))return false;
+  if(S.widths.length&&!r.ws.some(function(w){return S.widths.some(function(b){return WB.filter(function(x){return x.id===b})[0].t(w)})}))return false;
+  if(S.price&&!PB.filter(function(x){return x.id===S.price})[0].t(r.price))return false;
+  if(S.feat.length&&!S.feat.some(function(f){return it.feat.indexOf(f)>-1}))return false;
+  if(S.asm&&!it.asm)return false;return true}
+function render(){var all=rows(),list=all.filter(function(r){return match(r)});
+  var so=S.sort;list.sort(function(a,b){return so==='lo'?a.price-b.price:so==='hi'?b.price-a.price:so==='w'?(a.w||a.it.ws[0])-(b.w||b.it.ws[0]):so==='az'?a.it.name.localeCompare(b.it.name):(a.it.pop-b.it.pop)||((a.w||0)-(b.w||0))||((a.h||0)-(b.h||0))});
+  $('results').innerHTML=list.length?list.map(function(r){return H.card(r.it,S.s,S.f,r.w?{w:r.w,h:r.h}:null)}).join(''):'<div class="none" style="grid-column:1/-1"><b>No products match those filters.</b><span style="color:var(--ink-2)">Try removing a filter.</span><button class="btn line sm" type="button" id="clr2">Clear all filters</button></div>';
+  var c2=$('clr2');if(c2)c2.onclick=clearAll;
+  $('count').innerHTML='<b>'+list.length+'</b> '+(S.view==='fam'?'product'+(list.length===1?'':'s'):'size'+(list.length===1?'':'s'));
+  var t=TITLES[S.cat]||TITLES.all,room=S.rooms.length===1?H.ROOMS.filter(function(r){return r.id===S.rooms[0]})[0].n:'';
+  $('title').textContent=S.cat==='all'&&room?room+' cabinets':t[0];$('intro').textContent=t[1];$('crumb').textContent=$('title').textContent;
+  document.title=$('title').textContent+' · The Home Collection (Demo)';
+  /* tabs with counts */
+  var cats=[{id:'all',n:'All'}].concat(H.CATS);
+  $('tabs').innerHTML=cats.map(function(c){var n=all.filter(function(r){return (c.id==='all'||r.it.cat===c.id)&&match(r,'cat')}).length;return '<button type="button" data-v="'+c.id+'" aria-pressed="'+(c.id===S.cat)+'">'+c.n+'<span>'+n+'</span></button>'}).join('');
+  /* room counts */
+  $('fRoom').innerHTML=H.ROOMS.map(function(r){var n=all.filter(function(x){return x.it.rooms.indexOf(r.id)>-1&&match(x,'room')}).length;return '<label class="ck"><input type="checkbox" data-room="'+r.id+'"'+(S.rooms.indexOf(r.id)>-1?' checked':'')+'> '+r.n+'<span>'+n+'</span></label>'}).join('');
+  /* active chips */
+  var act=[];if(S.cat!=='all')act.push(['cat',H.CATS.filter(function(c){return c.id===S.cat})[0].n]);
+  S.rooms.forEach(function(r){act.push(['room:'+r,H.ROOMS.filter(function(x){return x.id===r})[0].n])});
+  S.widths.forEach(function(w){act.push(['w:'+w,WB.filter(function(x){return x.id===w})[0].n])});
+  if(S.price)act.push(['price',PB.filter(function(x){return x.id===S.price})[0].n]);
+  S.feat.forEach(function(f){act.push(['f:'+f,FE.filter(function(x){return x.id===f})[0].n])});
+  if(S.asm)act.push(['asm','Can arrive assembled']);
+  $('active').innerHTML=act.map(function(a){return '<button type="button" data-rm="'+a[0]+'" aria-label="Remove filter '+H.esc(a[1])+'">'+H.esc(a[1])+'</button>'}).join('')+(act.length>1?'<button class="clear" type="button" id="clr">Clear all</button>':'');
+  var c=$('clr');if(c)c.onclick=clearAll;
+  $('fN').textContent=act.length-(S.cat!=='all'?1:0);
+  var u=new URLSearchParams();if(S.cat!=='all')u.set('cat',S.cat);if(S.rooms.length===1)u.set('room',S.rooms[0]);if(S.view!=='fam')u.set('view',S.view);
+  history.replaceState(null,'',location.pathname+(u.toString()?'?'+u:''));}
+function clearAll(){S.cat='all';S.rooms=[];S.widths=[];S.price='';S.feat=[];S.asm=false;$('fAsm').checked=false;statics();render()}
+function statics(){
+  $('fWidth').innerHTML=WB.map(function(b){return '<button type="button" data-w="'+b.id+'" aria-pressed="'+(S.widths.indexOf(b.id)>-1)+'">'+b.n+'</button>'}).join('');
+  $('fPrice').innerHTML=PB.map(function(b){return '<label class="ck"><input type="radio" name="price" value="'+b.id+'"'+(S.price===b.id?' checked':'')+'> '+b.n+'</label>'}).join('');
+  $('fFeat').innerHTML=FE.map(function(f){return '<label class="ck"><input type="checkbox" data-feat="'+f.id+'"'+(S.feat.indexOf(f.id)>-1?' checked':'')+'> '+f.n+'</label>'}).join('')}
+statics();
+$('tabs').onclick=function(e){var b=e.target.closest('button');if(!b)return;S.cat=b.getAttribute('data-v');render()};
+$('fRoom').onchange=function(e){var r=e.target.getAttribute('data-room');if(!r)return;S.rooms=e.target.checked?S.rooms.concat(r):S.rooms.filter(function(x){return x!==r});render()};
+$('fWidth').onclick=function(e){var b=e.target.closest('button');if(!b)return;var w=b.getAttribute('data-w'),on=S.widths.indexOf(w)>-1;S.widths=on?S.widths.filter(function(x){return x!==w}):S.widths.concat(w);b.setAttribute('aria-pressed',!on);render()};
+$('fPrice').onchange=function(e){S.price=e.target.value;render()};
+$('fFeat').onchange=function(e){var f=e.target.getAttribute('data-feat');S.feat=e.target.checked?S.feat.concat(f):S.feat.filter(function(x){return x!==f});render()};
+$('fAsm').onchange=function(e){S.asm=e.target.checked;render()};
+$('active').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(!b)return;var k=b.getAttribute('data-rm'),v=k.split(':')[1];
+  if(k==='cat')S.cat='all';else if(k==='price')S.price='';else if(k==='asm'){S.asm=false;$('fAsm').checked=false}
+  else if(k.indexOf('room:')===0)S.rooms=S.rooms.filter(function(x){return x!==v});else if(k.indexOf('w:')===0)S.widths=S.widths.filter(function(x){return x!==v});else if(k.indexOf('f:')===0)S.feat=S.feat.filter(function(x){return x!==v});
+  statics();render()});
+H.seg($('view'),[{id:'fam',name:'Products'},{id:'sku',name:'Every size'}],S.view,function(v){S.view=v;render()});
+$('sort').onchange=function(){S.sort=this.value;render()};
+H.seg($('pStyle'),H.STY,S.s,function(v){S.s=v;H.setPref(v);render()});H.swatches($('pFin'),S.f,function(v){S.f=v;H.setPref(null,v);render()});
+/* mobile filter drawer */
+var scrim=document.getElementById('hcScrim');
+function fo(){$('filters').classList.add('on');scrim.classList.add('on');document.body.style.overflow='hidden'}
+function fc(){$('filters').classList.remove('on');scrim.classList.remove('on');document.body.style.overflow=''}
+$('fOpen').onclick=fo;$('fClose').onclick=fc;$('fApply').onclick=fc;scrim.addEventListener('click',fc);
+render();
+})();
+</script>
+</body>
+</html>

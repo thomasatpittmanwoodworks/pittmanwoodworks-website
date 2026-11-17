@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cabinet · The Home Collection (Demo)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<link rel="icon" href="/images/uploads/pw-final_pw-icon-variation2-navy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/residential-demo/store.css">
+<style>
+.pdp{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,64px);align-items:start;padding:22px 0 clamp(56px,7vw,96px)}
+@media (max-width:960px){.pdp{grid-template-columns:1fr}}
+.gal{position:sticky;top:96px;display:grid;grid-template-columns:76px 1fr;gap:14px}
+@media (max-width:960px){.gal{position:static;grid-template-columns:1fr}}
+.thumbs{display:grid;gap:10px;align-content:start}
+@media (max-width:960px){.thumbs{grid-auto-flow:column;grid-auto-columns:72px;order:2;overflow-x:auto}}
+.thumbs button{border:1px solid transparent;background:var(--stone);border-radius:var(--r);aspect-ratio:1;padding:8px;display:grid;place-items:center}
+.thumbs button svg{max-height:100%;width:auto}
+.thumbs button[aria-pressed="true"]{border-color:var(--ink)}
+.main-img{background:var(--stone);border-radius:10px;aspect-ratio:1/1;display:grid;place-items:center;padding:8%;position:relative}
+.main-img svg{max-height:100%;width:auto;max-width:100%}
+.main-img .cap{position:absolute;left:16px;bottom:14px;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.05em}
+.info{display:grid;gap:24px}
+.info h1{font-size:clamp(38px,4.6vw,60px)}
+.info .sku{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-2)}
+.info .desc{margin:12px 0 0;color:var(--ink-2);font-size:16.5px}
+.big-price{font-family:var(--display);font-stretch:82%;font-weight:600;font-size:36px;line-height:1;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.big-price small{font-family:var(--body);font-size:14px;font-weight:400;color:var(--ink-2)}
+.opt{display:grid;gap:10px}
+.opt > span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.opt > span b{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:14.5px;color:var(--ink);font-weight:500;margin-left:6px}
+.radio{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.radio button{border:1px solid var(--rule-2);background:var(--paper);border-radius:var(--r);padding:13px 14px;text-align:left;display:grid;gap:2px}
+.radio button b{font-weight:600;font-size:15px}
+.radio button span{font-size:13px;color:var(--ink-2)}
+.radio button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.buy{display:flex;gap:10px}
+.qty{display:flex;border:1px solid var(--rule-2);border-radius:var(--r);height:52px;align-items:center;background:var(--paper)}
+.qty button{width:42px;height:100%;border:0;background:none;font-size:18px}
+.qty span{min-width:24px;text-align:center;font-weight:500}
+.buy .btn{flex:1}
+.ship{background:var(--paper);border:1px solid var(--rule);border-radius:var(--r);display:grid}
+.ship div{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:13px 16px;font-size:14.5px;border-top:1px solid var(--rule)}
+.ship div:first-child{border-top:0}
+.ship svg{width:22px;height:22px;color:var(--forest)}
+.ship b{font-weight:600}
+.acc details{border-bottom:1px solid var(--rule-2)}
+.acc details:first-child{border-top:1px solid var(--rule-2)}
+.acc summary{list-style:none;cursor:pointer;padding:18px 0;font-weight:600;display:flex;justify-content:space-between}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"+";font-weight:400;font-size:22px;line-height:1;transition:transform .2s}
+.acc details[open] summary::after{transform:rotate(45deg)}
+.acc .in{padding:0 0 18px;color:var(--ink-2);font-size:15px}
+.acc dl{margin:0;display:grid}
+.acc dl div{display:grid;grid-template-columns:130px 1fr;gap:12px;padding:8px 0;border-top:1px solid var(--rule)}
+.acc dl div:first-child{border-top:0}
+.acc dt{color:var(--ink-2)}.acc dd{margin:0;color:var(--ink)}
+.acc ul{margin:0;padding-left:18px;display:grid;gap:6px}
+.sticky-buy{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--paper);border-top:1px solid var(--rule);padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:none;align-items:center;gap:12px;transform:translateY(110%);transition:transform .25s}
+.sticky-buy.on{transform:none}
+.sticky-buy b{font-family:var(--display);font-stretch:85%;font-size:24px}
+.sticky-buy span{font-size:12.5px;color:var(--ink-2);display:block}
+@media (max-width:960px){.sticky-buy{display:flex}}
+.nf{padding:120px 0;text-align:center;display:grid;gap:16px;justify-items:center}
+</style>
+</head>
+<body>
+<main class="wrap" id="pg">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/residential-demo/">Home</a><span>/</span><a href="/residential-demo/shop">Shop all</a><span>/</span><a id="crCat" href="#"></a><span>/</span><span id="crName"></span></nav>
+  <div class="pdp">
+    <div class="gal"><div class="thumbs" id="thumbs" role="group" aria-label="Product views"></div><div class="main-img" id="mainImg"></div></div>
+    <div class="info">
+      <div><span class="sku" id="sku"></span><h1 id="name"></h1><p class="desc" id="desc"></p></div>
+      <div class="big-price" id="price"></div>
+      <div class="opt" id="oW"><span>Width <b id="vW"></b></span><div class="chips" id="cW"></div></div>
+      <div class="opt" id="oH"><span>Height <b id="vH"></b></span><div class="chips" id="cH"></div></div>
+      <div class="opt" id="oS"><span>Door style <b id="vS"></b></span><div class="seg" id="cS"></div></div>
+      <div class="opt"><span>Finish <b id="vF"></b></span><div class="sw lg" id="cF"></div></div>
+      <div class="opt" id="oHi"><span>Hinge side <b id="vHi"></b></span><div class="seg" id="cHi"></div></div>
+      <div class="opt" id="oA"><span>Arrives</span><div class="radio" id="cA"></div></div>
+      <div class="buy" id="buyRow"><div class="qty"><button type="button" id="qm" aria-label="Fewer">−</button><span id="qv">1</span><button type="button" id="qp" aria-label="More">+</button></div><button class="btn" type="button" id="add">Add to cart</button></div>
+      <div class="ship">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg><span><b id="shipBy"></b><br><span style="color:var(--ink-2)">Curbside freight anywhere in Texas. Free in DFW over $3,500.</span></span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V8l8-4 8 4v12M9 20v-6h6v6"/></svg><span><b>Free pickup</b> at our shop in North Richland Hills</span></div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg><span><b>Lifetime warranty</b> on the cabinet box</span></div>
+      </div>
+      <div class="acc">
+        <details open><summary>Details &amp; dimensions</summary><div class="in"><dl id="dims"></dl></div></details>
+        <details><summary>How it's built</summary><div class="in"><ul><li>3/4″ panels with a full back, cut on our CNC for a square, tight fit</li><li>Machine-applied edgebanding on every exposed edge</li><li>Soft-close hinges and full-extension, soft-close drawer slides, pre-mounted</li><li>Adjustable shelves on a 32 mm hole pattern</li><li>Matte black bar pulls included</li></ul></div></details>
+        <details><summary>Shipping &amp; assembly</summary><div class="in">Cabinets are cut to order and ship flat-packed in 5–7 business days. Assembled cabinets ship about 3 days later. Flat-packed cabinets go together with cam locks and dowels in about 20 minutes, with no glue or special tools.</div></details>
+        <details><summary>Returns</summary><div class="in">Unopened, unassembled cabinets can be returned within 30 days, less a restocking fee. Report shipping damage with photos within 7 days and we'll recut the part at no charge.</div></details>
+      </div>
+    </div>
+  </div>
+  <section style="padding:0 0 clamp(56px,7vw,96px)">
+    <div class="head"><div><span class="kicker">Complete the kitchen</span><h2 style="font-size:clamp(30px,3.4vw,44px)">Goes well with</h2></div><a class="link" href="/residential-demo/shop">Shop all</a></div>
+    <div class="pgrid" id="related"></div>
+  </section>
+</main>
+<div class="sticky-buy" id="sticky"><div style="flex:1"><b id="sPrice"></b><span id="sDesc"></span></div><button class="btn" type="button" id="sAdd">Add to cart</button></div>
+<script src="/residential-demo/store.js"></script>
+<script>
+(function(){var H=HC,$=function(id){return document.getElementById(id)};H.shell('shop');
+var q=new URLSearchParams(location.search),it=H.item(q.get('id')||'B');
+if(!it){$('pg').innerHTML='<div class="nf"><h1>Product not found</h1><a class="btn" href="/residential-demo/shop">Shop all</a></div>';return}
+var p=H.pref(),P={w:+q.get('w')||H.defW(it),h:+q.get('h')||it.hs[0],s:q.get('style')||p.s,f:p.f,hinge:'l',asm:false,q:1,view:'front'};
+if(it.ws.indexOf(P.w)<0)P.w=H.defW(it);if(it.hs.indexOf(P.h)<0)P.h=it.hs[0];
+var CATN={};H.CATS.forEach(function(c){CATN[c.id]=c.n});
+$('crCat').textContent=CATN[it.cat];$('crCat').href=H.BASE+'/shop?cat='+it.cat;$('crName').textContent=it.name;
+$('name').textContent=it.name;$('desc').textContent=it.desc;document.title=it.name+' · The Home Collection (Demo)';
+function single(){return !it.acc&&P.w<24&&['DB3','VDB','LS','TPO','BBC'].indexOf(it.id)<0}
+function views(){var v=[['front','Front',function(){return H.thumb(it,P.s,P.f,P.w,P.h)}]];
+  if(it.id!=='SAMPLE'){v.push(['dims','Dimensions',function(){return H.product(it.id,P.w,P.h,P.s,P.f,{dims:true,swing:!it.acc,hinge:P.hinge})}]);if(it.d>=12)v.push(['side','Side view',function(){return H.profile(it,P.h,P.f)}])}
+  if(!it.acc||it.id==='SAMPLE')v.push(['door','Door close-up',function(){return H.doorSvg(P.s,P.f)}]);return v}
+function draw(){var V=views();if(!V.some(function(v){return v[0]===P.view}))P.view='front';
+  $('thumbs').innerHTML=V.map(function(v){return '<button type="button" data-v="'+v[0]+'" aria-pressed="'+(v[0]===P.view)+'" aria-label="'+v[1]+'">'+v[2]()+'</button>'}).join('');
+  var cur=V.filter(function(v){return v[0]===P.view})[0];$('mainImg').innerHTML=cur[2]()+'<span class="cap">'+cur[1].toUpperCase()+'</span>';
+  var S=H.sty(P.s),F=H.fin(P.f),u=H.price(it,P.w,P.h,P.s,P.f,P.asm);
+  $('sku').textContent='Item '+(it.id==='SAMPLE'?'SAMPLE':H.sku(it,P.w,P.h));
+  $('price').innerHTML=H.money(u*P.q)+'<small>'+(P.q>1?P.q+' × '+H.money(u):it.id==='SAMPLE'?'credited back when you order':'per cabinet')+(P.asm?' · includes assembly':'')+'</small>';
+  $('vW').textContent=P.w+'″';$('vH').textContent=P.h+'″';$('vS').textContent=S.name;$('vF').textContent=F.name;$('vHi').textContent=P.hinge==='l'?'Left':'Right';
+  $('oHi').hidden=!single();
+  var dep=it.d>=12?it.d+'″':it.d+'″';
+  $('dims').innerHTML=[['Item',it.id==='SAMPLE'?'Door sample':H.sku(it,P.w,P.h)],['Size',it.id==='SAMPLE'?'15″ × 24″ door':P.w+'″ W × '+P.h+'″ H × '+dep+' D'],['Door style',it.acc&&!it.flat?'Matches any style':S.name],['Finish',F.name],it.asm?['Weight','About '+Math.round(P.w*P.h*it.d/900+8)+' lb, shipped flat']:null].filter(Boolean).map(function(r){return '<div><dt>'+r[0]+'</dt><dd>'+H.esc(r[1])+'</dd></div>'}).join('');
+  $('sPrice').textContent=H.money(u*P.q);$('sDesc').textContent=(it.ws.length>1?P.w+'″ · ':'')+(it.acc&&!it.flat?'':S.name+' · ')+F.name;
+  var d=new Date(),n=0;while(n<(P.asm?10:7)){d.setDate(d.getDate()+1);if(d.getDay()%6)n++}
+  $('shipBy').textContent='Ships by '+d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}
+$('thumbs').onclick=function(e){var b=e.target.closest('button');if(!b)return;P.view=b.getAttribute('data-v');draw()};
+$('oW').hidden=it.ws.length<2;H.chips($('cW'),it.ws,P.w,function(v){return v+'″'},function(v){P.w=v;draw()});
+$('oH').hidden=it.hs.length<2;H.chips($('cH'),it.hs,P.h,function(v){return v+'″'},function(v){P.h=v;draw()});
+$('oS').hidden=it.acc&&!it.flat;H.seg($('cS'),H.STY,P.s,function(v){P.s=v;H.setPref(v);draw();rel()});
+H.swatches($('cF'),P.f,function(v){P.f=v;H.setPref(null,v);draw();rel()});
+H.seg($('cHi'),[{id:'l',name:'Hinged left'},{id:'r',name:'Hinged right'}],'l',function(v){P.hinge=v;P.view='dims';draw()});
+if(it.asm){$('cA').innerHTML='<button type="button" data-v="0" aria-pressed="true"><b>Flat-packed</b><span>Assemble in about 20 min</span></button><button type="button" data-v="1" aria-pressed="false"><b>Assembled</b><span>+'+H.money(it.asm)+' · ready to install</span></button>';
+  $('cA').onclick=function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});P.asm=b.getAttribute('data-v')==='1';draw()}}else $('oA').hidden=true;
+$('qm').onclick=function(){P.q=Math.max(1,P.q-1);$('qv').textContent=P.q;draw()};$('qp').onclick=function(){P.q=Math.min(20,P.q+1);$('qv').textContent=P.q;draw()};
+function add(){H.addCart({id:it.id,w:P.w,h:P.h,s:P.s,f:P.f,hinge:single()?P.hinge:'',asm:P.asm,q:P.q});H.toast((P.q>1?P.q+' × ':'')+it.name+(it.ws.length>1?' '+P.w+'″':'')+' added',true)}
+$('add').onclick=add;$('sAdd').onclick=add;
+var REL={base:['W','F','EP','TK'],wall:['B','CM','F','EP'],tall:['B','W','EP','F'],vanity:['VDB','LT','F','SAMPLE'],trim:['B','W','DB3','SAMPLE'],sample:['B','W','DB3','P']};
+function rel(){$('related').innerHTML=(REL[it.cat]||REL.base).filter(function(id){return id!==it.id}).slice(0,3).map(function(id){return H.card(H.item(id),P.s,P.f)}).join('')}
+draw();rel();
+var io=new IntersectionObserver(function(en){$('sticky').classList.toggle('on',!en[0].isIntersecting)},{threshold:0});io.observe($('buyRow'));
+})();
+</script>
+</body>
+</html>

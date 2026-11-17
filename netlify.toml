@@ -60,6 +60,6 @@
 
 # Residential store demo: keep out of search results
 [[headers]]
-  for = "/residential-demo*"
+  for = "/residential-demo/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"

@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Home Collection · by Pittman Woodworks (Demo)</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<link rel="icon" href="/images/uploads/pw-final_pw-icon-variation2-navy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/residential-demo/store.css">
+<style>
+/* hero */
+.hero{padding:clamp(36px,5vw,64px) 0 clamp(56px,7vw,96px)}
+.hero-top{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(26px,3.5vw,40px)}
+@media (max-width:900px){.hero-top{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(48px,7.6vw,112px);line-height:.92}
+.hero h1 span{color:var(--forest)}
+.hero-top .side{display:grid;gap:22px}
+.hero-top .side p{margin:0;color:var(--ink-2);font-size:clamp(16.5px,1.4vw,18.5px)}
+.hero-top .ctas{display:flex;gap:10px;flex-wrap:wrap}
+.stage{position:relative;border-radius:10px;overflow:hidden;background:var(--stone)}
+.stage svg{display:block;width:100%;height:auto}
+.stage-ctl{position:absolute;left:clamp(10px,2vw,22px);right:clamp(10px,2vw,22px);bottom:clamp(10px,2vw,22px);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:8px;padding:10px 12px;box-shadow:0 10px 30px -18px rgba(0,0,0,.4)}
+.stage-ctl .lab{font-size:13.5px}
+.stage-ctl .lab b{font-weight:600}
+.stage-ctl .lab span{color:var(--ink-2)}
+@media (max-width:700px){.stage-ctl{position:static;border-radius:0;box-shadow:none;background:var(--paper);border-top:1px solid var(--rule)}}
+.usp{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+@media (max-width:900px){.usp{grid-template-columns:1fr 1fr}}
+.usp div{padding:22px clamp(14px,2vw,26px);display:grid;gap:4px;border-left:1px solid var(--rule)}
+.usp div:first-child{border-left:0}
+@media (max-width:900px){.usp div:nth-child(3){border-left:0}.usp div:nth-child(n+3){border-top:1px solid var(--rule)}}
+.usp b{font-family:var(--display);font-stretch:85%;font-weight:600;font-size:22px;line-height:1.1}
+.usp span{font-size:14px;color:var(--ink-2)}
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+@media (max-width:1000px){.cats{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.cats{grid-template-columns:1fr 1fr}}
+.cat{display:grid;gap:12px;text-decoration:none}
+.cat .img{background:var(--stone);border-radius:var(--r);aspect-ratio:4/5;display:grid;place-items:center;padding:18%;transition:background .25s}
+.cat:hover .img{background:var(--stone-2)}
+.cat .img svg{max-height:100%;width:auto}
+.cat b{font-weight:600;font-size:16px;display:flex;justify-content:space-between}
+.cat b::after{content:"→";transition:transform .2s}
+.cat:hover b::after{transform:translateX(4px)}
+/* styles */
+.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+@media (max-width:860px){.styles{grid-template-columns:1fr}}
+.st{background:var(--paper);border:1px solid var(--rule);border-radius:10px;overflow:hidden;display:grid}
+.st .door{background:var(--stone);display:grid;place-items:center;padding:34px 0}
+.st .door svg{height:250px;width:auto}
+.st .body{padding:22px;display:grid;gap:12px}
+.st h3{font-size:28px}
+.st p{margin:0;color:var(--ink-2);font-size:15px}
+.st .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+/* craft */
+.craft{background:var(--ink);color:#D5D2C9}
+.craft .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
+@media (max-width:900px){.craft .wrap{grid-template-columns:1fr}}
+.craft h2{color:#fff}
+.craft .kicker{color:var(--gold)}
+.craft .lede{color:#A9A69D}
+.speclist{margin-top:30px;border-top:1px solid #2E302D}
+.speclist div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid #2E302D;font-size:15px}
+.speclist b{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:500;padding-top:3px}
+@media (max-width:520px){.speclist div{grid-template-columns:1fr;gap:4px}}
+/* estimate */
+.est-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,3vw,40px);align-items:start}
+@media (max-width:900px){.est-grid{grid-template-columns:1fr}}
+.box{background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:clamp(20px,3vw,32px);display:grid;gap:22px}
+.opt{display:grid;gap:10px}
+.opt > span{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.opt > span b{font-family:var(--body);text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink);font-weight:500;margin-left:6px}
+.layouts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.layouts button{border:1px solid var(--rule-2);background:var(--paper);border-radius:var(--r);padding:12px 6px 10px;display:grid;gap:6px;justify-items:center;font-size:13px}
+.layouts button svg{width:42px;height:42px}
+.layouts button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.rng{display:grid;gap:8px}
+.rng label{display:flex;justify-content:space-between;font-size:14.5px}
+.rng label b{font-family:var(--mono);font-weight:500}
+input[type=range]{width:100%;accent-color:var(--forest)}
+.result{background:var(--forest);color:#E2E9E3;border-radius:10px;padding:clamp(22px,3vw,36px);display:grid;gap:16px;position:sticky;top:96px}
+.result .big{font-family:var(--display);font-stretch:78%;font-weight:600;font-size:clamp(46px,5.6vw,72px);line-height:1;color:#fff}
+.result .brk{display:grid;gap:8px;font-size:14.5px;border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
+.result .brk div{display:flex;justify-content:space-between;gap:10px}
+.result small{color:#B5C3B8;font-size:13px}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px);counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.steps div{border-top:1.5px solid var(--ink);padding-top:16px;display:grid;gap:8px}
+.steps div::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--clay)}
+.steps h3{font-size:24px}
+.steps p{margin:0;color:var(--ink-2);font-size:15px}
+/* samples + design */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,24px)}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.duo h2{font-size:clamp(28px,3vw,40px)}
+.duo p{margin:0;color:var(--ink-2)}
+.sdoors{display:flex;gap:10px;flex-wrap:wrap}
+.sdoors button{border:0;background:none;padding:0;border-radius:4px;outline-offset:3px}
+.sdoors button svg{height:96px;width:auto;display:block}
+.sdoors button[aria-pressed="true"]{outline:1.5px solid var(--ink)}
+form.dz{display:grid;gap:12px}
+form.dz .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){form.dz .two{grid-template-columns:1fr}}
+form.dz label{display:grid;gap:6px;font-size:13.5px;color:var(--ink-2)}
+form.dz input,form.dz select,form.dz textarea{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--rule-2);border-radius:var(--r);padding:11px 12px;width:100%}
+form.dz input:focus,form.dz select:focus,form.dz textarea:focus{outline:none;border-color:var(--ink)}
+.ok{background:var(--stone);border-radius:var(--r);padding:12px 14px;font-size:14px}
+/* faq */
+.faq-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:clamp(24px,4vw,64px)}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+.faq details{border-bottom:1px solid var(--rule-2)}
+.faq details:first-child{border-top:1px solid var(--rule-2)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;font-size:24px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 20px;color:var(--ink-2);max-width:44em}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1>Cabinets built in a <span>real cabinet shop.</span></h1>
+      <div class="side">
+        <p>Cut on the same CNC machines that build casework for hospitals and schools, then shipped flat to your door. Assemble them in an afternoon, or have them arrive ready to install.</p>
+        <div class="ctas"><a class="btn" href="/residential-demo/shop">Shop all cabinets</a><a class="btn line" href="#design">Get a free design</a></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div id="heroArt"></div>
+      <div class="stage-ctl">
+        <span class="lab"><b id="heroName"></b> <span id="heroPrice"></span></span>
+        <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><div class="seg" id="heroStyle" role="group" aria-label="Door style"></div><div class="sw" id="heroFinish" role="group" aria-label="Finish"></div></div>
+      </div>
+    </div>
+    <div class="usp" style="margin-top:clamp(28px,4vw,48px)">
+      <div><b>Ships in 5–7 days</b><span>Cut to order, flat-packed</span></div>
+      <div><b>About 20 minutes</b><span>To assemble each cabinet</span></div>
+      <div><b>Free shop pickup</b><span>In North Richland Hills</span></div>
+      <div><b>Free design help</b><span>From a real cabinetmaker</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div><span class="kicker">Shop by category</span><h2>Everything for the kitchen and bath.</h2></div><a class="link" href="/residential-demo/shop">Shop all products</a></div>
+    <div class="cats" id="cats"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div><span class="kicker">Kitchen essentials</span><h2>Where most kitchens start.</h2></div><a class="link" href="/residential-demo/shop?room=kitchen">Shop kitchen</a></div>
+    <div class="pgrid" id="popular"></div>
+  </div>
+</section>
+
+<section id="styles" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div><span class="kicker">Door styles</span><h2>Three styles. Five finishes.</h2></div><p class="lede" style="margin:0;max-width:30em">Every style comes in every finish, so you can match a modern kitchen, a farmhouse bath or anything in between.</p></div>
+    <div class="styles" id="styleCards"></div>
+  </div>
+</section>
+
+<section class="craft">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Made by Pittman Woodworks</span>
+      <h2>Built like a hospital cabinet. Priced for your house.</h2>
+      <p class="lede">For years our shop has built cabinets that have to survive schools, clinics and restaurants. Your kitchen gets the same box, the same machines and the same people.</p>
+      <div class="speclist">
+        <div><b>Cabinet box</b><span>3/4″ panels with full backs, machined on our CNC for a square, tight fit</span></div>
+        <div><b>Assembly</b><span>Cam locks and hardwood dowels. No glue or special tools needed</span></div>
+        <div><b>Hardware</b><span>Soft-close hinges and full-extension, soft-close drawer slides, pre-mounted</span></div>
+        <div><b>Edges</b><span>Machine-applied edgebanding on every exposed edge</span></div>
+        <div><b>Warranty</b><span>Lifetime warranty on cabinet boxes for the original owner</span></div>
+      </div>
+    </div>
+    <div id="explode"></div>
+  </div>
+</section>
+
+<section id="estimate">
+  <div class="wrap">
+    <div class="head"><div><span class="kicker">Kitchen estimate</span><h2>What would my kitchen cost?</h2></div><p class="lede" style="margin:0;max-width:28em">Pick a layout and adjust the lengths. Your estimate updates as you go.</p></div>
+    <div class="est-grid">
+      <div class="box">
+        <div class="opt"><span>Layout</span><div class="layouts" id="layouts"></div></div>
+        <div class="rng"><label for="rB">Base cabinets <b id="vB"></b></label><input type="range" id="rB" min="4" max="40"></div>
+        <div class="rng"><label for="rW">Wall cabinets <b id="vW"></b></label><input type="range" id="rW" min="0" max="34"></div>
+        <div class="rng"><label for="rT">Pantry cabinets <b id="vT"></b></label><input type="range" id="rT" min="0" max="3"></div>
+        <div class="rng"><label for="rI">Island <b id="vI"></b></label><input type="range" id="rI" min="0" max="10"></div>
+        <div class="opt"><span>Door style</span><div class="seg" id="eStyle"></div></div>
+        <div class="opt"><span>Finish <b id="eFinName"></b></span><div class="sw" id="eFin"></div></div>
+      </div>
+      <div class="result" aria-live="polite">
+        <span class="kicker" style="color:var(--gold);margin:0">Estimated cabinet cost</span>
+        <div class="big" id="eBig"></div><small id="eSmall"></small>
+        <div class="brk" id="eBrk"></div>
+        <small>Cabinets only, flat-packed. Countertops, appliances and installation aren't included. A free design gets you an exact price.</small>
+        <a class="btn light" href="#design">Get my exact price</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div><span class="kicker">How it works</span><h2>From measurements to a finished kitchen.</h2></div></div>
+    <div class="steps">
+      <div><h3>Measure</h3><p>Use our measuring guide, or send photos and rough sizes. A designer checks everything with you.</p></div>
+      <div><h3>Design</h3><p>We send a free layout and an exact cabinet list, usually within two business days.</p></div>
+      <div><h3>Ship or pick up</h3><p>Cabinets are cut to order and ship flat in 5–7 business days, or pick them up at our shop.</p></div>
+      <div><h3>Assemble</h3><p>Pre-drilled panels, cam locks and dowels. Hinges and drawer slides come already mounted.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="design" style="padding-top:0">
+  <div class="wrap duo">
+    <div class="box" style="align-content:start">
+      <span class="kicker" style="margin:0">Door samples</span>
+      <h2>See the color in your own light.</h2>
+      <p>Full-size door samples in any style and finish. $15 each, credited back when you order your cabinets.</p>
+      <div class="sdoors" id="sdoors"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"><div class="seg" id="sStyle"></div><button class="btn" type="button" id="addSample">Add sample · $15</button></div>
+    </div>
+    <div class="box">
+      <span class="kicker" style="margin:0">Free kitchen design</span>
+      <h2>Send your measurements. We'll draw the kitchen.</h2>
+      <form class="dz" id="dz" novalidate>
+        <div class="two"><label>Name<input name="name" autocomplete="name"></label><label>Email<input name="email" type="email" autocomplete="email"></label></div>
+        <div class="two"><label>ZIP code<input name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code"></label><label>Room<select name="room"><option>Kitchen</option><option>Bathroom vanity</option><option>Laundry room</option><option>Other</option></select></label></div>
+        <label>Sizes, photos or what you have in mind<textarea name="note" rows="3" placeholder="e.g. 10×12 L-shaped kitchen, keeping the range where it is"></textarea></label>
+        <button class="btn" type="submit">Request my free design</button>
+        <div class="ok" id="dzOk" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div><span class="kicker">Help</span><h2>Questions, answered.</h2><p class="lede">Still stuck? Call the shop at (469) 375-0495.</p></div>
+    <div class="faq">
+      <details open><summary>How are cabinets delivered?</summary><p>Cabinets ship flat-packed by freight with curbside delivery anywhere in Texas. Delivery is free on orders over $3,500 in Dallas–Fort Worth, and pickup at our North Richland Hills shop is always free.</p></details>
+      <details><summary>How hard is assembly?</summary><p>If you can use a screwdriver, you can assemble our cabinets. Panels are pre-drilled with cam locks and dowels, and hinges and slides are already mounted. Most cabinets take about 20 minutes. Prefer not to? Choose "Assembled" on any cabinet.</p></details>
+      <details><summary>Do you install?</summary><p>We focus on great cabinets and design help, and we can recommend independent installers in Dallas–Fort Worth.</p></details>
+      <details><summary>What if something arrives damaged?</summary><p>Inspect your boxes at delivery and send us photos within 7 days. We'll recut and ship damaged parts at no charge.</p></details>
+      <details><summary>Can I return cabinets?</summary><p>Unopened, unassembled cabinets can be returned within 30 days, less a restocking fee. Assembled or modified cabinets can't be returned, because every order is cut to order.</p></details>
+      <details><summary>Do you build custom sizes?</summary><p>Our standard sizes cover most kitchens, and fillers close the gaps. For custom widths or depths, request a free design and we'll quote it.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<script src="/residential-demo/store.js"></script>
+<script>
+(function(){var H=HC,$=function(id){return document.getElementById(id)};H.shell('home');
+var p=H.pref(),hero={s:p.s,f:p.f==='white'?'sage':p.f};
+function rh(){$('heroArt').innerHTML=H.kitchen(hero.s,hero.f);$('heroName').textContent=H.sty(hero.s).name+' in '+H.fin(hero.f).name;$('heroPrice').textContent='· this 13½′ kitchen from about '+H.money(H.kitPrice(hero.s,hero.f))}
+H.seg($('heroStyle'),H.STY,hero.s,function(v){hero.s=v;H.setPref(v);rh();rc();rp()});H.swatches($('heroFinish'),hero.f,function(v){hero.f=v;H.setPref(null,v);rh();rc();rp()});rh();
+var CI={base:['B',24,34.5],wall:['W',30,30],tall:['P',24,90],vanity:['VB',30,34.5],trim:['EP',24,34.5]};
+function rc(){$('cats').innerHTML=H.CATS.filter(function(c){return CI[c.id]}).map(function(c){var k=CI[c.id];return '<a class="cat" href="'+H.BASE+'/shop?cat='+c.id+'"><div class="img">'+H.product(k[0],k[1],k[2],hero.s,hero.f)+'</div><b>'+c.n+'</b></a>'}).join('')}
+function rp(){$('popular').innerHTML=['B','DB3','SB','W','P','TPO'].map(function(id){return H.card(H.item(id),hero.s,hero.f)}).join('')}
+rc();rp();
+var sf={shaker:'white',slim:'sage',slab:'oak'};
+$('styleCards').innerHTML=H.STY.map(function(S){return '<div class="st"><div class="door" data-door="'+S.id+'">'+H.doorSvg(S.id,sf[S.id])+'</div><div class="body"><div class="row"><h3>'+S.name+'</h3><span class="sw" data-sw="'+S.id+'"></span></div><p>'+H.esc(S.d)+'</p><div class="row"><span style="font-size:14px;color:var(--ink-2)">18″ base from '+H.money(H.price(H.item('B'),18,34.5,S.id,'white'))+'</span><a class="link" href="'+H.BASE+'/shop?style='+S.id+'" data-st="'+S.id+'">Shop '+S.name+'</a></div></div></div>'}).join('');
+H.STY.forEach(function(S){H.swatches(document.querySelector('[data-sw="'+S.id+'"]'),sf[S.id],function(v){sf[S.id]=v;document.querySelector('[data-door="'+S.id+'"]').innerHTML=H.doorSvg(S.id,v)})});
+document.querySelectorAll('[data-st]').forEach(function(a){a.addEventListener('click',function(){var s=a.getAttribute('data-st');H.setPref(s,sf[s])})});
+/* estimate */
+var LAY=[{id:'one',n:'One wall',b:10,w:8,t:1,i:0,ic:'M6 8h32'},{id:'galley',n:'Galley',b:16,w:12,t:0,i:0,ic:'M6 8h32M6 36h32'},{id:'l',n:'L-shape',b:18,w:13,t:1,i:0,ic:'M6 8h32M6 8v28'},{id:'u',n:'U-shape',b:24,w:18,t:1,i:6,ic:'M6 8v28M6 8h32M38 8v28'}];
+var pl={b:18,w:13,t:1,i:0,s:'shaker',f:'white'},R={b:$('rB'),w:$('rW'),t:$('rT'),i:$('rI')};
+$('layouts').innerHTML=LAY.map(function(l){return '<button type="button" data-v="'+l.id+'" aria-pressed="'+(l.id==='l')+'"><svg viewBox="0 0 44 44"><rect x="2" y="2" width="40" height="40" fill="none" stroke="#D2CBBD"/><path d="'+l.ic+'" stroke="#121412" stroke-width="6" fill="none"/></svg>'+l.n+'</button>'}).join('');
+$('layouts').onclick=function(e){var b=e.target.closest('button');if(!b)return;this.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});var l=LAY.filter(function(x){return x.id===b.getAttribute('data-v')})[0];pl.b=l.b;pl.w=l.w;pl.t=l.t;pl.i=l.i;sync();est()};
+function sync(){Object.keys(R).forEach(function(k){R[k].value=pl[k]})}
+Object.keys(R).forEach(function(k){R[k].addEventListener('input',function(){pl[k]=+R[k].value;est()})});
+H.seg($('eStyle'),H.STY,pl.s,function(v){pl.s=v;est()});H.swatches($('eFin'),pl.f,function(v){pl.f=v;est()});
+function est(){var s=pl.s,f=pl.f,P=function(id,w,h){return H.price(H.item(id),w,h,s,f)};
+  var bLF=(P('B',30,34.5)*.55+P('DB3',30,34.5)*.3+P('SB',36,34.5)*.125)/2.5,wLF=P('W',30,36)/2.5,tall=P('P',24,90),iLF=bLF*1.08+P('EP',24,34.5)/4;
+  var parts=[['Base cabinets',pl.b+' ft',pl.b*bLF],['Wall cabinets',pl.w+' ft',pl.w*wLF],['Pantry cabinets',String(pl.t),pl.t*tall],['Island',pl.i+' ft',pl.i*iLF],['Panels, fillers & toe kick','',(pl.b+pl.w)*6+(pl.i?190:0)]];
+  var tot=parts.reduce(function(t,p){return t+p[2]},0);
+  $('vB').textContent=pl.b+' ft';$('vW').textContent=pl.w+' ft';$('vT').textContent=pl.t;$('vI').textContent=pl.i?pl.i+' ft':'None';$('eFinName').textContent=H.fin(f).name;
+  $('eBig').textContent=H.money(Math.round(tot*.92/50)*50)+'–'+H.money(Math.round(tot*1.08/50)*50);
+  $('eSmall').textContent=H.sty(s).name+' in '+H.fin(f).name+' · about '+Math.round((pl.b+pl.w)/2.4+pl.t+pl.i/2.5)+' cabinets';
+  $('eBrk').innerHTML=parts.filter(function(p){return p[2]>0}).map(function(p){return '<div><span>'+p[0]+(p[1]?' · '+p[1]:'')+'</span><span>'+H.money(p[2])+'</span></div>'}).join('')}
+sync();est();
+/* samples */
+var smp={s:'shaker',f:'sage'};
+function rs(){$('sdoors').innerHTML=H.FIN.map(function(F){return '<button type="button" data-f="'+F.id+'" aria-pressed="'+(F.id===smp.f)+'" aria-label="'+H.esc(F.name)+'" title="'+H.esc(F.name)+'">'+H.doorSvg(smp.s,F.id)+'</button>'}).join('')}
+$('sdoors').onclick=function(e){var b=e.target.closest('button');if(!b)return;smp.f=b.getAttribute('data-f');rs()};
+H.seg($('sStyle'),H.STY,smp.s,function(v){smp.s=v;rs()});rs();
+$('addSample').onclick=function(){H.addCart({id:'SAMPLE',w:15,h:24,s:smp.s,f:smp.f,hinge:'',asm:false,q:1});H.toast(H.sty(smp.s).name+' sample in '+H.fin(smp.f).name+' added',true)};
+$('dz').addEventListener('submit',function(e){e.preventDefault();var ok=$('dzOk');ok.hidden=false;ok.textContent='Demo: in the live store, this request would go to your design team and the customer would get a confirmation email.'});
+/* exploded box */
+$('explode').innerHTML='<svg viewBox="0 0 420 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Exploded cabinet box"><g fill="none" stroke="#C8A86B" stroke-width="1.4" stroke-linejoin="round"><path d="M60 120v170l40-22V98z" fill="rgba(200,168,107,.12)"/><path d="M150 70v170h150V70z" fill="rgba(200,168,107,.06)"/><path d="M330 120v170l40-22V98z" fill="rgba(200,168,107,.12)"/><path d="M120 300h170l40-22H160z" fill="rgba(200,168,107,.12)"/><path d="M120 55h170l40-22H160z" fill="rgba(200,168,107,.12)"/><path d="M140 175h150l30-16H170z" stroke-dasharray="5 4"/><rect x="20" y="300" width="120" height="44" rx="2" fill="rgba(167,178,155,.35)"/><rect x="34" y="310" width="92" height="24" stroke="#A7B29B"/></g><g fill="#C8A86B">'+[[80,170],[80,240],[350,170],[350,240],[205,289],[245,289],[205,44],[245,44]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.2"/>'}).join('')+'</g><g font-family="IBM Plex Mono,monospace" font-size="11" fill="#A9A69D" letter-spacing=".5"><text x="160" y="62">FULL BACK</text><text x="186" y="152">ADJ. SHELF</text><text x="20" y="112">SIDE</text><text x="340" y="112">SIDE</text><text x="168" y="322">BOTTOM</text><text x="150" y="352">DOOR · PRE-HUNG</text><text x="186" y="22">TOP</text></g><path d="M100 160H150M300 160H330M205 240V278" stroke="#6f6a5f" stroke-dasharray="2 4"/></svg>';
+})();
+</script>
+</body>
+</html>
