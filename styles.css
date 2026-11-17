@@ -680,3 +680,86 @@ a.logo:focus-visible{outline:2px solid var(--layout);outline-offset:-4px}
 .sa-list li{font-size:14px;border:1px solid var(--rule);background:var(--sheet);padding:5px 12px;border-radius:2px}
 .sa-list li.hq{border-color:var(--ink)}
 .sa-list li span{font-family:var(--mono);font-size:10px;text-transform:uppercase;color:var(--ink-2);margin-left:4px}
+
+/* ===== homepage hero: drawing-to-install scene ===== */
+.rig{margin:0;background:var(--sheet);border:1px solid var(--line);position:relative;min-width:0;overflow:hidden;box-shadow:0 40px 90px -30px rgba(0,0,0,.65)}
+.rg-bar{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:11px 14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.rg-bar span:first-child::before{content:"";display:inline-block;width:7px;height:7px;background:var(--layout);margin-right:10px;vertical-align:1px}
+.rg-hint{color:var(--ink-2);letter-spacing:.04em;font-size:10px}
+@media (max-width:560px){.rg-hint{display:none}}
+.rg-stage{position:relative;aspect-ratio:1/.82;background-color:#0E1318;background-image:linear-gradient(rgba(169,189,242,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(169,189,242,.05) 1px,transparent 1px);background-size:22px 22px;overflow:hidden}
+.rg-stage::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.45));pointer-events:none}
+.rg-svg{position:absolute;inset:0;width:100%;height:100%;display:block;transition:transform .5s cubic-bezier(.2,.8,.2,1);transform-origin:50% 50%}
+.rig .L-room,.rig .L-cabs,.rig .L-counter,.rig .L-dims,.rig .L-cnc{transition:opacity .6s}
+/* walls */
+.rig .wall{fill:#D9D5CD;opacity:0;transition:opacity 1.1s,fill 1s}.rig .floor{fill:#A69F93;opacity:0;transition:opacity 1.1s}
+.rig .grid path{fill:none;stroke:var(--layout);stroke-width:.14;opacity:.22}
+/* linework */
+.rig .wire path{fill:none;stroke:var(--layout);stroke-width:.32;stroke-linejoin:round;stroke-linecap:round;transition:stroke .6s,stroke-width .6s}
+.rig .wire path.wp{stroke-width:.6}
+.rig .fill{opacity:0;transition:opacity .6s}
+.rig .fill polygon{transition:fill .9s}
+.rig{--rg-base:#ECE7DD;--rg-up:#ECE7DD;--rg-box:#CFC8BB;--rg-side:#D6CFC2;--rg-up-side:#D6CFC2;--rg-top:#F3EFE7}
+.rig .f-box{fill:var(--rg-box)}.rig .f-side{fill:var(--rg-side)}.rig .cab.up .f-side{fill:var(--rg-up-side)}.rig .f-top{fill:var(--rg-top)}.rig .f-btop{fill:var(--rg-box)}
+.rig .f-toe{fill:#25292D}.rig .f-toe2{fill:#1B1E21}
+.rig .f-pull{fill:none;stroke:#16181A;stroke-width:.75;stroke-linecap:round}
+.rig .f-qtop{fill:#F3F1EC}.rig .f-qedge{fill:#E1DED7}.rig .f-qedge2{fill:#D2CEC6}.rig .vein{fill:none;stroke:#CDC8BE;stroke-width:.22}
+.rig .f-sink{fill:#AEB3B7}.rig .f-faucet{fill:none;stroke:#8C9296;stroke-width:.95;stroke-linecap:round;stroke-linejoin:round}
+/* dimensions */
+.rig .dl{fill:none;stroke:var(--layout);stroke-width:.24}
+.rig .dt{fill:var(--layout)}
+.rig .dx{font-family:var(--mono);font-size:3.4px;fill:var(--layout)}
+.rig .dn{font-family:var(--mono);font-size:2.5px;letter-spacing:.25px;fill:var(--ink-2)}
+/* cnc */
+.rig .L-cnc{opacity:0;pointer-events:none}
+.rig .c-sheet{fill:#E8E3D9}.rig .c-edge{fill:#BDB5A6}.rig .c-edge2{fill:#A9A192}
+.rig .c-part{fill:#E8E3D9;transition:fill .35s}
+.rig .c-part.cut{fill:#F7F4EE}
+.rig .c-cut{fill:none;stroke:#26303A;stroke-width:.5;stroke-dasharray:1;stroke-dashoffset:1;stroke-linejoin:round}
+.rig .c-lab{font-family:var(--mono);font-size:2.6px;letter-spacing:.3px;fill:#7C766B;opacity:0;transition:opacity .3s}
+.rig .c-part.cut + .c-cut + .c-lab{opacity:1}
+.rig .c-spindle{stroke:#9AA4AE;stroke-width:1.5}.rig .c-head{fill:#3F4A56;stroke:#5B6874;stroke-width:.3}.rig .c-glow{fill:rgba(169,189,242,.38)}.rig .c-tip{fill:#fff}
+/* stage 1: drawn */
+.rig[data-stage="1"] .wire path,.rig[data-stage="1"] .grid path,.rig[data-stage="1"] .dl{stroke-dasharray:1;animation:rgDraw 1.5s cubic-bezier(.6,0,.2,1) both;animation-delay:calc(var(--i,0) * .11s)}
+.rig[data-stage="1"] .L-counter{--i:7}.rig[data-stage="1"] .L-dims{--i:8}
+.rig[data-stage="1"] .dx,.rig[data-stage="1"] .dn,.rig[data-stage="1"] .dt{animation:rgFade .6s 1.5s both}
+@keyframes rgDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes rgFade{from{opacity:0}to{opacity:1}}
+/* stage 2: cut */
+.rig[data-stage="2"] .L-room,.rig[data-stage="2"] .L-cabs,.rig[data-stage="2"] .L-counter,.rig[data-stage="2"] .L-dims{opacity:0}
+.rig[data-stage="2"] .L-cnc{opacity:1}
+/* stage 3: built */
+.rig[data-stage="3"] .L-dims,.rig[data-stage="4"] .L-dims,.rig[data-stage="3"] .L-counter{opacity:0}
+.rig[data-stage="3"] .fill,.rig[data-stage="4"] .fill{opacity:1}
+.rig[data-stage="3"] .wire path,.rig[data-stage="4"] .wire path{stroke:rgba(18,22,26,.38);stroke-width:.18}
+.rig[data-stage="3"] .wire path.wp,.rig[data-stage="4"] .wire path.wp{stroke:transparent}
+.rig[data-stage="3"] .cab{animation:rgDrop .75s cubic-bezier(.2,.9,.3,1.15) both;animation-delay:calc(var(--i) * .13s)}
+@keyframes rgDrop{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
+/* stage 4: installed */
+.rig[data-stage="4"]{--rg-base:#3E4A57;--rg-box:#2C3540;--rg-side:#333D48;--rg-up:#CFA674;--rg-up-side:#B48C5D;--rg-top:#DDBA8B}
+.rig[data-stage="4"] .wall,.rig[data-stage="4"] .floor{opacity:1}
+.rig[data-stage="4"] .grid{opacity:0;transition:opacity .6s}
+.rig[data-stage="4"] .L-counter{animation:rgDrop .8s .35s cubic-bezier(.2,.9,.3,1.1) both}
+.rig[data-stage="4"] .rg-stage{background-color:#141A20}
+/* steps + title block */
+.rg-steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.rg-steps button{position:relative;border:0;border-right:1px solid var(--line);background:transparent;color:var(--ink-2);text-align:left;padding:12px 14px 13px;display:grid;gap:2px;cursor:pointer;transition:background .2s,color .2s}
+.rg-steps button:last-child{border-right:0}
+.rg-steps button:hover{background:rgba(169,189,242,.06);color:var(--ink)}
+.rg-steps .n{font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+.rg-steps .t{font-size:14.5px;font-weight:500}
+.rg-steps i{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--layout)}
+.rg-steps button[aria-pressed="true"]{color:var(--ink);background:rgba(169,189,242,.07)}
+.rg-steps button[aria-pressed="true"] .n{color:var(--layout)}
+.rg-steps button[aria-pressed="true"] i{animation:rgProg var(--dur) linear forwards}
+.rg-steps button.done i{width:100%;opacity:.3}
+@keyframes rgProg{from{width:0}to{width:100%}}
+.rig:hover .rg-steps i,.rig.off .rg-steps i{animation-play-state:paused}
+.rig.still .rg-steps i{display:none}
+.rig.still *{animation:none!important}
+.rg-tb{display:grid;grid-template-columns:1.5fr 1.1fr .7fr 1.2fr;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;text-transform:uppercase}
+.rg-tb div{padding:8px 10px;border-right:1px solid var(--line);min-width:0}
+.rg-tb div:last-child{border-right:0}
+.rg-tb small{display:block;color:var(--ink-2);font-size:9.5px;letter-spacing:.06em}
+.rg-tb strong{font-size:11px;font-weight:500;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
+@media (max-width:560px){.rg-tb{grid-template-columns:1fr 1fr}.rg-tb div:nth-child(2){border-right:0}.rg-tb div:nth-child(-n+2){border-bottom:1px solid var(--line)}.rg-steps .t{font-size:13px}.rg-steps button{padding:10px 9px 11px}}
