@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /residential-demo
 Sitemap: https://www.pittmanwoodworks.com/sitemap.xml

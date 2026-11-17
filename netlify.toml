@@ -57,3 +57,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
     Strict-Transport-Security = "max-age=31536000"
+
+# Residential store demo: keep out of search results
+[[headers]]
+  for = "/residential-demo*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

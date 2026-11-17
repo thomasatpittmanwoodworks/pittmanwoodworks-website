@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pittman Home · Residential Store Demo</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="only light">
+<link rel="icon" href="/images/uploads/pw-final_pw-icon-variation2-navy.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F4EFE6;--paper:#FFFCF6;--ink:#1D201E;--ink-2:#5B5F59;--rule:#E1D8C8;--rule-2:#CFC3AE;
+  --green:#2E4636;--green-2:#3D5C48;--clay:#B5643C;--navy:#24438F;--oak:#C49A6C;
+  --display:"Archivo","Helvetica Neue",Arial,sans-serif;--body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --wrap:1240px;color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);font-stretch:88%;font-weight:600;letter-spacing:-.01em;line-height:1.04;margin:0}
+h2{font-size:clamp(32px,4.2vw,52px)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:14px}
+.lede{font-size:clamp(17px,1.5vw,19px);color:var(--ink-2);max-width:36em;margin:16px 0 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:999px;border:1.5px solid var(--green);background:var(--green);color:#fff;font-weight:500;font-size:15.5px;text-decoration:none;transition:background .2s,transform .2s}
+.btn:hover{background:var(--green-2)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--green)}
+.btn.ghost:hover{background:rgba(46,70,54,.07)}
+.btn.sm{min-height:40px;padding:0 18px;font-size:14px}
+.btn.block{width:100%}
+section{padding:clamp(64px,9vw,112px) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(28px,4vw,44px)}
+
+/* demo strip + header */
+.demo{background:var(--ink);color:#EDE6D8;font-size:13.5px;text-align:center;padding:9px 16px}
+.demo b{color:#fff;font-weight:600}
+.demo a{color:#C9D6F5}
+.top{position:sticky;top:0;z-index:40;background:rgba(244,239,230,.92);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:28px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:38px;height:38px}
+.brand b{display:block;font-family:var(--display);font-stretch:80%;font-weight:700;font-size:21px;letter-spacing:.04em;line-height:1;text-transform:uppercase}
+.brand small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);margin-top:3px}
+.top nav{display:flex;gap:26px;margin-left:auto}
+.top nav a{text-decoration:none;font-size:15px;color:var(--ink-2)}
+.top nav a:hover{color:var(--ink)}
+.cart-btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);background:transparent;border-radius:999px;height:42px;padding:0 16px;font-size:14.5px;font-weight:500}
+.cart-btn .n{min-width:22px;height:22px;border-radius:11px;background:var(--clay);color:#fff;font-size:12px;display:inline-grid;place-items:center;padding:0 6px}
+.cart-btn.bump{animation:bump .4s}
+@keyframes bump{40%{transform:scale(1.08)}}
+@media (max-width:900px){.top nav{display:none}.cart-btn{margin-left:auto}}
+
+/* hero */
+.hero{padding:clamp(36px,5vw,64px) 0 clamp(48px,6vw,80px)}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,4vw,64px);align-items:center}
+@media (max-width:980px){.hero .wrap{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(44px,6.2vw,84px);font-stretch:82%;line-height:.96}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.perks{display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin-top:34px;padding-top:24px;border-top:1px solid var(--rule)}
+.perks div{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.35}
+.perks svg{flex:none;width:20px;height:20px;color:var(--green)}
+.studio{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:clamp(14px,2vw,22px);box-shadow:0 30px 60px -40px rgba(60,45,20,.45)}
+.studio-art{border-radius:10px;overflow:hidden;background:linear-gradient(#EEE7DA,#E8DFCF)}
+.studio-art svg{display:block;width:100%;height:auto}
+.studio-ctl{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;margin-top:16px}
+.studio-ctl .lab{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
+.studio-ctl .lab b{color:var(--ink);font-weight:500}
+
+/* swatches + segmented */
+.sw{display:flex;gap:8px;flex-wrap:wrap}
+.sw button{width:34px;height:34px;border-radius:50%;border:2px solid var(--paper);box-shadow:0 0 0 1.5px var(--rule-2);padding:0;transition:box-shadow .15s,transform .15s}
+.sw button:hover{transform:scale(1.07)}
+.sw button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--ink)}
+.seg{display:inline-flex;background:#EAE2D3;border-radius:999px;padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:transparent;border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* styles */
+.styles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media (max-width:860px){.styles{grid-template-columns:1fr}}
+.style-card{background:var(--paper);border:1px solid var(--rule);border-radius:16px;padding:22px;display:grid;gap:14px;text-align:left}
+.style-card .door{background:#EDE6D9;border-radius:10px;display:grid;place-items:center;padding:22px 0}
+.style-card .door svg{height:220px;width:auto}
+.style-card h3{font-size:24px}
+.style-card p{margin:0;color:var(--ink-2);font-size:15px}
+.style-card .meta{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.style-card .from{font-family:var(--mono);font-size:12px;color:var(--ink-2)}
+
+/* shop */
+.shop{background:var(--paper);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.filters{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--bg);border:1px solid var(--rule);border-radius:14px;padding:16px;text-align:left;display:grid;gap:10px;transition:border-color .15s,transform .2s,box-shadow .2s}
+.card:hover{border-color:var(--rule-2);transform:translateY(-2px);box-shadow:0 18px 30px -24px rgba(60,45,20,.5)}
+.card .pic{background:#EDE6D9;border-radius:10px;height:190px;display:grid;place-items:center;padding:14px}
+.card .pic svg{max-height:160px;width:auto}
+.card .code{font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.05em}
+.card h3{font-size:19px;font-stretch:92%}
+.card .row{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:14px;color:var(--ink-2)}
+.card .row b{color:var(--ink);font-size:16px}
+
+/* product panel */
+.sheet-bg{position:fixed;inset:0;background:rgba(29,32,30,.45);z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}
+.sheet-bg.on{opacity:1;pointer-events:auto}
+.panel{position:fixed;z-index:70;background:var(--paper);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.pdp{inset:0 0 0 auto;width:min(1080px,100%);transform:translateX(105%);display:grid;grid-template-columns:1.1fr 1fr;overflow:hidden}
+.pdp.on{transform:none}
+@media (max-width:860px){.pdp{grid-template-columns:1fr;overflow-y:auto}}
+.pdp-art{background:linear-gradient(#EEE7DA,#E6DCCB);display:grid;place-items:center;padding:28px;position:relative;min-height:340px}
+.pdp-art svg{width:100%;max-height:72vh}
+.pdp-art .stamp{position:absolute;left:20px;bottom:16px;font-family:var(--mono);font-size:11px;color:var(--ink-2);letter-spacing:.05em}
+.pdp-body{overflow-y:auto;padding:28px clamp(20px,3vw,40px) 120px;display:grid;gap:22px;align-content:start}
+@media (max-width:860px){.pdp-body{overflow:visible}}
+.pdp-body h2{font-size:clamp(28px,3vw,38px)}
+.x{position:absolute;top:14px;right:14px;width:42px;height:42px;border-radius:50%;border:1px solid var(--rule);background:var(--paper);font-size:20px;line-height:1;z-index:2}
+.opt{display:grid;gap:10px}
+.opt > span{font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2)}
+.opt > span b{color:var(--ink);font-weight:500;text-transform:none;letter-spacing:0;font-family:var(--body);font-size:14px;margin-left:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{min-width:52px;height:40px;border-radius:10px;border:1.5px solid var(--rule-2);background:transparent;font-size:14px;padding:0 12px}
+.chips button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.radio{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.radio button{border:1.5px solid var(--rule-2);background:transparent;border-radius:12px;padding:12px 14px;text-align:left;display:grid;gap:2px}
+.radio button b{font-weight:600;font-size:15px}
+.radio button span{font-size:13px;color:var(--ink-2)}
+.radio button[aria-pressed="true"]{border-color:var(--green);box-shadow:inset 0 0 0 1px var(--green);background:rgba(46,70,54,.05)}
+.buy{position:sticky;bottom:0;background:var(--paper);border-top:1px solid var(--rule);margin:0 calc(-1*clamp(20px,3vw,40px));padding:16px clamp(20px,3vw,40px);display:flex;gap:14px;align-items:center}
+.buy .price{font-family:var(--display);font-stretch:85%;font-weight:600;font-size:30px;line-height:1}
+.buy .price small{display:block;font-family:var(--mono);font-size:11px;font-weight:400;color:var(--ink-2);margin-top:4px;letter-spacing:.04em}
+.qty{display:flex;border:1.5px solid var(--rule-2);border-radius:999px;height:46px;align-items:center;margin-left:auto}
+.qty button{width:38px;height:100%;border:0;background:none;font-size:18px}
+.qty span{min-width:22px;text-align:center;font-weight:500}
+.specs{border-top:1px solid var(--rule);font-size:14.5px}
+.specs div{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.specs dt{color:var(--ink-2);margin:0}.specs dd{margin:0}
+
+/* cart */
+.cart{inset:0 0 0 auto;width:min(440px,100%);transform:translateX(105%);display:flex;flex-direction:column}
+.cart.on{transform:none}
+.cart-h{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--rule)}
+.cart-h h3{font-size:24px}
+.cart-l{flex:1;overflow-y:auto;padding:8px 22px}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);align-items:center}
+.ci .th{background:#EDE6D9;border-radius:8px;height:64px;display:grid;place-items:center;padding:6px}
+.ci .th svg{max-height:52px;width:auto}
+.ci b{font-size:14.5px;font-weight:600;display:block}
+.ci span{font-size:12.5px;color:var(--ink-2);display:block}
+.ci .rm{border:0;background:none;font-size:12.5px;color:var(--clay);padding:0;margin-top:4px;text-decoration:underline}
+.cart-f{border-top:1px solid var(--rule);padding:18px 22px 22px;display:grid;gap:10px;font-size:14.5px}
+.cart-f .ln{display:flex;justify-content:space-between}
+.cart-f .tot{font-size:18px;font-weight:600}
+.ship-bar{height:6px;border-radius:3px;background:#E7DECD;overflow:hidden}
+.ship-bar i{display:block;height:100%;background:var(--green);transition:width .4s}
+.empty{padding:40px 0;color:var(--ink-2);text-align:center}
+
+/* planner */
+.planner{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.planner{grid-template-columns:1fr}}
+.card-lg{background:var(--paper);border:1px solid var(--rule);border-radius:18px;padding:clamp(20px,3vw,32px);display:grid;gap:22px}
+.layouts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.layouts button{border:1.5px solid var(--rule-2);background:transparent;border-radius:12px;padding:12px 6px 10px;display:grid;gap:6px;justify-items:center;font-size:13px}
+.layouts button svg{width:44px;height:44px}
+.layouts button[aria-pressed="true"]{border-color:var(--green);background:rgba(46,70,54,.06);box-shadow:inset 0 0 0 1px var(--green)}
+.range{display:grid;gap:8px}
+.range label{display:flex;justify-content:space-between;font-size:14.5px}
+.range label b{font-family:var(--mono);font-weight:500}
+input[type=range]{width:100%;accent-color:var(--green)}
+.est{background:var(--green);color:#F3EEE3;border-radius:18px;padding:clamp(22px,3vw,34px);display:grid;gap:16px}
+.est .big{font-family:var(--display);font-stretch:82%;font-weight:600;font-size:clamp(44px,5.5vw,68px);line-height:1;color:#fff}
+.est .brk{display:grid;gap:8px;font-size:14.5px;border-top:1px solid rgba(255,255,255,.18);padding-top:14px}
+.est .brk div{display:flex;justify-content:space-between}
+.est small{color:#C5CFC4;font-size:13px}
+.est .btn{background:#F3EEE3;color:var(--green);border-color:#F3EEE3}
+
+/* how / assembly */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.steps div{border-top:2px solid var(--ink);padding-top:18px;display:grid;gap:8px}
+.steps div::before{counter-increment:s;content:"0" counter(s);font-family:var(--mono);font-size:12px;color:var(--clay)}
+.steps h3{font-size:22px}
+.steps p{margin:0;color:var(--ink-2);font-size:15px}
+.quality{background:var(--ink);color:#EDE6D8}
+.quality .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+@media (max-width:900px){.quality .wrap{grid-template-columns:1fr}}
+.quality h2{color:#fff}
+.quality .lede{color:#BDB6A8}
+.q-list{display:grid;gap:0;margin-top:28px;border-top:1px solid rgba(255,255,255,.14)}
+.q-list div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:15px}
+.q-list b{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:#C9B48F;font-weight:500;padding-top:2px}
+.explode svg{width:100%;height:auto;display:block}
+
+/* samples / design */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+.samples{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 4px}
+.samples .s{width:56px;height:72px;border-radius:6px;border:1px solid rgba(0,0,0,.12);box-shadow:inset 0 0 0 5px rgba(255,255,255,.18)}
+form.design{display:grid;gap:12px}
+form.design .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){form.design .two{grid-template-columns:1fr}}
+form.design label{display:grid;gap:6px;font-size:13.5px;color:var(--ink-2)}
+form.design input,form.design select,form.design textarea{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--rule);border-radius:10px;padding:11px 12px;width:100%}
+form.design input:focus,form.design select:focus,form.design textarea:focus{outline:none;border-color:var(--green)}
+.note-ok{background:rgba(46,70,54,.08);border-radius:10px;padding:12px 14px;font-size:14px}
+
+/* faq + footer */
+.faq{max-width:860px}
+.faq details{border-bottom:1px solid var(--rule-2)}
+.faq summary{list-style:none;cursor:pointer;padding:20px 0;font-family:var(--display);font-stretch:92%;font-weight:600;font-size:20px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--body);font-weight:400;font-size:24px;line-height:1;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 20px;color:var(--ink-2);max-width:44em}
+footer{background:var(--ink);color:#BDB6A8;padding:48px 0 calc(32px + env(safe-area-inset-bottom));font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer b{color:#fff;font-family:var(--display);font-stretch:85%;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+footer a{color:#C9D6F5}
+.modal{inset:50% auto auto 50%;transform:translate(-50%,-46%) scale(.97);opacity:0;pointer-events:none;width:min(520px,calc(100% - 32px));border-radius:18px;padding:28px;display:grid;gap:14px;transition:opacity .2s,transform .25s}
+.modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}
+.modal h3{font-size:26px}
+.modal p{margin:0;color:var(--ink-2)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,calc(100% + 48px));visibility:hidden;background:var(--ink);color:#fff;border-radius:999px;padding:12px 20px;font-size:14.5px;z-index:80;transition:transform .3s;white-space:nowrap}
+.toast.on{transform:translate(-50%,0);visibility:visible}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="demo"><b>Demo preview.</b> A concept for a Pittman Woodworks residential store. Products, prices and policies are placeholders, and no orders are taken. <a href="/">Back to pittmanwoodworks.com</a></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="/images/uploads/pw-final_pw-icon-variation2-navy.png" alt=""><span><b>Pittman Home</b><small>by Pittman Woodworks</small></span></a>
+    <nav aria-label="Store"><a href="#styles">Door styles</a><a href="#shop">Shop cabinets</a><a href="#planner">Kitchen estimate</a><a href="#design">Free design</a><a href="#faq">Help</a></nav>
+    <button class="cart-btn" id="cartBtn" type="button" aria-label="Open cart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.2 11h11l2-8H6.3"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>Cart <span class="n" id="cartN">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Made in our Texas cabinet shop</span>
+      <h1>Shop-built cabinets. <em>Shipped flat.</em> Ready in an afternoon.</h1>
+      <p class="lede">Cut on the same CNC machines that build casework for hospitals and schools, then shipped to your door ready to assemble. Or let us assemble them for you.</p>
+      <div class="ctas"><a class="btn" href="#shop">Shop cabinets</a><a class="btn ghost" href="#design">Get a free kitchen design</a></div>
+      <div class="perks">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/></svg>Ships in 5–7 business days across Texas</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>Assembles in about 20 minutes per cabinet</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V8l8-4 8 4v12M9 20v-6h6v6"/></svg>Free pickup at our North Richland Hills shop</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9 12l2 2 4-4"/></svg>Free design help from a real cabinetmaker</div>
+      </div>
+    </div>
+    <div class="studio">
+      <div class="studio-art" id="heroArt"></div>
+      <div class="studio-ctl">
+        <div class="seg" id="heroStyle" role="group" aria-label="Door style"></div>
+        <div class="sw" id="heroFinish" role="group" aria-label="Finish"></div>
+      </div>
+      <div class="studio-ctl" style="margin-top:10px"><span class="lab">Shown: <b id="heroLabel"></b></span><span class="lab">13½′ wall · <b id="heroPrice"></b></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<section id="styles" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Door styles</span><h2>Three styles. Five finishes.</h2></div><p class="lede" style="margin:0;max-width:30em">Every style comes in every finish, so you can match a modern kitchen, a farmhouse bath or anything between.</p></div>
+    <div class="styles" id="styleCards"></div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Shop cabinets</span><h2>Build your kitchen, one box at a time.</h2></div></div>
+    <div class="filters">
+      <div class="seg" id="catSeg" role="group" aria-label="Category"></div>
+      <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap"><span class="eyebrow" style="margin:0;color:var(--ink-2)">Preview in</span><div class="seg" id="shopStyle" role="group" aria-label="Door style"></div><div class="sw" id="shopFinish" role="group" aria-label="Finish"></div></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section id="planner">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Kitchen estimate</span><h2>What would my kitchen cost?</h2></div><p class="lede" style="margin:0;max-width:28em">Pick a layout and adjust the lengths. Your estimate updates as you go.</p></div>
+    <div class="planner">
+      <div class="card-lg">
+        <div class="opt"><span>Layout</span><div class="layouts" id="layouts"></div></div>
+        <div class="range"><label for="rBase">Base cabinets <b id="vBase"></b></label><input type="range" id="rBase" min="4" max="40" step="1"></div>
+        <div class="range"><label for="rWall">Wall cabinets <b id="vWall"></b></label><input type="range" id="rWall" min="0" max="34" step="1"></div>
+        <div class="range"><label for="rTall">Tall pantry cabinets <b id="vTall"></b></label><input type="range" id="rTall" min="0" max="3" step="1"></div>
+        <div class="range"><label for="rIsl">Island <b id="vIsl"></b></label><input type="range" id="rIsl" min="0" max="10" step="1"></div>
+        <div class="opt"><span>Door style</span><div class="seg" id="planStyle" role="group" aria-label="Door style"></div></div>
+        <div class="opt"><span>Finish <b id="planFinishName"></b></span><div class="sw" id="planFinish" role="group" aria-label="Finish"></div></div>
+      </div>
+      <div class="est" aria-live="polite">
+        <span class="eyebrow" style="color:#C9B48F;margin:0">Estimated cabinet cost</span>
+        <div class="big" id="estBig"></div>
+        <small id="estSmall"></small>
+        <div class="brk" id="estBrk"></div>
+        <small>Cabinets only, flat-packed. Countertops, appliances and installation are not included. A free design gives you an exact price.</small>
+        <a class="btn" href="#design">Get my exact price</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">How it works</span><h2>From measurements to a finished kitchen.</h2></div></div>
+    <div class="steps">
+      <div><h3>Measure</h3><p>Use our measuring guide, or send photos and rough sizes. A designer checks everything with you.</p></div>
+      <div><h3>Design</h3><p>We send a free layout and an exact cabinet list, usually within two business days.</p></div>
+      <div><h3>Ship or pick up</h3><p>Cabinets are cut to order and ship flat in 5–7 business days, or you can pick them up at our shop.</p></div>
+      <div><h3>Assemble</h3><p>Pre-drilled panels, cam locks and dowels. Hinges and drawer slides are already mounted.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUALITY -->
+<section class="quality">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow" style="color:#C9B48F">Commercial-grade construction</span>
+      <h2>Built like the cabinets in a hospital, priced for your house.</h2>
+      <p class="lede">For years we've built cabinets that have to survive schools, clinics and restaurants. Your kitchen gets the same box, the same machines and the same people.</p>
+      <div class="q-list">
+        <div><b>Cabinet box</b><span>3/4″ panels with full backs, machined on our CNC for a square, tight fit</span></div>
+        <div><b>Assembly</b><span>Cam locks and hardwood dowels, with no glue or special tools needed</span></div>
+        <div><b>Hardware</b><span>Soft-close hinges and full-extension, soft-close drawer slides, pre-mounted</span></div>
+        <div><b>Edges</b><span>Edgebanding applied by machine on every exposed edge</span></div>
+        <div><b>Shelves</b><span>Adjustable on a 32 mm hole pattern</span></div>
+        <div><b>Warranty</b><span>Lifetime warranty on cabinet boxes for the original owner</span></div>
+      </div>
+    </div>
+    <div class="explode" id="explode"></div>
+  </div>
+</section>
+
+<!-- SAMPLES + DESIGN -->
+<section id="design">
+  <div class="wrap duo">
+    <div class="card-lg" style="align-content:start">
+      <span class="eyebrow" style="margin:0">Door samples</span>
+      <h2 style="font-size:clamp(28px,3vw,38px)">See the color in your light before you buy.</h2>
+      <p style="margin:0;color:var(--ink-2)">Full-size door samples in any style and finish. $15 each, credited back when you order your kitchen.</p>
+      <div class="samples" id="samples"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" type="button" id="addSample">Add a sample · $15</button><span class="seg" id="sampleStyle" role="group" aria-label="Sample door style"></span></div>
+    </div>
+    <div class="card-lg">
+      <span class="eyebrow" style="margin:0">Free kitchen design</span>
+      <h2 style="font-size:clamp(28px,3vw,38px)">Send your measurements. We'll draw the kitchen.</h2>
+      <form class="design" id="designForm" novalidate>
+        <div class="two"><label>Name<input name="name" autocomplete="name" required></label><label>Email<input name="email" type="email" autocomplete="email" required></label></div>
+        <div class="two"><label>ZIP code<input name="zip" inputmode="numeric" maxlength="5" autocomplete="postal-code"></label><label>Room<select name="room"><option>Kitchen</option><option>Bathroom vanity</option><option>Laundry room</option><option>Garage or workshop</option><option>Other</option></select></label></div>
+        <label>Sizes, photos or what you have in mind<textarea name="note" rows="3" placeholder="e.g. 10×12 L-shaped kitchen, keeping the existing range spot"></textarea></label>
+        <button class="btn" type="submit">Request my free design</button>
+        <div class="note-ok" id="designOk" hidden></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="eyebrow">Help</span><h2>Questions, answered.</h2></div></div>
+    <div class="faq">
+      <details open><summary>How are cabinets delivered?</summary><p>Cabinets ship flat-packed by freight with curbside delivery anywhere in Texas. Delivery is free on orders over $3,500 in Dallas–Fort Worth, and you can always pick up free at our North Richland Hills shop.</p></details>
+      <details><summary>How hard is assembly?</summary><p>If you can use a screwdriver, you can assemble our cabinets. Panels are pre-drilled with cam locks and dowels, and hinges and slides are already mounted. Most cabinets take about 20 minutes. Prefer not to? Choose "Assembled" on any cabinet.</p></details>
+      <details><summary>Do you install?</summary><p>We focus on great cabinets and design help. We can recommend independent installers in Dallas–Fort Worth.</p></details>
+      <details><summary>What if something arrives damaged?</summary><p>Inspect your boxes at delivery and send us photos within 7 days. We'll recut and ship damaged parts at no charge.</p></details>
+      <details><summary>Can I return cabinets?</summary><p>Unopened, unassembled cabinets can be returned within 30 days, less a restocking fee. Because every order is cut to order, assembled or modified cabinets can't be returned.</p></details>
+      <details><summary>Do you build custom sizes?</summary><p>Our store sizes cover most kitchens, and fillers close the gaps. For custom widths or depths, request a free design and we'll quote it.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><b>Pittman Home</b><br>Cabinets from the Pittman Woodworks shop · North Richland Hills, Texas</div>
+    <div>Demo preview only · <a href="/">pittmanwoodworks.com</a></div>
+  </div>
+</footer>
+
+<!-- product panel -->
+<div class="sheet-bg" id="bg"></div>
+<aside class="panel pdp" id="pdp" aria-hidden="true" aria-label="Cabinet details">
+  <button class="x" type="button" data-close aria-label="Close">×</button>
+  <div class="pdp-art"><div id="pdpArt" style="width:100%;display:grid;place-items:center"></div><span class="stamp" id="pdpStamp"></span></div>
+  <div class="pdp-body">
+    <div><span class="eyebrow" id="pdpCode" style="margin-bottom:8px"></span><h2 id="pdpName"></h2><p style="margin:10px 0 0;color:var(--ink-2)" id="pdpDesc"></p></div>
+    <div class="opt"><span>Width <b id="pdpWv"></b></span><div class="chips" id="pdpW"></div></div>
+    <div class="opt" id="pdpHwrap"><span>Height <b id="pdpHv"></b></span><div class="chips" id="pdpH"></div></div>
+    <div class="opt"><span>Door style <b id="pdpSv"></b></span><div class="seg" id="pdpS"></div></div>
+    <div class="opt"><span>Finish <b id="pdpFv"></b></span><div class="sw" id="pdpF"></div></div>
+    <div class="opt" id="pdpHingeWrap"><span>Hinge side</span><div class="seg" id="pdpHinge"></div></div>
+    <div class="opt"><span>Arrives</span><div class="radio" id="pdpA"></div></div>
+    <dl class="specs" id="pdpSpecs"></dl>
+    <div class="buy"><div class="price" id="pdpPrice"></div><div class="qty"><button type="button" id="qm" aria-label="Fewer">−</button><span id="qv">1</span><button type="button" id="qp" aria-label="More">+</button></div><button class="btn" type="button" id="pdpAdd">Add to cart</button></div>
+  </div>
+</aside>
+
+<!-- cart -->
+<aside class="panel cart" id="cart" aria-hidden="true" aria-label="Cart">
+  <div class="cart-h"><h3>Your cart</h3><button class="x" style="position:static" type="button" data-close aria-label="Close cart">×</button></div>
+  <div class="cart-l" id="cartL"></div>
+  <div class="cart-f" id="cartF"></div>
+</aside>
+
+<div class="panel modal" id="checkout" role="dialog" aria-modal="true" aria-labelledby="coH">
+  <h3 id="coH">This is where checkout would go.</h3>
+  <p>In the live store, this button would open a secure checkout (for example Shopify or Stripe) to take payment, calculate sales tax and schedule freight delivery or shop pickup.</p>
+  <p id="coSum" style="color:var(--ink)"></p>
+  <button class="btn" type="button" data-close>Back to the demo</button>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+/* ================= data (demo placeholders) ================= */
+var FIN=[{id:'white',name:'Chalk White',c:'#F1EEE6',e:'#D8D2C4'},{id:'sage',name:'Sage',c:'#A7B29B',e:'#8D9881'},{id:'navy',name:'Harbor Navy',c:'#2C3B57',e:'#1E2A40'},{id:'char',name:'Charcoal',c:'#3E4042',e:'#2C2E30'},{id:'oak',name:'Natural Oak',c:'#CDA676',e:'#B68D5C',wood:1}];
+var STY=[{id:'shaker',name:'Shaker',rail:2.4,d:'The classic five-piece look with a recessed center panel. Works in almost any kitchen.'},{id:'slim',name:'Slim Shaker',rail:1,d:'A thin frame for a cleaner, modern take on Shaker.'},{id:'slab',name:'Slab',rail:0,d:'Flat, minimal fronts for modern and European-style kitchens.'}];
+var FINMULT={white:1,sage:1.04,navy:1.04,char:1.04,oak:1.18},STYMULT={shaker:1,slim:1.03,slab:.94};
+var W9=[9,12,15,18,21,24,27,30,33,36];
+var CAT=[
+ {id:'B',cat:'base',name:'Base cabinet',desc:'One drawer over one or two doors, with an adjustable shelf.',ws:W9,hs:[34.5],p:function(w){return 145+7.6*w},asm:45},
+ {id:'DB3',cat:'base',name:'3-drawer base',desc:'Three full-extension, soft-close drawers for pots, pans and utensils.',ws:[12,15,18,21,24,30,36],hs:[34.5],p:function(w){return 215+9.4*w},asm:55},
+ {id:'SB',cat:'base',name:'Sink base',desc:'Open interior with a false drawer front, ready for plumbing.',ws:[30,33,36],hs:[34.5],p:function(w){return 150+6.2*w},asm:45},
+ {id:'LS',cat:'base',name:'Lazy Susan corner',desc:'Corner base with a two-tier rotating shelf, so nothing gets lost in the corner.',ws:[36],hs:[34.5],p:function(){return 545},asm:65},
+ {id:'W',cat:'wall',name:'Wall cabinet',desc:'One or two doors with adjustable shelves.',ws:W9,hs:[30,36,42],p:function(w,h){return 92+5.3*w+(h-30)*4.5},asm:35},
+ {id:'WMW',cat:'wall',name:'Microwave wall cabinet',desc:'Open bottom shelf sized for a countertop microwave, with doors above.',ws:[24,30],hs:[36,42],p:function(w,h){return 190+5*w+(h-36)*4},asm:40},
+ {id:'P',cat:'tall',name:'Pantry cabinet',desc:'Floor-to-ceiling storage with adjustable shelves behind two door pairs.',ws:[18,24,30],hs:[84,90,96],p:function(w,h){return 420+12.5*w+(h-84)*6},asm:75},
+ {id:'OV',cat:'tall',name:'Oven cabinet',desc:'Opening for a single wall oven, with a drawer below and doors above.',ws:[30,33],hs:[84,90,96],p:function(w,h){return 560+9*w+(h-84)*6},asm:75},
+ {id:'VB',cat:'vanity',name:'Bathroom vanity',desc:'A 21″-deep sink base for bathrooms, with doors and a false front.',ws:[24,30,36,48],hs:[34.5],p:function(w){return 170+6.8*w},asm:45},
+ {id:'VDB',cat:'vanity',name:'Vanity drawer base',desc:'Three drawers for a double vanity or makeup station.',ws:[12,15,18],hs:[34.5],p:function(w){return 205+9*w},asm:50},
+ {id:'F',cat:'acc',name:'Filler strip',desc:'Closes small gaps against walls and appliances. Cut to fit.',ws:[3,6],hs:[30,42],p:function(w,h){return 28+w*2+(h-30)*.6},asm:0,acc:1},
+ {id:'EP',cat:'acc',name:'Finished end panel',desc:'Covers exposed cabinet sides at the end of a run or on an island.',ws:[24],hs:[34.5,96],p:function(w,h){return h>40?185:95},asm:0,acc:1}
+];
+var CATS=[{id:'all',n:'All'},{id:'base',n:'Base'},{id:'wall',n:'Wall'},{id:'tall',n:'Tall'},{id:'vanity',n:'Vanity'},{id:'acc',n:'Panels & fillers'}];
+function fin(id){return FIN.filter(function(f){return f.id===id})[0]}
+function sty(id){return STY.filter(function(s){return s.id===id})[0]}
+function item(id){return CAT.filter(function(c){return c.id===id})[0]}
+function price(it,w,h,s,f,asm){var p=it.p(w,h)*(it.acc?1:STYMULT[s])*FINMULT[f];if(asm&&it.asm)p+=it.asm;return Math.round(p)}
+function money(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML}
+var store={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ================= drawing (1 unit = 1 inch) ================= */
+var uid=0;
+function woodDefs(id,F){return '<defs><pattern id="'+id+'" width="40" height="7" patternUnits="userSpaceOnUse"><rect width="40" height="7" fill="'+F.c+'"/><path d="M0 1.6 Q10 .8 20 1.8 T40 1.4 M0 4.4 Q12 5.2 22 4.2 T40 4.8" stroke="'+F.e+'" stroke-width=".35" fill="none" opacity=".55"/></pattern></defs>'}
+function front(x,y,w,h,S,F,fill,pull,opt){
+  // one door or drawer front
+  var s='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fill+'" stroke="'+F.e+'" stroke-width=".3" rx=".25"/>';
+  var r=Math.min(S.rail,w/4,h/4);
+  if(r>0){s+='<rect x="'+(x+r)+'" y="'+(y+r)+'" width="'+(w-2*r)+'" height="'+(h-2*r)+'" fill="none" stroke="'+F.e+'" stroke-width=".35"/>'+
+    '<path d="M'+(x+r+.35)+' '+(y+h-r-.3)+'H'+(x+w-r-.3)+'V'+(y+r+.35)+'" stroke="rgba(255,255,255,.28)" stroke-width=".35" fill="none"/>';}
+  var pc='#1E1F1F';
+  if(pull==='h'){var pw=Math.min(w*.4,10);s+='<rect x="'+(x+w/2-pw/2)+'" y="'+(y+Math.min(h/2,2.6)-.35)+'" width="'+pw+'" height=".7" rx=".35" fill="'+pc+'"/>'}
+  else if(pull==='l'||pull==='r'){var ph=Math.min(h*.3,7),px=pull==='l'?x+1.6:x+w-2.3,py=opt&&opt.top?y+h-ph-2:y+2;s+='<rect x="'+px+'" y="'+py+'" width=".7" height="'+ph+'" rx=".35" fill="'+pc+'"/>'}
+  if(opt&&opt.swing){var hx=opt.swing==='l'?x:x+w,ox=opt.swing==='l'?x+w:x;s+='<path d="M'+ox+' '+y+' L'+hx+' '+(y+h/2)+' L'+ox+' '+(y+h)+'" fill="none" stroke="#7a6f5e" stroke-width=".25" stroke-dasharray="1 .8"/>'}
+  return s}
+function doors(x,y,w,h,S,F,fill,n,hinge,swing,upper){
+  if(n===1){var pl=hinge==='l'?'r':'l';return front(x,y,w,h,S,F,fill,pl,{top:upper,swing:swing?hinge:0})}
+  var g=.125,dw=(w-g)/2;return front(x,y,dw,h,S,F,fill,'r',{top:upper,swing:swing?'l':0})+front(x+dw+g,y,dw,h,S,F,fill,'l',{top:upper,swing:swing?'r':0})}
+function cab(id,x,y,w,h,s,f,o){
+  // returns svg for one cabinet with top-left at x,y (y = top of cabinet incl. toe for base)
+  o=o||{};var S=sty(s),F=fin(f),fill=o.fill||F.c,g=.125,out='',sw=o.swing,hinge=o.hinge||'l';
+  var base=['B','DB3','SB','LS','VB','VDB'].indexOf(id)>-1,toe=base?4:0,bh=h-toe;
+  if(id==='EP'||id==='F'){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" fill="'+fill+'" stroke="'+F.e+'" stroke-width=".3"/>'}
+  out+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+bh+'" fill="'+F.e+'"/>';
+  if(base)out+='<rect x="'+(x+.6)+'" y="'+(y+bh)+'" width="'+(w-1.2)+'" height="'+toe+'" fill="#2b2a28"/>';
+  var X=x+g,Y=y+g,Wd=w-2*g,n=w>=24?2:1;
+  if(id==='B'){var dh=6;out+=front(X,Y,Wd,dh,S,F,fill,'h')+doors(X,Y+dh+g,Wd,bh-dh-3*g,S,F,fill,n,hinge,sw)}
+  else if(id==='DB3'||id==='VDB'){var a=6,rest=(bh-a-4*g)/2;out+=front(X,Y,Wd,a,S,F,fill,'h')+front(X,Y+a+g,Wd,rest,S,F,fill,'h')+front(X,Y+a+rest+2*g,Wd,rest,S,F,fill,'h')}
+  else if(id==='SB'||id==='VB'){var d2=6;out+=front(X,Y,Wd,d2,S,F,fill,null)+doors(X,Y+d2+g,Wd,bh-d2-3*g,S,F,fill,w>=24?2:1,hinge,sw)}
+  else if(id==='LS'){var hw=(Wd-g)/2;out+=front(X,Y,Wd,6,S,F,fill,'h')+front(X,Y+6+g,hw,bh-6-3*g,S,F,fill,'r')+front(X+hw+g,Y+6+g,hw,bh-6-3*g,S,F,fill,null)}
+  else if(id==='W'){out+=doors(X,Y,Wd,h-2*g,S,F,fill,n,hinge,sw,true)}
+  else if(id==='WMW'){var mo=18;out+=doors(X,Y,Wd,h-mo-2*g,S,F,fill,n,hinge,sw,true)+'<rect x="'+X+'" y="'+(y+h-mo)+'" width="'+Wd+'" height="'+(mo-g)+'" fill="#3a3632"/><rect x="'+(X+1)+'" y="'+(y+h-mo+1.5)+'" width="'+(Wd-2)+'" height="'+(mo-3)+'" rx="1" fill="#55504a"/>'}
+  else if(id==='P'){var up=Math.round(h*.42);out+=doors(X,Y,Wd,up,S,F,fill,n,hinge,sw,true)+doors(X,Y+up+g,Wd,h-up-3*g,S,F,fill,n,hinge,sw)}
+  else if(id==='OV'){var top=h-34.5-30,ovY=Y+top+g;out+=doors(X,Y,Wd,top,S,F,fill,n,hinge,sw,true)+'<rect x="'+X+'" y="'+ovY+'" width="'+Wd+'" height="30" fill="#2a2a2a"/><rect x="'+(X+2)+'" y="'+(ovY+6)+'" width="'+(Wd-4)+'" height="20" rx="1" fill="#444"/><rect x="'+(X+3)+'" y="'+(ovY+2.2)+'" width="'+(Wd-6)+'" height="1" rx=".5" fill="#9a9a9a"/>'+front(X,ovY+30+g,Wd,h-top-30-3*g-0,S,F,fill,'h')}
+  return out}
+function dimH(x1,x2,y,label){return '<g class="dim"><path d="M'+x1+' '+(y-2)+'V'+(y+2)+'M'+x2+' '+(y-2)+'V'+(y+2)+'M'+x1+' '+y+'H'+x2+'" stroke="#8a7f6c" stroke-width=".25"/><path d="M'+(x1+1.4)+' '+(y-.8)+'L'+x1+' '+y+'L'+(x1+1.4)+' '+(y+.8)+'M'+(x2-1.4)+' '+(y-.8)+'L'+x2+' '+y+'L'+(x2-1.4)+' '+(y+.8)+'" stroke="#8a7f6c" stroke-width=".25" fill="none"/><rect x="'+((x1+x2)/2-label.length*.95)+'" y="'+(y-1.6)+'" width="'+(label.length*1.9)+'" height="3.2" fill="#EAE2D4"/><text x="'+(x1+x2)/2+'" y="'+(y+1.05)+'" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="2.8" fill="#4d473e">'+label+'</text></g>'}
+function dimV(y1,y2,x,label){return '<g class="dim"><path d="M'+(x-2)+' '+y1+'H'+(x+2)+'M'+(x-2)+' '+y2+'H'+(x+2)+'M'+x+' '+y1+'V'+y2+'" stroke="#8a7f6c" stroke-width=".25"/><g transform="translate('+x+' '+(y1+y2)/2+') rotate(-90)"><rect x="'+(-label.length*.95)+'" y="-1.6" width="'+(label.length*1.9)+'" height="3.2" fill="#EAE2D4"/><text y="1.05" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="2.8" fill="#4d473e">'+label+'</text></g></g>'}
+function ih(n){return (n%1?n:n)+'″'}
+function product(id,w,h,s,f,o){
+  o=o||{};var F=fin(f),pid='wd'+(++uid),fill=F.wood?'url(#'+pid+')':F.c,pad=o.dims?9:2,vw=w+pad*2,vh=h+pad*2;
+  var svg='<svg viewBox="'+(-pad)+' '+(-pad)+' '+vw+' '+vh+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+esc((item(id)||{}).name||'')+'">'+(F.wood?woodDefs(pid,F):'')+cab(id,0,0,w,h,s,f,{fill:fill,swing:o.swing,hinge:o.hinge});
+  if(o.dims)svg+=dimH(0,w,h+5,ih(w)+' W')+dimV(0,h,-5,ih(h)+' H');
+  return svg+'</svg>'}
+
+/* ================= hero kitchen ================= */
+var hero={s:'shaker',f:'sage'};
+function kitchen(s,f){
+  var F=fin(f),pid='hk'+(++uid),fill=F.wood?'url(#'+pid+')':F.c,o={fill:fill};
+  var W=162,H=100,cty=58.5,svg='<svg viewBox="-6 -6 '+(W+12)+' '+(H+10)+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kitchen elevation in '+esc(sty(s).name+' '+F.name)+'">'+(F.wood?woodDefs(pid,F):'');
+  svg+='<rect x="-6" y="-6" width="'+(W+12)+'" height="'+(H+10)+'" fill="#EDE6D9"/><rect x="-6" y="'+(H-1)+'" width="'+(W+12)+'" height="7" fill="#D9CDB8"/>';
+  svg+='<rect x="24" y="'+(cty-18)+'" width="'+(W-24)+'" height="18" fill="#F7F3EB"/>';
+  for(var i=24;i<W;i+=6)svg+='<path d="M'+i+' '+(cty-18)+'V'+cty+'" stroke="#E4DCCC" stroke-width=".25"/>';
+  for(var j=cty-18;j<cty;j+=3)svg+='<path d="M24 '+j+'H'+W+'" stroke="#E4DCCC" stroke-width=".25"/>';
+  svg+='<g>'+cab('P',0,H-96,24,96,s,f,o)+'</g>';
+  var x=24,base=[['DB3',18],['SB',36],['DW',24],['RG',30],['B',30]];
+  base.forEach(function(b){var y=H-34.5;
+    if(b[0]==='DW')svg+='<rect x="'+x+'" y="'+y+'" width="'+b[1]+'" height="30.5" fill="#C9CCCD" stroke="#9ea2a4" stroke-width=".3"/><rect x="'+(x+3)+'" y="'+(y+2)+'" width="'+(b[1]-6)+'" height=".8" rx=".4" fill="#8d9194"/><rect x="'+x+'" y="'+(y+30.5)+'" width="'+b[1]+'" height="4" fill="#2b2a28"/>';
+    else if(b[0]==='RG')svg+='<rect x="'+x+'" y="'+(y-1)+'" width="'+b[1]+'" height="35.5" fill="#BFC3C5" stroke="#9ea2a4" stroke-width=".3"/><rect x="'+(x+2.5)+'" y="'+(y+6)+'" width="'+(b[1]-5)+'" height="17" rx="1" fill="#3a3c3e"/><rect x="'+(x+4)+'" y="'+(y+3)+'" width="'+(b[1]-8)+'" height=".8" rx=".4" fill="#8d9194"/>'+[0,1,2,3].map(function(k){return '<circle cx="'+(x+5+k*6.7)+'" cy="'+(y+1.4)+'" r=".9" fill="#55585a"/>'}).join('')+'<rect x="'+(x+2.5)+'" y="'+(y+25.5)+'" width="'+(b[1]-5)+'" height="6" fill="#a9adaf"/>';
+    else svg+=cab(b[0],x,y,b[1],34.5,s,f,o);
+    x+=b[1]});
+  [[23.6,78.4],[132,30.4]].forEach(function(c){svg+='<rect x="'+c[0]+'" y="'+(H-35.9)+'" width="'+c[1]+'" height="1.5" fill="#E9E5DD" stroke="#cfc8bb" stroke-width=".2"/>'});
+  svg+='<path d="M'+(24+18+11)+' '+(H-36)+'v-5.5h3.2v1.2" stroke="#8a8f92" stroke-width=".9" fill="none" stroke-linecap="round"/>';
+  var wx=24,wall=[[18,'W'],[36,'W'],[24,'W'],[30,'HOOD'],[30,'W']],wy=cty-18-30;
+  wall.forEach(function(b){if(b[1]==='HOOD')svg+='<path d="M'+(wx+3)+' '+(cty-26)+'h'+(b[0]-6)+'l2 8h-'+(b[0]-2)+'z" fill="#B7BBBD" stroke="#9ea2a4" stroke-width=".3"/><rect x="'+(wx+11)+'" y="'+(wy-12)+'" width="8" height="'+(cty-26-wy+12)+'" fill="#C3C7C9"/>';else svg+=cab('W',wx,wy,b[0],30,s,f,o);wx+=b[0]});
+  svg+='<rect x="24" y="'+(wy-3)+'" width="'+(W-24)+'" height="3" fill="'+(F.wood?F.e:F.c)+'" stroke="'+F.e+'" stroke-width=".25"/>';
+  return svg+'</svg>'}
+var KIT=[['P',24,90],['DB3',18,34.5],['SB',36,34.5],['B',30,34.5],['W',18,30],['W',36,30],['W',24,30],['W',30,30]];
+function kitPrice(s,f){return KIT.reduce(function(t,k){return t+price(item(k[0]),k[1],k[2],s,f,false)},0)}
+function renderHero(){document.getElementById('heroArt').innerHTML=kitchen(hero.s,hero.f);document.getElementById('heroLabel').textContent=sty(hero.s).name+' in '+fin(hero.f).name;document.getElementById('heroPrice').textContent='about '+money(kitPrice(hero.s,hero.f))}
+
+/* ================= reusable controls ================= */
+function seg(el,opts,val,cb){el.innerHTML=opts.map(function(o){return '<button type="button" data-v="'+o.id+'" aria-pressed="'+(o.id===val)+'">'+esc(o.name||o.n)+'</button>'}).join('');
+  el.onclick=function(e){var b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});cb(b.getAttribute('data-v'))}}
+function swatches(el,val,cb){el.innerHTML=FIN.map(function(f){return '<button type="button" data-v="'+f.id+'" title="'+esc(f.name)+'" aria-label="'+esc(f.name)+'" aria-pressed="'+(f.id===val)+'" style="background:'+(f.wood?'linear-gradient(115deg,'+f.c+' 0 30%,'+f.e+' 30% 34%,'+f.c+' 34% 62%,'+f.e+' 62% 65%,'+f.c+' 65%)':f.c)+'"></button>'}).join('');
+  el.onclick=function(e){var b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});cb(b.getAttribute('data-v'))}}
+seg(document.getElementById('heroStyle'),STY,hero.s,function(v){hero.s=v;renderHero()});
+swatches(document.getElementById('heroFinish'),hero.f,function(v){hero.f=v;renderHero()});
+renderHero();
+
+/* ================= style cards ================= */
+function doorSvg(s,f){var F=fin(f),pid='ds'+(++uid),fill=F.wood?'url(#'+pid+')':F.c;return '<svg viewBox="-1 -1 17 26" xmlns="http://www.w3.org/2000/svg">'+(F.wood?woodDefs(pid,F):'')+front(0,0,15,24,sty(s),F,fill,'r',{})+'</svg>'}
+var styleF={shaker:'white',slim:'sage',slab:'oak'};
+function renderStyles(){var el=document.getElementById('styleCards');el.innerHTML=STY.map(function(S){var lo=price(item('B'),18,34.5,S.id,'white');return '<div class="style-card"><div class="door" data-door="'+S.id+'">'+doorSvg(S.id,styleF[S.id])+'</div><div class="meta"><h3>'+S.name+'</h3><span class="from">18″ base from '+money(lo)+'</span></div><p>'+esc(S.d)+'</p><div class="sw" data-sw="'+S.id+'"></div><a class="btn ghost sm" href="#shop" data-shopstyle="'+S.id+'" style="justify-self:start">Shop '+S.name+'</a></div>'}).join('');
+  STY.forEach(function(S){swatches(el.querySelector('[data-sw="'+S.id+'"]'),styleF[S.id],function(v){styleF[S.id]=v;el.querySelector('[data-door="'+S.id+'"]').innerHTML=doorSvg(S.id,v)})});
+  el.querySelectorAll('[data-shopstyle]').forEach(function(a){a.addEventListener('click',function(){shop.s=a.getAttribute('data-shopstyle');shop.f=styleF[shop.s];initShopCtl();renderGrid()})})}
+renderStyles();
+
+/* ================= shop grid ================= */
+var shop={cat:'all',s:'shaker',f:'white'};
+function defW(it){return it.ws.indexOf(24)>-1&&!it.acc?24:it.ws.indexOf(30)>-1?30:it.ws[0]}
+function renderGrid(){var g=document.getElementById('grid');g.innerHTML=CAT.filter(function(it){return shop.cat==='all'||it.cat===shop.cat}).map(function(it){var w=defW(it),h=it.hs[0],lo=Math.min.apply(null,it.ws.map(function(x){return price(it,x,it.hs[0],shop.s,shop.f)}));
+  return '<button class="card" type="button" data-id="'+it.id+'"><div class="pic">'+product(it.id,w,h,shop.s,shop.f)+'</div><span class="code">'+it.id+' · '+it.ws.length+' width'+(it.ws.length>1?'s':'')+(it.hs.length>1?' · '+it.hs.length+' heights':'')+'</span><h3>'+esc(it.name)+'</h3><div class="row"><span>'+it.ws[0]+'″–'+it.ws[it.ws.length-1]+'″ wide</span><b>from '+money(lo)+'</b></div></button>'}).join('');}
+function initShopCtl(){seg(document.getElementById('shopStyle'),STY,shop.s,function(v){shop.s=v;renderGrid()});swatches(document.getElementById('shopFinish'),shop.f,function(v){shop.f=v;renderGrid()})}
+seg(document.getElementById('catSeg'),CATS,shop.cat,function(v){shop.cat=v;renderGrid()});
+initShopCtl();renderGrid();
+document.getElementById('grid').addEventListener('click',function(e){var c=e.target.closest('.card');if(c)openPdp(c.getAttribute('data-id'))});
+
+/* ================= product panel ================= */
+var P={},bg=document.getElementById('bg'),pdp=document.getElementById('pdp'),cartEl=document.getElementById('cart'),co=document.getElementById('checkout'),lastFocus;
+function open(el){lastFocus=document.activeElement;[pdp,cartEl,co].forEach(function(x){if(x!==el){x.classList.remove('on');x.setAttribute('aria-hidden','true')}});el.classList.add('on');el.setAttribute('aria-hidden','false');bg.classList.add('on');document.body.style.overflow='hidden';setTimeout(function(){var f=el.querySelector('[data-close]');if(f)f.focus()},60)}
+function closeAll(){[pdp,cartEl,co].forEach(function(x){x.classList.remove('on');x.setAttribute('aria-hidden','true')});bg.classList.remove('on');document.body.style.overflow='';if(lastFocus)lastFocus.focus()}
+bg.onclick=closeAll;document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+document.querySelectorAll('[data-close]').forEach(function(b){b.onclick=closeAll});
+function chips(el,vals,val,fmt,cb){el.innerHTML=vals.map(function(v){return '<button type="button" data-v="'+v+'" aria-pressed="'+(v===val)+'">'+fmt(v)+'</button>'}).join('');el.onclick=function(e){var b=e.target.closest('button');if(!b)return;el.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});cb(parseFloat(b.getAttribute('data-v')))}}
+function openPdp(id){var it=item(id);P={id:id,w:defW(it),h:it.hs[0],s:shop.s,f:shop.f,hinge:'l',asm:false,q:1};
+  document.getElementById('pdpCode').textContent='Item '+id;document.getElementById('pdpName').textContent=it.name;document.getElementById('pdpDesc').textContent=it.desc;
+  chips(document.getElementById('pdpW'),it.ws,P.w,function(v){return v+'″'},function(v){P.w=v;drawPdp()});
+  document.getElementById('pdpHwrap').hidden=it.hs.length<2;chips(document.getElementById('pdpH'),it.hs,P.h,function(v){return v+'″'},function(v){P.h=v;drawPdp()});
+  seg(document.getElementById('pdpS'),STY,P.s,function(v){P.s=v;drawPdp()});
+  swatches(document.getElementById('pdpF'),P.f,function(v){P.f=v;drawPdp()});
+  seg(document.getElementById('pdpHinge'),[{id:'l',name:'Hinged left'},{id:'r',name:'Hinged right'}],'l',function(v){P.hinge=v;drawPdp()});
+  var a=document.getElementById('pdpA');
+  if(it.asm){a.parentNode.hidden=false;a.innerHTML='<button type="button" data-v="0" aria-pressed="true"><b>Flat-packed</b><span>Assemble yourself in about 20 min</span></button><button type="button" data-v="1" aria-pressed="false"><b>Assembled</b><span>+'+money(it.asm)+' · arrives ready to install</span></button>';
+    a.onclick=function(e){var b=e.target.closest('button');if(!b)return;a.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});P.asm=b.getAttribute('data-v')==='1';drawPdp()}}
+  else a.parentNode.hidden=true;
+  document.getElementById('qv').textContent='1';drawPdp();open(pdp)}
+function drawPdp(){var it=item(P.id),S=sty(P.s),F=fin(P.f),single=!it.acc&&P.w<24&&['DB3','VDB','LS'].indexOf(P.id)<0;
+  document.getElementById('pdpHingeWrap').hidden=!single;
+  document.getElementById('pdpArt').innerHTML=product(P.id,P.w,P.h,P.s,P.f,{dims:true,swing:!it.acc,hinge:P.hinge});
+  document.getElementById('pdpStamp').textContent=P.id+P.w+(it.hs.length>1?'-'+P.h:'')+' · '+(it.acc?'':S.name+' · ')+F.name+(single?' · hinged '+(P.hinge==='l'?'left':'right'):'');
+  document.getElementById('pdpWv').textContent=P.w+'″';document.getElementById('pdpHv').textContent=P.h+'″';document.getElementById('pdpSv').textContent=S.name;document.getElementById('pdpFv').textContent=F.name;
+  var depth=it.cat==='wall'?'12″':it.cat==='vanity'?'21″':it.acc?'3/4″':'24″',u=price(it,P.w,P.h,P.s,P.f,P.asm);
+  document.getElementById('pdpSpecs').innerHTML=[['Size',P.w+'″ W × '+P.h+'″ H × '+depth+' D'],['Box','3/4″ panels, full back, '+(it.cat==='wall'?'adjustable shelves':'adjustable shelf')],['Hardware',['DB3','VDB'].indexOf(P.id)>-1?'Full-extension soft-close slides':'Soft-close hinges, pre-mounted'],['Pulls','Matte black bar pulls included'],['Ships','5–7 business days, flat-packed'+(P.asm?' (assembled: add 3 days)':'')]].map(function(r){return '<div><dt>'+r[0]+'</dt><dd>'+esc(r[1])+'</dd></div>'}).join('');
+  document.getElementById('pdpPrice').innerHTML=money(u*P.q)+'<small>'+(P.q>1?P.q+' × '+money(u):'per cabinet')+'</small>'}
+document.getElementById('qm').onclick=function(){P.q=Math.max(1,P.q-1);document.getElementById('qv').textContent=P.q;drawPdp()};
+document.getElementById('qp').onclick=function(){P.q=Math.min(20,P.q+1);document.getElementById('qv').textContent=P.q;drawPdp()};
+document.getElementById('pdpAdd').onclick=function(){var it=item(P.id);addCart({id:P.id,w:P.w,h:P.h,s:P.s,f:P.f,hinge:(!it.acc&&P.w<24)?P.hinge:'',asm:P.asm,q:P.q});closeAll();toast(it.name+' added to cart')};
+
+/* ================= cart ================= */
+var cart=store.get('ph-demo-cart',[]),FREE=3500;
+function key(c){return [c.id,c.w,c.h,c.s,c.f,c.hinge,c.asm].join('|')}
+function addCart(c){var k=key(c),ex=cart.filter(function(x){return key(x)===k})[0];if(ex)ex.q+=c.q;else cart.push(c);save();var b=document.getElementById('cartBtn');b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')}
+function save(){store.set('ph-demo-cart',cart);renderCart()}
+function line(c){var it=item(c.id);if(!it)return 0;return c.id==='SAMPLE'?15:price(it,c.w,c.h,c.s,c.f,c.asm)}
+CAT.push({id:'SAMPLE',cat:'x',name:'Door sample',ws:[15],hs:[24],p:function(){return 15},asm:0,acc:1});
+function renderCart(){var n=cart.reduce(function(t,c){return t+c.q},0),sub=cart.reduce(function(t,c){return t+line(c)*c.q},0);document.getElementById('cartN').textContent=n;
+  var L=document.getElementById('cartL'),Fo=document.getElementById('cartF');
+  if(!cart.length){L.innerHTML='<p class="empty">Your cart is empty.<br><a href="#shop" data-close-link>Start with a base cabinet</a></p>';Fo.innerHTML='';var lk=L.querySelector('[data-close-link]');if(lk)lk.onclick=closeAll;return}
+  L.innerHTML=cart.map(function(c,i){var it=item(c.id),S=sty(c.s),F=fin(c.f),art=c.id==='SAMPLE'?doorSvg(c.s,c.f):product(c.id,c.w,c.h,c.s,c.f);
+    var sub=c.id==='SAMPLE'?S.name+' · '+F.name:c.w+'″'+(it.hs.length>1?' × '+c.h+'″':'')+' · '+(it.acc?'':S.name+' · ')+F.name+(c.hinge?' · hinged '+(c.hinge==='l'?'left':'right'):'')+(c.asm?' · assembled':it.acc?'':' · flat-packed');
+    return '<div class="ci"><div class="th">'+art+'</div><div><b>'+esc(c.q+' × '+it.name)+'</b><span>'+esc(sub)+'</span><button class="rm" data-i="'+i+'" type="button">Remove</button></div><b>'+money(line(c)*c.q)+'</b></div>'}).join('');
+  L.querySelectorAll('.rm').forEach(function(b){b.onclick=function(){cart.splice(+b.getAttribute('data-i'),1);save()}});
+  var left=FREE-sub;
+  Fo.innerHTML='<div class="ln"><span>Subtotal</span><b>'+money(sub)+'</b></div><div class="ln"><span>Delivery (DFW)</span><span>'+(left<=0?'Free':'From $149 · or free shop pickup')+'</span></div><div class="ship-bar"><i style="width:'+Math.min(100,sub/FREE*100)+'%"></i></div><span style="font-size:13px;color:var(--ink-2)">'+(left>0?money(left)+' more for free DFW delivery':'You\'ve unlocked free DFW delivery')+'</span><button class="btn block" type="button" id="goCheckout">Checkout · '+money(sub)+'</button>';
+  document.getElementById('goCheckout').onclick=function(){document.getElementById('coSum').textContent=n+' item'+(n>1?'s':'')+' · subtotal '+money(sub)+'.';open(co)}}
+document.getElementById('cartBtn').onclick=function(){renderCart();open(cartEl)};
+renderCart();
+var tt;function toast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on')},2200)}
+
+/* ================= planner ================= */
+var LAY=[{id:'one',n:'One wall',b:10,w:8,t:1,i:0,ic:'M6 8h32'},{id:'galley',n:'Galley',b:16,w:12,t:0,i:0,ic:'M6 8h32M6 36h32'},{id:'l',n:'L-shape',b:18,w:13,t:1,i:0,ic:'M6 8h32M6 8v28'},{id:'u',n:'U-shape',b:24,w:18,t:1,i:6,ic:'M6 8v28M6 8h32M38 8v28'}];
+var pl={lay:'l',b:18,w:13,t:1,i:0,s:'shaker',f:'white'};
+var lEl=document.getElementById('layouts');lEl.innerHTML=LAY.map(function(l){return '<button type="button" data-v="'+l.id+'" aria-pressed="'+(l.id===pl.lay)+'"><svg viewBox="0 0 44 44"><rect x="2" y="2" width="40" height="40" fill="none" stroke="#CFC3AE" stroke-width="1"/><path d="'+l.ic+'" stroke="#2E4636" stroke-width="6" fill="none"/></svg>'+l.n+'</button>'}).join('');
+lEl.onclick=function(e){var b=e.target.closest('button');if(!b)return;lEl.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b)});var l=LAY.filter(function(x){return x.id===b.getAttribute('data-v')})[0];pl.lay=l.id;pl.b=l.b;pl.w=l.w;pl.t=l.t;pl.i=l.i;syncRanges();estimate()};
+var R={b:document.getElementById('rBase'),w:document.getElementById('rWall'),t:document.getElementById('rTall'),i:document.getElementById('rIsl')};
+function syncRanges(){R.b.value=pl.b;R.w.value=pl.w;R.t.value=pl.t;R.i.value=pl.i}
+Object.keys(R).forEach(function(k){R[k].addEventListener('input',function(){pl[k]=+R[k].value;estimate()})});
+seg(document.getElementById('planStyle'),STY,pl.s,function(v){pl.s=v;estimate()});
+swatches(document.getElementById('planFinish'),pl.f,function(v){pl.f=v;estimate()});
+function estimate(){var s=pl.s,f=pl.f;
+  var baseLF=(price(item('B'),30,34.5,s,f)*.55+price(item('DB3'),30,34.5,s,f)*.3+price(item('SB'),36,34.5,s,f)*.15/1.2)/2.5;
+  var wallLF=price(item('W'),30,36,s,f)/2.5,tall=price(item('P'),24,90,s,f),islLF=baseLF*1.08+price(item('EP'),24,34.5,s,f)/4;
+  var parts=[['Base cabinets',pl.b+' ft',pl.b*baseLF],['Wall cabinets',pl.w+' ft',pl.w*wallLF],['Pantry cabinets',pl.t+'',pl.t*tall],['Island',pl.i?pl.i+' ft':'none',pl.i*islLF],['Fillers, panels & toe kick','',(pl.b+pl.w)*6+(pl.i?190:0)]];
+  var tot=parts.reduce(function(t,p){return t+p[2]},0),lo=Math.round(tot*.92/50)*50,hi=Math.round(tot*1.08/50)*50;
+  document.getElementById('vBase').textContent=pl.b+' ft';document.getElementById('vWall').textContent=pl.w+' ft';document.getElementById('vTall').textContent=pl.t;document.getElementById('vIsl').textContent=pl.i?pl.i+' ft':'None';
+  document.getElementById('planFinishName').textContent=fin(f).name;
+  document.getElementById('estBig').textContent=money(lo)+'–'+money(hi);
+  document.getElementById('estSmall').textContent=sty(s).name+' in '+fin(f).name+' · about '+Math.round((pl.b+pl.w)/2.4+pl.t+pl.i/2.5)+' cabinets';
+  document.getElementById('estBrk').innerHTML=parts.filter(function(p){return p[2]>0}).map(function(p){return '<div><span>'+p[0]+(p[1]?' · '+p[1]:'')+'</span><span>'+money(p[2])+'</span></div>'}).join('')}
+syncRanges();estimate();
+
+/* ================= samples ================= */
+var smp={s:'shaker'};document.getElementById('samples').innerHTML=FIN.map(function(f){return '<button class="s" type="button" title="'+esc(f.name)+'" aria-label="'+esc(f.name)+' sample" data-f="'+f.id+'" style="background:'+(f.wood?'linear-gradient(100deg,'+f.c+' 0 40%,'+f.e+' 40% 43%,'+f.c+' 43%)':f.c)+'"></button>'}).join('');
+var smpF='sage';function markS(){document.querySelectorAll('#samples .s').forEach(function(b){b.style.outline=b.getAttribute('data-f')===smpF?'2px solid #1D201E':'none';b.style.outlineOffset='2px'})}
+document.getElementById('samples').onclick=function(e){var b=e.target.closest('.s');if(!b)return;smpF=b.getAttribute('data-f');markS()};markS();
+seg(document.getElementById('sampleStyle'),STY,smp.s,function(v){smp.s=v});
+document.getElementById('addSample').onclick=function(){addCart({id:'SAMPLE',w:15,h:24,s:smp.s,f:smpF,hinge:'',asm:false,q:1});toast(sty(smp.s).name+' sample in '+fin(smpF).name+' added')};
+
+/* ================= design form (demo only) ================= */
+document.getElementById('designForm').addEventListener('submit',function(e){e.preventDefault();var ok=document.getElementById('designOk');ok.hidden=false;ok.textContent='Demo: in the live store, this request would go to your design team, and the customer would get a confirmation email.'});
+
+/* ================= exploded box (quality section) ================= */
+document.getElementById('explode').innerHTML='<svg viewBox="0 0 420 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Exploded cabinet box showing panels, back, shelf and door"><g fill="none" stroke="#C9B48F" stroke-width="1.4" stroke-linejoin="round">'+
+ '<path d="M60 120 l0 170 l40 -22 l0 -170 z" fill="rgba(201,180,143,.12)"/>'+
+ '<path d="M150 70 l0 170 l150 0 l0 -170 z" fill="rgba(201,180,143,.06)"/>'+
+ '<path d="M330 120 l0 170 l40 -22 l0 -170 z" fill="rgba(201,180,143,.12)"/>'+
+ '<path d="M120 300 l170 0 l40 -22 l-170 0 z" fill="rgba(201,180,143,.12)"/>'+
+ '<path d="M120 55 l170 0 l40 -22 l-170 0 z" fill="rgba(201,180,143,.12)"/>'+
+ '<path d="M140 175 l150 0 l30 -16 l-150 0 z" stroke-dasharray="5 4"/>'+
+ '<rect x="20" y="300" width="120" height="44" rx="2" fill="rgba(167,178,155,.35)"/><rect x="34" y="310" width="92" height="24" stroke="#A7B29B"/>'+
+ '</g><g fill="#C9B48F">'+[[80,170],[80,240],[350,170],[350,240],[205,289],[245,289],[205,44],[245,44]].map(function(p){return '<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.2"/>'}).join('')+
+ '</g><g font-family="IBM Plex Mono,monospace" font-size="11" fill="#BDB6A8" letter-spacing=".5"><text x="160" y="62">FULL BACK</text><text x="186" y="152">ADJ. SHELF</text><text x="20" y="112">SIDE</text><text x="340" y="112">SIDE</text><text x="168" y="322">BOTTOM</text><text x="150" y="350">DOOR · PRE-HUNG</text><text x="186" y="22">TOP RAIL</text></g>'+
+ '<g stroke="#8a7f6c" stroke-width="1" stroke-dasharray="2 4"><path d="M100 160 L150 160 M300 160 L330 160 M205 240 L205 278"/></g></svg>';
+})();
+</script>
+</body>
+</html>
